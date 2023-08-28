@@ -1,0 +1,21 @@
+---
+title: "Week 2"
+subtitle: "Getting Started, Part 2"
+format: html
+---
+
+::: callout-important
+## No Class
+
+September 4 is Labor Day!
+:::
+
+## Readings
+
+| 📖 [Happy Git and Github for the R useR](https://happygitwithr.com/), chaps 4,6,9,11 & 12
+
+## Videos
+
+| 🖥[Getting Started With Quarto](https://www.youtube.com/watch?v=c654j7aQjcg)
+| 🖥[Git and Github Classroom](https://www.youtube.com/watch?v=ApvMnAfQe8A)
+
