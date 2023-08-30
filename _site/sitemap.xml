@@ -174,11 +174,11 @@
   </url>
   <url>
     <loc>https://dataviz-gwu.rocks/index.html</loc>
-    <lastmod>2023-08-28T00:39:36.740Z</lastmod>
+    <lastmod>2023-08-30T14:58:16.006Z</lastmod>
   </url>
   <url>
     <loc>https://dataviz-gwu.rocks/course-links.html</loc>
-    <lastmod>2023-08-28T00:39:38.540Z</lastmod>
+    <lastmod>2023-08-30T14:58:18.225Z</lastmod>
   </url>
   <url>
     <loc>https://dataviz-gwu.rocks/index_temp.html</loc>
@@ -315,5 +315,9 @@
   <url>
     <loc>https://dataviz-gwu.rocks/weeks/week-z.html</loc>
     <lastmod>2023-08-27T22:53:40.666Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dataviz-gwu.rocks/slides/week-1.2.html</loc>
+    <lastmod>2023-08-30T14:58:20.622Z</lastmod>
   </url>
 </urlset>
