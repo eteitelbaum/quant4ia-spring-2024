@@ -1692,5 +1692,61 @@
     "title": "Getting Started, Part I",
     "section": "Making PDFs",
     "text": "Making PDFs\n\nInstall tinytex Type quarto install tinytex in terminal\nChange document type in YAML header to pdf\nLook at Quarto Reference and play with options\n\n\n\n\nDataViz 2102 Website"
+  },
+  {
+    "objectID": "slides/week-2.1.html#reveal-js-slides",
+    "href": "slides/week-2.1.html#reveal-js-slides",
+    "title": "Getting Started, Part II",
+    "section": "Reveal JS Slides",
+    "text": "Reveal JS Slides\n\nRevealjs is an open source HTML presentation framework that is built on open web technologies like CSS and JavaScript\nThese slides are made with the revealjs format in Quarto\nLike other Quarto documents, you can set all the formatting in the YAML header\nBut you can also customize individual slides"
+  },
+  {
+    "objectID": "slides/week-2.1.html#yaml-header",
+    "href": "slides/week-2.1.html#yaml-header",
+    "title": "Getting Started, Part II",
+    "section": "YAML header",
+    "text": "YAML header\nHere is the code from the YAML header for these slides\n---\ntitle: Getting Started, Part II\nsubtitle: More Quarto and GitHub\ndate: today\ndate-format: long\nfooter: \"[DataViz 2102 Website](https://dataviz-gwu.rocks)\"\nlogo: images/dataviz-logo.png\nformat:\n  revealjs:\n    theme: [simple, custom.scss]\n    transition: fade\n    slide-number: true\n    multiplex: true\nexecute:\n  echo: false\n  message: false\n  warning: false\n  freeze: auto\n---"
+  },
+  {
+    "objectID": "slides/week-2.1.html#embed-r-code-chunk",
+    "href": "slides/week-2.1.html#embed-r-code-chunk",
+    "title": "Getting Started, Part II",
+    "section": "Embed R code chunk",
+    "text": "Embed R code chunk\n\n# Load packages\nlibrary(vdemdata) \nlibrary(dplyr)\n\n# Download the data\ndemocracy &lt;- vdem |&gt; \n  filter(year &gt;= 1990)  |&gt; \n  select(                  \n    country = country_name,       \n    vdem_ctry_id = country_id, \n    year, \n    polyarchy = v2x_polyarchy, \n    gdp_pc = e_gdppc, \n    region = e_regionpol_6C\n    ) |&gt;\n  mutate(\n    region = case_match(region, #\n                     1 ~ \"Eastern Europe\", \n                     2 ~ \"Latin America\",  \n                     3 ~ \"Middle East\",   \n                     4 ~ \"Africa\", \n                     5 ~ \"The West\", \n                     6 ~ \"Asia\")\n  )\n\n# View the data\nglimpse(democracy)"
+  },
+  {
+    "objectID": "slides/week-2.1.html#what-the-code-looks-like",
+    "href": "slides/week-2.1.html#what-the-code-looks-like",
+    "title": "Getting Started, Part II",
+    "section": "What the Code Looks Like",
+    "text": "What the Code Looks Like\n#| label: embed_code\n#| echo: true\n#| eval: false\n\n# Load packages\nlibrary(vdemdata) \nlibrary(dplyr)\n\n# Download the data\ndemocracy &lt;- vdem |&gt; \n  filter(year &gt;= 1990)  |&gt; \n  select(                  \n    country = country_name,       \n    vdem_ctry_id = country_id, \n    year, \n    polyarchy = v2x_polyarchy, \n    gdp_pc = e_gdppc, \n    region = e_regionpol_6C\n    ) |&gt;\n  mutate(\n    region = case_match(region, #\n                     1 ~ \"Eastern Europe\", \n                     2 ~ \"Latin America\",  \n                     3 ~ \"Middle East\",   \n                     4 ~ \"Africa\", \n                     5 ~ \"The West\", \n                     6 ~ \"Asia\")\n  )\n\n# View the data\nglimpse(democracy)"
+  },
+  {
+    "objectID": "slides/week-2.1.html#try-it-yourself",
+    "href": "slides/week-2.1.html#try-it-yourself",
+    "title": "Getting Started, Part II",
+    "section": "Try it Yourself",
+    "text": "Try it Yourself\n\nGo to Quarto’s revealjs documentation\nStart a new project folder called “presentations”\nStart a revealjs presentation\nTry making a basic slide with bullet points\nAdd a slide with code (grab from course website)\nPlay with chunk options\nExplore other options in documentation (presenting, advanced, revel themes)\nTry publishing to Quarto Pub\n\nquarto publish quarto-pub in terminal"
+  },
+  {
+    "objectID": "slides/week-2.1.html#github-classroom",
+    "href": "slides/week-2.1.html#github-classroom",
+    "title": "Getting Started, Part II",
+    "section": "GitHub Classroom",
+    "text": "GitHub Classroom\n\nGitHub is a version control platform\nUses a program called Git to execute version control\nGood for collaboration\nGood for maintaining a portfolio\nGitHub classroom is a way of submitting assignments and learning Git"
+  },
+  {
+    "objectID": "slides/week-2.1.html#exercise",
+    "href": "slides/week-2.1.html#exercise",
+    "title": "Getting Started, Part II",
+    "section": "Exercise",
+    "text": "Exercise\n\nSet up a GitHub account and install git\n\nSee getting started section of course website if you have not already done this\n\nFollow this link to accept a test assignment\nCreate a new project using version control\nModify the assignment\nStage and push modified document to GitHub classroom"
+  },
+  {
+    "objectID": "slides/week-2.1.html#for-fun",
+    "href": "slides/week-2.1.html#for-fun",
+    "title": "Getting Started, Part II",
+    "section": "For Fun",
+    "text": "For Fun\n\nLet’s make a Quarto website\nCreate a new repository in your GitHub\nCreate a new quarto website project using version control\nPreview and render the website locally\nPush to GitHub\nCreate a Netlify account\nTrain Netlify on GitHub website repo\n\n\n\n\nDataViz 2102 Website"
   }
 ]
