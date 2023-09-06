@@ -149,7 +149,7 @@ glimpse(democracy)
 
 - Set up a GitHub account and install git
   - See [getting started](https://dataviz-gwu.rocks/modules/getting-started) section of course website if you have not already done this
-- Follow [this link](https://dataviz-gwu.rocks/modules/getting-started) to accept a test assignment
+- Follow [this link](https://classroom.github.com/a/aRbbc_aT) to accept a test assignment
 - Create a new project using version control
 - Modify the assignment
 - Stage and push modified document to GitHub classroom
