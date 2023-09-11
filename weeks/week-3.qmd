@@ -1,4 +1,21 @@
 ---
-title: Week 3
-subtitle: Making Maps
+title: "Week 3"
+subtitle: "Working with Flat Files"
 ---
+
+## Readings
+
+| 📖 [r4ds, chs 8.1 & 8.2](https://r4ds.hadley.nz/data-import.html#introduction)
+| 📖 [r4ds, chs 6.1 & 6.3](https://r4ds.hadley.nz/data-tidy.html)
+
+## Videos
+
+| 🖥️ [Retrieve Some Messy WB Data](https://youtu.be/YLOaKB8dfF4)
+| 🖥️ [Reading Data into R](https://youtu.be/i5galFqlj8c)
+| 🖥️ [Reshaping Data with pivot_longer](https://youtu.be/yhFUUblhTNA)
+| 🖥️ [Truncating Strings and Changing Variable Types](https://youtu.be/-JT8JSR1z5A)
+| 🖥️ [Cleaning Variable Names with the janitor Package](https://youtu.be/7bgoebbzfKQ)
+
+## Assignments
+
+| 📘 [Module 1.1 Quiz](https://blackboard.gwu.edu/ultra/courses/_394195_1/outline)
