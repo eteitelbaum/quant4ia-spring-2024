@@ -1853,5 +1853,75 @@
     "title": "Reading Data Into R",
     "section": "Still Time Left?",
     "text": "Still Time Left?\n\nPlay with googlesheets4\nFind a flatfile with a URL\nImport into R\nSpecify column types\nTry writing a google sheet\n\n\n\n\nDataViz 2102 Website"
+  },
+  {
+    "objectID": "slides/week-3.2.html#read-data",
+    "href": "slides/week-3.2.html#read-data",
+    "title": "Wrangling Data",
+    "section": "Read Data",
+    "text": "Read Data\n(from last class)\n\n# Load packages\nlibrary(readr) \nlibrary(dplyr) \n\n# Read data from csv file into an object called \"wb_data_messy\"\nwb_data_messy &lt;- read_csv(\"data/your_file_name.csv\")\n\n# View the data\nglimpse(wb_data_messy)"
+  },
+  {
+    "objectID": "slides/week-3.2.html#messy-data-example",
+    "href": "slides/week-3.2.html#messy-data-example",
+    "title": "Wrangling Data",
+    "section": "Messy Data Example",
+    "text": "Messy Data Example"
+  },
+  {
+    "objectID": "slides/week-3.2.html#pivot-longer",
+    "href": "slides/week-3.2.html#pivot-longer",
+    "title": "Wrangling Data",
+    "section": "Pivot Longer",
+    "text": "Pivot Longer\npivot_longer() takes three arguments:\n\ncols - which columns you want to pivot\nnames_to - the name of the column where the old column names are going to (identifier)\nvalues_to - the name of the column where the values are going to"
+  },
+  {
+    "objectID": "slides/week-3.2.html#without-looking",
+    "href": "slides/week-3.2.html#without-looking",
+    "title": "Wrangling Data",
+    "section": "Without Looking",
+    "text": "Without Looking\n\nCan you remember how to make pivot_longer() work?\n\n\n# Load tidyr\nlibrary(tidyr)\n\n# Reshape the data\n      &lt;-    |&gt;\n  pivot_longer(\n    cols = \n    names_to = \n    values_to = \n  )\n\nglimpse()"
+  },
+  {
+    "objectID": "slides/week-3.2.html#pivot-data",
+    "href": "slides/week-3.2.html#pivot-data",
+    "title": "Wrangling Data",
+    "section": "Pivot Data",
+    "text": "Pivot Data\n\n# Load tidyr\nlibrary(tidyr)\n\n# Reshape the data\nwb_data &lt;- wb_data_messy |&gt; \n  pivot_longer(             \n    cols = `1973 [YR1973]`: `2022 [YR2022]`, # columns to pivot\n    names_to = \"year\", # name the identifier column \"year\"\n    values_to = \"flfp\" # name the numeric var column \"flfp\"\n  ) \n\n# View the data\nglimpse(wb_data)"
+  },
+  {
+    "objectID": "slides/week-3.2.html#try-with-multiple-variables",
+    "href": "slides/week-3.2.html#try-with-multiple-variables",
+    "title": "Wrangling Data",
+    "section": "Try With Multiple Variables",
+    "text": "Try With Multiple Variables\n\nDownload more than one variable from the WB\nSave in a new CSV file\nUse pivot longer to put in long format\nAnd then…"
+  },
+  {
+    "objectID": "slides/week-3.2.html#multiple-variables",
+    "href": "slides/week-3.2.html#multiple-variables",
+    "title": "Wrangling Data",
+    "section": "Multiple Variables",
+    "text": "Multiple Variables\nUse pivot_wider()\n\nwb_data &lt;- wb_data |&gt;\n  select(-`Series Name`)\n\n# Reshape the data\ntidy_data &lt;- wb_data |&gt; \n  pivot_wider(             \n    names_from = `Series Code`,\n    values_from = values\n  ) \n\n# View the data\nglimpse(wb_data)"
+  },
+  {
+    "objectID": "slides/week-3.2.html#mutating-variables",
+    "href": "slides/week-3.2.html#mutating-variables",
+    "title": "Wrangling Data",
+    "section": "Mutating Variables",
+    "text": "Mutating Variables\n\nAnytime we want to change a variable, we are going to use the dplyr verbs mutate() or mutate_at()\nmutate() is if you want to change on variable\nmutate_at() is for multiple variables"
+  },
+  {
+    "objectID": "slides/week-3.2.html#lets-fix-our-variables",
+    "href": "slides/week-3.2.html#lets-fix-our-variables",
+    "title": "Wrangling Data",
+    "section": "Let’s Fix Our Variables",
+    "text": "Let’s Fix Our Variables\n\n# Fix year and flfp\nwb_data &lt;- wb_data |&gt; # replace wb_data with a modified version of the dataframe \n  mutate(year = substring(year, 1, 4)) |&gt; # truncate year (keep first four characters)\n  mutate_at(c(\"year\", \"flfp\"), as.numeric) # change year and flfp to numeric\n\n# View the data\nglimpse(wb_data)"
+  },
+  {
+    "objectID": "slides/week-3.2.html#now-try-it-with-multiple-varaibles",
+    "href": "slides/week-3.2.html#now-try-it-with-multiple-varaibles",
+    "title": "Wrangling Data",
+    "section": "Now Try it With Multiple Varaibles",
+    "text": "Now Try it With Multiple Varaibles\n\nGo to the data frame with multiple variables that you created earlier\nHow would you modify this code to make sure the variables are in the right format?"
   }
 ]
