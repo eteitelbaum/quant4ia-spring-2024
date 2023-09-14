@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-09-14">
 
-<title>PSC/DATS 2102–Summer Schedule - Wrangling Data</title>
+<title>PSC/DATS 2102–Summer Schedule - Exercise 1.2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -96,16 +61,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css">
+<style>
+  .CodeMirror pre {
+    background-color: unset !important;
+  }
+  .btn-webr {
+    background-color: #EEEEEE;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/r/r.js"></script>
+<script type="module">
 
 
-<meta property="og:title" content="PSC/DATS 2102–Summer Schedule - Wrangling Data">
-<meta property="og:description" content="">
-<meta property="og:image" content="https://dataviz-gwu.rocks/slides/images/messy_wb_data.jpg">
+  import { WebR } from "https://webr.r-wasm.org/v0.1.0/webr.mjs";
+  
+  
+  // Maybe return the `/` if needed in SW_URL?
+  globalThis.webR = new WebR();
+
+  await globalThis.webR.init();
+  globalThis.webRCodeShelter = await new globalThis.webR.Shelter();
+  document.querySelectorAll(".btn-webr").forEach((btn) => {
+    btn.innerText = "Run code";
+    btn.disabled = false;
+  });
+</script>  
+
+
+<meta property="og:title" content="PSC/DATS 2102–Summer Schedule - Exercise 1.2">
 <meta property="og:site-name" content="PSC/DATS 2102--Summer Schedule">
-<meta name="twitter:title" content="PSC/DATS 2102–Summer Schedule - Wrangling Data">
-<meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://dataviz-gwu.rocks/slides/images/messy_wb_data.jpg">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PSC/DATS 2102–Summer Schedule - Exercise 1.2">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-sidebar docked">
@@ -117,7 +107,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Wrangling Data</li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Exercise 1.2</li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -398,26 +388,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#read-data" id="toc-read-data" class="nav-link active" data-scroll-target="#read-data">Read Data</a></li>
-  <li><a href="#messy-data-example" id="toc-messy-data-example" class="nav-link" data-scroll-target="#messy-data-example">Messy Data Example</a></li>
-  <li><a href="#pivot-longer" id="toc-pivot-longer" class="nav-link" data-scroll-target="#pivot-longer">Pivot Longer</a></li>
-  <li><a href="#without-looking" id="toc-without-looking" class="nav-link" data-scroll-target="#without-looking">Without Looking</a></li>
-  <li><a href="#pivot-data" id="toc-pivot-data" class="nav-link" data-scroll-target="#pivot-data">Pivot Data</a></li>
-  <li><a href="#try-with-multiple-variables" id="toc-try-with-multiple-variables" class="nav-link" data-scroll-target="#try-with-multiple-variables">Try With Multiple Variables</a></li>
-  <li><a href="#multiple-variables" id="toc-multiple-variables" class="nav-link" data-scroll-target="#multiple-variables">Multiple Variables</a></li>
-  <li><a href="#mutating-variables" id="toc-mutating-variables" class="nav-link" data-scroll-target="#mutating-variables">Mutating Variables</a></li>
-  <li><a href="#lets-fix-our-variables" id="toc-lets-fix-our-variables" class="nav-link" data-scroll-target="#lets-fix-our-variables">Let’s Fix Our Variables</a></li>
-  <li><a href="#now-try-it-with-multiple-varaibles" id="toc-now-try-it-with-multiple-varaibles" class="nav-link" data-scroll-target="#now-try-it-with-multiple-varaibles">Now Try it With Multiple Varaibles</a></li>
-  <li><a href="#clean-variable-names" id="toc-clean-variable-names" class="nav-link" data-scroll-target="#clean-variable-names">Clean Variable Names</a></li>
+  <li><a href="#code" id="toc-code" class="nav-link active" data-scroll-target="#code">Code</a></li>
+  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/eteitelbaum/dataviz-summer-2023/edit/main/slides/week-3.2.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/eteitelbaum/dataviz-summer-2023/issues/new" class="toc-action">Report an issue</a></p></div></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="week-3.2.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/eteitelbaum/dataviz-summer-2023/edit/main/exercises/exercise-1.2x.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/eteitelbaum/dataviz-summer-2023/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Wrangling Data</h1>
+<h1 class="title">Exercise 1.2</h1>
 </div>
 
 
@@ -425,12 +406,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-title-meta">
 
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">September 14, 2023</p>
-    </div>
-  </div>
   
     
   </div>
@@ -438,186 +413,137 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="read-data" class="level2">
-<h2 class="anchored" data-anchor-id="read-data">Read Data</h2>
-<p>(from last class)</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr) </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr) </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Read data from csv file into an object called "wb_data_messy"</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>wb_data_messy <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/your_file_name.csv"</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># View the data</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(wb_data_messy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<section id="code" class="level2">
+<h2 class="anchored" data-anchor-id="code">Code</h2>
+<script type="module">
+await globalThis.webR.evalRVoid(`
+download.file(
+  'https://raw.githubusercontent.com/eteitelbaum/dataviz-summer-2023/main/modules/data/dem_women.csv',
+  'dem_women.csv'
+)
+
+webr::install(c("dplyr", "readr"))
+
+library(dplyr)
+library(readr)
+dem_women <- read_csv("dem_women.csv")
+`)
+</script>   
+<button class="btn btn-default btn-webr" disabled="" type="button" id="webr-run-button-1">Loading webR...</button>
+<div id="webr-editor-1"></div>
+<div id="webr-code-output-1"><pre style="visibility: hidden"></pre></div>
+<script type="module">
+  const runButton = document.getElementById("webr-run-button-1");
+  const outputDiv = document.getElementById("webr-code-output-1");
+  const editorDiv = document.getElementById("webr-editor-1");
+
+  const editor = CodeMirror((elt) => {
+    elt.style.border = "1px solid #eee";
+    elt.style.height = "auto";
+    editorDiv.append(elt);
+  },{
+    value: `dem_summary <- dem_women |> 
+  group_by(region)  |> 
+  summarize(
+    polyarchy = mean(polyarchy, na.rm = TRUE),
+    gdp_pc = mean(gdp_pc, na.rm = TRUE), 
+    flfp = mean(flfp, na.rm = TRUE), 
+    women_rep = mean(women_rep, na.rm = TRUE)
+  ) |> 
+  arrange(desc(polyarchy)) 
+
+dem_summary`,
+    lineNumbers: true,
+    mode: "r",
+    theme: "light default",
+    viewportMargin: Infinity,
+  });
+
+  runButton.onclick = async () => {
+    runButton.disabled = true;
+    let canvas = undefined;
+    await globalThis.webR.init();
+    await webR.evalRVoid("canvas(width=504, height=360)");
+    const result = await webRCodeShelter.captureR(editor.getValue(), {
+      withAutoprint: true,
+      captureStreams: true,
+      captureConditions: false,
+      env: webR.objs.emptyEnv,
+    });
+    try {
+      await webR.evalRVoid("dev.off()");
+      const out = result.output.filter(
+        evt => evt.type == "stdout" || evt.type == "stderr"
+      ).map((evt) => evt.data).join("\n");
+
+      const msgs = await webR.flush();
+      msgs.forEach(msg => {
+        if (msg.type === "canvasExec"){
+          if (!canvas) {
+            canvas = document.createElement("canvas");
+            canvas.setAttribute("width", 2 * 504);
+            canvas.setAttribute("height", 2 * 360);
+            canvas.style.width="700px";
+            canvas.style.display="block";
+            canvas.style.margin="auto";
+          }
+          Function(`this.getContext("2d").${msg.data}`).bind(canvas)();
+        }
+      });
+
+      outputDiv.innerHTML = "";
+      const pre = document.createElement("pre");
+      if (/\S/.test(out)) {
+        const code = document.createElement("code");
+        code.innerText = out;
+        pre.appendChild(code);
+      } else {
+        pre.style.visibility = "hidden";
+      }
+      outputDiv.appendChild(pre);
+
+      if (canvas) {
+        const p = document.createElement("p");
+        p.appendChild(canvas);
+        outputDiv.appendChild(p);
+      }
+    } finally {
+      webRCodeShelter.purge();
+      runButton.disabled = false;
+    }
+  }
+</script>
+
 </section>
-<section id="messy-data-example" class="level2">
-<h2 class="anchored" data-anchor-id="messy-data-example">Messy Data Example</h2>
-<p><img src="images/messy_wb_data.jpg" class="img-fluid" style="width:70.0%"></p>
-</section>
-<section id="pivot-longer" class="level2">
-<h2 class="anchored" data-anchor-id="pivot-longer">Pivot Longer</h2>
-<p><code>pivot_longer()</code> takes three arguments:</p>
-<ul>
-<li><strong>cols</strong> - which columns you want to pivot</li>
-<li><strong>names_to</strong> - the name of the column where the old column names are going to (identifier)</li>
-<li><strong>values_to</strong> - the name of the column where the values are going to</li>
-</ul>
-</section>
-<section id="without-looking" class="level2">
-<h2 class="anchored" data-anchor-id="without-looking">Without Looking</h2>
-<ul>
-<li>Can you remember how to make <code>pivot_longer()</code> work?</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load tidyr</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Reshape the data</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>      <span class="ot">&lt;-</span>    <span class="er">|&gt;</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> </span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> </span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> </span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="pivot-data" class="level2">
-<h2 class="anchored" data-anchor-id="pivot-data">Pivot Data</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load tidyr</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Reshape the data</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>wb_data <span class="ot">&lt;-</span> wb_data_messy <span class="sc">|&gt;</span> </span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(             </span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="st">`</span><span class="at">1973 [YR1973]</span><span class="st">`</span><span class="sc">:</span> <span class="st">`</span><span class="at">2022 [YR2022]</span><span class="st">`</span>, <span class="co"># columns to pivot</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"year"</span>, <span class="co"># name the identifier column "year"</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"flfp"</span> <span class="co"># name the numeric var column "flfp"</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  ) </span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># View the data</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(wb_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="try-with-multiple-variables" class="level2">
-<h2 class="anchored" data-anchor-id="try-with-multiple-variables">Try With Multiple Variables</h2>
-<ul>
-<li>Download more than one variable from the WB</li>
-<li>Save in a new CSV file</li>
-<li>Use pivot longer to put in long format</li>
-<li>And then…</li>
-</ul>
-</section>
-<section id="multiple-variables" class="level2">
-<h2 class="anchored" data-anchor-id="multiple-variables">Multiple Variables</h2>
-<p>Use <code>pivot_wider()</code></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>wb_data <span class="ot">&lt;-</span> wb_data <span class="sc">|&gt;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="st">`</span><span class="at">Series Name</span><span class="st">`</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Reshape the data</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>tidy_data <span class="ot">&lt;-</span> wb_data <span class="sc">|&gt;</span> </span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(             </span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> <span class="st">`</span><span class="at">Series Code</span><span class="st">`</span>,</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> values</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  ) </span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># View the data</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(wb_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="mutating-variables" class="level2">
-<h2 class="anchored" data-anchor-id="mutating-variables">Mutating Variables</h2>
-<ul>
-<li>Anytime we want to change a variable, we are going to use the <code>dplyr</code> verbs <code>mutate()</code> or <code>mutate_at()</code></li>
-<li><code>mutate()</code> is if you want to change on variable</li>
-<li><code>mutate_at()</code> is for multiple variables</li>
-</ul>
-</section>
-<section id="lets-fix-our-variables" class="level2">
-<h2 class="anchored" data-anchor-id="lets-fix-our-variables">Let’s Fix Our Variables</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fix year and flfp</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>wb_data <span class="ot">&lt;-</span> wb_data <span class="sc">|&gt;</span> <span class="co"># replace wb_data with a modified version of the dataframe </span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">substring</span>(year, <span class="dv">1</span>, <span class="dv">4</span>)) <span class="sc">|&gt;</span> <span class="co"># truncate year (keep first four characters)</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="fu">c</span>(<span class="st">"year"</span>, <span class="st">"flfp"</span>), as.numeric) <span class="co"># change year and flfp to numeric</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># View the data</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(wb_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="now-try-it-with-multiple-varaibles" class="level2">
-<h2 class="anchored" data-anchor-id="now-try-it-with-multiple-varaibles">Now Try it With Multiple Varaibles</h2>
-<ul>
-<li>Go to the data frame with multiple variables that you created earlier</li>
-<li>How would you modify this code to make sure the variables are in the right format?</li>
-</ul>
-</section>
-<section id="clean-variable-names" class="level1">
-<h1>Clean Variable Names</h1>
-<p>Very simple: use the <code>janitor</code> package!</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load janitor</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply clean_names() to wb_data, store in new data frame called wb_data_clean</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>wb_data_clean <span class="ot">&lt;-</span> wb_data <span class="sc">|&gt;</span>  </span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() </span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Write wb_data_clean to a csv file</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(wb_data_clean, <span class="st">"data/wb_data_clean.csv"</span>)</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># View the data</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(wb_data_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<section id="questions" class="level2">
+<h2 class="anchored" data-anchor-id="questions">Questions</h2>
+<ol type="1">
+<li>Try summarizing the data with a <a href="https://dplyr.tidyverse.org/reference/summarise.html#useful-functions">different function</a> for one or more of the variables.</li>
+</ol>
+<ol type="a">
+<li>What is the median value of <code>polyarchy</code> for The West?</li>
+<li>What is the max value of <code>gdp_pc</code> for Eastern Europe?</li>
+<li>What is the standard deviation of <code>flfp</code> for Africa?</li>
+<li>What is the interquartile range of <code>women_rep</code> for the Middle East?</li>
+</ol>
+<ol start="2" type="1">
+<li>Now try grouping by country instead of region.</li>
+</ol>
+<ol type="a">
+<li>What is the median value of <code>polyarchy</code> for Sweden?</li>
+<li>What is the max value of <code>gdp_pc</code> New Zealand?</li>
+<li>What is the standard deviation of <code>flfp</code> for Spain?</li>
+<li>What is the interquartile range of <code>women_rep</code> for Germany?</li>
+</ol>
+<ol start="3" type="1">
+<li><p>Sort countries in descending order based on the mean value of <code>gdp_pc</code> (instead of the median value of <code>polyarchy</code>). Which country ranks first based on this sorting?</p></li>
+<li><p>Now try sorting countries in ascending order based on the median value of <code>women_rep</code> (hint: delete “desc” from the <code>arrange()</code> call). Which country ranks at the “top” of the list?</p></li>
+</ol>
 
 
 </section>
 
 </main> <!-- /main -->
-
-<script>
-  // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-  // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-  // slide changes (different for each slide format).
-  (function () {
-    // dispatch for htmlwidgets
-    function fireSlideEnter() {
-      const event = window.document.createEvent("Event");
-      event.initEvent("slideenter", true, true);
-      window.document.dispatchEvent(event);
-    }
-
-    function fireSlideChanged(previousSlide, currentSlide) {
-      fireSlideEnter();
-
-      // dispatch for shiny
-      if (window.jQuery) {
-        if (previousSlide) {
-          window.jQuery(previousSlide).trigger("hidden");
-        }
-        if (currentSlide) {
-          window.jQuery(currentSlide).trigger("shown");
-        }
-      }
-    }
-
-    // hookup for slidy
-    if (window.w3c_slidy) {
-      window.w3c_slidy.add_observer(function (slide_num) {
-        // slide_num starts at position 1
-        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-      });
-    }
-
-  })();
-</script>
-
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

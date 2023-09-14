@@ -131,7 +131,7 @@ democracy <- vdem |> # download the V-Dem dataset
     region = e_regionpol_6C
     ) |>
   mutate(
-    region = case_match(region, # replace the values in region with country names
+    region = case_match(region, # replace the values in region with names
                      1 ~ "Eastern Europe", 
                      2 ~ "Latin America",  
                      3 ~ "Middle East",   
