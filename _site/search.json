@@ -67,7 +67,7 @@
     "href": "index.html",
     "title": "Course Schedule",
     "section": "",
-    "text": "This page displays an outline of the topics, content, and assignments for the term. Each module starts on a Monday. There are no assignments due on Sundays.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModule\nDate\nSkills\nPackages\nFunctions\nReadings\nReference\nSlides\nVideos\nAssignments\n\n\n\n\nGS\nAug 28\nCourse Intro\n\n\n\n\n\n\n\n\n\n\nAug 30\nRStudio, Quarto\n\n\n\n📖\n🖥️\n🖥️\n\n\n\n\nSep 4\nNo class, Labor Day\n\n\n\n\n\n\n\n\n\n\nSep 6\nQuarto, GitHub Classroom\n\n\n\n📖\n🖥️\n🖥️🖥️\n\n\n\n1.1\nSep 11\nRead data into R\nreadr, dplyr\nread_csv(), glimpse()\n\n📖\n🖥️\n🖥️🖥️\n\n\n\n\nSep 13\nReshape, clean data\ntidyr, dplyr\npivot_longer(), mutate(), mutate_at(), substring()\n\n📖\n🖥️\n🖥️🖥️🖥️\n📘\n\n\n1.2\nSep 18\nDownload data from an API\nwbstats, vdemdata, dplyr, janitor\nwb_data(), vdem, select_(), filter(), case_match(), round_to_fraction()\n📖\n\n🖥️\n🖥️🖥️\n\n\n\n\nSep 20\nMerge data frames, group, summarize and arrange\ncountrycode, dplyr , readr\ncountrycode(), left_join(), write_csv(), group_by(), summarize(), arrange()\n\n📖 📖\n🖥️\n🖥️🖥️🖥️\n📘🧮\n\n\n2.1\nSep 25\nBar charts & histograms\nggplot2\nggplot(), geom_col(), geom_histogram(), aes(), labs()\n\n📖📖\n\n🖥️🖥️\n\n\n\n\nSep 27\nLine charts & scatter plots\nggplot2, scales\ngeom_line() , geom_point(), geom_smooth(), scale_x_log10(), label_number(), geom_text()\n\n📖\n\n🖥️🖥️\n📘\n\n\n2.2\nOct 2\nColor schemes\ntidyr, colorBlindess, dplyr, viridis, RColorBrewer\ndrop_na(), cvdPlot(), scale_fill_manual(), scale_fill_viridis_d(), scale_fill_brewer(), scale_color_manual(), scale_color_viridis_d(), scale_color_brewer\n📖\n📖\n\n🖥️\n\n\n\n\nOct 4\nThemes, annotations & interactivity\nggplot2 , plotly\ntheme_dark(), theme_minimal(), annotate(), geom_hline(), geom_vline(),``ggplotly(), layout()\n\n📖\n\n🖥️🖥️🖥️\n📘 🧮\n\n\n3.1\nOct 9\nMap data with choropleth maps\nrnaturalearth, ggplot2, ggthemes , virids\nne_countries(), geom_sf(), theme_map() , theme() , scale_fill_viridis_c()\n\n\n\n🖥️🖥️\n\n\n\n\nOct 11\nMake a map function\n\neval(), parse(), function(), source()\n\n\n\n🖥️\n📘\n\n\n3.2\nOct 16\nUpload UCDP data & make a leaflet map\nstates, sf , leaflet\nsfind(), st_as_sf() , leaflet(), addTiles(), addMarkers(), setView()\n📖\n\n\n🖥️🖥️\n\n\n\n\nOct 18\nCustomize your map\nleaflet, htmltools\nawesomeIcons(),addAwesomeMarkers(), addProviderTiles(), sprintf(), lapply(), HTML\n\n\n\n🖥️\n📘 🧮\n\n\n4.1\nOct 23\nExploring tabular data\ntidycensus, dplyr, stringr, kableExtra\ncensus_api_key(), load_variables(), get_acs(), rename(), rename_with, str_remove(), kable(), slice_max(), slice_min(), slice_sample(), bind_rows()\n\n\n\n🖥️🖥️\n\n\n\n\nOct 25\nMake a gt table, make confidence intervals with ggplot2\ngt , ggplot2\ngt(), tab_header(), cols_label(), fmt_currency(), tab_source_note(), cols_width(), opt_table_font(), cols_align(), tab_options(), gtsave() , geom_errorbar()\n\n\n\n🖥️🖥️\n📘\n\n\n4.2\nOct 30\nDisplay regression tables\npeacesciencer, broom, dplyr\ncreate_stateyears(), add_ucdp_acd(), add_democracy(), add_creg_fractionalization(), add_sdp_gdp(), add_rugged_terrain(), tidy(), mutate_if(), glm(), binomial()\n📖\n\n\n🖥️\n\n\n\n\nNov 1\nMake regression tables and coefficient plots\nmodelsummary\nlist(), modelsummary(), modelplot(), rev()\n\n\n\n🖥️🖥️\n✍️ 📘 🧮\n\n\n5.1\nNov 6\nScatter plot app setup, building the UI\ndplyr , shiny\nsummarize_all(), fluidPage(), titlePanel(), sidebarLayout(), sidebarPanel(), selectInput(), mainPanel(), plotOutput()\n\n\n\n🖥️🖥️\n\n\n\n\nNov 8\nBuilding the server\nshiny\nrenderPlot(), shinyApp()\n\n\n\n🖥️\n📘\n\n\n5.2\nNov 13\nLine chart app setup, building the UI\nfredr , shiny\nfredr_set_key() , as.Date() , Sys.Date() , column(), wellPanel(), helpText(), sliderInput()\n📖\n\n\n🖥️🖥️\n\n\n\n\nNov 15\nBuilding the server\nfredr , shiny\nreactive(), fredr(), fred_indicator()\n\n\n\n🖥️\n✍️ 📘 🧮\n\n\n\nNov 20\nNo class, Thanksgiving break\n\n\n\n\n\n\n\n\n\n\nNov 22\nNo class, Thanksgiving break\n\n\n\n\n\n\n\n\n\n6.1\nNov 27\nFinal project workshop\n\n\n\n\n\n🖥️\n\n\n\n\nNov 29\nFinal project workshop\n\n\n\n\n\n\n\n\n\n6.2\nDec 4\nLightening talks\n\n\n\n\n\n🖥️\n\n\n\n\nDec 6\nLightening talks\n\n\n\n\n\n\n\n\n\n\nDec 11\nLightening talks\n\n\n\n\n\n\n✍️"
+    "text": "This page displays an outline of the topics, content, and assignments for the term. Each module starts on a Monday. There are no assignments due on Sundays.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModule\nDate\nSkills\nPackages\nFunctions\nReadings\nReference\nSlides\nVideos\nAssignments\n\n\n\n\nGS\nAug 28\nCourse Intro\n\n\n\n\n\n\n\n\n\n\nAug 30\nRStudio, Quarto\n\n\n\n📖\n🖥️\n🖥️\n\n\n\n\nSep 4\nNo class, Labor Day\n\n\n\n\n\n\n\n\n\n\nSep 6\nQuarto, GitHub Classroom\n\n\n\n📖\n🖥️\n🖥️🖥️\n\n\n\n1.1\nSep 11\nRead data into R\nreadr, dplyr\nread_csv(), glimpse()\n\n📖\n🖥️\n🖥️🖥️\n\n\n\n\nSep 13\nReshape, clean data\ntidyr, dplyr\npivot_longer(), mutate(), mutate_at(), substring()\n\n📖\n🖥️\n🖥️🖥️🖥️\n📘\n\n\n1.2\nSep 18\nDownload data from an API\nwbstats, vdemdata, dplyr, janitor\nwb_data(), vdem, select_(), filter(), case_match(), round_to_fraction()\n📖\n\n🖥️\n🖥️🖥️\n\n\n\n\nSep 20\nMerge data frames, group, summarize and arrange\ncountrycode, dplyr , readr\ncountrycode(), left_join(), write_csv(), group_by(), summarize(), arrange()\n\n📖 📖\n🖥️\n🖥️🖥️🖥️\n📘🧮\n\n\n2.1\nSep 25\nBar charts & histograms\nggplot2\nggplot(), geom_col(), geom_histogram(), aes(), labs()\n\n📖📖\n🖥️\n🖥️🖥️\n\n\n\n\nSep 27\nLine charts & scatter plots\nggplot2, scales\ngeom_line() , geom_point(), geom_smooth(), scale_x_log10(), label_number(), geom_text()\n\n📖\n\n🖥️🖥️\n📘\n\n\n2.2\nOct 2\nColor schemes\ntidyr, colorBlindess, dplyr, viridis, RColorBrewer\ndrop_na(), cvdPlot(), scale_fill_manual(), scale_fill_viridis_d(), scale_fill_brewer(), scale_color_manual(), scale_color_viridis_d(), scale_color_brewer\n📖\n📖\n\n🖥️\n\n\n\n\nOct 4\nThemes, annotations & interactivity\nggplot2 , plotly\ntheme_dark(), theme_minimal(), annotate(), geom_hline(), geom_vline(),``ggplotly(), layout()\n\n📖\n\n🖥️🖥️🖥️\n📘 🧮\n\n\n3.1\nOct 9\nMap data with choropleth maps\nrnaturalearth, ggplot2, ggthemes , virids\nne_countries(), geom_sf(), theme_map() , theme() , scale_fill_viridis_c()\n\n\n\n🖥️🖥️\n\n\n\n\nOct 11\nMake a map function\n\neval(), parse(), function(), source()\n\n\n\n🖥️\n📘\n\n\n3.2\nOct 16\nUpload UCDP data & make a leaflet map\nstates, sf , leaflet\nsfind(), st_as_sf() , leaflet(), addTiles(), addMarkers(), setView()\n📖\n\n\n🖥️🖥️\n\n\n\n\nOct 18\nCustomize your map\nleaflet, htmltools\nawesomeIcons(),addAwesomeMarkers(), addProviderTiles(), sprintf(), lapply(), HTML\n\n\n\n🖥️\n📘 🧮\n\n\n4.1\nOct 23\nExploring tabular data\ntidycensus, dplyr, stringr, kableExtra\ncensus_api_key(), load_variables(), get_acs(), rename(), rename_with, str_remove(), kable(), slice_max(), slice_min(), slice_sample(), bind_rows()\n\n\n\n🖥️🖥️\n\n\n\n\nOct 25\nMake a gt table, make confidence intervals with ggplot2\ngt , ggplot2\ngt(), tab_header(), cols_label(), fmt_currency(), tab_source_note(), cols_width(), opt_table_font(), cols_align(), tab_options(), gtsave() , geom_errorbar()\n\n\n\n🖥️🖥️\n📘\n\n\n4.2\nOct 30\nDisplay regression tables\npeacesciencer, broom, dplyr\ncreate_stateyears(), add_ucdp_acd(), add_democracy(), add_creg_fractionalization(), add_sdp_gdp(), add_rugged_terrain(), tidy(), mutate_if(), glm(), binomial()\n📖\n\n\n🖥️\n\n\n\n\nNov 1\nMake regression tables and coefficient plots\nmodelsummary\nlist(), modelsummary(), modelplot(), rev()\n\n\n\n🖥️🖥️\n✍️ 📘 🧮\n\n\n5.1\nNov 6\nScatter plot app setup, building the UI\ndplyr , shiny\nsummarize_all(), fluidPage(), titlePanel(), sidebarLayout(), sidebarPanel(), selectInput(), mainPanel(), plotOutput()\n\n\n\n🖥️🖥️\n\n\n\n\nNov 8\nBuilding the server\nshiny\nrenderPlot(), shinyApp()\n\n\n\n🖥️\n📘\n\n\n5.2\nNov 13\nLine chart app setup, building the UI\nfredr , shiny\nfredr_set_key() , as.Date() , Sys.Date() , column(), wellPanel(), helpText(), sliderInput()\n📖\n\n\n🖥️🖥️\n\n\n\n\nNov 15\nBuilding the server\nfredr , shiny\nreactive(), fredr(), fred_indicator()\n\n\n\n🖥️\n✍️ 📘 🧮\n\n\n\nNov 20\nNo class, Thanksgiving break\n\n\n\n\n\n\n\n\n\n\nNov 22\nNo class, Thanksgiving break\n\n\n\n\n\n\n\n\n\n6.1\nNov 27\nFinal project workshop\n\n\n\n\n\n🖥️\n\n\n\n\nNov 29\nFinal project workshop\n\n\n\n\n\n\n\n\n\n6.2\nDec 4\nLightening talks\n\n\n\n\n\n🖥️\n\n\n\n\nDec 6\nLightening talks\n\n\n\n\n\n\n\n\n\n\nDec 11\nLightening talks\n\n\n\n\n\n\n✍️"
   },
   {
     "objectID": "instructor.html",
@@ -2112,5 +2112,173 @@
     "title": "Exercise 1.2",
     "section": "Questions",
     "text": "Questions\n\nTry summarizing the data with a different function for one or more of the variables.\n\n\nWhat is the median value of polyarchy for The West?\nWhat is the max value of gdp_pc for Eastern Europe?\nWhat is the standard deviation of flfp for Africa?\nWhat is the interquartile range of women_rep for the Middle East?\n\n\nNow try grouping by country instead of region.\n\n\nWhat is the median value of polyarchy for Sweden?\nWhat is the max value of gdp_pc New Zealand?\nWhat is the standard deviation of flfp for Spain?\nWhat is the interquartile range of women_rep for Germany?\n\n\nSort countries in descending order based on the mean value of gdp_pc (instead of the median value of polyarchy). Which country ranks first based on this sorting?\nNow try sorting countries in ascending order based on the median value of women_rep (hint: delete “desc” from the arrange() call). Which country ranks at the “top” of the list?"
+  },
+  {
+    "objectID": "slides/week-5.1.html#the-grammar-of-graphics",
+    "href": "slides/week-5.1.html#the-grammar-of-graphics",
+    "title": "Bar Charts and Histograms",
+    "section": "The Grammar of Graphics",
+    "text": "The Grammar of Graphics\n\nData viz has a language with its own grammar\nBasic components include:\n\nData we are trying to visualize\nAesthetics (dimensions)\nGeom (e.g. bar, line, scatter plot)\nColor scales\nThemes\nAnnotations"
+  },
+  {
+    "objectID": "slides/week-5.1.html#section",
+    "href": "slides/week-5.1.html#section",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "Let’s start with the first two, the data and the aesthetic.\n\nlibrary(readr)\nlibrary(ggplot2)\n\ndem_summary &lt;- read_csv(\"data/dem_summary.csv\")\n\nggplot(dem_summary, aes(x = region, y = polyarchy))"
+  },
+  {
+    "objectID": "slides/week-5.1.html#section-1",
+    "href": "slides/week-5.1.html#section-1",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "Gives us the axes without any visualization."
+  },
+  {
+    "objectID": "slides/week-5.1.html#section-2",
+    "href": "slides/week-5.1.html#section-2",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "Now let’s add a geom. In this case we want a bar chart so we add geom_col()\n\nggplot(dem_summary, aes(x = region, y = polyarchy)) + \n  geom_col()"
+  },
+  {
+    "objectID": "slides/week-5.1.html#section-3",
+    "href": "slides/week-5.1.html#section-3",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "OK but that gets the idea across but looks a little depressing so…"
+  },
+  {
+    "objectID": "slides/week-5.1.html#section-4",
+    "href": "slides/week-5.1.html#section-4",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "…let’s change the color of the bars by specifying fill = \"steelblue\".\n\nggplot(dem_summary, aes(x = region, y = polyarchy)) + \n  geom_col(fill = \"steelblue\")"
+  },
+  {
+    "objectID": "slides/week-5.1.html#section-5",
+    "href": "slides/week-5.1.html#section-5",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "Note how color of original bars is simply overwritten."
+  },
+  {
+    "objectID": "slides/week-5.1.html#your-turn",
+    "href": "slides/week-5.1.html#your-turn",
+    "title": "Bar Charts and Histograms",
+    "section": "Your Turn!",
+    "text": "Your Turn!\n\nUse your own wrangled data or this code to get started:\n\n\nlibrary(readr)\nlibrary(ggplot2)\n\ndem_summary &lt;- read_csv(\"https://raw.githubusercontent.com/eteitelbaum/dataviz-fall-2023/main/modules/data/dem_summary.csv\")"
+  },
+  {
+    "objectID": "slides/week-5.1.html#section-6",
+    "href": "slides/week-5.1.html#section-6",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "Now let’s add some labels with the labs() function:\n\nggplot(dem_summary, aes(x = region, y = polyarchy)) + \n  geom_col(fill = \"steelblue\") +\n  labs(\n    x = \"Region\", \n    y = \"Avg. Polyarchy Score\", \n    title = \"Democracy by region, 1990 - present\", \n    caption = \"Source: V-Dem Institute\"\n    )"
+  },
+  {
+    "objectID": "slides/week-5.1.html#section-7",
+    "href": "slides/week-5.1.html#section-7",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "And that gives us…"
+  },
+  {
+    "objectID": "slides/week-5.1.html#section-8",
+    "href": "slides/week-5.1.html#section-8",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "Next, we reorder the bars with the reorder() function.\n\nggplot(dem_summary, aes(x = reorder(region, -polyarchy), y = polyarchy)) +\n  geom_col(fill = \"steelblue\") + \n  labs(\n    x = \"Region\", \n    y = \"Avg. Polyarchy Score\", \n    title = \"Democracy by region, 1990 - present\", \n    caption = \"Source: V-Dem Institute\"\n    )"
+  },
+  {
+    "objectID": "slides/week-5.1.html#section-9",
+    "href": "slides/week-5.1.html#section-9",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "This way, we get a nice, visually appealing ordering of the bars according to levels of democracy…"
+  },
+  {
+    "objectID": "slides/week-5.1.html#section-10",
+    "href": "slides/week-5.1.html#section-10",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "Jumping ahead a little, let’s change the theme to theme_minimal().\n\nggplot(dem_summary, aes(x = reorder(region, -polyarchy), y = polyarchy)) +\n  geom_col(fill = \"steelblue\") + \n  labs(\n    x = \"Region\", \n    y = \"Avg. Polyarchy Score\", \n    title = \"Democracy by region, 1990 - present\", \n    caption = \"Source: V-Dem Institute\"\n    ) + theme_minimal()"
+  },
+  {
+    "objectID": "slides/week-5.1.html#section-11",
+    "href": "slides/week-5.1.html#section-11",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "Gives us a clean, elegant look."
+  },
+  {
+    "objectID": "slides/week-5.1.html#section-12",
+    "href": "slides/week-5.1.html#section-12",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "Note that you can also save your plot as an object to modify later.\n\ndem_bar_chart &lt;- ggplot(dem_summary, aes(x = reorder(region, -polyarchy), y = polyarchy)) +\n  geom_col(fill = \"steelblue\")"
+  },
+  {
+    "objectID": "slides/week-5.1.html#section-13",
+    "href": "slides/week-5.1.html#section-13",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "Which gives us…\n\ndem_bar_chart"
+  },
+  {
+    "objectID": "slides/week-5.1.html#section-14",
+    "href": "slides/week-5.1.html#section-14",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "Now let’s add our labels.\n\ndem_bar_chart &lt;- dem_bar_chart +\n  labs(\n    x = \"Region\", \n    y = \"Avg. Polyarchy Score\", \n    title = \"Democracy by region, 1990 - present\", \n    caption = \"Source: V-Dem Institute\"\n    )"
+  },
+  {
+    "objectID": "slides/week-5.1.html#section-15",
+    "href": "slides/week-5.1.html#section-15",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "So now we have…\n\ndem_bar_chart"
+  },
+  {
+    "objectID": "slides/week-5.1.html#section-16",
+    "href": "slides/week-5.1.html#section-16",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "Now let’s add our theme.\n\ndem_bar_chart &lt;- dem_bar_chart + theme_minimal()"
+  },
+  {
+    "objectID": "slides/week-5.1.html#section-17",
+    "href": "slides/week-5.1.html#section-17",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "Voila!\n\ndem_bar_chart"
+  },
+  {
+    "objectID": "slides/week-5.1.html#section-18",
+    "href": "slides/week-5.1.html#section-18",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "Change the theme.\n\ndem_bar_chart + theme_bw()"
+  },
+  {
+    "objectID": "slides/week-5.1.html#section-19",
+    "href": "slides/week-5.1.html#section-19",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "glimpse() the data\nFind a new variable to visualize\nMake a bar chart with it\nChange the color of the bars\nOrder the bars\nAdd labels\nAdd a theme\nTry saving your plot as an object\nThen change the labels and/or theme\n\n\n\n\n−+\n10:00"
+  },
+  {
+    "objectID": "slides/week-5.1.html#now-try-a-histogram",
+    "href": "slides/week-5.1.html#now-try-a-histogram",
+    "title": "Bar Charts and Histograms",
+    "section": "Now Try a Histogram",
+    "text": "Now Try a Histogram\n\nUse this code or your own wrangled data to get started\n\n\ndem_women &lt;- read_csv(\"https://raw.githubusercontent.com/eteitelbaum/dataviz-fall-2023/main/modules/data/dem_women.csv\")"
+  },
+  {
+    "objectID": "slides/week-5.1.html#section-20",
+    "href": "slides/week-5.1.html#section-20",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "Pick a variable that you want to explore the distribution of\nMake a histogram\n\nOnly specify x = in aes()\nSpecify geom as geom_histogram\n\nChoose color for bars\nChoose appropriate labels\nAdd a theme\n\n\n\n\n−+\n10:00\n\n\n\n\n\n\nDataViz 2102 Website"
   }
 ]
