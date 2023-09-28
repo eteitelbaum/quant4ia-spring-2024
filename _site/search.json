@@ -2412,7 +2412,7 @@
     "href": "slides/week-5.2.html#your-turn-2",
     "title": "Line Charts and Scatter Plots",
     "section": "Your Turn!",
-    "text": "Your Turn!\n\nAdd a trendline to your plot\nChange the labels accordingly\nTry using method = \"loess\" instead of a “lm”\n\n\n\n\n−+\n05:00"
+    "text": "Your Turn!\n\n\nAdd a trendline to your plot\nChange the labels accordingly\nTry using method = \"loess\" instead of a “lm”\n\n\n\n\n−+\n05:00"
   },
   {
     "objectID": "slides/week-5.2.html#tred-line",

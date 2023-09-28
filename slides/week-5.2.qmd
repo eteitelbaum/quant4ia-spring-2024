@@ -455,6 +455,8 @@ ggplot(dem_summary_ctry, aes(x = gdp_pc, y = polyarchy)) +
 
 ## Your Turn! 
 
+<br>
+
 - Add a trendline to your plot
 - Change the labels accordingly
 - Try using `method = "loess"` instead of a "lm"
