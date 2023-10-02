@@ -2495,8 +2495,8 @@
     "objectID": "slides/week-6.1.html#color-blindness",
     "href": "slides/week-6.1.html#color-blindness",
     "title": "Accessibility and Color Schemes",
-    "section": "",
-    "text": "Color Vision Deficiency (CVD) or color blindness affects 8 percent of men and 1 in 200 women\nThere are different types of CVD but most common is red-green color blindness\nTherefore, don’t include red and green in the same chart!\nLook for color blind safe palettes"
+    "section": "Color Blindness",
+    "text": "Color Blindness\n\n\nColor Vision Deficiency (CVD) or color blindness affects 8 percent of men and 1 in 200 women\nThere are different types of CVD but most common is red-green color blindness\nTherefore, don’t include red and green in the same chart!\nLook for color blind safe palettes"
   },
   {
     "objectID": "slides/week-6.1.html#last-weeks-line-chart",
@@ -2664,6 +2664,6 @@
     "href": "slides/week-6.1.html#your-turn-3",
     "title": "Accessibility and Color Schemes",
     "section": "Your Turn!",
-    "text": "Your Turn!\n\nTry using one of the color schemes on a scatter plot\nUse scale_color_ instead of scale_fill_\nPlay around with end and direction arguments in viridis\n\n\n\n\n−+\n10:00"
+    "text": "Your Turn!\n\nTry using one of the color schemes on a scatter plot\nUse scale_color_ instead of scale_fill_\nPlay around with end and direction arguments in viridis\n\n\n\n\n−+\n10:00\n\n\n\n\n\n\nDataViz 2102 Website"
   }
 ]
