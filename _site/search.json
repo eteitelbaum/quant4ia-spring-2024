@@ -67,7 +67,7 @@
     "href": "index.html",
     "title": "Course Schedule",
     "section": "",
-    "text": "This page displays an outline of the topics, content, and assignments for the term. Each module starts on a Monday. There are no assignments due on Sundays.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModule\nDate\nSkills\nPackages\nFunctions\nReadings\nReference\nSlides\nVideos\nAssignments\n\n\n\n\nGS\nAug 28\nCourse Intro\n\n\n\n\n\n\n\n\n\n\nAug 30\nRStudio, Quarto\n\n\n\n📖\n🖥️\n🖥️\n\n\n\n\nSep 4\nNo class, Labor Day\n\n\n\n\n\n\n\n\n\n\nSep 6\nQuarto, GitHub Classroom\n\n\n\n📖\n🖥️\n🖥️🖥️\n\n\n\n1.1\nSep 11\nRead data into R\nreadr, dplyr\nread_csv(), glimpse()\n\n📖\n🖥️\n🖥️🖥️\n\n\n\n\nSep 13\nReshape, clean data\ntidyr, dplyr\npivot_longer(), mutate(), mutate_at(), substring()\n\n📖\n🖥️\n🖥️🖥️🖥️\n📘\n\n\n1.2\nSep 18\nDownload data from an API\nwbstats, vdemdata, dplyr, janitor\nwb_data(), vdem, select_(), filter(), case_match(), round_to_fraction()\n📖\n\n🖥️\n🖥️🖥️\n\n\n\n\nSep 20\nMerge data frames, group, summarize and arrange\ncountrycode, dplyr , readr\ncountrycode(), left_join(), write_csv(), group_by(), summarize(), arrange()\n\n📖 📖\n🖥️\n🖥️🖥️🖥️\n📘🧮\n\n\n2.1\nSep 25\nBar charts & histograms\nggplot2\nggplot(), geom_col(), geom_histogram(), aes(), labs()\n\n📖📖\n🖥️\n🖥️🖥️\n\n\n\n\nSep 27\nLine charts & scatter plots\nggplot2, scales\ngeom_line() , geom_point(), geom_smooth(), scale_x_log10(), label_number(), geom_text()\n\n📖\n🖥️\n🖥️🖥️\n📘\n\n\n2.2\nOct 2\nColor schemes\ntidyr, colorBlindess, dplyr, viridis, RColorBrewer\ndrop_na(), cvdPlot(), scale_fill_manual(), scale_fill_viridis_d(), scale_fill_brewer(), scale_color_manual(), scale_color_viridis_d(), scale_color_brewer\n📖\n📖\n\n🖥️\n\n\n\n\nOct 4\nThemes, annotations & interactivity\nggplot2 , plotly\ntheme_dark(), theme_minimal(), annotate(), geom_hline(), geom_vline(),``ggplotly(), layout()\n\n📖\n\n🖥️🖥️🖥️\n📘 🧮\n\n\n3.1\nOct 9\nMap data with choropleth maps\nrnaturalearth, ggplot2, ggthemes , virids\nne_countries(), geom_sf(), theme_map() , theme() , scale_fill_viridis_c()\n\n\n\n🖥️🖥️\n\n\n\n\nOct 11\nMake a map function\n\neval(), parse(), function(), source()\n\n\n\n🖥️\n📘\n\n\n3.2\nOct 16\nUpload UCDP data & make a leaflet map\nstates, sf , leaflet\nsfind(), st_as_sf() , leaflet(), addTiles(), addMarkers(), setView()\n📖\n\n\n🖥️🖥️\n\n\n\n\nOct 18\nCustomize your map\nleaflet, htmltools\nawesomeIcons(),addAwesomeMarkers(), addProviderTiles(), sprintf(), lapply(), HTML\n\n\n\n🖥️\n📘 🧮\n\n\n4.1\nOct 23\nExploring tabular data\ntidycensus, dplyr, stringr, kableExtra\ncensus_api_key(), load_variables(), get_acs(), rename(), rename_with, str_remove(), kable(), slice_max(), slice_min(), slice_sample(), bind_rows()\n\n\n\n🖥️🖥️\n\n\n\n\nOct 25\nMake a gt table, make confidence intervals with ggplot2\ngt , ggplot2\ngt(), tab_header(), cols_label(), fmt_currency(), tab_source_note(), cols_width(), opt_table_font(), cols_align(), tab_options(), gtsave() , geom_errorbar()\n\n\n\n🖥️🖥️\n📘\n\n\n4.2\nOct 30\nDisplay regression tables\npeacesciencer, broom, dplyr\ncreate_stateyears(), add_ucdp_acd(), add_democracy(), add_creg_fractionalization(), add_sdp_gdp(), add_rugged_terrain(), tidy(), mutate_if(), glm(), binomial()\n📖\n\n\n🖥️\n\n\n\n\nNov 1\nMake regression tables and coefficient plots\nmodelsummary\nlist(), modelsummary(), modelplot(), rev()\n\n\n\n🖥️🖥️\n✍️ 📘 🧮\n\n\n5.1\nNov 6\nScatter plot app setup, building the UI\ndplyr , shiny\nsummarize_all(), fluidPage(), titlePanel(), sidebarLayout(), sidebarPanel(), selectInput(), mainPanel(), plotOutput()\n\n\n\n🖥️🖥️\n\n\n\n\nNov 8\nBuilding the server\nshiny\nrenderPlot(), shinyApp()\n\n\n\n🖥️\n📘\n\n\n5.2\nNov 13\nLine chart app setup, building the UI\nfredr , shiny\nfredr_set_key() , as.Date() , Sys.Date() , column(), wellPanel(), helpText(), sliderInput()\n📖\n\n\n🖥️🖥️\n\n\n\n\nNov 15\nBuilding the server\nfredr , shiny\nreactive(), fredr(), fred_indicator()\n\n\n\n🖥️\n✍️ 📘 🧮\n\n\n\nNov 20\nNo class, Thanksgiving break\n\n\n\n\n\n\n\n\n\n\nNov 22\nNo class, Thanksgiving break\n\n\n\n\n\n\n\n\n\n6.1\nNov 27\nFinal project workshop\n\n\n\n\n\n🖥️\n\n\n\n\nNov 29\nFinal project workshop\n\n\n\n\n\n\n\n\n\n6.2\nDec 4\nLightening talks\n\n\n\n\n\n🖥️\n\n\n\n\nDec 6\nLightening talks\n\n\n\n\n\n\n\n\n\n\nDec 11\nLightening talks\n\n\n\n\n\n\n✍️"
+    "text": "This page displays an outline of the topics, content, and assignments for the term. Each module starts on a Monday. There are no assignments due on Sundays.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModule\nDate\nSkills\nPackages\nFunctions\nReadings\nReference\nSlides\nVideos\nAssignments\n\n\n\n\nGS\nAug 28\nCourse Intro\n\n\n\n\n\n\n\n\n\n\nAug 30\nRStudio, Quarto\n\n\n\n📖\n🖥️\n🖥️\n\n\n\n\nSep 4\nNo class, Labor Day\n\n\n\n\n\n\n\n\n\n\nSep 6\nQuarto, GitHub Classroom\n\n\n\n📖\n🖥️\n🖥️🖥️\n\n\n\n1.1\nSep 11\nRead data into R\nreadr, dplyr\nread_csv(), glimpse()\n\n📖\n🖥️\n🖥️🖥️\n\n\n\n\nSep 13\nReshape, clean data\ntidyr, dplyr\npivot_longer(), mutate(), mutate_at(), substring()\n\n📖\n🖥️\n🖥️🖥️🖥️\n📘\n\n\n1.2\nSep 18\nDownload data from an API\nwbstats, vdemdata, dplyr, janitor\nwb_data(), vdem, select_(), filter(), case_match(), round_to_fraction()\n📖\n\n🖥️\n🖥️🖥️\n\n\n\n\nSep 20\nMerge data frames, group, summarize and arrange\ncountrycode, dplyr , readr\ncountrycode(), left_join(), write_csv(), group_by(), summarize(), arrange()\n\n📖 📖\n🖥️\n🖥️🖥️🖥️\n📘🧮\n\n\n2.1\nSep 25\nBar charts & histograms\nggplot2\nggplot(), geom_col(), geom_histogram(), aes(), labs()\n\n📖📖\n🖥️\n🖥️🖥️\n\n\n\n\nSep 27\nLine charts & scatter plots\nggplot2, scales\ngeom_line() , geom_point(), geom_smooth(), scale_x_log10(), label_number(), geom_text()\n\n📖\n🖥️\n🖥️🖥️\n📘\n\n\n2.2\nOct 2\nColor schemes\ntidyr, colorBlindess, dplyr, viridis, RColorBrewer\ndrop_na(), cvdPlot(), scale_fill_manual(), scale_fill_viridis_d(), scale_fill_brewer(), scale_color_manual(), scale_color_viridis_d(), scale_color_brewer\n📖\n📖\n🖥️\n🖥️\n\n\n\n\nOct 4\nThemes, annotations & interactivity\nggplot2 , plotly\ntheme_dark(), theme_minimal(), annotate(), geom_hline(), geom_vline(),``ggplotly(), layout()\n\n📖\n\n🖥️🖥️🖥️\n📘 🧮\n\n\n3.1\nOct 9\nMap data with choropleth maps\nrnaturalearth, ggplot2, ggthemes , virids\nne_countries(), geom_sf(), theme_map() , theme() , scale_fill_viridis_c()\n\n\n\n🖥️🖥️\n\n\n\n\nOct 11\nMake a map function\n\neval(), parse(), function(), source()\n\n\n\n🖥️\n📘\n\n\n3.2\nOct 16\nUpload UCDP data & make a leaflet map\nstates, sf , leaflet\nsfind(), st_as_sf() , leaflet(), addTiles(), addMarkers(), setView()\n📖\n\n\n🖥️🖥️\n\n\n\n\nOct 18\nCustomize your map\nleaflet, htmltools\nawesomeIcons(),addAwesomeMarkers(), addProviderTiles(), sprintf(), lapply(), HTML\n\n\n\n🖥️\n📘 🧮\n\n\n4.1\nOct 23\nExploring tabular data\ntidycensus, dplyr, stringr, kableExtra\ncensus_api_key(), load_variables(), get_acs(), rename(), rename_with, str_remove(), kable(), slice_max(), slice_min(), slice_sample(), bind_rows()\n\n\n\n🖥️🖥️\n\n\n\n\nOct 25\nMake a gt table, make confidence intervals with ggplot2\ngt , ggplot2\ngt(), tab_header(), cols_label(), fmt_currency(), tab_source_note(), cols_width(), opt_table_font(), cols_align(), tab_options(), gtsave() , geom_errorbar()\n\n\n\n🖥️🖥️\n📘\n\n\n4.2\nOct 30\nDisplay regression tables\npeacesciencer, broom, dplyr\ncreate_stateyears(), add_ucdp_acd(), add_democracy(), add_creg_fractionalization(), add_sdp_gdp(), add_rugged_terrain(), tidy(), mutate_if(), glm(), binomial()\n📖\n\n\n🖥️\n\n\n\n\nNov 1\nMake regression tables and coefficient plots\nmodelsummary\nlist(), modelsummary(), modelplot(), rev()\n\n\n\n🖥️🖥️\n✍️ 📘 🧮\n\n\n5.1\nNov 6\nScatter plot app setup, building the UI\ndplyr , shiny\nsummarize_all(), fluidPage(), titlePanel(), sidebarLayout(), sidebarPanel(), selectInput(), mainPanel(), plotOutput()\n\n\n\n🖥️🖥️\n\n\n\n\nNov 8\nBuilding the server\nshiny\nrenderPlot(), shinyApp()\n\n\n\n🖥️\n📘\n\n\n5.2\nNov 13\nLine chart app setup, building the UI\nfredr , shiny\nfredr_set_key() , as.Date() , Sys.Date() , column(), wellPanel(), helpText(), sliderInput()\n📖\n\n\n🖥️🖥️\n\n\n\n\nNov 15\nBuilding the server\nfredr , shiny\nreactive(), fredr(), fred_indicator()\n\n\n\n🖥️\n✍️ 📘 🧮\n\n\n\nNov 20\nNo class, Thanksgiving break\n\n\n\n\n\n\n\n\n\n\nNov 22\nNo class, Thanksgiving break\n\n\n\n\n\n\n\n\n\n6.1\nNov 27\nFinal project workshop\n\n\n\n\n\n🖥️\n\n\n\n\nNov 29\nFinal project workshop\n\n\n\n\n\n\n\n\n\n6.2\nDec 4\nLightening talks\n\n\n\n\n\n🖥️\n\n\n\n\nDec 6\nLightening talks\n\n\n\n\n\n\n\n\n\n\nDec 11\nLightening talks\n\n\n\n\n\n\n✍️"
   },
   {
     "objectID": "instructor.html",
@@ -2483,5 +2483,187 @@
     "title": "Line Charts and Scatter Plots",
     "section": "Add a Trend Line",
     "text": "Add a Trend Line\nChanging legend titles.\n\nggplot(dem_summary_ctry, aes(x = gdp_pc, y = polyarchy)) + \n  geom_point(aes(color = region)) + \n  geom_smooth(method = \"lm\", linewidth = 1) + \n  scale_x_log10(labels = scales::label_number(prefix = \"$\", suffix = \"k\")) +\n  labs(\n    x= \"GDP per Capita\", \n    y = \"Polyarchy Score\",\n    title = \"Wealth and democracy, 1990 - present\", \n    caption = \"Source: V-Dem Institute\", \n    color = \"Region\"\n    )"
+  },
+  {
+    "objectID": "slides/week-6.1.html",
+    "href": "slides/week-6.1.html",
+    "title": "Accessibility and Color Schemes",
+    "section": "",
+    "text": "Color Vision Deficiency (CVD) or color blindness affects 8 percent of men and 1 in 200 women\nThere are different types of CVD but most common is red-green color blindness\nTherefore, don’t include red and green in the same chart!\nLook for color blind safe palettes"
+  },
+  {
+    "objectID": "slides/week-6.1.html#color-blindness",
+    "href": "slides/week-6.1.html#color-blindness",
+    "title": "Accessibility and Color Schemes",
+    "section": "",
+    "text": "Color Vision Deficiency (CVD) or color blindness affects 8 percent of men and 1 in 200 women\nThere are different types of CVD but most common is red-green color blindness\nTherefore, don’t include red and green in the same chart!\nLook for color blind safe palettes"
+  },
+  {
+    "objectID": "slides/week-6.1.html#last-weeks-line-chart",
+    "href": "slides/week-6.1.html#last-weeks-line-chart",
+    "title": "Accessibility and Color Schemes",
+    "section": "Last Week’s Line Chart",
+    "text": "Last Week’s Line Chart"
+  },
+  {
+    "objectID": "slides/week-6.1.html#last-weeks-line-chart-1",
+    "href": "slides/week-6.1.html#last-weeks-line-chart-1",
+    "title": "Accessibility and Color Schemes",
+    "section": "Last Week’s Line Chart",
+    "text": "Last Week’s Line Chart\nCreate last week’s line chart and save as an object…\n\ndem_waves_ctrs &lt;- read_csv(\"https://raw.githubusercontent.com/eteitelbaum/dataviz-fall-2023/main/slides/data/dem_waves_ctrs.csv\")\n\ndem_waves_chart &lt;- ggplot(dem_waves_ctrs, aes(x = year, y = polyarchy, color = country)) +\n  geom_line(linewidth = 1) + # our geom is a line with a width of 1\n  labs(\n    x = \"Year\", \n    y = \"Polyarchy Score\", \n    title = 'Democracy in countries representing three different \"waves\"', \n    caption = \"Source: V-Dem Institute\", \n    color = \"Country\" # make title of legend to upper case\n  )\n\n\n\n\n−+\n02:00"
+  },
+  {
+    "objectID": "slides/week-6.1.html#cvd-plot",
+    "href": "slides/week-6.1.html#cvd-plot",
+    "title": "Accessibility and Color Schemes",
+    "section": "CVD Plot",
+    "text": "CVD Plot"
+  },
+  {
+    "objectID": "slides/week-6.1.html#cvd-plot-1",
+    "href": "slides/week-6.1.html#cvd-plot-1",
+    "title": "Accessibility and Color Schemes",
+    "section": "CVD Plot",
+    "text": "CVD Plot\n\nCall CVD plot from the colorBlindness package. CVD stands for “color vision deficiency.”\n\nlibrary(colorBlindness)\n\ncvdPlot(dem_waves_chart)"
+  },
+  {
+    "objectID": "slides/week-6.1.html#cvd-plot-2",
+    "href": "slides/week-6.1.html#cvd-plot-2",
+    "title": "Accessibility and Color Schemes",
+    "section": "CVD Plot",
+    "text": "CVD Plot\nClick on little image to expand view…"
+  },
+  {
+    "objectID": "slides/week-6.1.html#your-turn",
+    "href": "slides/week-6.1.html#your-turn",
+    "title": "Accessibility and Color Schemes",
+    "section": "Your Turn!",
+    "text": "Your Turn!\n\n\nTake your dem_waves_chart object and run cvdPlot() on it\nExpand the window and have a good look\nWhich group would have the toughest time reading this graph?\n\n\n\n\n−+\n02:00"
+  },
+  {
+    "objectID": "slides/week-6.1.html#create-your-own-color-scheme",
+    "href": "slides/week-6.1.html#create-your-own-color-scheme",
+    "title": "Accessibility and Color Schemes",
+    "section": "Create Your Own Color Scheme",
+    "text": "Create Your Own Color Scheme"
+  },
+  {
+    "objectID": "slides/week-6.1.html#create-your-own-color-scheme-1",
+    "href": "slides/week-6.1.html#create-your-own-color-scheme-1",
+    "title": "Accessibility and Color Schemes",
+    "section": "Create Your Own Color Scheme",
+    "text": "Create Your Own Color Scheme\n\n\ncb_palette &lt;- c(\"#E69F00\", \"#56B4E9\", \"#009E73\", \"#F0E442\", \"#0072B2\", \"#D55E00\", \"#CC79A7\")\n\nflfp_region &lt;- ggplot(flfp_gdp_regions, aes(x = reorder(iso3c, -flfp), y = flfp, fill = region)) +\n  geom_col() + \n  scale_y_continuous(labels = scales::label_percent(scale = 1)) +\n  labs(\n    x = \"Region\", \n    y = \"Avg. Female Labor Force Participation\", \n    title = \"Levels of female labor force participation by region\", \n    fill = \"Region\",\n    caption = \"Source: World Bank\"\n    ) \n\nflfp_region + scale_fill_manual(values = cb_palette)"
+  },
+  {
+    "objectID": "slides/week-6.1.html#create-your-own-color-scheme-2",
+    "href": "slides/week-6.1.html#create-your-own-color-scheme-2",
+    "title": "Accessibility and Color Schemes",
+    "section": "Create Your Own Color Scheme",
+    "text": "Create Your Own Color Scheme\n\n\ncb_palette &lt;- c(\"#E69F00\", \"#56B4E9\", \"#009E73\", \"#F0E442\", \"#0072B2\", \"#D55E00\", \"#CC79A7\")\n\nflfp_region &lt;- ggplot(flfp_gdp_regions, aes(x = reorder(iso3c, -flfp), y = flfp, fill = region)) +\n  geom_col() + \n  scale_y_continuous(labels = scales::label_percent(scale = 1)) +\n  labs(\n    x = \"Region\", \n    y = \"Avg. Female Labor Force Participation\", \n    title = \"Levels of female labor force participation by region\", \n    fill = \"Region\",\n    caption = \"Source: World Bank\"\n    ) \n\nflfp_region + scale_fill_manual(values = cb_palette)"
+  },
+  {
+    "objectID": "slides/week-6.1.html#your-turn-1",
+    "href": "slides/week-6.1.html#your-turn-1",
+    "title": "Accessibility and Color Schemes",
+    "section": "Your Turn!",
+    "text": "Your Turn!\n\nGo to Module 2.2 on the course website\nDo the setup steps\nReproduce the column chart of FLFP with the custom color scheme\nTry changing one of the hex codes\nNow run cvdPlot() on the plot object to make sure it is color-blind friendly\nNow try a Barbie theme or GW colors\n\n\n\n\n−+\n10:00"
+  },
+  {
+    "objectID": "slides/week-6.1.html#using-a-color-palette",
+    "href": "slides/week-6.1.html#using-a-color-palette",
+    "title": "Accessibility and Color Schemes",
+    "section": "Using a Color Palette",
+    "text": "Using a Color Palette\n\n\nThere are many color palettes\nViridis scales look cool and are accessible\nColorBrewer has many scales some of which are color-blind safe\nThe paletteer package aims to be a comprehensive collection of color palettes"
+  },
+  {
+    "objectID": "slides/week-6.1.html#viridis",
+    "href": "slides/week-6.1.html#viridis",
+    "title": "Accessibility and Color Schemes",
+    "section": "Viridis",
+    "text": "Viridis\n\nflfp_region + scale_fill_viridis_d()"
+  },
+  {
+    "objectID": "slides/week-6.1.html#viridis-1",
+    "href": "slides/week-6.1.html#viridis-1",
+    "title": "Accessibility and Color Schemes",
+    "section": "Viridis",
+    "text": "Viridis\n\nflfp_region &lt;-flfp_region + scale_fill_viridis_d()\ncvdPlot(flfp_region)"
+  },
+  {
+    "objectID": "slides/week-6.1.html#colorbrewer",
+    "href": "slides/week-6.1.html#colorbrewer",
+    "title": "Accessibility and Color Schemes",
+    "section": "ColorBrewer",
+    "text": "ColorBrewer\n\nflfp_region + scale_fill_brewer(palette = \"YlGn\")"
+  },
+  {
+    "objectID": "slides/week-6.1.html#colorbrewer-1",
+    "href": "slides/week-6.1.html#colorbrewer-1",
+    "title": "Accessibility and Color Schemes",
+    "section": "ColorBrewer",
+    "text": "ColorBrewer\n\nflfp_region &lt;- flfp_region + scale_fill_brewer(palette = \"YlGn\")\ncvdPlot(flfp_region)"
+  },
+  {
+    "objectID": "slides/week-6.1.html#paletteer",
+    "href": "slides/week-6.1.html#paletteer",
+    "title": "Accessibility and Color Schemes",
+    "section": "Paletteer",
+    "text": "Paletteer\n\nlibrary(paletteer)\n\nflfp_region + scale_fill_paletteer_d(\"rcartocolor::Temps\")"
+  },
+  {
+    "objectID": "slides/week-6.1.html#paletteer-1",
+    "href": "slides/week-6.1.html#paletteer-1",
+    "title": "Accessibility and Color Schemes",
+    "section": "Paletteer",
+    "text": "Paletteer\nNot all palettes are color-blind safe…\n\nflfp_region &lt;- flfp_region + scale_fill_paletteer_d(\"rcartocolor::Temps\")\ncvdPlot(flfp_region)"
+  },
+  {
+    "objectID": "slides/week-6.1.html#paletteer-2",
+    "href": "slides/week-6.1.html#paletteer-2",
+    "title": "Accessibility and Color Schemes",
+    "section": "Paletteer",
+    "text": "Paletteer\n\nlibrary(paletteer)\n\nflfp_region + scale_fill_paletteer_d(\"beyonce::X1\") \n\n\n\n\nAnd some many not have enough colors for your chart…\n\nflfp_region +  scale_fill_paletteer_d(\"beyonce::X1\")"
+  },
+  {
+    "objectID": "slides/week-6.1.html#your-turn-2",
+    "href": "slides/week-6.1.html#your-turn-2",
+    "title": "Accessibility and Color Schemes",
+    "section": "Your Turn",
+    "text": "Your Turn\n\nTry one of the color palettes packages we just discussed\nGoogle the reference documents for details on schemes\nFor paletteer, check out this paletteer gallery\nFor ColorBrewer, check out this selector tool\nA full list of viridis schemes is here\n\n\n\n\n−+\n10:00"
+  },
+  {
+    "objectID": "slides/week-6.1.html#scaling-for-scatter-plots",
+    "href": "slides/week-6.1.html#scaling-for-scatter-plots",
+    "title": "Accessibility and Color Schemes",
+    "section": "Scaling for Scatter Plots",
+    "text": "Scaling for Scatter Plots"
+  },
+  {
+    "objectID": "slides/week-6.1.html#scaling-for-scatter-plots-1",
+    "href": "slides/week-6.1.html#scaling-for-scatter-plots-1",
+    "title": "Accessibility and Color Schemes",
+    "section": "Scaling for Scatter Plots",
+    "text": "Scaling for Scatter Plots\nUse scale_color_viridis_d instead of scale_fill_viridis_d.\n\nwealth_flfp &lt;- ggplot(flfp_gdp, aes(x = gdp_pc, y = flfp)) + \n  geom_point(aes(color = region)) + # color points by region\n  geom_smooth(method = \"loess\", linewidth = 1) +  # make the line a loess curve\n  scale_x_log10(labels = scales::label_dollar()) + # stretch axis, add '$' format\n  scale_y_continuous(labels = scales::label_percent(scale = 1)) + # add % label\n  labs(\n    x= \"GDP per Capita\", # x-axis title\n    y = \"Female Labor Force Participation\", # y-axis title\n    title = \"Wealth and female labor force participation\", # plot title\n    caption = \"Source: World Bank Development Indicators\", # caption\n    color = \"Region\" # legend title\n    )\n\nwealth_flfp + scale_color_viridis_d(option = \"plasma\")"
+  },
+  {
+    "objectID": "slides/week-6.1.html#scaling-for-scatter-plots-2",
+    "href": "slides/week-6.1.html#scaling-for-scatter-plots-2",
+    "title": "Accessibility and Color Schemes",
+    "section": "Scaling for Scatter Plots",
+    "text": "Scaling for Scatter Plots\nUse the end argument to darken the colors\n\nwealth_flfp + scale_color_viridis_d(option = \"plasma\", end = .7)"
+  },
+  {
+    "objectID": "slides/week-6.1.html#scaling-for-scatter-plots-3",
+    "href": "slides/week-6.1.html#scaling-for-scatter-plots-3",
+    "title": "Accessibility and Color Schemes",
+    "section": "Scaling for Scatter Plots",
+    "text": "Scaling for Scatter Plots\nUse the direction argument to flip the color scale…\n\nwealth_flfp + scale_color_viridis_d(option = \"plasma\", direction = -1)"
+  },
+  {
+    "objectID": "slides/week-6.1.html#your-turn-3",
+    "href": "slides/week-6.1.html#your-turn-3",
+    "title": "Accessibility and Color Schemes",
+    "section": "Your Turn!",
+    "text": "Your Turn!\n\nTry using one of the color schemes on a scatter plot\nUse scale_color_ instead of scale_fill_\nPlay around with end and direction arguments in viridis\n\n\n\n\n−+\n10:00"
   }
 ]
