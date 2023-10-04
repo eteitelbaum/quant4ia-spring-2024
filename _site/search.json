@@ -2831,7 +2831,7 @@
     "objectID": "slides/week-6.2.html#time-permitting-1",
     "href": "slides/week-6.2.html#time-permitting-1",
     "title": "Themes, Annotations and Interactivity",
-    "section": "Time permitting",
-    "text": "Time permitting\nAnnotate (comment) the following code…\n\nflfp_line &lt;- ggplot(flfp_ts, aes(x = year, y = flfp, color = region)) +\n  geom_line(linewidth = 1) + \n  scale_y_continuous(labels = scales::label_percent(scale = 1)) +\n  labs(\n    x = \"Year\", \n    y = \"Female Labor Force Participation\", \n    title = \"Regional trends in female labor force participation\", \n    caption = \"Source: V-Dem Institute\", \n    color = \"Country\"\n  ) + scale_color_viridis_d() +\n  theme_minimal()\n\nflfp_line + geom_hline(yintercept = 52, linetype=\"dashed\", color = \"red\", size = 1) +\n  annotate(\"text\", x = 1995, y = 55, label = \"Global average\")\n\n\n\n\n−+\n05:00\n\n\n\n\n\n\nDataViz 2102 Website"
+    "section": "Time Permitting",
+    "text": "Time Permitting\nAnnotate (comment) the following code…\n\nflfp_line &lt;- ggplot(flfp_ts, aes(x = year, y = flfp, color = region)) +\n  geom_line(linewidth = 1) + \n  scale_y_continuous(labels = scales::label_percent(scale = 1)) +\n  labs(\n    x = \"Year\", \n    y = \"Female Labor Force Participation\", \n    title = \"Regional trends in female labor force participation\", \n    caption = \"Source: V-Dem Institute\", \n    color = \"Country\"\n  ) + scale_color_viridis_d() +\n  theme_minimal()\n\nflfp_line + geom_hline(yintercept = 52, linetype=\"dashed\", color = \"red\", size = 1) +\n  annotate(\"text\", x = 1995, y = 55, label = \"Global average\")\n\n\n\n\n−+\n05:00\n\n\n\n\n\n\nDataViz 2102 Website"
   }
 ]
