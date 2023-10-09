@@ -67,7 +67,7 @@
     "href": "index.html",
     "title": "Course Schedule",
     "section": "",
-    "text": "This page displays an outline of the topics, content, and assignments for the term. Each module starts on a Monday. There are no assignments due on Sundays.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModule\nDate\nSkills\nPackages\nFunctions\nReadings\nReference\nSlides\nVideos\nAssignments\n\n\n\n\nGS\nAug 28\nCourse Intro\n\n\n\n\n\n\n\n\n\n\nAug 30\nRStudio, Quarto\n\n\n\n📖\n🖥️\n🖥️\n\n\n\n\nSep 4\nNo class, Labor Day\n\n\n\n\n\n\n\n\n\n\nSep 6\nQuarto, GitHub Classroom\n\n\n\n📖\n🖥️\n🖥️🖥️\n\n\n\n1.1\nSep 11\nRead data into R\nreadr, dplyr\nread_csv(), glimpse()\n\n📖\n🖥️\n🖥️🖥️\n\n\n\n\nSep 13\nReshape, clean data\ntidyr, dplyr\npivot_longer(), mutate(), mutate_at(), substring()\n\n📖\n🖥️\n🖥️🖥️🖥️\n📘\n\n\n1.2\nSep 18\nDownload data from an API\nwbstats, vdemdata, dplyr, janitor\nwb_data(), vdem, select_(), filter(), case_match(), round_to_fraction()\n📖\n\n🖥️\n🖥️🖥️\n\n\n\n\nSep 20\nMerge data frames, group, summarize and arrange\ncountrycode, dplyr , readr\ncountrycode(), left_join(), write_csv(), group_by(), summarize(), arrange()\n\n📖 📖\n🖥️\n🖥️🖥️🖥️\n📘🧮\n\n\n2.1\nSep 25\nBar charts & histograms\nggplot2\nggplot(), geom_col(), geom_histogram(), aes(), labs()\n\n📖📖\n🖥️\n🖥️🖥️\n\n\n\n\nSep 27\nLine charts & scatter plots\nggplot2, scales\ngeom_line() , geom_point(), geom_smooth(), scale_x_log10(), label_number(), geom_text()\n\n📖\n🖥️\n🖥️🖥️\n📘\n\n\n2.2\nOct 2\nColor schemes\ntidyr, colorBlindess, dplyr, viridis, RColorBrewer\ndrop_na(), cvdPlot(), scale_fill_manual(), scale_fill_viridis_d(), scale_fill_brewer(), scale_color_manual(), scale_color_viridis_d(), scale_color_brewer\n📖\n📖\n🖥️\n🖥️\n\n\n\n\nOct 4\nThemes, annotations & interactivity\nggplot2 , plotly\ntheme_dark(), theme_minimal(), annotate(), geom_hline(), geom_vline(),``ggplotly(), layout()\n\n📖\n🖥️\n🖥️🖥️🖥️\n📘 🧮\n\n\n3.1\nOct 9\nMap data with choropleth maps\nrnaturalearth, ggplot2, ggthemes , virids\nne_countries(), geom_sf(), theme_map() , theme() , scale_fill_viridis_c()\n\n\n\n🖥️🖥️\n\n\n\n\nOct 11\nMake a map function\n\neval(), parse(), function(), source()\n\n\n\n🖥️\n📘\n\n\n3.2\nOct 16\nUpload UCDP data & make a leaflet map\nstates, sf , leaflet\nsfind(), st_as_sf() , leaflet(), addTiles(), addMarkers(), setView()\n📖\n\n\n🖥️🖥️\n\n\n\n\nOct 18\nCustomize your map\nleaflet, htmltools\nawesomeIcons(),addAwesomeMarkers(), addProviderTiles(), sprintf(), lapply(), HTML\n\n\n\n🖥️\n📘 🧮\n\n\n4.1\nOct 23\nExploring tabular data\ntidycensus, dplyr, stringr, kableExtra\ncensus_api_key(), load_variables(), get_acs(), rename(), rename_with, str_remove(), kable(), slice_max(), slice_min(), slice_sample(), bind_rows()\n\n\n\n🖥️🖥️\n\n\n\n\nOct 25\nMake a gt table, make confidence intervals with ggplot2\ngt , ggplot2\ngt(), tab_header(), cols_label(), fmt_currency(), tab_source_note(), cols_width(), opt_table_font(), cols_align(), tab_options(), gtsave() , geom_errorbar()\n\n\n\n🖥️🖥️\n📘\n\n\n4.2\nOct 30\nDisplay regression tables\npeacesciencer, broom, dplyr\ncreate_stateyears(), add_ucdp_acd(), add_democracy(), add_creg_fractionalization(), add_sdp_gdp(), add_rugged_terrain(), tidy(), mutate_if(), glm(), binomial()\n📖\n\n\n🖥️\n\n\n\n\nNov 1\nMake regression tables and coefficient plots\nmodelsummary\nlist(), modelsummary(), modelplot(), rev()\n\n\n\n🖥️🖥️\n✍️ 📘 🧮\n\n\n5.1\nNov 6\nScatter plot app setup, building the UI\ndplyr , shiny\nsummarize_all(), fluidPage(), titlePanel(), sidebarLayout(), sidebarPanel(), selectInput(), mainPanel(), plotOutput()\n\n\n\n🖥️🖥️\n\n\n\n\nNov 8\nBuilding the server\nshiny\nrenderPlot(), shinyApp()\n\n\n\n🖥️\n📘\n\n\n5.2\nNov 13\nLine chart app setup, building the UI\nfredr , shiny\nfredr_set_key() , as.Date() , Sys.Date() , column(), wellPanel(), helpText(), sliderInput()\n📖\n\n\n🖥️🖥️\n\n\n\n\nNov 15\nBuilding the server\nfredr , shiny\nreactive(), fredr(), fred_indicator()\n\n\n\n🖥️\n✍️ 📘 🧮\n\n\n\nNov 20\nNo class, Thanksgiving break\n\n\n\n\n\n\n\n\n\n\nNov 22\nNo class, Thanksgiving break\n\n\n\n\n\n\n\n\n\n6.1\nNov 27\nFinal project workshop\n\n\n\n\n\n🖥️\n\n\n\n\nNov 29\nFinal project workshop\n\n\n\n\n\n\n\n\n\n6.2\nDec 4\nLightening talks\n\n\n\n\n\n🖥️\n\n\n\n\nDec 6\nLightening talks\n\n\n\n\n\n\n\n\n\n\nDec 11\nLightening talks\n\n\n\n\n\n\n✍️"
+    "text": "This page displays an outline of the topics, content, and assignments for the term. Each module starts on a Monday. There are no assignments due on Sundays.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModule\nDate\nSkills\nPackages\nFunctions\nReadings\nReference\nSlides\nVideos\nAssignments\n\n\n\n\nGS\nAug 28\nCourse Intro\n\n\n\n\n\n\n\n\n\n\nAug 30\nRStudio, Quarto\n\n\n\n📖\n🖥️\n🖥️\n\n\n\n\nSep 4\nNo class, Labor Day\n\n\n\n\n\n\n\n\n\n\nSep 6\nQuarto, GitHub Classroom\n\n\n\n📖\n🖥️\n🖥️🖥️\n\n\n\n1.1\nSep 11\nRead data into R\nreadr, dplyr\nread_csv(), glimpse()\n\n📖\n🖥️\n🖥️🖥️\n\n\n\n\nSep 13\nReshape, clean data\ntidyr, dplyr\npivot_longer(), mutate(), mutate_at(), substring()\n\n📖\n🖥️\n🖥️🖥️🖥️\n📘\n\n\n1.2\nSep 18\nDownload data from an API\nwbstats, vdemdata, dplyr, janitor\nwb_data(), vdem, select_(), filter(), case_match(), round_to_fraction()\n📖\n\n🖥️\n🖥️🖥️\n\n\n\n\nSep 20\nMerge data frames, group, summarize and arrange\ncountrycode, dplyr , readr\ncountrycode(), left_join(), write_csv(), group_by(), summarize(), arrange()\n\n📖 📖\n🖥️\n🖥️🖥️🖥️\n📘🧮\n\n\n2.1\nSep 25\nBar charts & histograms\nggplot2\nggplot(), geom_col(), geom_histogram(), aes(), labs()\n\n📖📖\n🖥️\n🖥️🖥️\n\n\n\n\nSep 27\nLine charts & scatter plots\nggplot2, scales\ngeom_line() , geom_point(), geom_smooth(), scale_x_log10(), label_number(), geom_text()\n\n📖\n🖥️\n🖥️🖥️\n📘\n\n\n2.2\nOct 2\nColor schemes\ntidyr, colorBlindess, dplyr, viridis, RColorBrewer\ndrop_na(), cvdPlot(), scale_fill_manual(), scale_fill_viridis_d(), scale_fill_brewer(), scale_color_manual(), scale_color_viridis_d(), scale_color_brewer\n📖\n📖\n🖥️\n🖥️\n\n\n\n\nOct 4\nThemes, annotations & interactivity\nggplot2 , plotly\ntheme_dark(), theme_minimal(), annotate(), geom_hline(), geom_vline(),``ggplotly(), layout()\n\n📖\n🖥️\n🖥️🖥️🖥️\n📘 🧮\n\n\n3.1\nOct 9\nMap data with choropleth maps\nrnaturalearth, ggplot2, ggthemes , virids\nne_countries(), geom_sf(), theme_map() , theme() , scale_fill_viridis_c()\n\n\n🖥️\n🖥️🖥️\n\n\n\n\nOct 11\nMake a map function\n\neval(), parse(), function(), source()\n\n\n\n🖥️\n📘\n\n\n3.2\nOct 16\nUpload UCDP data & make a leaflet map\nstates, sf , leaflet\nsfind(), st_as_sf() , leaflet(), addTiles(), addMarkers(), setView()\n📖\n\n\n🖥️🖥️\n\n\n\n\nOct 18\nCustomize your map\nleaflet, htmltools\nawesomeIcons(),addAwesomeMarkers(), addProviderTiles(), sprintf(), lapply(), HTML\n\n\n\n🖥️\n📘 🧮\n\n\n4.1\nOct 23\nExploring tabular data\ntidycensus, dplyr, stringr, kableExtra\ncensus_api_key(), load_variables(), get_acs(), rename(), rename_with, str_remove(), kable(), slice_max(), slice_min(), slice_sample(), bind_rows()\n\n\n\n🖥️🖥️\n\n\n\n\nOct 25\nMake a gt table, make confidence intervals with ggplot2\ngt , ggplot2\ngt(), tab_header(), cols_label(), fmt_currency(), tab_source_note(), cols_width(), opt_table_font(), cols_align(), tab_options(), gtsave() , geom_errorbar()\n\n\n\n🖥️🖥️\n📘\n\n\n4.2\nOct 30\nDisplay regression tables\npeacesciencer, broom, dplyr\ncreate_stateyears(), add_ucdp_acd(), add_democracy(), add_creg_fractionalization(), add_sdp_gdp(), add_rugged_terrain(), tidy(), mutate_if(), glm(), binomial()\n📖\n\n\n🖥️\n\n\n\n\nNov 1\nMake regression tables and coefficient plots\nmodelsummary\nlist(), modelsummary(), modelplot(), rev()\n\n\n\n🖥️🖥️\n✍️ 📘 🧮\n\n\n5.1\nNov 6\nScatter plot app setup, building the UI\ndplyr , shiny\nsummarize_all(), fluidPage(), titlePanel(), sidebarLayout(), sidebarPanel(), selectInput(), mainPanel(), plotOutput()\n\n\n\n🖥️🖥️\n\n\n\n\nNov 8\nBuilding the server\nshiny\nrenderPlot(), shinyApp()\n\n\n\n🖥️\n📘\n\n\n5.2\nNov 13\nLine chart app setup, building the UI\nfredr , shiny\nfredr_set_key() , as.Date() , Sys.Date() , column(), wellPanel(), helpText(), sliderInput()\n📖\n\n\n🖥️🖥️\n\n\n\n\nNov 15\nBuilding the server\nfredr , shiny\nreactive(), fredr(), fred_indicator()\n\n\n\n🖥️\n✍️ 📘 🧮\n\n\n\nNov 20\nNo class, Thanksgiving break\n\n\n\n\n\n\n\n\n\n\nNov 22\nNo class, Thanksgiving break\n\n\n\n\n\n\n\n\n\n6.1\nNov 27\nFinal project workshop\n\n\n\n\n\n🖥️\n\n\n\n\nNov 29\nFinal project workshop\n\n\n\n\n\n\n\n\n\n6.2\nDec 4\nLightening talks\n\n\n\n\n\n🖥️\n\n\n\n\nDec 6\nLightening talks\n\n\n\n\n\n\n\n\n\n\nDec 11\nLightening talks\n\n\n\n\n\n\n✍️"
   },
   {
     "objectID": "instructor.html",
@@ -2833,5 +2833,131 @@
     "title": "Themes, Annotations and Interactivity",
     "section": "Time Permitting",
     "text": "Time Permitting\nAnnotate (comment) the following code…\n\nflfp_line &lt;- ggplot(flfp_ts, aes(x = year, y = flfp, color = region)) +\n  geom_line(linewidth = 1) + \n  scale_y_continuous(labels = scales::label_percent(scale = 1)) +\n  labs(\n    x = \"Year\", \n    y = \"Female Labor Force Participation\", \n    title = \"Regional trends in female labor force participation\", \n    caption = \"Source: V-Dem Institute\", \n    color = \"Country\"\n  ) + scale_color_viridis_d() +\n  theme_minimal()\n\nflfp_line + geom_hline(yintercept = 52, linetype=\"dashed\", color = \"red\", size = 1) +\n  annotate(\"text\", x = 1995, y = 55, label = \"Global average\")\n\n\n\n\n−+\n05:00\n\n\n\n\n\n\nDataViz 2102 Website"
+  },
+  {
+    "objectID": "slides/week-7.1.html#choropleth-map",
+    "href": "slides/week-7.1.html#choropleth-map",
+    "title": "Choropleth Maps",
+    "section": "Choropleth Map",
+    "text": "Choropleth Map"
+  },
+  {
+    "objectID": "slides/week-7.1.html#simple-features",
+    "href": "slides/week-7.1.html#simple-features",
+    "title": "Choropleth Maps",
+    "section": "Simple Features",
+    "text": "Simple Features"
+  },
+  {
+    "objectID": "slides/week-7.1.html#mercator-project",
+    "href": "slides/week-7.1.html#mercator-project",
+    "title": "Choropleth Maps",
+    "section": "Mercator Project",
+    "text": "Mercator Project"
+  },
+  {
+    "objectID": "slides/week-7.1.html#natural-earth-projection",
+    "href": "slides/week-7.1.html#natural-earth-projection",
+    "title": "Choropleth Maps",
+    "section": "Natural Earth Projection",
+    "text": "Natural Earth Projection\n\nSource: Wikipedia"
+  },
+  {
+    "objectID": "slides/week-7.1.html#section",
+    "href": "slides/week-7.1.html#section",
+    "title": "Choropleth Maps",
+    "section": "",
+    "text": "library(rnaturalearth)\nlibrary(dplyr)\n\nworld_map_df &lt;- ne_countries(scale = \"medium\", returnclass = \"sf\") |&gt;\n    filter(name != \"Antarctica\") # remove Antarctica\n\n#world_map_df |&gt;\n#glimpse()\n\n# view contents of geometry column\nworld_map_df |&gt;\n  select(geometry) \n\n\n\n\nDataViz 2102 Website"
+  },
+  {
+    "objectID": "slides/week-7.1.html#mercator-projection",
+    "href": "slides/week-7.1.html#mercator-projection",
+    "title": "Choropleth Maps",
+    "section": "Mercator Projection",
+    "text": "Mercator Projection\n\nSource: Wikipedia"
+  },
+  {
+    "objectID": "slides/week-7.1.html#disputed-territory",
+    "href": "slides/week-7.1.html#disputed-territory",
+    "title": "Choropleth Maps",
+    "section": "Disputed Territory",
+    "text": "Disputed Territory\n\nSource: Wikimedia Commons"
+  },
+  {
+    "objectID": "slides/week-7.1.html#development",
+    "href": "slides/week-7.1.html#development",
+    "title": "Choropleth Maps",
+    "section": "Development",
+    "text": "Development"
+  },
+  {
+    "objectID": "slides/week-7.1.html#map-code",
+    "href": "slides/week-7.1.html#map-code",
+    "title": "Choropleth Maps",
+    "section": "Map Code",
+    "text": "Map Code\n\nGrab country shapes with ne_countries()\n\n\nlibrary(rnaturalearth)\nlibrary(dplyr)\n\nworld_map_df &lt;- ne_countries(scale = \"medium\", returnclass = \"sf\") |&gt;\n    filter(name != \"Antarctica\") # remove Antarctica\n\n#world_map_df |&gt;\n#glimpse()\n\n# view contents of geometry column\nworld_map_df |&gt;\n  select(geometry)"
+  },
+  {
+    "objectID": "slides/week-7.1.html#map-code-1",
+    "href": "slides/week-7.1.html#map-code-1",
+    "title": "Choropleth Maps",
+    "section": "Map Code",
+    "text": "Map Code\n\nMake a map using geom_sf() from ggplot2.\n\n\nlibrary(ggplot2)\n\nggplot(data = world_map_df) +\n  geom_sf(aes(fill = income_grp)) + \n  labs(title = \"World Bank country income categories\")"
+  },
+  {
+    "objectID": "slides/week-7.1.html#map-code-2",
+    "href": "slides/week-7.1.html#map-code-2",
+    "title": "Choropleth Maps",
+    "section": "Map Code",
+    "text": "Map Code\n\nAdd a color scale and a theme.\n\n\nlibrary(ggthemes)\n\nggplot(data = world_map_df) +\n  geom_sf(aes(fill = income_grp)) + \n  labs(\n    title = \"World Bank country income categories\",\n    fill = \"Category\"\n    ) +\n    scale_fill_viridis_d() +\n    theme_map()"
+  },
+  {
+    "objectID": "slides/week-7.1.html#your-turn",
+    "href": "slides/week-7.1.html#your-turn",
+    "title": "Choropleth Maps",
+    "section": "Your Turn!",
+    "text": "Your Turn!\n\n\nMake a map of WB income categories\nStart by grabbing the country shapes\nStore data frame in an object\nUse geom_sf() to make the map\nStyle the map\n\n\n\n\n−+\n05:00"
+  },
+  {
+    "objectID": "slides/week-7.1.html#map-other-data",
+    "href": "slides/week-7.1.html#map-other-data",
+    "title": "Choropleth Maps",
+    "section": "Map Other Data",
+    "text": "Map Other Data"
+  },
+  {
+    "objectID": "slides/week-7.1.html#map-other-data-1",
+    "href": "slides/week-7.1.html#map-other-data-1",
+    "title": "Choropleth Maps",
+    "section": "Map Other Data",
+    "text": "Map Other Data\n\nGrab data from the WB, join with country shapes…\n\n\nlibrary(wbstats)\n\noil_rents_df &lt;- wb_data(c(oil_rents_gdp = \"NY.GDP.PETR.RT.ZS\"), mrnev = 1) \n\nrents_map_df &lt;- left_join(world_map_df, oil_rents_df, join_by(iso_a3 == iso3c))\n\nrents_map_df |&gt;\n  select(last_col(5):last_col()) |&gt; #select last 5 columns of df\n  glimpse()"
+  },
+  {
+    "objectID": "slides/week-7.1.html#map-other-data-2",
+    "href": "slides/week-7.1.html#map-other-data-2",
+    "title": "Choropleth Maps",
+    "section": "Map Other Data",
+    "text": "Map Other Data\n\nggplot(data = rents_map_df) +\n  geom_sf(aes(fill = oil_rents_gdp)) + # shade based on oil rents\n  labs(\n    title = \"Oil rents (% of GDP)\",\n    subtitle = \"(Most recent available data)\", # add subtitle\n    fill = \"Percent\", \n    caption = \"Source: World Bank Development Indicators\"\n    ) +\n  theme_map() +\n  theme(\n    legend.position = \"right\", \n    #legend.title = element_text(size = 8),\n    #legend.text = element_text(size = 6)\n    plot.title = element_text(face = \"bold\"), # move legend\n    ) +\n  scale_fill_viridis_c( # chg from discrete (_d) to continuous (_c)\n      option = \"magma\", #  chg to magma theme\n      labels = scales::label_percent(scale = 1) # add % label for legend\n      )"
+  },
+  {
+    "objectID": "slides/week-7.1.html#your-turn-1",
+    "href": "slides/week-7.1.html#your-turn-1",
+    "title": "Choropleth Maps",
+    "section": "Your Turn!",
+    "text": "Your Turn!\n\n\nUsing the code from module 3.1 as a template…\nTry mapping a favorite variable from the World Bank\nFirst, download the relevant data using wbstats\nThen merge it with your country shapes\nMap using geom_sf()\nBeautify your map!\n\n\n\n\n−+\n10:00"
+  },
+  {
+    "objectID": "slides/week-7.1.html#map-some-v-dem-data",
+    "href": "slides/week-7.1.html#map-some-v-dem-data",
+    "title": "Choropleth Maps",
+    "section": "Map Some V-Dem Data",
+    "text": "Map Some V-Dem Data\n\n\nNow try mapping some V-Dem data\nRemind yourself of how to download data from V-Dem\nYou will have to convert country codes to iso3c\nThen merge with country shapes\nThen map your V-Dem indicator!\n\n\n\n\n−+\n10:00"
+  },
+  {
+    "objectID": "slides/week-7.1.html#coding-with-ai",
+    "href": "slides/week-7.1.html#coding-with-ai",
+    "title": "Choropleth Maps",
+    "section": "Coding With AI",
+    "text": "Coding With AI\n\n\nSometimes coding with AI can helpful\nSometimes not!\nTry prompting ChatGPT to code up a choropleth map\nTell it what packages to use\nSee how it does and note what it does differently relative to humans\nThen debug the code\n\n\n\n\n−+\n10:00\n\n\n\n\n\n\nDataViz 2102 Website"
   }
 ]

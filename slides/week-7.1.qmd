@@ -1,0 +1,305 @@
+---
+title: "Choropleth Maps"
+date: today
+date-format: long
+footer: "[DataViz 2102 Website](https://dataviz-gwu.rocks)"
+logo: images/dataviz-logo.png
+format:
+  revealjs:
+    theme: [simple, custom.scss]
+    transition: fade
+    slide-number: true
+    multiplex: true
+    chalkboard: true
+execute:
+  echo: false
+  message: false
+  warning: false
+  freeze: auto
+---
+
+```{r}
+#| label: setup
+library(countdown)
+source("functions/wb-maps.R", local = knitr::knit_global())
+```
+
+## Choropleth Map
+
+```{r}
+#| label: flfp_map
+create_map(var_id = "SL.TLF.CACT.FE.ZS", 
+           title = "Female Labor Force Participation", 
+           legend_title = "FLFP %", 
+           theme = "inferno", 
+           direction = -1)
+```
+
+## Simple Features
+
+![](images/simple_feature_dataframe.png){fig-align=center}
+
+
+## Mercator Projection
+
+![*Source:* Wikipedia](images/mercator.jpg){fig-align=center}
+
+## Natural Earth Projection
+
+![*Source:* Wikipedia](images/natural_earth.jpg)
+
+## Disputed Territory
+
+![*Source:* Wikimedia Commons](images/kashmir.png)
+
+## Development
+
+```{r}
+#| label: gdp_map
+create_map(var_id = "NY.GDP.PCAP.PP.KD", 
+           title= "GDP per capita (constant 2017 internatioal $)", 
+           legend_title = "Geary-Khamis $", 
+           theme = "mako", 
+           direction = -1)
+```
+
+## Map Code
+
+<br> 
+
+Grab country shapes with `ne_countries()`
+
+<br>
+
+```{r}
+#| label: country_shapes
+#| echo: true
+#| output: false
+
+library(rnaturalearth)
+library(dplyr)
+
+world_map_df <- ne_countries(scale = "medium", returnclass = "sf") |>
+    filter(name != "Antarctica") # remove Antarctica
+
+#world_map_df |>
+#glimpse()
+
+# view contents of geometry column
+world_map_df |>
+  select(geometry) 
+```
+
+## Map Code
+
+<br>
+
+Make a map using `geom_sf()` from `ggplot2`.
+
+<br>
+
+```{r}
+#| label: first_map
+#| echo: true
+#| output: false
+
+library(ggplot2)
+
+ggplot(data = world_map_df) +
+  geom_sf(aes(fill = income_grp)) + 
+  labs(title = "World Bank country income categories")
+```
+
+## Map Code
+
+<br>
+  
+Add a color scale and a theme. 
+
+<br>
+
+```{r}
+#| label: beautify_map
+#| echo: true
+#| output: false
+
+library(ggthemes)
+
+ggplot(data = world_map_df) +
+  geom_sf(aes(fill = income_grp)) + 
+  labs(
+    title = "World Bank country income categories",
+    fill = "Category"
+    ) +
+    scale_fill_viridis_d() +
+    theme_map() 
+```
+
+## Your Turn!
+
+<br>
+
+- Make a map of WB income categories
+- Start by grabbing the country shapes
+- Store data frame in an object
+- Use `geom_sf()` to make the map
+- Style the map
+
+```{r}
+#| label: setup_timer
+countdown(minutes = 5, 
+          id = "setup", 
+          bottom = "10%", 
+          right = "10%",
+          color_border = "#fff",
+          color_text = "#fff",
+          color_running_background = "#42affa",
+          color_running_text = "black",
+          color_finished_background = "#E5D19D",
+          color_finished_text = "#00264A")
+```
+
+
+## Map Other Data
+
+```{r}
+#| label: oil_rents1
+
+library(wbstats)
+
+oil_rents_df <- wb_data(c(oil_rents_gdp = "NY.GDP.PETR.RT.ZS"), mrnev = 1) 
+
+rents_map_df <- left_join(world_map_df, oil_rents_df, join_by(iso_a3 == iso3c))
+
+ggplot(data = rents_map_df) +
+  geom_sf(aes(fill = oil_rents_gdp)) + # shade based on oil rents
+  labs(
+    title = "Oil rents (% of GDP)",
+    subtitle = "(Most recent available data)", # add subtitle
+    fill = "Percent", 
+    caption = "Source: World Bank Development Indicators"
+    ) +
+  theme_map() +
+  theme(
+    legend.position = "right", 
+    #legend.title = element_text(size = 8),
+    #legend.text = element_text(size = 6)
+    plot.title = element_text(face = "bold"), # move legend
+    ) +
+  scale_fill_viridis_c( # chg from discrete (_d) to continuous (_c)
+      option = "magma", #  chg to magma theme
+      labels = scales::label_percent(scale = 1) # add % label for legend
+      ) 
+```
+
+## Map Other Data
+
+<br>
+
+Grab data from the WB, join with country shapes...
+
+<br>
+
+```{r}
+#| label: oil_rents2
+#| echo: true
+#| output: false
+
+library(wbstats)
+
+oil_rents_df <- wb_data(c(oil_rents_gdp = "NY.GDP.PETR.RT.ZS"), mrnev = 1) 
+
+rents_map_df <- left_join(world_map_df, oil_rents_df, join_by(iso_a3 == iso3c))
+
+rents_map_df |>
+  select(last_col(5):last_col()) |> #select last 5 columns of df
+  glimpse() 
+```
+
+## Map Other Data
+
+```{r}
+#| label: oil_rents3
+#| echo: true
+#| output: false
+
+ggplot(data = rents_map_df) +
+  geom_sf(aes(fill = oil_rents_gdp)) + # shade based on oil rents
+  labs(
+    title = "Oil rents (% of GDP)",
+    subtitle = "(Most recent available data)", # add subtitle
+    fill = "Percent", 
+    caption = "Source: World Bank Development Indicators"
+    ) +
+  theme_map() +
+  theme(
+    legend.position = "right", 
+    #legend.title = element_text(size = 8),
+    #legend.text = element_text(size = 6)
+    plot.title = element_text(face = "bold"), # move legend
+    ) +
+  scale_fill_viridis_c( # chg from discrete (_d) to continuous (_c)
+      option = "magma", #  chg to magma theme
+      labels = scales::label_percent(scale = 1) # add % label for legend
+      ) 
+```
+
+## Your Turn! 
+
+<br>
+
+- Using the code from module 3.1 as a template...
+- Try mapping a favorite variable from the World Bank
+- First, download the relevant data using `wbstats`
+- Then merge it with your country shapes
+- Map using `geom_sf()`
+- Beautify your map! 
+
+
+```{r}
+#| label: exercise2_timer
+countdown(minutes = 10, 
+          id = "exercise2", 
+          bottom = "10%", 
+          right = "10%"
+          )
+```
+
+## Map Some V-Dem Data
+
+<br>
+
+- Now try mapping some V-Dem data
+- Remind yourself of how to download data from V-Dem
+- You will have to convert country codes to iso3c
+- Then merge with country shapes
+- Then map your V-Dem indicator!
+
+```{r}
+#| label: exercise3_timer
+countdown(minutes = 10, 
+          id = "exercise2", 
+          bottom = "10%", 
+          right = "10%"
+          )
+```
+
+## Coding With AI
+
+<br>
+
+- Sometimes coding with AI can helpful
+- Sometimes not! 
+- Try prompting ChatGPT to code up a choropleth map
+- Tell it what packages to use
+- See how it does and note what it does differently relative to humans
+- Then debug the code
+
+```{r}
+#| label: exercise4_timer
+countdown(minutes = 10, 
+          id = "exercise2", 
+          #bottom = "10%", 
+          #right = "10%"
+          )
+```
