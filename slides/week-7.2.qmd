@@ -1,0 +1,319 @@
+---
+title: "Make a Map Function"
+date: today
+date-format: long
+footer: "[DataViz 2102 Website](https://dataviz-gwu.rocks)"
+logo: images/dataviz-logo.png
+format:
+  revealjs:
+    theme: [simple, custom.scss]
+    transition: fade
+    slide-number: true
+    multiplex: true
+    chalkboard: true
+execute:
+  echo: false
+  message: false
+  warning: false
+  freeze: auto
+---
+
+## What is a Function
+
+- A reusable piece of code that takes some inputs, performs some operations and returns an output
+- Elements
+  - Inputs (arguments)
+  - Operations (code block)
+  - Output (return value)
+- Like cooking (to produce a dish, you have a recipe and ingredients)
+- Don't repeat yourself (DRY)
+
+## Map Function
+
+```{r}
+#| lable: map-function0
+
+source("functions/wb-maps.R", local = knitr::knit_global())
+
+create_map(var_id = "SL.TLF.CACT.FE.ZS", 
+           title= "Female Labor Force Participation", 
+           legend_title = "FLFP %", 
+           theme = "inferno", 
+           direction = -1)
+```
+
+## Map Function
+
+```{r}
+#| lable: map-function1
+#| echo: true
+#| output: false 
+
+library(rnaturalearth)
+library(dplyr)
+library(ggplot2)
+library(ggthemes)
+library(wbstats)
+
+create_map <- function(var_id, title, legend_title, theme, direction){
+
+ne_countries(scale = "medium", returnclass = "sf") |> 
+  left_join(
+    wb_data(var_id, mrnev = 1), 
+    join_by(iso_a3 == iso3c)
+  ) |> 
+  filter(name != "Antarctica") |>  
+  ggplot() + 
+  geom_sf(aes(fill = eval(parse(text=var_id)))) + 
+  labs(
+    title =  title, 
+    fill = legend_title, 
+    caption = "Source: World Bank Development Indicators"
+    ) +
+  theme_map() +
+  theme(
+    plot.title = element_text(face = "bold"),
+  ) +
+  scale_fill_viridis_c( 
+    option = "magma", 
+    direction = direction 
+    )
+}
+```
+
+## Map Function
+
+```{r}
+#| lable: map-function2
+#| echo: true
+#| output: false 
+#| code-line-numbers: "7"
+
+library(rnaturalearth)
+library(dplyr)
+library(ggplot2)
+library(ggthemes)
+library(wbstats)
+
+create_map <- function(var_id, title, legend_title, theme, direction){
+
+ne_countries(scale = "medium", returnclass = "sf") |> 
+  left_join(
+    wb_data(var_id, mrnev = 1), 
+    join_by(iso_a3 == iso3c)
+  ) |> 
+  filter(name != "Antarctica") |>  
+  ggplot() + 
+  geom_sf(aes(fill = eval(parse(text=var_id)))) + 
+  labs(
+    title =  title, 
+    fill = legend_title, 
+    caption = "Source: World Bank Development Indicators"
+    ) +
+  theme_map() +
+  theme(
+    plot.title = element_text(face = "bold"),
+  ) +
+  scale_fill_viridis_c( 
+    option = "magma", 
+    direction = direction 
+    )
+}
+```
+
+## Map Function
+
+Where is the first argument?
+
+<br>
+
+```{r}
+#| lable: map-function4
+#| echo: true
+#| output: false 
+#| code-line-numbers: "9-13"
+
+library(rnaturalearth)
+library(dplyr)
+library(ggplot2)
+library(ggthemes)
+library(wbstats)
+
+create_map <- function(var_id, title, legend_title, theme, direction){
+
+ne_countries(scale = "medium", returnclass = "sf") |> 
+  left_join(
+    wb_data(var_id, mrnev = 1), 
+    join_by(iso_a3 == iso3c)
+  ) |> 
+  filter(name != "Antarctica") |>  
+  ggplot() + 
+  geom_sf(aes(fill = eval(parse(text=var_id)))) + # remove quotes
+  labs(
+    title =  title, # change title
+    fill = legend_title, # change legend title
+    caption = "Source: World Bank Development Indicators"
+    ) +
+  theme_map() +
+  theme(
+    plot.title = element_text(face = "bold"),
+  ) +
+  scale_fill_viridis_c( 
+    option = "magma", #  chg theme
+    direction = direction # change direction of scale
+    )
+}
+```
+
+## Map Function
+
+```{r}
+#| lable: map-function5
+#| echo: true
+#| output: false 
+#| code-line-numbers: "11"
+
+library(rnaturalearth)
+library(dplyr)
+library(ggplot2)
+library(ggthemes)
+library(wbstats)
+
+create_map <- function(var_id, title, legend_title, theme, direction){
+
+ne_countries(scale = "medium", returnclass = "sf") |> 
+  left_join(
+    wb_data(var_id, mrnev = 1), # change variable id
+    join_by(iso_a3 == iso3c)
+  ) |> 
+  filter(name != "Antarctica") |>  
+  ggplot() + 
+  geom_sf(aes(fill = eval(parse(text=var_id)))) + 
+  labs(
+    title =  title, 
+    fill = legend_title, 
+    caption = "Source: World Bank Development Indicators"
+    ) +
+  theme_map() +
+  theme(
+    plot.title = element_text(face = "bold"),
+  ) +
+  scale_fill_viridis_c( 
+    option = "magma", 
+    direction = direction 
+    )
+}
+```
+
+## Map Function
+
+```{r}
+#| lable: map-function6
+#| echo: true
+#| output: false 
+#| code-line-numbers: "7,11,16,18-19,27-28"
+
+library(rnaturalearth)
+library(dplyr)
+library(ggplot2)
+library(ggthemes)
+library(wbstats)
+
+create_map <- function(var_id, title, legend_title, theme, direction){
+
+ne_countries(scale = "medium", returnclass = "sf") |> 
+  left_join(
+    wb_data(var_id, mrnev = 1), # change variable id
+    join_by(iso_a3 == iso3c)
+  ) |> 
+  filter(name != "Antarctica") |>  
+  ggplot() + 
+  geom_sf(aes(fill = eval(parse(text=var_id)))) + # remove quotes
+  labs(
+    title =  title, # change title
+    fill = legend_title, # change legend title
+    caption = "Source: World Bank Development Indicators"
+    ) +
+  theme_map() +
+  theme(
+    plot.title = element_text(face = "bold"),
+  ) +
+  scale_fill_viridis_c( 
+    option = "magma", #  chg theme
+    direction = direction # change direction of scale
+    )
+}
+```
+
+## Map Function
+
+<br>
+
+Save the source code in a folder, and call in your document...
+
+<br>
+
+```{r}
+#| label: map-function7
+#| echo: true
+#| output: false
+
+source("functions/wb-maps.R", local = knitr::knit_global())
+
+create_map(var_id = "SL.TLF.CACT.FE.ZS", 
+           title= "Female Labor Force Participation", 
+           legend_title = "FLFP %", 
+           theme = "inferno", 
+           direction = -1)
+```
+
+## Your Turn{.smaller}
+
+- Take the code from module 3.1, paste in an R script and save in a folder
+- Call `source()` and then the function in your Quarto document
+- Change the values for the five parameters 
+- Go back to the code and add a new parameter (like subtitle)
+- Try calling the function again
+- Write something about your map and render the Quarto document
+
+```{r}
+#| label: setup_timer
+library(countdown)
+countdown(minutes = 10, 
+          id = "setup", 
+          #bottom = "10%", 
+          #right = "10%",
+          color_border = "#fff",
+          color_text = "#fff",
+          color_running_background = "#42affa",
+          color_running_text = "black",
+          color_finished_background = "#E5D19D",
+          color_finished_text = "#00264A")
+```
+
+## Democracy Function{.smaller}
+
+- Can you make a map function for a democracy indicator?
+- Come up with a plan
+  - What will the name of the function be?
+  - What will the parameters be?
+  - What would the
+- Take democracy code from last class and implement
+- Add more parameters if desired
+
+```{r}
+#| label: exercise2_timer
+countdown(minutes = 20, 
+          id = "exercise2", 
+          bottom = "10%", 
+          right = "10%"
+          )
+```
+
+## Other Functions
+
+- What other visualizations could you "functionize"?
+- Line charts?
+- Bar charts? 
+- Scatter plots? 
+- Try one!

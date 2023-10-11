@@ -2959,5 +2959,89 @@
     "title": "Choropleth Maps",
     "section": "Coding With AI",
     "text": "Coding With AI\n\n\nSometimes coding with AI can helpful\nSometimes not!\nTry prompting ChatGPT to code up a choropleth map\nTell it what packages to use\nSee how it does and note what it does differently relative to humans\nThen debug the code\n\n\n\n\n−+\n10:00\n\n\n\n\n\n\nDataViz 2102 Website"
+  },
+  {
+    "objectID": "slides/week-7.2.html#what-is-a-function",
+    "href": "slides/week-7.2.html#what-is-a-function",
+    "title": "Make a Map Function",
+    "section": "What is a Function",
+    "text": "What is a Function\n\nA reusable piece of code that takes some inputs, performs some operations and returns an output\nElements\n\nInputs (arguments)\nOperations (code block)\nOutput (return value)\n\nLike cooking (to produce a dish, you have a recipe and ingredients)\nDon’t repeat yourself (DRY)"
+  },
+  {
+    "objectID": "slides/week-7.2.html#map-function",
+    "href": "slides/week-7.2.html#map-function",
+    "title": "Make a Map Function",
+    "section": "Map Function",
+    "text": "Map Function"
+  },
+  {
+    "objectID": "slides/week-7.2.html#map-function-1",
+    "href": "slides/week-7.2.html#map-function-1",
+    "title": "Make a Map Function",
+    "section": "Map Function",
+    "text": "Map Function\n\nlibrary(rnaturalearth)\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(ggthemes)\nlibrary(wbstats)\n\ncreate_map &lt;- function(var_id, title, legend_title, theme, direction){\n\nne_countries(scale = \"medium\", returnclass = \"sf\") |&gt; \n  left_join(\n    wb_data(var_id, mrnev = 1), \n    join_by(iso_a3 == iso3c)\n  ) |&gt; \n  filter(name != \"Antarctica\") |&gt;  \n  ggplot() + \n  geom_sf(aes(fill = eval(parse(text=var_id)))) + \n  labs(\n    title =  title, \n    fill = legend_title, \n    caption = \"Source: World Bank Development Indicators\"\n    ) +\n  theme_map() +\n  theme(\n    plot.title = element_text(face = \"bold\"),\n  ) +\n  scale_fill_viridis_c( \n    option = \"magma\", \n    direction = direction \n    )\n}"
+  },
+  {
+    "objectID": "slides/week-7.2.html#map-function-2",
+    "href": "slides/week-7.2.html#map-function-2",
+    "title": "Make a Map Function",
+    "section": "Map Function",
+    "text": "Map Function\n\nlibrary(rnaturalearth)\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(ggthemes)\nlibrary(wbstats)\n\ncreate_map &lt;- function(var_id, title, legend_title, theme, direction){\n\nne_countries(scale = \"medium\", returnclass = \"sf\") |&gt; \n  left_join(\n    wb_data(var_id, mrnev = 1), \n    join_by(iso_a3 == iso3c)\n  ) |&gt; \n  filter(name != \"Antarctica\") |&gt;  \n  ggplot() + \n  geom_sf(aes(fill = eval(parse(text=var_id)))) + \n  labs(\n    title =  title, \n    fill = legend_title, \n    caption = \"Source: World Bank Development Indicators\"\n    ) +\n  theme_map() +\n  theme(\n    plot.title = element_text(face = \"bold\"),\n  ) +\n  scale_fill_viridis_c( \n    option = \"magma\", \n    direction = direction \n    )\n}"
+  },
+  {
+    "objectID": "slides/week-7.2.html#map-function-3",
+    "href": "slides/week-7.2.html#map-function-3",
+    "title": "Make a Map Function",
+    "section": "Map Function",
+    "text": "Map Function\nWhere is the first argument?\n\n\nlibrary(rnaturalearth)\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(ggthemes)\nlibrary(wbstats)\n\ncreate_map &lt;- function(var_id, title, legend_title, theme, direction){\n\nne_countries(scale = \"medium\", returnclass = \"sf\") |&gt; \n  left_join(\n    wb_data(var_id, mrnev = 1), \n    join_by(iso_a3 == iso3c)\n  ) |&gt; \n  filter(name != \"Antarctica\") |&gt;  \n  ggplot() + \n  geom_sf(aes(fill = eval(parse(text=var_id)))) + # remove quotes\n  labs(\n    title =  title, # change title\n    fill = legend_title, # change legend title\n    caption = \"Source: World Bank Development Indicators\"\n    ) +\n  theme_map() +\n  theme(\n    plot.title = element_text(face = \"bold\"),\n  ) +\n  scale_fill_viridis_c( \n    option = \"magma\", #  chg theme\n    direction = direction # change direction of scale\n    )\n}"
+  },
+  {
+    "objectID": "slides/week-7.2.html#map-function-4",
+    "href": "slides/week-7.2.html#map-function-4",
+    "title": "Make a Map Function",
+    "section": "Map Function",
+    "text": "Map Function\n\nlibrary(rnaturalearth)\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(ggthemes)\nlibrary(wbstats)\n\ncreate_map &lt;- function(var_id, title, legend_title, theme, direction){\n\nne_countries(scale = \"medium\", returnclass = \"sf\") |&gt; \n  left_join(\n    wb_data(var_id, mrnev = 1), # change variable id\n    join_by(iso_a3 == iso3c)\n  ) |&gt; \n  filter(name != \"Antarctica\") |&gt;  \n  ggplot() + \n  geom_sf(aes(fill = eval(parse(text=var_id)))) + \n  labs(\n    title =  title, \n    fill = legend_title, \n    caption = \"Source: World Bank Development Indicators\"\n    ) +\n  theme_map() +\n  theme(\n    plot.title = element_text(face = \"bold\"),\n  ) +\n  scale_fill_viridis_c( \n    option = \"magma\", \n    direction = direction \n    )\n}"
+  },
+  {
+    "objectID": "slides/week-7.2.html#map-function-5",
+    "href": "slides/week-7.2.html#map-function-5",
+    "title": "Make a Map Function",
+    "section": "Map Function",
+    "text": "Map Function\n\nlibrary(rnaturalearth)\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(ggthemes)\nlibrary(wbstats)\n\ncreate_map &lt;- function(var_id, title, legend_title, theme, direction){\n\nne_countries(scale = \"medium\", returnclass = \"sf\") |&gt; \n  left_join(\n    wb_data(var_id, mrnev = 1), # change variable id\n    join_by(iso_a3 == iso3c)\n  ) |&gt; \n  filter(name != \"Antarctica\") |&gt;  \n  ggplot() + \n  geom_sf(aes(fill = eval(parse(text=var_id)))) + # remove quotes\n  labs(\n    title =  title, # change title\n    fill = legend_title, # change legend title\n    caption = \"Source: World Bank Development Indicators\"\n    ) +\n  theme_map() +\n  theme(\n    plot.title = element_text(face = \"bold\"),\n  ) +\n  scale_fill_viridis_c( \n    option = \"magma\", #  chg theme\n    direction = direction # change direction of scale\n    )\n}"
+  },
+  {
+    "objectID": "slides/week-7.2.html#map-function-6",
+    "href": "slides/week-7.2.html#map-function-6",
+    "title": "Make a Map Function",
+    "section": "Map Function",
+    "text": "Map Function\n\nSave the source code in a folder, and call in your document…\n\n\nsource(\"functions/wb-maps.R\", local = knitr::knit_global())\n\ncreate_map(var_id = \"SL.TLF.CACT.FE.ZS\", \n           title= \"Female Labor Force Participation\", \n           legend_title = \"FLFP %\", \n           theme = \"inferno\", \n           direction = -1)"
+  },
+  {
+    "objectID": "slides/week-7.2.html#your-turn",
+    "href": "slides/week-7.2.html#your-turn",
+    "title": "Make a Map Function",
+    "section": "Your Turn",
+    "text": "Your Turn\n\nTake the code from module 3.1, paste in an R script and save in a folder\nCall source() and then the function in your Quarto document\nChange the values for the five parameters\nGo back to the code and add a new parameter (like subtitle)\nTry calling the function again\nWrite something about your map and render the Quarto document\n\n\n\n\n−+\n10:00"
+  },
+  {
+    "objectID": "slides/week-7.2.html#map-function-7",
+    "href": "slides/week-7.2.html#map-function-7",
+    "title": "Make a Map Function",
+    "section": "Map Function",
+    "text": "Map Function\n\nSave the source code in a folder, and call in your document…\n\n\nsource(\"functions/wb-maps.R\", local = knitr::knit_global())\n\ncreate_map(var_id = \"SL.TLF.CACT.FE.ZS\", \n           title= \"Female Labor Force Participation\", \n           legend_title = \"FLFP %\", \n           theme = \"inferno\", \n           direction = -1)"
+  },
+  {
+    "objectID": "slides/week-7.2.html#democracy-function",
+    "href": "slides/week-7.2.html#democracy-function",
+    "title": "Make a Map Function",
+    "section": "Democracy Function",
+    "text": "Democracy Function\n\nCan you make a map function for a democracy indicator?\nCome up with a plan\n\nWhat will the name of the function be?\nWhat will the parameters be?\nWhat would the\n\nTake democracy code from last class and implement\nAdd more parameters if desired\n\n\n\n\n−+\n20:00"
+  },
+  {
+    "objectID": "slides/week-7.2.html#other-functions",
+    "href": "slides/week-7.2.html#other-functions",
+    "title": "Make a Map Function",
+    "section": "Other Functions",
+    "text": "Other Functions\n\nWhat other visualizations could you “functionize”?\nLine charts?\nBar charts?\nScatter plots?\nTry one!\n\n\n\n\nDataViz 2102 Website"
   }
 ]
