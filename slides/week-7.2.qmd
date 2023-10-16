@@ -75,7 +75,7 @@ ne_countries(scale = "medium", returnclass = "sf") |>
     plot.title = element_text(face = "bold"),
   ) +
   scale_fill_viridis_c( 
-    option = "magma", 
+    option = theme, 
     direction = direction 
     )
 }
@@ -115,7 +115,7 @@ ne_countries(scale = "medium", returnclass = "sf") |>
     plot.title = element_text(face = "bold"),
   ) +
   scale_fill_viridis_c( 
-    option = "magma", 
+    option = theme, 
     direction = direction 
     )
 }
@@ -159,7 +159,7 @@ ne_countries(scale = "medium", returnclass = "sf") |>
     plot.title = element_text(face = "bold"),
   ) +
   scale_fill_viridis_c( 
-    option = "magma", #  chg theme
+    option = theme, #  chg theme
     direction = direction # change direction of scale
     )
 }
@@ -199,7 +199,7 @@ ne_countries(scale = "medium", returnclass = "sf") |>
     plot.title = element_text(face = "bold"),
   ) +
   scale_fill_viridis_c( 
-    option = "magma", 
+    option = theme, 
     direction = direction 
     )
 }
@@ -239,7 +239,7 @@ ne_countries(scale = "medium", returnclass = "sf") |>
     plot.title = element_text(face = "bold"),
   ) +
   scale_fill_viridis_c( 
-    option = "magma", #  chg theme
+    option = theme, #  chg theme
     direction = direction # change direction of scale
     )
 }
@@ -249,7 +249,7 @@ ne_countries(scale = "medium", returnclass = "sf") |>
 
 <br>
 
-Save the source code in a folder, and call in your document...
+Save the source code in a folder... 
 
 <br>
 
@@ -259,6 +259,16 @@ Save the source code in a folder, and call in your document...
 #| output: false
 
 source("functions/wb-maps.R", local = knitr::knit_global())
+```
+
+<br> 
+
+and call in your document...<br>
+
+```{r}
+#| label: map-function8
+#| echo: true
+#| output: false
 
 create_map(var_id = "SL.TLF.CACT.FE.ZS", 
            title= "Female Labor Force Participation", 
@@ -267,7 +277,10 @@ create_map(var_id = "SL.TLF.CACT.FE.ZS",
            direction = -1)
 ```
 
+
 ## Your Turn{.smaller}
+
+<br>
 
 - Take the code from module 3.1, paste in an R script and save in a folder
 - Call `source()` and then the function in your Quarto document
@@ -292,6 +305,8 @@ countdown(minutes = 10,
 ```
 
 ## Democracy Function{.smaller}
+
+<br>
 
 - Can you make a map function for a democracy indicator?
 - Come up with a plan
