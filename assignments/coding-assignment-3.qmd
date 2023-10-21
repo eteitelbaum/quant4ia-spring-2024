@@ -16,7 +16,7 @@ For this assignment, we are going to be evaluating Michael Ross's influential bo
 
 *a. Download one of the democracy (e.g. electoral democracy, liberal democracy, participatory democracy, deliberative democracy or egalitarian democracy) from V-Dem using the `vdemdata` package. Then use the vdemdata package to download this indicator and add iso3c codes to it with the `countrycode` package. See module 1.2 to refresh your memory on how to do this. (Note: you don't have to add region names for this exercise.) `glimpse()` the data to make sure everything is there.*
 
-*b. Using iso_a3_eh codes from `rnaturalearth` and the iso3c codes you just added to the V-Dem data, join the V-Dem data to the country shapes. `glimpse()` the data to make sure everything look right.*
+*b. Using iso_a3 codes from `rnaturalearth` and the iso3c codes you just added to the V-Dem data, join the V-Dem data to the country shapes. `glimpse()` the data to make sure everything look right.*
 
 *c. Use `ggplot()` and `geom_sf()` to map the data. Use `theme_map()` from `ggthemes` and give it a `viridis` color scheme. Give the map appropriate labels.*
 
