@@ -71,7 +71,7 @@
     "href": "index.html",
     "title": "Course Schedule",
     "section": "",
-    "text": "This page displays an outline of the topics, content, and assignments for the term. Each module starts on a Monday. There are no assignments due on Sundays.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModule\nDate\nSkills\nPackages\nFunctions\nReadings\nReference\nSlides\nVideos\nAssignments\n\n\n\n\nGS\nAug 28\nCourse Intro\n\n\n\n\n\n\n\n\n\n\nAug 30\nRStudio, Quarto\n\n\n\n📖\n🖥️\n🖥️\n\n\n\n\nSep 4\nNo class, Labor Day\n\n\n\n\n\n\n\n\n\n\nSep 6\nQuarto, GitHub Classroom\n\n\n\n📖\n🖥️\n🖥️🖥️\n\n\n\n1.1\nSep 11\nRead data into R\nreadr, dplyr\nread_csv(), glimpse()\n\n📖\n🖥️\n🖥️🖥️\n\n\n\n\nSep 13\nReshape, clean data\ntidyr, dplyr\npivot_longer(), mutate(), mutate_at(), substring()\n\n📖\n🖥️\n🖥️🖥️🖥️\n📘\n\n\n1.2\nSep 18\nDownload data from an API\nwbstats, vdemdata, dplyr, janitor\nwb_data(), vdem, select_(), filter(), case_match(), round_to_fraction()\n📖\n\n🖥️\n🖥️🖥️\n\n\n\n\nSep 20\nMerge data frames, group, summarize and arrange\ncountrycode, dplyr , readr\ncountrycode(), left_join(), write_csv(), group_by(), summarize(), arrange()\n\n📖 📖\n🖥️\n🖥️🖥️🖥️\n📘🧮\n\n\n2.1\nSep 25\nBar charts & histograms\nggplot2\nggplot(), geom_col(), geom_histogram(), aes(), labs()\n\n📖📖\n🖥️\n🖥️🖥️\n\n\n\n\nSep 27\nLine charts & scatter plots\nggplot2, scales\ngeom_line() , geom_point(), geom_smooth(), scale_x_log10(), label_number(), geom_text()\n\n📖\n🖥️\n🖥️🖥️\n📘\n\n\n2.2\nOct 2\nColor schemes\ntidyr, colorBlindess, dplyr, viridis, RColorBrewer\ndrop_na(), cvdPlot(), scale_fill_manual(), scale_fill_viridis_d(), scale_fill_brewer(), scale_color_manual(), scale_color_viridis_d(), scale_color_brewer\n📖\n📖\n🖥️\n🖥️\n\n\n\n\nOct 4\nThemes, annotations & interactivity\nggplot2 , plotly\ntheme_dark(), theme_minimal(), annotate(), geom_hline(), geom_vline(),``ggplotly(), layout()\n\n📖\n🖥️\n🖥️🖥️🖥️\n📘 🧮\n\n\n3.1\nOct 9\nMap data with choropleth maps\nrnaturalearth, ggplot2, ggthemes , virids\nne_countries(), geom_sf(), theme_map() , theme() , scale_fill_viridis_c()\n\n\n🖥️\n🖥️🖥️\n\n\n\n\nOct 11\nMake a map function\n\neval(), parse(), function(), source()\n\n\n🖥️\n🖥️\n📘\n\n\n3.2\nOct 16\nUpload UCDP data & make a leaflet map\nstates, sf , leaflet\nsfind(), st_as_sf() , leaflet(), addTiles(), addMarkers(), setView()\n📖\n\n🖥️\n🖥️🖥️\n\n\n\n\nOct 18\nCustomize your map\nleaflet, htmltools\nawesomeIcons(),addAwesomeMarkers(), addProviderTiles(), sprintf(), lapply(), HTML\n\n\n\n🖥️\n📘 🧮\n\n\n4.1\nOct 23\nExploring tabular data\ntidycensus, dplyr, stringr, kableExtra\ncensus_api_key(), load_variables(), get_acs(), rename(), rename_with, str_remove(), kable(), slice_max(), slice_min(), slice_sample(), bind_rows()\n\n\n\n🖥️🖥️\n\n\n\n\nOct 25\nMake a gt table, make confidence intervals with ggplot2\ngt , ggplot2\ngt(), tab_header(), cols_label(), fmt_currency(), tab_source_note(), cols_width(), opt_table_font(), cols_align(), tab_options(), gtsave() , geom_errorbar()\n\n\n\n🖥️🖥️\n📘\n\n\n4.2\nOct 30\nDisplay regression tables\npeacesciencer, broom, dplyr\ncreate_stateyears(), add_ucdp_acd(), add_democracy(), add_creg_fractionalization(), add_sdp_gdp(), add_rugged_terrain(), tidy(), mutate_if(), glm(), binomial()\n📖\n\n\n🖥️\n\n\n\n\nNov 1\nMake regression tables and coefficient plots\nmodelsummary\nlist(), modelsummary(), modelplot(), rev()\n\n\n\n🖥️🖥️\n✍️ 📘 🧮\n\n\n5.1\nNov 6\nScatter plot app setup, building the UI\ndplyr , shiny\nsummarize_all(), fluidPage(), titlePanel(), sidebarLayout(), sidebarPanel(), selectInput(), mainPanel(), plotOutput()\n\n\n\n🖥️🖥️\n\n\n\n\nNov 8\nBuilding the server\nshiny\nrenderPlot(), shinyApp()\n\n\n\n🖥️\n📘\n\n\n5.2\nNov 13\nLine chart app setup, building the UI\nfredr , shiny\nfredr_set_key() , as.Date() , Sys.Date() , column(), wellPanel(), helpText(), sliderInput()\n📖\n\n\n🖥️🖥️\n\n\n\n\nNov 15\nBuilding the server\nfredr , shiny\nreactive(), fredr(), fred_indicator()\n\n\n\n🖥️\n✍️ 📘 🧮\n\n\n\nNov 20\nNo class, Thanksgiving break\n\n\n\n\n\n\n\n\n\n\nNov 22\nNo class, Thanksgiving break\n\n\n\n\n\n\n\n\n\n6.1\nNov 27\nFinal project workshop\n\n\n\n\n\n🖥️\n\n\n\n\nNov 29\nFinal project workshop\n\n\n\n\n\n\n\n\n\n6.2\nDec 4\nLightening talks\n\n\n\n\n\n🖥️\n\n\n\n\nDec 6\nLightening talks\n\n\n\n\n\n\n\n\n\n\nDec 11\nLightening talks\n\n\n\n\n\n\n✍️",
+    "text": "This page displays an outline of the topics, content, and assignments for the term. Each module starts on a Monday. There are no assignments due on Sundays.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModule\nDate\nSkills\nPackages\nFunctions\nReadings\nReference\nSlides\nVideos\nAssignments\n\n\n\n\nGS\nAug 28\nCourse Intro\n\n\n\n\n\n\n\n\n\n\nAug 30\nRStudio, Quarto\n\n\n\n📖\n🖥️\n🖥️\n\n\n\n\nSep 4\nNo class, Labor Day\n\n\n\n\n\n\n\n\n\n\nSep 6\nQuarto, GitHub Classroom\n\n\n\n📖\n🖥️\n🖥️🖥️\n\n\n\n1.1\nSep 11\nRead data into R\nreadr, dplyr\nread_csv(), glimpse()\n\n📖\n🖥️\n🖥️🖥️\n\n\n\n\nSep 13\nReshape, clean data\ntidyr, dplyr\npivot_longer(), mutate(), mutate_at(), substring()\n\n📖\n🖥️\n🖥️🖥️🖥️\n📘\n\n\n1.2\nSep 18\nDownload data from an API\nwbstats, vdemdata, dplyr, janitor\nwb_data(), vdem, select_(), filter(), case_match(), round_to_fraction()\n📖\n\n🖥️\n🖥️🖥️\n\n\n\n\nSep 20\nMerge data frames, group, summarize and arrange\ncountrycode, dplyr , readr\ncountrycode(), left_join(), write_csv(), group_by(), summarize(), arrange()\n\n📖 📖\n🖥️\n🖥️🖥️🖥️\n📘🧮\n\n\n2.1\nSep 25\nBar charts & histograms\nggplot2\nggplot(), geom_col(), geom_histogram(), aes(), labs()\n\n📖📖\n🖥️\n🖥️🖥️\n\n\n\n\nSep 27\nLine charts & scatter plots\nggplot2, scales\ngeom_line() , geom_point(), geom_smooth(), scale_x_log10(), label_number(), geom_text()\n\n📖\n🖥️\n🖥️🖥️\n📘\n\n\n2.2\nOct 2\nColor schemes\ntidyr, colorBlindess, dplyr, viridis, RColorBrewer\ndrop_na(), cvdPlot(), scale_fill_manual(), scale_fill_viridis_d(), scale_fill_brewer(), scale_color_manual(), scale_color_viridis_d(), scale_color_brewer\n📖\n📖\n🖥️\n🖥️\n\n\n\n\nOct 4\nThemes, annotations & interactivity\nggplot2 , plotly\ntheme_dark(), theme_minimal(), annotate(), geom_hline(), geom_vline(),``ggplotly(), layout()\n\n📖\n🖥️\n🖥️🖥️🖥️\n📘 🧮\n\n\n3.1\nOct 9\nMap data with choropleth maps\nrnaturalearth, ggplot2, ggthemes , virids\nne_countries(), geom_sf(), theme_map() , theme() , scale_fill_viridis_c()\n\n\n🖥️\n🖥️🖥️\n\n\n\n\nOct 11\nMake a map function\n\neval(), parse(), function(), source()\n\n\n🖥️\n🖥️\n📘\n\n\n3.2\nOct 16\nUpload UCDP data & make a leaflet map\nstates, sf , leaflet\nsfind(), st_as_sf() , leaflet(), addTiles(), addMarkers(), setView()\n📖\n\n🖥️\n🖥️🖥️\n\n\n\n\nOct 18\nCustomize your map\nleaflet, htmltools\nawesomeIcons(),addAwesomeMarkers(), addProviderTiles(), sprintf(), lapply(), HTML\n\n\n\n🖥️\n📘 🧮\n\n\n4.1\nOct 23\nExploring tabular data\ntidycensus, dplyr, stringr, kableExtra\ncensus_api_key(), load_variables(), get_acs(), rename(), rename_with, str_remove(), kable(), slice_max(), slice_min(), slice_sample(), bind_rows()\n\n\n🖥️\n🖥️🖥️\n\n\n\n\nOct 25\nMake a gt table, make confidence intervals with ggplot2\ngt , ggplot2\ngt(), tab_header(), cols_label(), fmt_currency(), tab_source_note(), cols_width(), opt_table_font(), cols_align(), tab_options(), gtsave() , geom_errorbar()\n\n\n\n🖥️🖥️\n📘\n\n\n4.2\nOct 30\nDisplay regression tables\npeacesciencer, broom, dplyr\ncreate_stateyears(), add_ucdp_acd(), add_democracy(), add_creg_fractionalization(), add_sdp_gdp(), add_rugged_terrain(), tidy(), mutate_if(), glm(), binomial()\n📖\n\n\n🖥️\n\n\n\n\nNov 1\nMake regression tables and coefficient plots\nmodelsummary\nlist(), modelsummary(), modelplot(), rev()\n\n\n\n🖥️🖥️\n✍️ 📘 🧮\n\n\n5.1\nNov 6\nScatter plot app setup, building the UI\ndplyr , shiny\nsummarize_all(), fluidPage(), titlePanel(), sidebarLayout(), sidebarPanel(), selectInput(), mainPanel(), plotOutput()\n\n\n\n🖥️🖥️\n\n\n\n\nNov 8\nBuilding the server\nshiny\nrenderPlot(), shinyApp()\n\n\n\n🖥️\n📘\n\n\n5.2\nNov 13\nLine chart app setup, building the UI\nfredr , shiny\nfredr_set_key() , as.Date() , Sys.Date() , column(), wellPanel(), helpText(), sliderInput()\n📖\n\n\n🖥️🖥️\n\n\n\n\nNov 15\nBuilding the server\nfredr , shiny\nreactive(), fredr(), fred_indicator()\n\n\n\n🖥️\n✍️ 📘 🧮\n\n\n\nNov 20\nNo class, Thanksgiving break\n\n\n\n\n\n\n\n\n\n\nNov 22\nNo class, Thanksgiving break\n\n\n\n\n\n\n\n\n\n6.1\nNov 27\nFinal project workshop\n\n\n\n\n\n🖥️\n\n\n\n\nNov 29\nFinal project workshop\n\n\n\n\n\n\n\n\n\n6.2\nDec 4\nLightening talks\n\n\n\n\n\n🖥️\n\n\n\n\nDec 6\nLightening talks\n\n\n\n\n\n\n\n\n\n\nDec 11\nLightening talks\n\n\n\n\n\n\n✍️",
     "crumbs": [
       "Course information",
       "Schedule"
@@ -3220,5 +3220,180 @@
     "title": "Leaflet Maps",
     "section": "Your Turn",
     "text": "Your Turn\n\nDownload the data\nReproduce Yemen map\nThen try another country\n\n\n\n\nDataViz 2102 Website"
+  },
+  {
+    "objectID": "slides/week-9.1.html#awesome-table",
+    "href": "slides/week-9.1.html#awesome-table",
+    "title": "Making Tables",
+    "section": "Awesome Table",
+    "text": "Awesome Table\n\n\n\n\n\n\n\n\n\nMean Household Income of Quintiles, 2021\n\n\nSeven Representative U.S. States\n\n\n\nlowest\nsecond\nthird\nfourth\nhighest\ntop 5%\n\n\n\n\nDistrict of Columbia\n$12,971\n$51,060\n$94,478\n$157,803\n$375,792\n$670,768\n\n\nColorado\n$18,963\n$49,711\n$80,679\n$123,359\n$264,516\n$466,181\n\n\nGeorgia\n$14,139\n$38,707\n$65,443\n$102,914\n$234,209\n$422,018\n\n\nTennessee\n$13,267\n$35,388\n$58,910\n$91,968\n$210,529\n$389,257\n\n\nSouth Carolina\n$12,680\n$34,881\n$58,665\n$92,118\n$207,367\n$374,427\n\n\nMontana\n$14,811\n$36,927\n$60,644\n$93,340\n$205,462\n$370,234\n\n\nPuerto Rico\n$2,906\n$12,144\n$22,163\n$38,397\n$99,043\n$187,234\n\n\n\nSource: US Census Bureau, American Community Survey"
+  },
+  {
+    "objectID": "slides/week-9.1.html#why-tables",
+    "href": "slides/week-9.1.html#why-tables",
+    "title": "Making Tables",
+    "section": "Why Tables?",
+    "text": "Why Tables?\n\n\n\nSummary statistics\nPrecise values (for small number of cases)\nRegression tables"
+  },
+  {
+    "objectID": "slides/week-9.1.html#section",
+    "href": "slides/week-9.1.html#section",
+    "title": "Making Tables",
+    "section": "",
+    "text": "DataViz 2102 Website"
+  },
+  {
+    "objectID": "slides/week-9.1.html#the-grammar-of-tables",
+    "href": "slides/week-9.1.html#the-grammar-of-tables",
+    "title": "Making Tables",
+    "section": "The Grammar of Tables",
+    "text": "The Grammar of Tables"
+  },
+  {
+    "objectID": "slides/week-9.1.html#when-not-to-use-tables",
+    "href": "slides/week-9.1.html#when-not-to-use-tables",
+    "title": "Making Tables",
+    "section": "When Not to Use Tables?",
+    "text": "When Not to Use Tables?\n\n\n\nTo show a trend\nDisplay a relationship\nLots of values\nFew values but column chart is better"
+  },
+  {
+    "objectID": "slides/week-9.1.html#prep",
+    "href": "slides/week-9.1.html#prep",
+    "title": "Making Tables",
+    "section": "Prep",
+    "text": "Prep\n\nDo the prework for the module\nGet a census API key"
+  },
+  {
+    "objectID": "slides/week-9.1.html#set-api-key",
+    "href": "slides/week-9.1.html#set-api-key",
+    "title": "Making Tables",
+    "section": "Set API key",
+    "text": "Set API key\n\n\nlibrary(tidycensus)\ncensus_api_key(\"YOUR API KEY\") # enter your census api key here in quotes"
+  },
+  {
+    "objectID": "slides/week-9.1.html#load-variables",
+    "href": "slides/week-9.1.html#load-variables",
+    "title": "Making Tables",
+    "section": "Load Variables",
+    "text": "Load Variables\n\nSearch for “quintile”…\n\n\nv21 &lt;- load_variables(2021, \"acs5\", cache = TRUE)\n\n#View(v21)"
+  },
+  {
+    "objectID": "slides/week-9.1.html#clean-the-data",
+    "href": "slides/week-9.1.html#clean-the-data",
+    "title": "Making Tables",
+    "section": "Clean the Data",
+    "text": "Clean the Data\n\nlibrary(stringr)\nlibrary(dplyr)\n\nquintiles &lt;- get_acs(geography = \"state\", \n                      variables = c(q1 = \"B19081_001\",\n                                    q2 = \"B19081_002\",\n                                    q3 = \"B19081_003\",\n                                    q4 = \"B19081_004\",\n                                    q5 = \"B19081_005\",\n                                    top5 = \"B19081_006\"),\n                      year = 2021,\n                      output = \"wide\") |&gt;\n                      select(\n                        !ends_with(\"M\"), # eliminate margin of error\n                        -GEOID) |&gt; # eliminate geo id\n                      rename(name = NAME) |&gt;\n                      rename_with(~str_remove(., 'E'))\n    \n\nglimpse(quintiles)\n\n\n\n\n−+\n10:00"
+  },
+  {
+    "objectID": "slides/week-9.1.html#kableextra-table",
+    "href": "slides/week-9.1.html#kableextra-table",
+    "title": "Making Tables",
+    "section": "kableExtra Table",
+    "text": "kableExtra Table\n\n\n\n\n\nname\nq1\nq2\nq3\nq4\nq5\ntop5\n\n\n\n\nDistrict of Columbia\n12971\n51060\n94478\n157803\n375792\n670768\n\n\nConnecticut\n17417\n48870\n84042\n133488\n319533\n602707\n\n\nNew York\n14054\n42220\n75647\n123318\n302676\n574063\n\n\nNew Jersey\n18458\n52339\n90337\n142858\n319140\n562886\n\n\nMassachusetts\n16812\n50519\n89602\n142491\n316447\n558616\n\n\nCalifornia\n17433\n49234\n84658\n134560\n309857\n555007\n\n\nMaryland\n19946\n55165\n91725\n140353\n293979\n503597\n\n\nWashington\n19367\n50803\n82817\n127003\n277165\n487950\n\n\nVirginia\n17922\n48359\n81072\n127411\n280299\n486006\n\n\nIllinois\n15102\n42688\n72900\n114531\n258373\n466713"
+  },
+  {
+    "objectID": "slides/week-9.1.html#kableextra-table-1",
+    "href": "slides/week-9.1.html#kableextra-table-1",
+    "title": "Making Tables",
+    "section": "kableExtra Table",
+    "text": "kableExtra Table\n\n\ntop_10 &lt;- quintiles |&gt;\n  slice_max(top5, n = 10)\n\nkable(top_10)"
+  },
+  {
+    "objectID": "slides/week-9.1.html#issues-with-this-table",
+    "href": "slides/week-9.1.html#issues-with-this-table",
+    "title": "Making Tables",
+    "section": "Issues with this table?",
+    "text": "Issues with this table?\n\n\n\n\n\nname\nq1\nq2\nq3\nq4\nq5\ntop5\n\n\n\n\nDistrict of Columbia\n12971\n51060\n94478\n157803\n375792\n670768\n\n\nConnecticut\n17417\n48870\n84042\n133488\n319533\n602707\n\n\nNew York\n14054\n42220\n75647\n123318\n302676\n574063\n\n\nNew Jersey\n18458\n52339\n90337\n142858\n319140\n562886\n\n\nMassachusetts\n16812\n50519\n89602\n142491\n316447\n558616\n\n\nCalifornia\n17433\n49234\n84658\n134560\n309857\n555007\n\n\nMaryland\n19946\n55165\n91725\n140353\n293979\n503597\n\n\nWashington\n19367\n50803\n82817\n127003\n277165\n487950\n\n\nVirginia\n17922\n48359\n81072\n127411\n280299\n486006\n\n\nIllinois\n15102\n42688\n72900\n114531\n258373\n466713"
+  },
+  {
+    "objectID": "slides/week-9.1.html#lets-make-a-gt-table",
+    "href": "slides/week-9.1.html#lets-make-a-gt-table",
+    "title": "Making Tables",
+    "section": "Let’s make a gt table",
+    "text": "Let’s make a gt table\nCreate states data frame…\n\n# lowest \nstate_min &lt;- quintiles |&gt; \n  slice_min(q1) \n\n# highest\nstate_max &lt;- quintiles |&gt; \n  slice_max(top5) \n\n# randomly select five more\nfive_more &lt;- quintiles |&gt;\n   slice_sample(n = 5) \n\nstates &lt;- bind_rows(state_min, state_max, five_more) |&gt;\n  arrange(desc(top5))\n\n\n\n\n−+\n05:00"
+  },
+  {
+    "objectID": "slides/week-9.1.html#lets-make-a-gt-table-1",
+    "href": "slides/week-9.1.html#lets-make-a-gt-table-1",
+    "title": "Making Tables",
+    "section": "Let’s make a gt table",
+    "text": "Let’s make a gt table\n\n\nlibrary(gt)\ngt(states)\n\n\n\n\n\n\n\nname\nq1\nq2\nq3\nq4\nq5\ntop5\n\n\n\n\nDistrict of Columbia\n12971\n51060\n94478\n157803\n375792\n670768\n\n\nColorado\n18963\n49711\n80679\n123359\n264516\n466181\n\n\nGeorgia\n14139\n38707\n65443\n102914\n234209\n422018\n\n\nTennessee\n13267\n35388\n58910\n91968\n210529\n389257\n\n\nSouth Carolina\n12680\n34881\n58665\n92118\n207367\n374427\n\n\nMontana\n14811\n36927\n60644\n93340\n205462\n370234\n\n\nPuerto Rico\n2906\n12144\n22163\n38397\n99043\n187234"
+  },
+  {
+    "objectID": "slides/week-9.1.html#lets-make-a-good-gt-table",
+    "href": "slides/week-9.1.html#lets-make-a-good-gt-table",
+    "title": "Making Tables",
+    "section": "Let’s make a good gt table",
+    "text": "Let’s make a good gt table\n\n\n\n\n\n\n\n\n\nMean Household Income of Quintiles, 2021\n\n\nSeven Representative U.S. States\n\n\n\nlowest\nsecond\nthird\nfourth\nhighest\ntop 5%\n\n\n\n\nDistrict of Columbia\n$12,971\n$51,060\n$94,478\n$157,803\n$375,792\n$670,768\n\n\nColorado\n$18,963\n$49,711\n$80,679\n$123,359\n$264,516\n$466,181\n\n\nGeorgia\n$14,139\n$38,707\n$65,443\n$102,914\n$234,209\n$422,018\n\n\nTennessee\n$13,267\n$35,388\n$58,910\n$91,968\n$210,529\n$389,257\n\n\nSouth Carolina\n$12,680\n$34,881\n$58,665\n$92,118\n$207,367\n$374,427\n\n\nMontana\n$14,811\n$36,927\n$60,644\n$93,340\n$205,462\n$370,234\n\n\nPuerto Rico\n$2,906\n$12,144\n$22,163\n$38,397\n$99,043\n$187,234\n\n\n\nSource: US Census Bureau, American Community Survey"
+  },
+  {
+    "objectID": "slides/week-9.1.html#lets-make-a-good-gt-table-1",
+    "href": "slides/week-9.1.html#lets-make-a-good-gt-table-1",
+    "title": "Making Tables",
+    "section": "Let’s make a good gt table",
+    "text": "Let’s make a good gt table\n\ngoodtable &lt;- gt(states) |&gt; \n  tab_header(\n    title = \"Mean Household Income of Quintiles, 2021\",\n    subtitle = \"Seven Representative U.S. States\"\n  ) |&gt; \n  cols_label(\n    name = \"\",\n    q1 = \"lowest\",\n    q2 = \"second\",\n    q3 = \"third\",\n    q4 = \"fourth\",\n    q5 = \"highest\",\n    top5 = \"top 5%\"\n  ) |&gt; \n  fmt_currency(\n    columns = c(q1:top5),\n    currency = \"USD\", \n    use_subunits = FALSE\n  ) |&gt;\n  # note that you can use markdown (md) to format the source note for html documents\n  tab_source_note(source_note = md(\"**Source**: US Census Bureau, American Community Survey\"))\n\ngoodtable\n\n\n\n\n−+\n10:00"
+  },
+  {
+    "objectID": "slides/week-9.1.html#change-colum-width",
+    "href": "slides/week-9.1.html#change-colum-width",
+    "title": "Making Tables",
+    "section": "Change Colum Width",
+    "text": "Change Colum Width\n\n\n\n\n\n\n\n\nMean Household Income of Quintiles, 2021\n\n\nSeven Representative U.S. States\n\n\n\nlowest\nsecond\nthird\nfourth\nhighest\ntop 5%\n\n\n\n\nDistrict of Columbia\n$12,971\n$51,060\n$94,478\n$157,803\n$375,792\n$670,768\n\n\nColorado\n$18,963\n$49,711\n$80,679\n$123,359\n$264,516\n$466,181\n\n\nGeorgia\n$14,139\n$38,707\n$65,443\n$102,914\n$234,209\n$422,018\n\n\nTennessee\n$13,267\n$35,388\n$58,910\n$91,968\n$210,529\n$389,257\n\n\nSouth Carolina\n$12,680\n$34,881\n$58,665\n$92,118\n$207,367\n$374,427\n\n\nMontana\n$14,811\n$36,927\n$60,644\n$93,340\n$205,462\n$370,234\n\n\nPuerto Rico\n$2,906\n$12,144\n$22,163\n$38,397\n$99,043\n$187,234\n\n\n\nSource: US Census Bureau, American Community Survey"
+  },
+  {
+    "objectID": "slides/week-9.1.html#change-colum-width-1",
+    "href": "slides/week-9.1.html#change-colum-width-1",
+    "title": "Making Tables",
+    "section": "Change Colum Width",
+    "text": "Change Colum Width\n\nvgoodtable &lt;- goodtable |&gt;\n  cols_width(c(q1:top5) ~ px(90))\n\nvgoodtable"
+  },
+  {
+    "objectID": "slides/week-9.1.html#change-font",
+    "href": "slides/week-9.1.html#change-font",
+    "title": "Making Tables",
+    "section": "Change Font",
+    "text": "Change Font\n\n\n\n\n\n\n\n\nMean Household Income of Quintiles, 2021\n\n\nSeven Representative U.S. States\n\n\n\nlowest\nsecond\nthird\nfourth\nhighest\ntop 5%\n\n\n\n\nDistrict of Columbia\n$12,971\n$51,060\n$94,478\n$157,803\n$375,792\n$670,768\n\n\nColorado\n$18,963\n$49,711\n$80,679\n$123,359\n$264,516\n$466,181\n\n\nGeorgia\n$14,139\n$38,707\n$65,443\n$102,914\n$234,209\n$422,018\n\n\nTennessee\n$13,267\n$35,388\n$58,910\n$91,968\n$210,529\n$389,257\n\n\nSouth Carolina\n$12,680\n$34,881\n$58,665\n$92,118\n$207,367\n$374,427\n\n\nMontana\n$14,811\n$36,927\n$60,644\n$93,340\n$205,462\n$370,234\n\n\nPuerto Rico\n$2,906\n$12,144\n$22,163\n$38,397\n$99,043\n$187,234\n\n\n\nSource: US Census Bureau, American Community Survey"
+  },
+  {
+    "objectID": "slides/week-9.1.html#change-font-1",
+    "href": "slides/week-9.1.html#change-font-1",
+    "title": "Making Tables",
+    "section": "Change Font",
+    "text": "Change Font\n\ngreattable &lt;- vgoodtable |&gt;\n  opt_table_font(font = \"verdana\")\n\ngreattable"
+  },
+  {
+    "objectID": "slides/week-9.1.html#center",
+    "href": "slides/week-9.1.html#center",
+    "title": "Making Tables",
+    "section": "Center",
+    "text": "Center\n\n\n\n\n\n\n\n\nMean Household Income of Quintiles, 2021\n\n\nSeven Representative U.S. States\n\n\n\nlowest\nsecond\nthird\nfourth\nhighest\ntop 5%\n\n\n\n\nDistrict of Columbia\n$12,971\n$51,060\n$94,478\n$157,803\n$375,792\n$670,768\n\n\nColorado\n$18,963\n$49,711\n$80,679\n$123,359\n$264,516\n$466,181\n\n\nGeorgia\n$14,139\n$38,707\n$65,443\n$102,914\n$234,209\n$422,018\n\n\nTennessee\n$13,267\n$35,388\n$58,910\n$91,968\n$210,529\n$389,257\n\n\nSouth Carolina\n$12,680\n$34,881\n$58,665\n$92,118\n$207,367\n$374,427\n\n\nMontana\n$14,811\n$36,927\n$60,644\n$93,340\n$205,462\n$370,234\n\n\nPuerto Rico\n$2,906\n$12,144\n$22,163\n$38,397\n$99,043\n$187,234\n\n\n\nSource: US Census Bureau, American Community Survey"
+  },
+  {
+    "objectID": "slides/week-9.1.html#center-1",
+    "href": "slides/week-9.1.html#center-1",
+    "title": "Making Tables",
+    "section": "Center",
+    "text": "Center\n\nvgreattable &lt;- greattable |&gt;\n  cols_align(\n  align = \"center\",\n  columns = q1:top5\n)\n\nvgreattable"
+  },
+  {
+    "objectID": "slides/week-9.1.html#add-borders-and-lines",
+    "href": "slides/week-9.1.html#add-borders-and-lines",
+    "title": "Making Tables",
+    "section": "Add Borders and Lines",
+    "text": "Add Borders and Lines\n\n\n\n\n\n\n\n\nMean Household Income of Quintiles, 2021\n\n\nSeven Representative U.S. States\n\n\n\nlowest\nsecond\nthird\nfourth\nhighest\ntop 5%\n\n\n\n\nDistrict of Columbia\n$12,971\n$51,060\n$94,478\n$157,803\n$375,792\n$670,768\n\n\nColorado\n$18,963\n$49,711\n$80,679\n$123,359\n$264,516\n$466,181\n\n\nGeorgia\n$14,139\n$38,707\n$65,443\n$102,914\n$234,209\n$422,018\n\n\nTennessee\n$13,267\n$35,388\n$58,910\n$91,968\n$210,529\n$389,257\n\n\nSouth Carolina\n$12,680\n$34,881\n$58,665\n$92,118\n$207,367\n$374,427\n\n\nMontana\n$14,811\n$36,927\n$60,644\n$93,340\n$205,462\n$370,234\n\n\nPuerto Rico\n$2,906\n$12,144\n$22,163\n$38,397\n$99,043\n$187,234\n\n\n\nSource: US Census Bureau, American Community Survey"
+  },
+  {
+    "objectID": "slides/week-9.1.html#add-borders-and-lines-1",
+    "href": "slides/week-9.1.html#add-borders-and-lines-1",
+    "title": "Making Tables",
+    "section": "Add Borders and Lines",
+    "text": "Add Borders and Lines\n\nawesometable &lt;- vgreattable |&gt;\n  tab_options(\n    table.border.top.color = \"black\", \n    table.border.bottom.color = \"black\",\n    heading.border.bottom.color = \"black\", \n    column_labels.border.bottom.color = \"black\", \n    table_body.border.bottom.color = \"black\"\n  )\n\nawesometable"
+  },
+  {
+    "objectID": "slides/week-9.1.html#export-table",
+    "href": "slides/week-9.1.html#export-table",
+    "title": "Making Tables",
+    "section": "Export Table",
+    "text": "Export Table\n\ngtsave(awesometable, \"awesometable.png\")\n\n\n\n\nDataViz 2102 Website"
   }
 ]
