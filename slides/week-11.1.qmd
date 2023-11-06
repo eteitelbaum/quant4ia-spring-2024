@@ -1,0 +1,205 @@
+---
+title: "Shiny Apps"
+date: today
+date-format: long
+footer: "[DataViz 2102 Website](https://dataviz-gwu.rocks)"
+logo: images/dataviz-logo.png
+format:
+  revealjs:
+    theme: [simple, custom.scss]
+    transition: fade
+    slide-number: true
+    multiplex: true
+    chalkboard: true
+execute:
+  echo: false
+  message: false
+  warning: false
+  freeze: auto
+---
+
+## Shiny App
+
+<iframe src="https://emmanuelteitelbaum.shinyapps.io/vdem-scatter-plot/" width="780" height="500" data-external="1"></iframe>
+
+## Elements of a Shiny App
+
+<br>
+
+- User interface (UI)
+- Server object
+- Call to ShinyApp
+
+## Reactivity
+
+<br>
+
+The ability to change the user interface based on user-selected input values. 
+
+<br>
+
+Reactivity works by having R functions that update different parts of the app when they get new values from the user.
+
+## Setup
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: false
+
+# load packages
+library(shiny)
+library(readr)
+library(ggplot2)
+
+# load the data 
+dem_data <- read_csv("dem_data.csv")
+
+# create list of named values for the input selection
+vars <- c("Democracy" = "polyarchy",
+          "Clientelism" = "clientelism",
+          "Corruption" = "corruption",
+          "Women's Empowerment" = "womens_emp",
+          "Wealth" = "gdp_pc",
+          "Infant Mortality" = "inf_mort",
+          "Life Expectancy" = "life_exp", 
+          "Education" = "education")
+```
+
+## UI
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: false 
+
+# Define UI for application that draws a scatter plot
+ui <- fluidPage(
+
+    # Application title
+    titlePanel("Democracy and Development"),
+
+    # Sidebar with a two dropdown menus
+    sidebarLayout(
+      sidebarPanel(
+        selectInput(input = 'xcol', label = 'X Variable', choices = vars),
+        selectInput(input = 'ycol', label = 'Y Variable', 
+                    choices = vars, selected = vars[[6]])
+      ),
+
+        # Show a plot of the generated distribution
+        mainPanel(
+           plotOutput("scatterplot")
+        )
+    )
+)
+```
+
+## Server
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: false 
+
+# Define server logic required to draw a scatter plot
+server <- function(input, output, session) {
+  
+  # Render the plot
+  output$scatterplot <- renderPlot({
+    
+    # ggplot call
+    ggplot(dem_data, aes(x = get(input$xcol), y = get(input$ycol))) +
+      geom_point(aes(color = region)) +
+      geom_smooth(method = "loess") +
+      scale_color_viridis_d(option = "plasma") +
+      theme_minimal() +
+      labs(
+        x =  names(vars[which(vars == input$xcol)]), # select names in vars that
+        y =  names(vars[which(vars == input$ycol)]), # match input selections
+        caption = "Source: V-Dem Institute",
+        color = "Region"
+      )
+  })
+}
+```
+
+## Shiny App Call
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: false
+
+# See above for the definitions of ui and server
+ui <- ...
+
+server <- ...
+
+# Run the application 
+shinyApp(ui = ui, server = server)
+```
+
+## Your Turn!
+
+<br>
+
+- Do pre-work and wrangling from module 5.1
+- Create new Shiny App file
+- Copy UI, server and Shiny App call 
+- See if you can get the app to run locally
+
+```{r}
+#| label: setup_timer
+library(countdown)
+countdown(minutes = 10, 
+          id = "setup", 
+          bottom = "10%", 
+          right = "10%",
+          color_border = "#fff",
+          color_text = "#fff",
+          color_running_background = "#42affa",
+          color_running_text = "black",
+          color_finished_background = "#E5D19D",
+          color_finished_text = "#00264A")
+```
+
+## Try on shinyapps.io
+
+<br>
+
+- Set up an account on [shinyapps.io](https://www.shinyapps.io/)
+- Publish app
+
+```{r}
+#| label: timer2
+countdown(minutes = 10, 
+          id = "timer2", 
+          bottom = "10%", 
+          right = "10%")
+```
+
+## Modify App
+
+<br>
+
+- Try selecting different V-Dem variables
+- Or add some World Bank data
+- Make a new scatter plot or a different visualization
+- Make adjustments to menus 
+- Run and publish new app
+
+```{r}
+#| label: timer3
+countdown(minutes = 15, 
+          id = "timer3", 
+          bottom = "10%", 
+          right = "10%")
+```
+
+
+
