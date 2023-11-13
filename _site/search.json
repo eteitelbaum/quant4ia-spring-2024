@@ -71,7 +71,7 @@
     "href": "index.html",
     "title": "Course Schedule",
     "section": "",
-    "text": "This page displays an outline of the topics, content, and assignments for the term. Each module starts on a Monday. There are no assignments due on Sundays.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModule\nDate\nSkills\nPackages\nFunctions\nReadings\nReference\nSlides\nVideos\nAssignments\n\n\n\n\nGS\nAug 28\nCourse Intro\n\n\n\n\n\n\n\n\n\n\nAug 30\nRStudio, Quarto\n\n\n\n📖\n🖥️\n🖥️\n\n\n\n\nSep 4\nNo class, Labor Day\n\n\n\n\n\n\n\n\n\n\nSep 6\nQuarto, GitHub Classroom\n\n\n\n📖\n🖥️\n🖥️🖥️\n\n\n\n1.1\nSep 11\nRead data into R\nreadr, dplyr\nread_csv(), glimpse()\n\n📖\n🖥️\n🖥️🖥️\n\n\n\n\nSep 13\nReshape, clean data\ntidyr, dplyr\npivot_longer(), mutate(), mutate_at(), substring()\n\n📖\n🖥️\n🖥️🖥️🖥️\n📘\n\n\n1.2\nSep 18\nDownload data from an API\nwbstats, vdemdata, dplyr, janitor\nwb_data(), vdem, select_(), filter(), case_match(), round_to_fraction()\n📖\n\n🖥️\n🖥️🖥️\n\n\n\n\nSep 20\nMerge data frames, group, summarize and arrange\ncountrycode, dplyr , readr\ncountrycode(), left_join(), write_csv(), group_by(), summarize(), arrange()\n\n📖 📖\n🖥️\n🖥️🖥️🖥️\n📘🧮\n\n\n2.1\nSep 25\nBar charts & histograms\nggplot2\nggplot(), geom_col(), geom_histogram(), aes(), labs()\n\n📖📖\n🖥️\n🖥️🖥️\n\n\n\n\nSep 27\nLine charts & scatter plots\nggplot2, scales\ngeom_line() , geom_point(), geom_smooth(), scale_x_log10(), label_number(), geom_text()\n\n📖\n🖥️\n🖥️🖥️\n📘\n\n\n2.2\nOct 2\nColor schemes\ntidyr, colorBlindess, dplyr, viridis, RColorBrewer\ndrop_na(), cvdPlot(), scale_fill_manual(), scale_fill_viridis_d(), scale_fill_brewer(), scale_color_manual(), scale_color_viridis_d(), scale_color_brewer\n📖\n📖\n🖥️\n🖥️\n\n\n\n\nOct 4\nThemes, annotations & interactivity\nggplot2 , plotly\ntheme_dark(), theme_minimal(), annotate(), geom_hline(), geom_vline(),``ggplotly(), layout()\n\n📖\n🖥️\n🖥️🖥️🖥️\n📘 🧮\n\n\n3.1\nOct 9\nMap data with choropleth maps\nrnaturalearth, ggplot2, ggthemes , virids\nne_countries(), geom_sf(), theme_map() , theme() , scale_fill_viridis_c()\n\n\n🖥️\n🖥️🖥️\n\n\n\n\nOct 11\nMake a map function\n\neval(), parse(), function(), source()\n\n\n🖥️\n🖥️\n📘\n\n\n3.2\nOct 16\nUpload UCDP data & make a leaflet map\nstates, sf , leaflet\nsfind(), st_as_sf() , leaflet(), addTiles(), addMarkers(), setView()\n📖\n\n🖥️\n🖥️🖥️\n\n\n\n\nOct 18\nCustomize your map\nleaflet, htmltools\nawesomeIcons(),addAwesomeMarkers(), addProviderTiles(), sprintf(), lapply(), HTML\n\n\n\n🖥️\n📘 🧮\n\n\n4.1\nOct 23\nExploring tabular data\ntidycensus, dplyr, stringr, kableExtra\ncensus_api_key(), load_variables(), get_acs(), rename(), rename_with, str_remove(), kable(), slice_max(), slice_min(), slice_sample(), bind_rows()\n\n\n🖥️\n🖥️🖥️\n\n\n\n\nOct 25\nMake a gt table, make confidence intervals with ggplot2\ngt , ggplot2\ngt(), tab_header(), cols_label(), fmt_currency(), tab_source_note(), cols_width(), opt_table_font(), cols_align(), tab_options(), gtsave() , geom_errorbar()\n\n\n🖥️\n🖥️🖥️\n📘\n\n\n4.2\nOct 30\nDisplay regression tables\npeacesciencer, broom, dplyr\ncreate_stateyears(), add_ucdp_acd(), add_democracy(), add_creg_fractionalization(), add_sdp_gdp(), add_rugged_terrain(), tidy(), mutate_if(), glm(), binomial()\n📖\n\n🖥️\n🖥️\n\n\n\n\nNov 1\nMake regression tables and coefficient plots\nmodelsummary\nlist(), modelsummary(), modelplot(), rev()\n\n\n\n🖥️🖥️\n✍️ 📘 🧮\n\n\n5.1\nNov 6\nScatter plot app setup, building the UI\ndplyr , shiny\nsummarize_all(), fluidPage(), titlePanel(), sidebarLayout(), sidebarPanel(), selectInput(), mainPanel(), plotOutput()\n\n\n🖥️\n🖥️🖥️\n\n\n\n\nNov 8\nBuilding the server\nshiny\nrenderPlot(), shinyApp()\n\n\n\n🖥️\n📘\n\n\n5.2\nNov 13\nLine chart app setup, building the UI\nfredr , shiny\nfredr_set_key() , as.Date() , Sys.Date() , column(), wellPanel(), helpText(), sliderInput()\n📖\n\n\n🖥️🖥️\n\n\n\n\nNov 15\nBuilding the server\nfredr , shiny\nreactive(), fredr(), fred_indicator()\n\n\n\n🖥️\n✍️ 📘 🧮\n\n\n\nNov 20\nNo class, Thanksgiving break\n\n\n\n\n\n\n\n\n\n\nNov 22\nNo class, Thanksgiving break\n\n\n\n\n\n\n\n\n\n6.1\nNov 27\nFinal project workshop\n\n\n\n\n\n🖥️\n\n\n\n\nNov 29\nFinal project workshop\n\n\n\n\n\n\n\n\n\n6.2\nDec 4\nLightening talks\n\n\n\n\n\n🖥️\n\n\n\n\nDec 6\nLightening talks\n\n\n\n\n\n\n\n\n\n\nDec 11\nLightening talks\n\n\n\n\n\n\n✍️",
+    "text": "This page displays an outline of the topics, content, and assignments for the term. Each module starts on a Monday. There are no assignments due on Sundays.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModule\nDate\nSkills\nPackages\nFunctions\nReadings\nReference\nSlides\nVideos\nAssignments\n\n\n\n\nGS\nAug 28\nCourse Intro\n\n\n\n\n\n\n\n\n\n\nAug 30\nRStudio, Quarto\n\n\n\n📖\n🖥️\n🖥️\n\n\n\n\nSep 4\nNo class, Labor Day\n\n\n\n\n\n\n\n\n\n\nSep 6\nQuarto, GitHub Classroom\n\n\n\n📖\n🖥️\n🖥️🖥️\n\n\n\n1.1\nSep 11\nRead data into R\nreadr, dplyr\nread_csv(), glimpse()\n\n📖\n🖥️\n🖥️🖥️\n\n\n\n\nSep 13\nReshape, clean data\ntidyr, dplyr\npivot_longer(), mutate(), mutate_at(), substring()\n\n📖\n🖥️\n🖥️🖥️🖥️\n📘\n\n\n1.2\nSep 18\nDownload data from an API\nwbstats, vdemdata, dplyr, janitor\nwb_data(), vdem, select_(), filter(), case_match(), round_to_fraction()\n📖\n\n🖥️\n🖥️🖥️\n\n\n\n\nSep 20\nMerge data frames, group, summarize and arrange\ncountrycode, dplyr , readr\ncountrycode(), left_join(), write_csv(), group_by(), summarize(), arrange()\n\n📖 📖\n🖥️\n🖥️🖥️🖥️\n📘🧮\n\n\n2.1\nSep 25\nBar charts & histograms\nggplot2\nggplot(), geom_col(), geom_histogram(), aes(), labs()\n\n📖📖\n🖥️\n🖥️🖥️\n\n\n\n\nSep 27\nLine charts & scatter plots\nggplot2, scales\ngeom_line() , geom_point(), geom_smooth(), scale_x_log10(), label_number(), geom_text()\n\n📖\n🖥️\n🖥️🖥️\n📘\n\n\n2.2\nOct 2\nColor schemes\ntidyr, colorBlindess, dplyr, viridis, RColorBrewer\ndrop_na(), cvdPlot(), scale_fill_manual(), scale_fill_viridis_d(), scale_fill_brewer(), scale_color_manual(), scale_color_viridis_d(), scale_color_brewer\n📖\n📖\n🖥️\n🖥️\n\n\n\n\nOct 4\nThemes, annotations & interactivity\nggplot2 , plotly\ntheme_dark(), theme_minimal(), annotate(), geom_hline(), geom_vline(),``ggplotly(), layout()\n\n📖\n🖥️\n🖥️🖥️🖥️\n📘 🧮\n\n\n3.1\nOct 9\nMap data with choropleth maps\nrnaturalearth, ggplot2, ggthemes , virids\nne_countries(), geom_sf(), theme_map() , theme() , scale_fill_viridis_c()\n\n\n🖥️\n🖥️🖥️\n\n\n\n\nOct 11\nMake a map function\n\neval(), parse(), function(), source()\n\n\n🖥️\n🖥️\n📘\n\n\n3.2\nOct 16\nUpload UCDP data & make a leaflet map\nstates, sf , leaflet\nsfind(), st_as_sf() , leaflet(), addTiles(), addMarkers(), setView()\n📖\n\n🖥️\n🖥️🖥️\n\n\n\n\nOct 18\nCustomize your map\nleaflet, htmltools\nawesomeIcons(),addAwesomeMarkers(), addProviderTiles(), sprintf(), lapply(), HTML\n\n\n\n🖥️\n📘 🧮\n\n\n4.1\nOct 23\nExploring tabular data\ntidycensus, dplyr, stringr, kableExtra\ncensus_api_key(), load_variables(), get_acs(), rename(), rename_with, str_remove(), kable(), slice_max(), slice_min(), slice_sample(), bind_rows()\n\n\n🖥️\n🖥️🖥️\n\n\n\n\nOct 25\nMake a gt table, make confidence intervals with ggplot2\ngt , ggplot2\ngt(), tab_header(), cols_label(), fmt_currency(), tab_source_note(), cols_width(), opt_table_font(), cols_align(), tab_options(), gtsave() , geom_errorbar()\n\n\n🖥️\n🖥️🖥️\n📘\n\n\n4.2\nOct 30\nDisplay regression tables\npeacesciencer, broom, dplyr\ncreate_stateyears(), add_ucdp_acd(), add_democracy(), add_creg_fractionalization(), add_sdp_gdp(), add_rugged_terrain(), tidy(), mutate_if(), glm(), binomial()\n📖\n\n🖥️\n🖥️\n\n\n\n\nNov 1\nMake regression tables and coefficient plots\nmodelsummary\nlist(), modelsummary(), modelplot(), rev()\n\n\n\n🖥️🖥️\n✍️ 📘 🧮\n\n\n5.1\nNov 6\nScatter plot app setup, building the UI\ndplyr , shiny\nsummarize_all(), fluidPage(), titlePanel(), sidebarLayout(), sidebarPanel(), selectInput(), mainPanel(), plotOutput()\n\n\n🖥️\n🖥️🖥️\n\n\n\n\nNov 8\nBuilding the server\nshiny\nrenderPlot(), shinyApp()\n\n\n\n🖥️\n📘\n\n\n5.2\nNov 13\nLine chart app setup, building the UI\nfredr , shiny\nfredr_set_key() , as.Date() , Sys.Date() , column(), wellPanel(), helpText(), sliderInput()\n📖\n\n🖥️\n🖥️🖥️\n\n\n\n\nNov 15\nBuilding the server\nfredr , shiny\nreactive(), fredr(), fred_indicator()\n\n\n\n🖥️\n✍️ 📘 🧮\n\n\n\nNov 20\nNo class, Thanksgiving break\n\n\n\n\n\n\n\n\n\n\nNov 22\nNo class, Thanksgiving break\n\n\n\n\n\n\n\n\n\n6.1\nNov 27\nFinal project workshop\n\n\n\n\n\n🖥️\n\n\n\n\nNov 29\nFinal project workshop\n\n\n\n\n\n\n\n\n\n6.2\nDec 4\nLightening talks\n\n\n\n\n\n🖥️\n\n\n\n\nDec 6\nLightening talks\n\n\n\n\n\n\n\n\n\n\nDec 11\nLightening talks\n\n\n\n\n\n\n✍️",
     "crumbs": [
       "Course information",
       "Schedule"
@@ -3640,5 +3640,117 @@
     "title": "Shiny Apps",
     "section": "UI",
     "text": "UI\n\n\n# Define UI for application that draws a scatter plot\nui &lt;- fluidPage(\n\n    # Application title\n    titlePanel(\"Democracy and Development\"),\n\n    # Sidebar with a two dropdown menus\n    sidebarLayout(\n      sidebarPanel(\n        selectInput(input = 'xcol', label = 'X Variable', choices = vars),\n        selectInput(input = 'ycol', label = 'Y Variable', \n                    choices = vars, selected = vars[[6]])\n      ),\n\n        # Show a plot of the generated distribution\n        mainPanel(\n           plotOutput(\"scatterplot\")\n        )\n    )\n)"
+  },
+  {
+    "objectID": "slides/week-12.1.html#what-is-reactivity",
+    "href": "slides/week-12.1.html#what-is-reactivity",
+    "title": "Reactivity",
+    "section": "What is Reactivity?",
+    "text": "What is Reactivity?\n\n\nReactivity in Shiny apps refers to the ability to update the user interface based on changes to input values.\nR functions are used to update different parts of the app when they receive new values from the user."
+  },
+  {
+    "objectID": "slides/week-12.1.html#reactivity-in-action",
+    "href": "slides/week-12.1.html#reactivity-in-action",
+    "title": "Reactivity",
+    "section": "Reactivity in Action",
+    "text": "Reactivity in Action\n\n\nFor instance, in a Shiny app, the renderPlot() function can update a plot based on a selected year, variable or country case.\nReactivity allows for rendering various elements like tables, images, or text without a full page reload.\nThe UI is dynamically updated, quickly generating new content based on the updated data."
+  },
+  {
+    "objectID": "slides/week-12.1.html#two-steps-to-displaying-reactive-content",
+    "href": "slides/week-12.1.html#two-steps-to-displaying-reactive-content",
+    "title": "Reactivity",
+    "section": "Two Steps to Displaying Reactive Content",
+    "text": "Two Steps to Displaying Reactive Content\n\n\nAdd an R object to your user interface.\nTell Shiny how to build the object in the server function.\nThe object is reactive if it calls a widget value (an input)."
+  },
+  {
+    "objectID": "slides/week-12.1.html#step-1-add-the-object-to-the-ui",
+    "href": "slides/week-12.1.html#step-1-add-the-object-to-the-ui",
+    "title": "Reactivity",
+    "section": "Step 1: Add the Object to the UI",
+    "text": "Step 1: Add the Object to the UI\n\n# Define UI for application that draws a scatter plot\nui &lt;- fluidPage(\n\n    # Application title\n    titlePanel(\"Democracy and Development\"),\n\n    # Sidebar with a two dropdown menus\n    sidebarLayout(\n      sidebarPanel(\n        selectInput(input = 'xcol', label = 'X Variable', choices = vars),\n        selectInput(input = 'ycol', label = 'Y Variable', \n                    choices = vars, selected = vars[[6]])\n      ),\n\n        # Display the scatterplot \n        mainPanel(\n           plotOutput(\"scatterplot\")\n        )\n    )\n)"
+  },
+  {
+    "objectID": "slides/week-12.1.html#step-2-build-the-object-in-the-server-function",
+    "href": "slides/week-12.1.html#step-2-build-the-object-in-the-server-function",
+    "title": "Reactivity",
+    "section": "Step 2: Build the Object in the Server Function",
+    "text": "Step 2: Build the Object in the Server Function\n\n# Define server logic required to draw a scatter plot\nserver &lt;- function(input, output, session) {\n  \n  # Render the plot\n  output$scatterplot &lt;- renderPlot({\n    \n    # ggplot call\n    ggplot(dem_data, aes(x = get(input$xcol), y = get(input$ycol))) +\n      geom_point(aes(color = region)) +\n      geom_smooth(method = \"loess\") +\n      scale_color_viridis_d(option = \"plasma\") +\n      theme_minimal() +\n      labs(\n        x =  names(vars[which(vars == input$xcol)]), # select names in vars that\n        y =  names(vars[which(vars == input$ycol)]), # match input selections\n        caption = \"Source: V-Dem Institute\",\n        color = \"Region\"\n      )\n  })\n}"
+  },
+  {
+    "objectID": "slides/week-12.1.html#reactive-because-it-is-calls-a-widget-value",
+    "href": "slides/week-12.1.html#reactive-because-it-is-calls-a-widget-value",
+    "title": "Reactivity",
+    "section": "Reactive Because it is Calls a Widget Value",
+    "text": "Reactive Because it is Calls a Widget Value\n\n# Define server logic required to draw a scatter plot\nserver &lt;- function(input, output, session) {\n  \n  # Render the plot\n  output$scatterplot &lt;- renderPlot({\n    \n    # ggplot call\n    ggplot(dem_data, aes(x = get(input$xcol), y = get(input$ycol))) +\n      geom_point(aes(color = region)) +\n      geom_smooth(method = \"loess\") +\n      scale_color_viridis_d(option = \"plasma\") +\n      theme_minimal() +\n      labs(\n        x =  names(vars[which(vars == input$xcol)]), # select names in vars that\n        y =  names(vars[which(vars == input$ycol)]), # match input selections\n        caption = \"Source: V-Dem Institute\",\n        color = \"Region\"\n      )\n  })\n}"
+  },
+  {
+    "objectID": "slides/week-12.1.html#reactive-because-it-is-calls-a-widget-value-1",
+    "href": "slides/week-12.1.html#reactive-because-it-is-calls-a-widget-value-1",
+    "title": "Reactivity",
+    "section": "Reactive Because it is Calls a Widget Value",
+    "text": "Reactive Because it is Calls a Widget Value\n\n# Define UI for application that draws a scatter plot\nui &lt;- fluidPage(\n\n    # Application title\n    titlePanel(\"Democracy and Development\"),\n\n    # Sidebar with a two dropdown menus\n    sidebarLayout(\n      sidebarPanel(\n        selectInput(input = 'xcol', label = 'X Variable', choices = vars),\n        selectInput(input = 'ycol', label = 'Y Variable', \n                    choices = vars, selected = vars[[6]])\n      ),\n\n        # Display the scatterplot \n        mainPanel(\n           plotOutput(\"scatterplot\")\n        )\n    )\n)"
+  },
+  {
+    "objectID": "slides/week-12.1.html#render-functions-in-shiny",
+    "href": "slides/week-12.1.html#render-functions-in-shiny",
+    "title": "Reactivity",
+    "section": "Render Functions in Shiny",
+    "text": "Render Functions in Shiny\n\n\n\n\n\n\n\n\nRender Function\nCreates\n\n\n\n\nrenderDataTable\nDataTable\n\n\nrenderImage\nImages (saved as a link to a source file)\n\n\nrenderPlot\nPlots\n\n\nrenderPrint\nAny printed output\n\n\nrenderTable\nData frame, matrix, other table-like structures\n\n\nrenderText\nCharacter strings\n\n\nrenderUI\nA Shiny tag object or HTML"
+  },
+  {
+    "objectID": "slides/week-12.1.html#output-functions-in-shiny",
+    "href": "slides/week-12.1.html#output-functions-in-shiny",
+    "title": "Reactivity",
+    "section": "Output Functions in Shiny",
+    "text": "Output Functions in Shiny\n\n\n\n\nOutput Function\nCreates\n\n\n\n\ndataTableOutput\nDataTable\n\n\nhtmlOutput\nRaw HTML\n\n\nimageOutput\nImage\n\n\nplotOutput\nPlot\n\n\ntableOutput\nTable\n\n\ntextOutput\nText\n\n\nuiOutput\nRaw HTML\n\n\nverbatimTextOutput\nText"
+  },
+  {
+    "objectID": "slides/week-12.1.html#limiting-reactivity-with-reactive-expressions",
+    "href": "slides/week-12.1.html#limiting-reactivity-with-reactive-expressions",
+    "title": "Reactivity",
+    "section": "Limiting Reactivity with Reactive Expressions",
+    "text": "Limiting Reactivity with Reactive Expressions\n\nReactive Expressions Control Reactivity: Limit what is re-executed during a reaction by using reactive expressions.\nDefinition and Behavior: A reactive expression in R leverages widget input to return a value, updating itself whenever the input widget changes.\nCreating a Reactive Expression: Utilize the reactive function, similar to render* functions, which encapsulates an R expression within braces."
+  },
+  {
+    "objectID": "slides/week-12.1.html#example-from-this-week",
+    "href": "slides/week-12.1.html#example-from-this-week",
+    "title": "Reactivity",
+    "section": "Example from this Week",
+    "text": "Example from this Week"
+  },
+  {
+    "objectID": "slides/week-12.1.html#example-from-this-week-1",
+    "href": "slides/week-12.1.html#example-from-this-week-1",
+    "title": "Reactivity",
+    "section": "Example from this Week",
+    "text": "Example from this Week\n\n\n    # Download data from FRED with reactive function. \n    # Only updates when user selects new indicator\n    fred_indicator &lt;- reactive({\n      fredr(series_id = input$indicator,\n        observation_start = start_date,\n        observation_end = end_date)\n    })\n  \n    # Filter data according to chosen years \n    # Only updates when user selects new data range\n    fred_data &lt;- reactive({\n      fred_indicator() |&gt;\n      filter(between(date, input$range[1],input$range[2])) \n   })"
+  },
+  {
+    "objectID": "slides/week-12.1.html#your-turn",
+    "href": "slides/week-12.1.html#your-turn",
+    "title": "Reactivity",
+    "section": "Your Turn!",
+    "text": "Your Turn!\n\n\nDo the prework, getting set up with fredr and other relevant packages\nCreate a NEW project folder\nSave your helper script in a subfolder\nStart on your app.R file\nFour parts:\n\nsetup\nUI\nServer\nCall to Shiny App\n\nExtend the app by incorporating new indicators\n\n\n\n\nDataViz 2102 Website"
+  },
+  {
+    "objectID": "slides/week-12.1.html#reactive-because-it-is-calls-a-widget-value-server",
+    "href": "slides/week-12.1.html#reactive-because-it-is-calls-a-widget-value-server",
+    "title": "Reactivity",
+    "section": "Reactive Because it is Calls a Widget Value (Server)",
+    "text": "Reactive Because it is Calls a Widget Value (Server)\n\n# Define server logic required to draw a scatter plot\nserver &lt;- function(input, output, session) {\n  \n  # Render the plot\n  output$scatterplot &lt;- renderPlot({\n    \n    # ggplot call\n    ggplot(dem_data, aes(x = get(input$xcol), y = get(input$ycol))) +\n      geom_point(aes(color = region)) +\n      geom_smooth(method = \"loess\") +\n      scale_color_viridis_d(option = \"plasma\") +\n      theme_minimal() +\n      labs(\n        x =  names(vars[which(vars == input$xcol)]), # select names in vars that\n        y =  names(vars[which(vars == input$ycol)]), # match input selections\n        caption = \"Source: V-Dem Institute\",\n        color = \"Region\"\n      )\n  })\n}"
+  },
+  {
+    "objectID": "slides/week-12.1.html#reactive-because-it-is-calls-a-widget-value-ui",
+    "href": "slides/week-12.1.html#reactive-because-it-is-calls-a-widget-value-ui",
+    "title": "Reactivity",
+    "section": "Reactive Because it is Calls a Widget Value (UI)",
+    "text": "Reactive Because it is Calls a Widget Value (UI)\n\n# Define UI for application that draws a scatter plot\nui &lt;- fluidPage(\n\n    # Application title\n    titlePanel(\"Democracy and Development\"),\n\n    # Sidebar with a two dropdown menus\n    sidebarLayout(\n      sidebarPanel(\n        selectInput(input = 'xcol', label = 'X Variable', choices = vars),\n        selectInput(input = 'ycol', label = 'Y Variable', \n                    choices = vars, selected = vars[[6]])\n      ),\n\n        # Display the scatterplot \n        mainPanel(\n           plotOutput(\"scatterplot\")\n        )\n    )\n)"
+  },
+  {
+    "objectID": "slides/week-12.1.html#limiting-reactivity",
+    "href": "slides/week-12.1.html#limiting-reactivity",
+    "title": "Reactivity",
+    "section": "Limiting Reactivity",
+    "text": "Limiting Reactivity\n\nReactive Expressions Control Reactivity: Limit what is re-executed during a reaction by using reactive expressions.\nDefinition and Behavior: A reactive expression in R leverages widget input to return a value, updating itself whenever the input widget changes.\nCreating a Reactive Expression: Utilize the reactive function, similar to render* functions, which encapsulates an R expression within braces."
   }
 ]
