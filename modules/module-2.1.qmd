@@ -5,8 +5,8 @@ format:
   html:
     code-link: true
 highlight-style: atom-one
-filters:
-  - webr
+# filters:
+#   - webr
 execute:
   echo: true
   message: false
