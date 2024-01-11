@@ -3,15 +3,15 @@ project:
 
 website:
   page-navigation: true
-  title: "PSC/DATS 2102--Summer Schedule"
-  description: "Homepage for PSC/DATS 2102, George Washington University."
+  title: "IAFF 6501--Spring 2024 Schedule"
+  description: "Homepage for IAFF 6501, George Washington University."
   
   site-url: "https://dataviz-gwu.rocks"
   repo-url: "https://github.com/eteitelbaum/dataviz-summer-2023"
   repo-actions: [edit, issue]
   
   open-graph: true
-  favicon: "images/dataviz-logo.png"
+  favicon: "images/iaff6501-logo.png"
   twitter-card: true
   reader-mode: true
   
@@ -22,7 +22,7 @@ website:
   
   sidebar:
     background: "#1F45FC"
-    logo: "images/dataviz-logo.png"
+    logo: "images/iaff6501-logo.png"
     pinned: true
     align: center
     tools:
