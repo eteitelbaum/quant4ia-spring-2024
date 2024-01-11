@@ -1,4 +1,4 @@
-## Website for PSC/DATS 2102-Data Visualization at The George Washington University 
+## Website for IAFF 6501 at The George Washington University 
 
 🔗 https://dataviz-gwu.rocks
 
