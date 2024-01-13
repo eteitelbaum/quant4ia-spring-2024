@@ -70,7 +70,7 @@ website:
           #   text: "Week 5"
           # - href: weeks/week-6.qmd
           #   text: "Week 6"
-      - section: "Homework Assignments"
+      - section: "Homework"
         contents:
           - href: assignments/homework-1.qmd
             text: "Homework 1"
