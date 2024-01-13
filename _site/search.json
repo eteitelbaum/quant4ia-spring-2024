@@ -7476,7 +7476,7 @@
     "href": "slides/week-1.2.html#set-up-rstudio",
     "title": "Getting Started",
     "section": "Set up RStudio",
-    "text": "Set up RStudio\n\nGo to Tools&gt;Global Options\nUnder Code, enable native pipe operator (|&gt;)\nUnder Appearance, choose a theme\nConfigure panes\n\nGo to Pane Layout\nMove Source, Console, etc. to preferred positions\n\nInstall tinytex (for PDF rendering)\n\nGo to your terminal and type quarto install tinytex\n\n\n\n\n\n−+\n02:00"
+    "text": "Set up RStudio\n\nGo to Tools&gt;Global Options\nUnder Code, enable native pipe operator (|&gt;)\nUnder Appearance, choose a theme\nConfigure panes\n\nGo to Pane Layout\nMove Source, Console, etc. to preferred positions\n\nInstall the Tidyverse group of packages from the console\n\ninstall.packages(\"tidyverse\")\n\nInstall devtools\n\ninstall.packages(\"devtools\"))\n\nInstall tinytex (for PDF rendering)\n\nGo to your terminal and type quarto install tinytex\n\n\n\n\n\n−+\n02:00"
   },
   {
     "objectID": "course-syllabus-6501.html",

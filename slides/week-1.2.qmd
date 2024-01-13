@@ -21,7 +21,7 @@ execute:
 
 # R Studio
 
-## Set up RStudio
+## Set up RStudio {.smaller}
 
 -   Go to Tools\>Global Options
 -   Under Code, enable native pipe operator (`|>`)
@@ -29,6 +29,10 @@ execute:
 -   Configure panes
     -   Go to Pane Layout
     -   Move Source, Console, etc. to preferred positions
+-   Install the Tidyverse group of packages from the console
+    -   `install.packages("tidyverse")`
+-   Install `devtools`
+    -   `install.packages("devtools")`)
 -   Install tinytex (for PDF rendering)
     - Go to your terminal and type `quarto install tinytex`
 
@@ -245,10 +249,6 @@ countdown(minutes = 5,
 -  Run a single line with shortcut (Cmd/Ctrl + Enter) 
 :::
 
-## Illustration
-
-
-
 ## Code Chunk Options
 
 ::: {.incremental}
@@ -272,6 +272,7 @@ countdown(minutes = 5,
     
 ## Illustration
 
+![](images/code-chunks.gif){fig-align="center"}
 
 ## Try it Yourself! 
 
@@ -282,7 +283,7 @@ countdown(minutes = 5,
 #| label: chunk1
 #| echo: true
 #| eval: false
-
+#| 
 library(ggplot2)
 
 ggplot(mpg, aes(displ, hwy, colour = class)) + 
@@ -333,12 +334,3 @@ countdown(minutes = 2,
 -   At first we will load the packages independently, e.g. `library(ggplot2)`
 -   Later we will load them all at once with `library(tidyverse)`
 :::
-
-## Install Now!
-
-<br>
-
--   Install the Tidyverse group of packages from the console
-    -   `install.packages("tidyverse")`
--   Install `devtools`
-    -   `install.packages("devtools")`)
