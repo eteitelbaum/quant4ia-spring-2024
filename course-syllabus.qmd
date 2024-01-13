@@ -5,36 +5,40 @@ editor: visual
 
 ## Course Information
 
-Location: Gelman Library, Rm 609
+| **Location**: Bell Hall 108
+| 
+| **Instructor**: Prof. Emmanuel Teitelbaum
+| Email: ejt\@gwu.edu
+| Office Hours: [Tuesdays, 3-5 p.m.](https://calendly.com/emmanuel-teitelbaum/15min)
+| 
+| **Teaching Assistant**:
+| Email:
+| Office Hours:
+| 
+| **Teaching Assistant**:
+| Email:
+| Office Hours: 10-11 a.m. on Mondays
+| 
+| **Credit Hours**: 3.0.
 
-| Instructor: Prof. Emmanuel Teitelbaum
-| Email: [ejt\@gwu.edu](mailto:ejt@gwu.edu)
+## Why Are You Here: What Our Course Is About
 
-The best way to contact me is via the course Discord server.
-
-Office Hours: [Mondays 3-5 p.m.](https://calendly.com/emmanuel-teitelbaum) and by appointment.
-
-Credit Hours: 3.0.
-
-## What Our Course Is About
-
-This course will focus on working with data and code to engage data science questions. Students will develop coding, data visualization, and data presentation skills.
+This course will focus on developing data analysis and data science skills that are relevant for international affairs practitioners. Students will develop coding, data visualization, data analysis, and data presentation skills that will allow them to use data to answer questions related to international affairs and to contribute to data driven policy and programmatic decision making.
 
 ## Course Objectives: What You'll Be Able To Do
 
 Course and module objectives are guides to gauge your skill and knowledge development. By the end of this course, you should be able to:
 
--   Analyze data sets using modern computational tools.
--   Identify salient data points as they relate to key political science concepts.
--   Explore ethical issues around data wrangling and visualization.
--   Apply data wrangling concepts to optimize data for modeling purposes.
--   Summarize simple and complex relationships between and among variables in a data set.
--   Identify the most appropriate visualization format for a given data set.
--   Model and visualize data based on requirements provided by stakeholders.
+-   Analyze data sets using modern computational tools (using R).
+-   Identify and access data sets, and apply data wrangling concepts to optimize data for analysis and modeling purposes.
+-   Use data visualization to summarize simple and complex relationships between and among variables in a data set.
+-   Use tools of statistical inference to test hypotheses
+-   Develop and use models for prediction/forecasting, and for causal inference
+-   Create professional and reproducible data analysis outputs (reports, websites, slides, and so on) using Quarto
 
 ## Aiming For Success
 
-I care about your learning and also about this subject matter, and I am here to help you have a meaningful learning experience. I expect you to take ownership of your learning: you can get more out of the course by thoughtfully participating in discussions, actively taking notes on readings and lectures, and giving your best effort overall. I will hold you to the highest standards for academic honesty and integrity in your work. I will also encourage you to collaborate and learn from your peers through thoughtful and respectful discussion. It is recommended you log in daily order to keep up with course requirements. I must highlight that communication is vital, so I hope you feel comfortable reaching out to me if you are struggling or have concerns or need [accommodations beyond accessibility](#_heading=h.41mghml). We can determine strategies to set you up for success. Finally, I look forward to collaborating with you in this course to create a meaningful experience for everyone.
+I care about your learning and also about this subject matter, and I am here to help you have a meaningful learning experience. I expect you to take ownership of your learning: you can get more out of the course by thoughtfully participating in discussions, actively taking notes on readings and lectures, and giving your best effort overall. I will hold you to the highest standards for academic honesty and integrity in your work. I will also encourage you to collaborate and learn from your peers through thoughtful and respectful discussion. I must highlight that communication is vital, so I hope you feel comfortable reaching out to me if you are struggling or have concerns or need [accommodations beyond accessibility](#_heading=h.41mghml). We can determine strategies to set you up for success. Finally, I look forward to collaborating with you in this course to create a meaningful experience for everyone.
 
 # Policy on AI Tools
 
@@ -74,7 +78,7 @@ To make the meeting more effective, you can:
 
 ### Academic
 
-PSC 2101 or STAT 1051/1053/1111.
+None
 
 ### Technological
 
@@ -83,13 +87,9 @@ PSC 2101 or STAT 1051/1053/1111.
 To fully participate in our course, you will need regular access to broadband Internet access as well as other technology components. Please consult [GW Online's Technical Requirements and Support](https://online.gwu.edu/technical-requirements-and-support) for details on recommended configurations and software available to you. You will need to use the following tools and platforms:
 
 -   RStudio: an IDE for generating data visualizations using the programming language, R.
--   GitHub: a web-based code repository.
--   Git: version control protocol.
--   Discord: a real-time chat application.
+-   R
 
-Please see the Blackboard Ultra course website for more on these tools and their policies.
-
-#### Skills
+Both of these can be downloaded from <https://posit.co/downloads/>
 
 For our course, you should be able to:
 
@@ -104,11 +104,11 @@ If you need assistance with technology tools we'll use in this course, please vi
 
 ## Materials You'll Need
 
-You will need to download RStudio, Git and the Discord desktop application. You can find our weekly assigned readings through GW libraries. You must use your GW credentials to access these readings. Other course materials will be provided in our Blackboard course modules.
+You will need to download the RStudio desktop application. You can find our weekly assigned readings through GW libraries. You must use your GW credentials to access these readings. Other course materials will be provided in our Blackboard course modules.
 
 ## Course Credit Hour Policy
 
-Summer courses are more than twice as intensive as those held during the academic year. Over 6 weeks, students will spend approximately 18.75 hours per week doing independent learning, including, but not limited to, readings, quizzes, assignments and a final project. This amounts to 36 hours of direct-instruction and 76.5 hours independent coursework.
+UPDATE
 
 ### How this applies to you
 
@@ -122,9 +122,7 @@ My aim is to provide you opportunities for active learning and skills developmen
 
 I've designed the following instructional components to support your learning and growth in the course.
 
--   **Lecture Videos:** Each week you will be responsible for watching or listening to video mini-lectures and/or podcasts. These media support provide you essential information in order to complete course activities and assessments. Please note that recorded lectures and podcasts are not a substitute for required readings.
-
--   **Tutorial Videos:** Each week you have the opportunity to explore a topic further by watching additional videos. These draw on the expertise of various organizations or individuals and can be used to help you complete activities and assessments.
+-   **Class Sessions:** Class sessions will involve a mix of lecture and active learning activities that ask you to practice the skills we are learning in a given session. Please come prepared to actively participate in class.
 
 -   **Readings:** Each week you will be responsible for various reading assignments. The readings contain essential content for completing the course assignments.
 
@@ -132,15 +130,11 @@ I've designed the following instructional components to support your learning an
 
 The following assessments help you gauge and demonstrate your progress in the course and support you in meeting course learning objectives.
 
--   **Discord:** We will discuss course topics further through the Discord. You are expected to post original thoughts/reflections and respond substantively to others.[\[1\]](#_msocom_1) 
+-   **Weekly quizzes:** In this course, you will have opportunities to assess your own knowledge. You are expected to complete weekly quizzes that provide immediate feedback and support ongoing learning.
 
--   **Assignments**: You will develop various skills through regular assignments. You are expected to one coding assignment per week. Thoughtfully completing weekly assignments helps you meet course objectives.
+-   **3 Homework Assignments (15 percent each)**: You will develop various skills through three assignments that ask you to apply the data analysis tools we are learning in the course. Thoughtfully and thoroughly completing these assignments helps you meet course objectives.
 
--   **Final Project:** You will develop your own interactive data visualization application as your final project during Week 6/Module
-
-6.  
-
--   **Quizzes:** In this course, you will have opportunities to assess your own knowledge. You are expected to complete two weekly quizzes that provide immediate feedback and support ongoing learning.
+-   **Group Project:** In your final project, you will work in teams to apply your new data analysis skills in an international affairs project.
 
 You'll find support for Blackboard and other tools used for course activities and assignments under the **Technology Support** link in the left navigation menu in our course on Blackboard.
 
@@ -159,23 +153,20 @@ Academic dishonesty is defined as cheating of any kind, including misrepresentin
 ## Assignments
 
 1.  Quizzes (20%)
-2.  Coding assignments (40%)
-3.  Final project (40% of final grade)
-    a.  Assignment 1 (10%)
-    b.  Assignment 2 (10%)
-    c.  Assignment 3 (20%)
+2.  3 Homework assignments (15% each = 45%)
+3.  Final Group Project (35%)
 
 ### Quizzes
 
-Students will complete ten graded quizzes. These exercises will be oriented towards strengthening the student's ability to manipulate, visualize and communicate data with R and Quarto.
+Students will complete 12 graded quizzes. These exercises will be oriented towards strengthening the student's ability to use the tools we will be learning in the course. The quizzes will help to ensure that you keep up with the material consistently throughout the semester.
 
-### Coding Assignments
+### Coding Homework Assignments
 
-Students will complete five weekly coding assignments. These assignments are designed to provide students with the opportunity to apply their newly-acquired skills to a classic question in political science.
+Students will complete three coding homework assignments. These assignments are designed to provide students with the opportunity to apply their newly-acquired skills to an international affairs related question or problem.
 
-### Final Project
+### Final Group Project
 
-Each student will complete a final project that will be developed throughout the semester in three parts. The ultimate objective of this project is for the student to design and program an R Shiny App. politics.
+Each student will complete a final project that will be developed throughout the semester. We will provide more detail and time for you to work with your group in class.
 
 ## Course Grading
 
@@ -198,29 +189,19 @@ The grading scale below maps your final point or percentage total to your final 
 
 ## Late Work
 
-If you miss an assignment deadline, it is your responsibility to contact me via email. Accommodations are automatically approved for university-approved absences such as sporting events, religious holidays, etc.
+We understand that sometimes emergencies arise that might prevent you from submitting work on time. If you think you might miss an assignment deadline, it is your responsibility to contact me via email. We know life happens sometimes and will be as accommodating as possible, but it **is important that you communicate with us in advance.** If we do not hear from you, we will deduct 2.5 percentage points from your grade for every 24 hours the assignment is late.
 
 ## Incomplete Grades
 
-### Undergraduate students
-
-Incomplete grades may be given to undergraduate students only if for reasons beyond the student's control (such as medical or family emergency) they are unable to complete the final work of the course. Faculty should not assign an Incomplete grade if not asked by the student.
-
-[A contract](https://advising.columbian.gwu.edu/sites/g/files/zaxdzs1876/f/downloads/Form%20-%20Incomplete%20Contract_1.pdf)must be signed by the instructor and the student and filed in the department office. A copy should be submitted to the Academic Advising office in Phillips 107. A student has up to a calendar year to finish the coursework for the class, and when completed a grade change form must be submitted to the Academic Advising office to update the grade.
-
-For further policy and contract information for undergraduate students, please consult with your advisor and also visit the website for [Columbian College of Arts and Sciences Academic Advising.](https://columbian.gwu.edu/sites/g/files/zaxdzs4901/files/2022-06/ccas_incomplete_contract_21.pdf)
-
-### Graduate students
-
 Incomplete grades may be given to graduate students only if for reasons beyond the student's control (such as medical or family emergency) they are unable to complete the final work of the course. Faculty should not assign an Incomplete grade if not asked by the student.
 
-For further information, please consult with your advisor and complete a [CCAS graduate student incomplete grade form.](https://columbian.gwu.edu/sites/g/files/zaxdzs1971/f/downloads/DGS/Incomplete%20Contract.pdf)
+For further information, please consult with your advisor.
 
 ## Course Communication
 
-Communication in our course is essential; clearing up questions earlier than later is a good practice, so please don't hesitate to reach out to me. In any mode of communication used in our course, all of us will follow [netiquette](#_heading=h.49x2ik5) found in our syllabus.
+Communication in our course is essential; clearing up questions earlier than later is a good practice, so please don't hesitate to reach out to me.
 
-We will communicate primarily through [GW's Blackboard System](https://blackboard.gwu.edu) and the Discord server. Announcements and emails sent through Blackboard automatically go to your GW email address (i.e., userid\@gwu.edu). Please check your GW email account on a daily basis or forward your GW email to another address that you check daily.
+We will communicate to you primarily through [GW's Blackboard System](https://blackboard.gwu.edu). Announcements and emails sent through Blackboard automatically go to your GW email address (i.e., userid\@gwu.edu). Please check your GW email account on a daily basis or forward your GW email to another address that you check daily.
 
 I will respond to emails/discussion posts within 48 hours (i.e., "24 hours on weekdays and on the next business day over weekends and holidays.") I will provide feedback on assignments/exams within 3 days (i.e., "five days on weekdays and on the next business day over weekends and holidays.")
 
