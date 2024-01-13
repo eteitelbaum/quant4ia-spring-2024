@@ -83,7 +83,7 @@
     "href": "index.html",
     "title": "Course Schedule",
     "section": "",
-    "text": "This page displays an outline of the topics, content, and assignments for the term. Each module starts on a Monday. There are no assignments due on Sundays.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModule\nDate\nTopic\nReadings\nReference\nSlides\nVideos\nAssignments\n\n\n\n\n1.1\nJan 16\nCourse Intro\n\n\n🖥️\n🖥️\n📘\n\n\n1.2\n\nGetting Started with R and Quarto\n\n📖\n🖥️\n🖥️ 🖥️\n\n\n\n2.1\nJan 23\nBar charts, histograms\n\n📖📖\n🖥️\n🖥️\n📘\n\n\n2.2\n\nLine charts, scatter plots\n\n📖\n🖥️\n🖥️\n\n\n\n3.1\nJan 29\nWorking with Data in R\n\n📖\n🖥️\n🖥️ 🖥️\n📘\n\n\n3.2\n\nWhere to Find Data\n\n📖\n🖥️\n🖥️ 🖥️\n\n\n\n4.1\nFeb 6\nMerge data frames, group, summarize and arrange\n\n📖📖\n🖥️\n🖥️ 🖥️\n📘\n\n\n4.2\n\nExercise 1: Visualize modernization theory\n📖\n\n🖥️\n🖥️\n🧮\n\n\n5.1\nFeb 13\nWhen to use tables\n\n\n🖥️\n\n📘\n\n\n5.2\n\nPlotting confidence intervals\n\n\n🖥️\n\n\n\n\n6.1\nFeb 20\nUncertainty and sampling distributions\n\n📖\n🖥️\n🖥️\n📘\n\n\n6.2\n\nUsing a bootstrap to generate confidence intervals\n\n📖\n🖥️\n🖥️\n\n\n\n7.1\nFeb 27\nSimulation-based hypothesis testing\n\n\n🖥️\n🖥️\n📘\n\n\n7.2\n\nExercise 2: Evaluate a claim\n📖\n\n🖥️\n🖥️\n\n\n\n8.1\nMar 5\nUSAID walkthrough\n\n\n🖥️\n🖥️\n📘\n\n\n8.2\n\nUSAID walkthrough\n\n\n\n🖥️\n🧮\n\n\n\nMar 12\nNo Class\nSpring Break\n☀️🌴🏄\n\n\n\n\n\n9.1\nMar 19\nModels and their uses\n\n\n🖥️\n🖥️\n📘\n\n\n9.2\n\nLinear regression\n\n\n🖥️\n🖥️\n\n\n\n10.1\nMar 26\nMultiple linear regression\n\n\n🖥️\n🖥️\n📘\n\n\n10.2\n\nInteractions and nonlinearity\n\n\n\n🖥️\n\n\n\n11.1\nApr 2\nLogistic regression (classification)\n\n\n🖥️\n🖥️\n📘\n\n\n11.2\n\nPresenting regression results\n\n\n\n🖥️\n\n\n\n12.1\nApr 9\nPredictive modeling\n\n\n🖥️\n🖥️\n📘\n\n\n12.2\n\nExercise 3–Predicting conflict\n📖\n\n\n\n🧮\n\n\n13.1\nApr 16\nCorrelation vs. causation\n\n\n\n\n\n\n\n13.2\n\nRegression discontinuity design\n\n\n\n\n\n\n\n14.1\nApr 23\nAdvanced Quarto\n\n\n\n🖥️\n\n\n\n14.2\n\nFinal project workshop\n\n\n\n🖥️\n✍️",
+    "text": "This page displays an outline of the topics, content, and assignments for the term. Each module starts on a Monday. There are no assignments due on Sundays.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModule\nDate\nTopic\nReadings\nReference\nSlides\nVideos\nAssignments\n\n\n\n\n1.1\nJan 16\nCourse Intro\n\n\n🖥️\n🖥️\n📘\n\n\n1.2\n\nGetting Started with R and Quarto\n\n📖\n🖥️\n🖥️ 🖥️\n\n\n\n2.1\nJan 23\nBar charts, histograms\n\n📖 📖\n🖥️\n🖥️\n📘\n\n\n2.2\n\nLine charts, scatter plots\n\n📖 📖\n🖥️\n🖥️\n\n\n\n3.1\nJan 29\nWorking with Data in R\n\n📖\n🖥️\n🖥️ 🖥️\n📘\n\n\n3.2\n\nWhere to Find Data\n\n📖\n🖥️\n🖥️ 🖥️\n\n\n\n4.1\nFeb 6\nMerge data frames, group, summarize and arrange\n\n📖 📖\n🖥️\n🖥️ 🖥️\n📘\n\n\n4.2\n\nExercise 1: Visualize modernization theory\n📖\n\n🖥️\n🖥️\n🧮\n\n\n5.1\nFeb 13\nWhen to use tables\n\n\n🖥️\n\n📘\n\n\n5.2\n\nPlotting confidence intervals\n\n\n🖥️\n\n\n\n\n6.1\nFeb 20\nUncertainty and sampling distributions\n\n\n🖥️\n🖥️\n📘\n\n\n6.2\n\nUsing a bootstrap to generate confidence intervals\n\n\n🖥️\n🖥️\n\n\n\n7.1\nFeb 27\nSimulation-based hypothesis testing\n\n\n🖥️\n🖥️\n📘\n\n\n7.2\n\nExercise 2: Evaluate a claim\n📖\n\n🖥️\n🖥️\n\n\n\n8.1\nMar 5\nUSAID walkthrough\n\n\n🖥️\n🖥️\n📘\n\n\n8.2\n\nUSAID walkthrough\n\n\n\n🖥️\n🧮\n\n\n\nMar 12\nNo Class\nSpring Break\n☀️🌴🏄\n\n\n\n\n\n9.1\nMar 19\nModels and their uses\n\n\n🖥️\n🖥️\n📘\n\n\n9.2\n\nLinear regression\n\n\n🖥️\n🖥️\n\n\n\n10.1\nMar 26\nMultiple linear regression\n\n\n🖥️\n🖥️\n📘\n\n\n10.2\n\nInteractions and nonlinearity\n\n\n\n🖥️\n\n\n\n11.1\nApr 2\nLogistic regression (classification)\n\n\n🖥️\n🖥️\n📘\n\n\n11.2\n\nPresenting regression results\n\n\n\n🖥️\n\n\n\n12.1\nApr 9\nPredictive modeling\n\n\n🖥️\n🖥️\n📘\n\n\n12.2\n\nExercise 3–Predicting conflict\n📖\n\n\n\n🧮\n\n\n13.1\nApr 16\nCorrelation vs. causation\n\n\n\n\n\n\n\n13.2\n\nRegression discontinuity design\n\n\n\n\n\n\n\n14.1\nApr 23\nAdvanced Quarto\n\n\n\n🖥️\n\n\n\n14.2\n\nFinal project workshop\n\n\n\n🖥️\n✍️",
     "crumbs": [
       "Course Information",
       "Schedule"
@@ -7991,7 +7991,7 @@
     "section": "",
     "text": "For this assignment, you are going to evaluate modernization theory as laid out in Seymour Martin Lipset’s classic article entitled “Some Social Requisites of Democracy: Economic Development and Political Legitimacy.” How classic is this article? According to Google Scholar, this piece has been cited more than 11.5 thousand times!\nWe are going to use data from V-Dem and modern data viz tools to explore Lipset’s hypothesis that economic modernization is highly correlated with democracy. We have already done this to some extent by looking at the relationship between wealth and the polyarchy score. But we are going to broaden things out by looking at other measures of modernization and democracy contained in the V-Dem dataset.\nBefore starting on this assignment, you will want to have a look at the V-Dem codebook. Look through the sections titled “V-Dem Democracy Indices” (section 2 of the codebook) and “Background Factors (E).” There are five democracy indicators, one of which is the polyarchy index. There are a number of background factors, many of which pertain to economic modernization. We are going to be looking at the relationship between these two sets of variables.\nNow have a look at “Some Social Requisites of Democracy” and in particular pay attention to the indicators in Table II and the discussion surrounding them. Think of each indicator (e.g. urbanization, education, etc.) as a sub-hypothesis of his theory. Which of these sub-hypotheses about modernization do you think is most compelling? Which would you like to test?\nSubmission note: Accept the invitation on Blackboard to submit this assignment via GitHub.",
     "crumbs": [
-      "Homework Assignments",
+      "Homework",
       "Homework 1"
     ]
   },
@@ -8002,7 +8002,7 @@
     "section": "",
     "text": "For this assignment, you are going to evaluate modernization theory as laid out in Seymour Martin Lipset’s classic article entitled “Some Social Requisites of Democracy: Economic Development and Political Legitimacy.” How classic is this article? According to Google Scholar, this piece has been cited more than 11.5 thousand times!\nWe are going to use data from V-Dem and modern data viz tools to explore Lipset’s hypothesis that economic modernization is highly correlated with democracy. We have already done this to some extent by looking at the relationship between wealth and the polyarchy score. But we are going to broaden things out by looking at other measures of modernization and democracy contained in the V-Dem dataset.\nBefore starting on this assignment, you will want to have a look at the V-Dem codebook. Look through the sections titled “V-Dem Democracy Indices” (section 2 of the codebook) and “Background Factors (E).” There are five democracy indicators, one of which is the polyarchy index. There are a number of background factors, many of which pertain to economic modernization. We are going to be looking at the relationship between these two sets of variables.\nNow have a look at “Some Social Requisites of Democracy” and in particular pay attention to the indicators in Table II and the discussion surrounding them. Think of each indicator (e.g. urbanization, education, etc.) as a sub-hypothesis of his theory. Which of these sub-hypotheses about modernization do you think is most compelling? Which would you like to test?\nSubmission note: Accept the invitation on Blackboard to submit this assignment via GitHub.",
     "crumbs": [
-      "Homework Assignments",
+      "Homework",
       "Homework 1"
     ]
   },
@@ -8013,7 +8013,7 @@
     "section": "Step 1: Gather Your Data (20 pts)",
     "text": "Step 1: Gather Your Data (20 pts)\nUse the vdemdata package to download data for your analysis. Since we already looked at the polyarchy score and wealth in class, you need to use a different measure of democracy and a different background factor for your analysis. Use a select() verb to include country, year, region (e_regionpol_6C), at least one of the other four measures of democracy, and one background factor that is not per capita GDP. Store your data in an object called dem_data. Pipe in a mutate() verb and use case_match() to label the regions. Review module 1.2 if you are confused on how to do this.",
     "crumbs": [
-      "Homework Assignments",
+      "Homework",
       "Homework 1"
     ]
   },
@@ -8024,7 +8024,7 @@
     "section": "Step 2: Make a bar chart (20 pts)",
     "text": "Step 2: Make a bar chart (20 pts)\na) Insert a code chunk below this line and label it. Wrangle your data for the bar chart. Filter by year to include data since 2000, group by region and summarize by mean. Save the new data in an object called bar_chart_data.\nb) Insert a code chunk below this line and label it. Use ggplot() and geom_col() to create a bar chart showing levels of democracy across the regions with your wrangled data. Make sure to add appropriate axis labels, a title and a caption. Add a theme to spruce it up a bit.\nNote: From here on out I will expect you to know to add a code chunk and label it.",
     "crumbs": [
-      "Homework Assignments",
+      "Homework",
       "Homework 1"
     ]
   },
@@ -8035,7 +8035,7 @@
     "section": "Step 3: Make a colorblind-friendly line chart (20 pts)",
     "text": "Step 3: Make a colorblind-friendly line chart (20 pts)\na) Filter your dem_data to include three or four countries of your choosing and create a line chart of your democracy indicator. You can save the data as a new data frame called dem_data_line or you can pipe your filtered data directly into ggplot().\nb) Use cvdPlot() to view your chart from the standpoint of someone with red-green color blindness and describe what you see.\nc) Add a colorblind-friendly color map using viridis or ColorBrewer.\nd) Run the plot through cvdPlot() and describe what you see. Is your plot colorblind friendly?",
     "crumbs": [
-      "Homework Assignments",
+      "Homework",
       "Homework 1"
     ]
   },
@@ -8046,7 +8046,7 @@
     "section": "Step 4: Make a scatter plot with annotation (20 pts)",
     "text": "Step 4: Make a scatter plot with annotation (20 pts)\na) Using dem__data, filter out a ten year period. This could be the most recent ten years of data or a distinct ten year period that you want to look at. If you choose a recent period, make sure that you have enough data to take an average of ten years. Some of the background variables in V-Dem are not entirely up to date. You can check the availability of the data by looking at the V-Dem codebook or using glimpse() or View() to look at your data.Group by country and summarize by mean. Save your your data in a new object called dem_data_scatter.\nb) Now build a scatter plot with ggplot2. Put your modernization-related variable (background variable) on the x-axis and your measure of democracy on the y-axis and color the points by region. Add a trend line with geom_smooth(). This could be a linear model or a loess curve. Add appropriate labels and a viridis or ColorBrewer color map and change the theme to theme_minimal.\nc) Add an annotation to your scatter plot using annotate() and geom_vline() or geom_hline(). Your annotation could highlight a particular year or level of democracy that is relevant for your analysis. Explain briefly why you included this annotation",
     "crumbs": [
-      "Homework Assignments",
+      "Homework",
       "Homework 1"
     ]
   },
@@ -8057,7 +8057,7 @@
     "section": "Step 5: Make your scatter plot interactive (20 pts)",
     "text": "Step 5: Make your scatter plot interactive (20 pts)\na) Make your scatter plot interactive using ggplotly(). Make sure that your tooltip includes the information that you want to display to the user.\nb) Interpret your results. Does your plot show a relationship between the two variables? Which countries are outliers in your analysis? Why do you think they are outliers and how does your explanation relate to Lipset’s hypothesis?",
     "crumbs": [
-      "Homework Assignments",
+      "Homework",
       "Homework 1"
     ]
   },
