@@ -71,7 +71,7 @@
     "href": "index.html",
     "title": "Course Schedule",
     "section": "",
-    "text": "This page displays an outline of the topics, content, and assignments for the term. Each module starts on a Monday. There are no assignments due on Sundays.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModule\nDate\nTopic\nReadings\nReference\nSlides\nVideos\nAssignments\n\n\n\n\n1.1\nJan 16\nCourse Intro\n\n\n🖥️\n🖥️\n📘\n\n\n1.2\n\nGetting Started with R and Quarto\n\n📖\n🖥️\n🖥️ 🖥️\n\n\n\n2.1\nJan 23\nBar charts, histograms\n\n\n🖥️\n🖥️\n📘\n\n\n2.2\n\nLine charts, scatter plots\n\n📖\n🖥️\n🖥️\n\n\n\n3.1\nJan 29\nWorking with Data in R\n\n📖\n🖥️\n🖥️ 🖥️\n📘\n\n\n3.2\n\nWhere to Find Data\n\n📖\n🖥️\n🖥️ 🖥️\n\n\n\n4.1\nFeb 6\nMerge data frames, group, summarize and arrange\n\n\n🖥️\n🖥️ 🖥️\n📘\n\n\n4.2\n\nExercise 1: Visualize modernization theory\n📖\n📖 📖\n🖥️\n🖥️\n🧮\n\n\n5.1\nFeb 13\nWhen to use tables\n\n📖📖\n🖥️\n\n📘\n\n\n5.2\n\nPlotting confidence intervals\n\n📖\n🖥️\n\n\n\n\n6.1\nFeb 20\nUncertainty and sampling distributions\n📖\n📖\n🖥️\n🖥️\n📘\n\n\n6.2\n\nUsing a bootstrap to generate confidence intervals\n\n📖\n🖥️\n🖥️\n\n\n\n7.1\nFeb 27\nSimulation-based hypothesis testing\n\n\n🖥️\n🖥️\n📘\n\n\n7.2\n\nExercise 2: Evaluate a claim\n\n\n🖥️\n🖥️\n\n\n\n8.1\nMar 5\nUSAID walkthrough\n📖\n\n🖥️\n🖥️\n📘\n\n\n8.2\n\nUSAID walkthrough\n\n\n\n🖥️\n🧮\n\n\n\nMar 12\nNo Class\nSpring Break\n☀️🌴🏄\n\n\n\n\n\n9.1\nMar 19\nModels and their uses\n\n\n🖥️\n🖥️\n📘\n\n\n9.2\n\nLinear regression\n\n\n🖥️\n🖥️\n✍️\n\n\n10.1\nMar 26\nMultiple linear regression\n📖\n\n🖥️\n🖥️\n📘\n\n\n10.2\n\nInteractions and nonlinearity\n\n\n\n🖥️\n\n\n\n11.1\nApr 2\nLogistic regression (classification)\n\n\n🖥️\n🖥️\n📘\n\n\n11.2\n\nPresenting regression results\n\n\n\n🖥️\n✍️\n\n\n12.1\nApr 9\nPredictive modeling\n📖\n\n🖥️\n🖥️\n📘\n\n\n12.2\n\nExercise 3–Predicting conflict\n\n\n\n\n🧮\n\n\n13.1\nApr 16\nCorrelation vs. causation\n\n\n\n\n\n\n\n13.2\n\nRegression discontinuity design\n\n\n\n\n\n\n\n14.1\nApr 23\nAdvanced Quarto\n\n\n\n🖥️\n\n\n\n14.2\n\nFinal project workshop\n\n\n\n🖥️\n✍️",
+    "text": "This page displays an outline of the topics, content, and assignments for the term. Each module starts on a Monday. There are no assignments due on Sundays.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModule\nDate\nTopic\nReadings\nReference\nSlides\nVideos\nAssignments\n\n\n\n\n1.1\nJan 16\nCourse Intro\n\n\n🖥️\n🖥️\n📘\n\n\n1.2\n\nGetting Started with R and Quarto\n\n📖\n🖥️\n🖥️ 🖥️\n\n\n\n2.1\nJan 23\nBar charts, histograms\n\n\n🖥️\n🖥️\n📘\n\n\n2.2\n\nLine charts, scatter plots\n\n📖\n🖥️\n🖥️\n\n\n\n3.1\nJan 29\nWorking with Data in R\n\n📖\n🖥️\n🖥️ 🖥️\n📘\n\n\n3.2\n\nWhere to Find Data\n\n📖\n🖥️\n🖥️ 🖥️\n\n\n\n4.1\nFeb 6\nMerge data frames, group, summarize and arrange\n\n\n🖥️\n🖥️ 🖥️\n📘\n\n\n4.2\n\nExercise 1: Visualize modernization theory\n📖\n📖 📖\n🖥️\n🖥️\n🧮\n\n\n5.1\nFeb 13\nWhen to use tables\n\n📖📖\n🖥️\n\n📘\n\n\n5.2\n\nPlotting confidence intervals\n\n📖\n🖥️\n\n\n\n\n6.1\nFeb 20\nUncertainty and sampling distributions\n📖\n📖\n🖥️\n🖥️\n📘\n\n\n6.2\n\nUsing a bootstrap to generate confidence intervals\n\n📖\n🖥️\n🖥️\n\n\n\n7.1\nFeb 27\nSimulation-based hypothesis testing\n\n\n🖥️\n🖥️\n📘\n\n\n7.2\n\nExercise 2: Evaluate a claim\n\n\n🖥️\n🖥️\n\n\n\n8.1\nMar 5\nUSAID walkthrough\n📖\n\n🖥️\n🖥️\n📘\n\n\n8.2\n\nUSAID walkthrough\n\n\n\n🖥️\n🧮\n\n\n\nMar 12\nNo Class\nSpring Break\n☀️🌴🏄\n\n\n\n\n\n9.1\nMar 19\nModels and their uses\n\n\n🖥️\n🖥️\n📘\n\n\n9.2\n\nLinear regression\n\n\n🖥️\n🖥️\n\n\n\n10.1\nMar 26\nMultiple linear regression\n📖\n\n🖥️\n🖥️\n📘\n\n\n10.2\n\nInteractions and nonlinearity\n\n\n\n🖥️\n\n\n\n11.1\nApr 2\nLogistic regression (classification)\n\n\n🖥️\n🖥️\n📘\n\n\n11.2\n\nPresenting regression results\n\n\n\n🖥️\n\n\n\n12.1\nApr 9\nPredictive modeling\n📖\n\n🖥️\n🖥️\n📘\n\n\n12.2\n\nExercise 3–Predicting conflict\n\n\n\n\n🧮\n\n\n13.1\nApr 16\nCorrelation vs. causation\n\n\n\n\n\n\n\n13.2\n\nRegression discontinuity design\n\n\n\n\n\n\n\n14.1\nApr 23\nAdvanced Quarto\n\n\n\n🖥️\n\n\n\n14.2\n\nFinal project workshop\n\n\n\n🖥️\n✍️",
     "crumbs": [
       "Course information",
       "Schedule"
@@ -1109,35 +1109,55 @@
     "href": "project/project-assignment-1.html",
     "title": "Project Assignment 1",
     "section": "",
-    "text": "For your final project in this course, you will be producing your very own Shiny App. The purpose of this assignment is to get you to think through the basic content and layout off your app. As you will learn, Shiny Apps are comprised of two basic elements: a user interface and a server function. We are going to be focusing on the user interface side of things for now and later we will talk about how to generate the content for the user. What do you want your user to see and experience with your app? That is the question you will answer here."
+    "text": "For your final project in this course, you will be producing your very own Shiny App. The purpose of this assignment is to get you to think through the basic content and layout off your app. As you will learn, Shiny Apps are comprised of two basic elements: a user interface and a server function. We are going to be focusing on the user interface side of things for now and later we will talk about how to generate the content for the user. What do you want your user to see and experience with your app? That is the question you will answer here.",
+    "crumbs": [
+      "Final Project",
+      "Project Assignment 1"
+    ]
   },
   {
     "objectID": "project/project-assignment-1.html#step-1-think-about-a-layout-for-your-app-25-pts.",
     "href": "project/project-assignment-1.html#step-1-think-about-a-layout-for-your-app-25-pts.",
     "title": "Project Assignment 1",
     "section": "Step 1: Think about a layout for your app (25 pts.)",
-    "text": "Step 1: Think about a layout for your app (25 pts.)\nGo to the Shiny gallery and have a look at examples of the Shiny Apps there. You can also go forward in the course a bit and have a look at the apps that we are going to be building together in modules 5.1 and 5.2. Among these apps, which layouts appeal to you most? Link to a few of them and talk about what you like here."
+    "text": "Step 1: Think about a layout for your app (25 pts.)\nGo to the Shiny gallery and have a look at examples of the Shiny Apps there. You can also go forward in the course a bit and have a look at the apps that we are going to be building together in modules 5.1 and 5.2. Among these apps, which layouts appeal to you most? Link to a few of them and talk about what you like here.",
+    "crumbs": [
+      "Final Project",
+      "Project Assignment 1"
+    ]
   },
   {
     "objectID": "project/project-assignment-1.html#step-2-think-about-the-basic-content-25-pts.",
     "href": "project/project-assignment-1.html#step-2-think-about-the-basic-content-25-pts.",
     "title": "Project Assignment 1",
     "section": "Step 2: Think about the basic content (25 pts.)",
-    "text": "Step 2: Think about the basic content (25 pts.)\nNext, think about the basic content of your app. What subject matter and data do you want to have your user explore? What do you want them to get out of the experience? What datasets would you use for your app? These could be datasets that we have used for the course or other sources but it should be comprehensive and convenient to work with. You will not have time in this course to do original data collection. Discuss in a paragraph below."
+    "text": "Step 2: Think about the basic content (25 pts.)\nNext, think about the basic content of your app. What subject matter and data do you want to have your user explore? What do you want them to get out of the experience? What datasets would you use for your app? These could be datasets that we have used for the course or other sources but it should be comprehensive and convenient to work with. You will not have time in this course to do original data collection. Discuss in a paragraph below.",
+    "crumbs": [
+      "Final Project",
+      "Project Assignment 1"
+    ]
   },
   {
     "objectID": "project/project-assignment-1.html#step-3-think-about-the-visualization-25-pts.",
     "href": "project/project-assignment-1.html#step-3-think-about-the-visualization-25-pts.",
     "title": "Project Assignment 1",
     "section": "Step 3: Think about the visualization (25 pts.)",
-    "text": "Step 3: Think about the visualization (25 pts.)\nWhat is the type of visualization that you want to display. This could be a line chart, scatter plot, bar chart or map and could include some text elements as well. How would your selected visualization contribute to the knowledge enhancement that you want your user to experience? What would it teach them. Discuss in a paragraph below."
+    "text": "Step 3: Think about the visualization (25 pts.)\nWhat is the type of visualization that you want to display. This could be a line chart, scatter plot, bar chart or map and could include some text elements as well. How would your selected visualization contribute to the knowledge enhancement that you want your user to experience? What would it teach them. Discuss in a paragraph below.",
+    "crumbs": [
+      "Final Project",
+      "Project Assignment 1"
+    ]
   },
   {
     "objectID": "project/project-assignment-1.html#step-4-think-about-user-input-25-pts.",
     "href": "project/project-assignment-1.html#step-4-think-about-user-input-25-pts.",
     "title": "Project Assignment 1",
     "section": "Step 4: Think about user input (25 pts.)",
-    "text": "Step 4: Think about user input (25 pts.)\nWhat would the user manipulate in your app? It could be a dropdown menu, a slider or some other control. See here for a list of control widgets. When your user interacts with the control, what output will it produce, e.g. what will change when the user manipulates the widget? How would your chosen control widget enhance the user’s experience and contribute to the overall purpose of the app?"
+    "text": "Step 4: Think about user input (25 pts.)\nWhat would the user manipulate in your app? It could be a dropdown menu, a slider or some other control. See here for a list of control widgets. When your user interacts with the control, what output will it produce, e.g. what will change when the user manipulates the widget? How would your chosen control widget enhance the user’s experience and contribute to the overall purpose of the app?",
+    "crumbs": [
+      "Final Project",
+      "Project Assignment 1"
+    ]
   },
   {
     "objectID": "project/project-assignment-2.html",
@@ -1553,7 +1573,11 @@
     "href": "project/project-assignment-1.html#overview",
     "title": "Project Assignment 1",
     "section": "",
-    "text": "For your final project in this course, you will be producing your very own Shiny App. The purpose of this assignment is to get you to think through the basic content and layout off your app. As you will learn, Shiny Apps are comprised of two basic elements: a user interface and a server function. We are going to be focusing on the user interface side of things for now and later we will talk about how to generate the content for the user. What do you want your user to see and experience with your app? That is the question you will answer here."
+    "text": "For your final project in this course, you will be producing your very own Shiny App. The purpose of this assignment is to get you to think through the basic content and layout off your app. As you will learn, Shiny Apps are comprised of two basic elements: a user interface and a server function. We are going to be focusing on the user interface side of things for now and later we will talk about how to generate the content for the user. What do you want your user to see and experience with your app? That is the question you will answer here.",
+    "crumbs": [
+      "Final Project",
+      "Project Assignment 1"
+    ]
   },
   {
     "objectID": "project/project-assignment-2.html#overview",
@@ -2081,28 +2105,44 @@
     "href": "weeks/week-3.html",
     "title": "Week 3",
     "section": "",
-    "text": "📖 r4ds, chs 8.1 & 8.2\n📖 r4ds, chs 6.1 & 6.3"
+    "text": "📖 r4ds, chs 8.1 & 8.2\n📖 r4ds, chs 6.1 & 6.3",
+    "crumbs": [
+      "Weekly Materials",
+      "Week 3"
+    ]
   },
   {
     "objectID": "weeks/week-3.html#readings",
     "href": "weeks/week-3.html#readings",
     "title": "Week 3",
     "section": "",
-    "text": "📖 r4ds, chs 8.1 & 8.2\n📖 r4ds, chs 6.1 & 6.3"
+    "text": "📖 r4ds, chs 8.1 & 8.2\n📖 r4ds, chs 6.1 & 6.3",
+    "crumbs": [
+      "Weekly Materials",
+      "Week 3"
+    ]
   },
   {
     "objectID": "weeks/week-3.html#videos",
     "href": "weeks/week-3.html#videos",
     "title": "Week 3",
     "section": "Videos",
-    "text": "Videos\n🖥️ Retrieve Some Messy WB Data\n🖥️ Reading Data into R\n🖥️ Reshaping Data with pivot_longer\n🖥️ Truncating Strings and Changing Variable Types\n🖥️ Cleaning Variable Names with the janitor Package"
+    "text": "Videos\n🖥️ Retrieve Some Messy WB Data\n🖥️ Reading Data into R\n🖥️ Reshaping Data with pivot_longer\n🖥️ Truncating Strings and Changing Variable Types\n🖥️ Cleaning Variable Names with the janitor Package",
+    "crumbs": [
+      "Weekly Materials",
+      "Week 3"
+    ]
   },
   {
     "objectID": "weeks/week-3.html#assignments",
     "href": "weeks/week-3.html#assignments",
     "title": "Week 3",
     "section": "Assignments",
-    "text": "Assignments\n📘 Module 1.1 Quiz"
+    "text": "Assignments\n📘 Module 1.1 Quiz",
+    "crumbs": [
+      "Weekly Materials",
+      "Week 3"
+    ]
   },
   {
     "objectID": "slides/week-3.1.html#what-are-tidy-data",
@@ -7693,6 +7733,204 @@
     "crumbs": [
       "Coding Assignments",
       "Coding Assignment 1"
+    ]
+  },
+  {
+    "objectID": "assignments/homework-2.html",
+    "href": "assignments/homework-2.html",
+    "title": "Assignment 2",
+    "section": "",
+    "text": "library(tidyverse)\nlibrary(dplyr)\nlibrary(haven)\nlibrary(tidymodels)\nlibrary(ggplot2)\ndat &lt;- read_dta(\"gbf_rep/gbf_analysis.dta\")\n#glimpse(dat)\n\nmydata &lt;- dat %&gt;% \n  select(id_vill, t, vdc, f_latrine, f_psch, role_wmn, trust_own, no_conflict)\nwrite_csv(mydata, \"gobifo_data.csv\")",
+    "crumbs": [
+      "Homework Assignments",
+      "Homework 2"
+    ]
+  },
+  {
+    "objectID": "assignments/homework-2.html#overview",
+    "href": "assignments/homework-2.html#overview",
+    "title": "Assignment 2",
+    "section": "Overview",
+    "text": "Overview\nCommunity Driven Development (CDD) programs have become increasingly popular in international development over the past several decades. CDD programs directly involve impacted communities in the selection, design, and implementation of development projects. Usually, this also involves building upon or creating community level organizations (or committees) that are involved with the projects, with the goal of creating democratic and inclusive decision-making processes. See this 3ie working paper for discussion of some common features of CDD.\nGiven these design features, proponents of CDD argue that these programs should (a) improve the quality and impact of development projects (e.g., public goods) AND (b) improve social cohesion, inclusion, and local governance. For this reason, CDD has been implemented in a number of post-conflict settings, where the hope is that CDD can both improve development outcomes and contribute to rebuilding social cohesion and governance (which are often harmed by conflict).\nDoes CDD improve development outcomes? Does it improve social cohesion after conflict? Your goal in this assignment is to write a policy brief that answers these questions, using data from an evaluation of a CDD program in post-conflict Sierra Leone.",
+    "crumbs": [
+      "Homework Assignments",
+      "Homework 2"
+    ]
+  },
+  {
+    "objectID": "assignments/homework-2.html#the-gobifo-program-in-sierra-leone",
+    "href": "assignments/homework-2.html#the-gobifo-program-in-sierra-leone",
+    "title": "Assignment 2",
+    "section": "The GoBifo Program in Sierra Leone",
+    "text": "The GoBifo Program in Sierra Leone\nSierra Leone was devastated by a civil war lasting from 1991 to 2002. In the post-conflict context, the Ministry of Local Government and Community Development implemented the GoBifo (“forge ahead”) CDD project in Sierra Leone from 2005-2009 (with support from the World Bank and other international donors). See this report for a detailed summary of the program.\nThe program had two key components:\n\nBlock grants of about 4,667 dollars (about 100 per household in each community) that communities could allocate to local development projects, skills trainings, and small-business investment.\n“Technical assistance that promoted democratic decision-making, the participation of socially marginalized women and youth in local politics, and transparent budgeting practices” (Casey, Glennerster, and Miguel 2012)\n\nThe GiBifo program also included an impact evaluation, conducted by economists Katherine Casey, Rachel Glennerster, and Edward Miguel. The academic paper generated from the project is in the References section (Casey, Glennerster, and Miguel 2012).\nWait until after you complete your assignment to read the full paper.\nImportantly, the impact evaluation included randomization: communities in the study were randomly assigned to receive the GoBifo program, or not. In this sense, the impact evaluation was similar to a clinical drug trial, where some subjects are randomly assigned to receive the medicine while others do not receive it. This aspect of the design makes it easier to assess the causal impact of this project: we can simply compare outcomes in the treatment (GoBifo program) and control groups, and test for whether any differences we observe are likely to be due to chance.",
+    "crumbs": [
+      "Homework Assignments",
+      "Homework 2"
+    ]
+  },
+  {
+    "objectID": "assignments/homework-2.html#data",
+    "href": "assignments/homework-2.html#data",
+    "title": "Assignment 2",
+    "section": "Data",
+    "text": "Data\n“gobifo_data.csv” provides a condensed version of the data collected by Casey, Glennerster, and Miguel (2012) for their evaluation of the project. The study team gathered literally hundreds of outcome variables, and the paper includes an interesting discussion of how they analyze the data and interpret the results given the large number of outcomes they measured.\nFor our purposes, we will focus on a smaller set of variables, summarized below:\n\nTreatment variable (named t in the data): this equals 1 if the community was randomly assigned to be in the program, and 0 if not.\nCommunity Decision Making Infrastructure: Is there a village development committee in the community? (vdc)\nPublic Goods\n\nIs there a functioning latrine in the community? (f_latrine)\nIs there a functioning primary school in the community? (f_psch)\n\nInclusion, Gender equality in participatory decision making (role_wmn).\n\n[“Enumerator account of how actively women participated in the deliberation compared to men, ranging from 5 = no difference between women and men to 1 = women not active at all compared to men (field activity #1)”]\n\nSocial Capital\n\nTrust in other in the community (trust_own)\nConflict, coded as percentage of respondents in the village that reported they had NO conflicts/disputes with others that required outside intervention (no_conflict)",
+    "crumbs": [
+      "Homework Assignments",
+      "Homework 2"
+    ]
+  },
+  {
+    "objectID": "assignments/homework-2.html#tasks",
+    "href": "assignments/homework-2.html#tasks",
+    "title": "Assignment 2",
+    "section": "Tasks",
+    "text": "Tasks\n\nCreate a folder and an RProj file for this assignment. Save “gobifo_data.csv” in that folder.\nCreate a new Quarto document in your RProj folder: call it “gobifo_notebook.qmd” or something similar. Use this document to explore the data, work on putting together the code for your analysis, and to take notes as you go.\nExamine the data. How many units (villages) are there in the study? How many were in the treatment (t) group (in the program) and how many were in control? Examine the different outcome measures, calcuate some summary statistics (e.g., the mean), and make some graphs.\nFor each outcome variable listed above, generate an estimate of the mean AND generate a 95 percent confidence interval, separately in treatment and control (where t==0 and t==1). Create a visualization (or multiple) that presents these means and 95 percent confidence intervals: the visualization should allow us to visibly examine the difference between treatment and control groups on these outcome measures.\nFor each outcome, conduct hypothesis tests that assess whether the GoBifo program had an impact. Clearly state the null hypothesis and the alternative hypothesis for each test.\nWrite a policy brief that (1) provides a very short background on the program and Sierra Leone case, (2) presents your results (including graphs), (3) accurately interprets the results, and (4) discusses the policy/program implications of the findings for CDD in post-conflict settings.\n\nCreate a new Quarto document for your policy brief, which includes your write-up and any code needed to produce the final figures/tables in your memo. [not everything you produce in your notebook.qmd file will make it here, but that is still information that you need and might reference in the policy brief.]",
+    "crumbs": [
+      "Homework Assignments",
+      "Homework 2"
+    ]
+  },
+  {
+    "objectID": "assignments/homework-2.html#extra-credit",
+    "href": "assignments/homework-2.html#extra-credit",
+    "title": "Assignment 2",
+    "section": "Extra Credit",
+    "text": "Extra Credit\nIf you are in the mood for more of a challenge, try the following:\n\nLocate the replication data and code for the Casey, Glennerster, and Miguel (2012) paper online\nAfter reading the description of the data and variables, select an additional 2-3 variables to analyze.\nInput the full replication dataset and filter on the variables you would like to use\n\nThe data will come in .dta format and so you will need to read_dta() function from the haven package.\n\nFollow the steps above.",
+    "crumbs": [
+      "Homework Assignments",
+      "Homework 2"
+    ]
+  },
+  {
+    "objectID": "assignments/homework-3.html",
+    "href": "assignments/homework-3.html",
+    "title": "Assignment 3",
+    "section": "",
+    "text": "library(tidyverse)\nlibrary(tidymodels)\nlibrary(ggplot2)\nlibrary(DT)\nlibrary(haven)\n\ndat &lt;- read_csv(\"violence_data.csv\")",
+    "crumbs": [
+      "Homework Assignments",
+      "Homework 3"
+    ]
+  },
+  {
+    "objectID": "assignments/homework-3.html#overview",
+    "href": "assignments/homework-3.html#overview",
+    "title": "Assignment 3",
+    "section": "Overview",
+    "text": "Overview\nAn important area where data analytics is relevant to international affairs is in the area of violence and conflict forecasting and prediction. If we can build good prediction models for early warning systems, then steps can be taken to reduce violence or its harmful impacts.\nIn this project, you will build and assess a violence prediction model using data about local incidents of violence in Liberia. The study was originally conducted by Blair, Blattman, and Hartman (2017) and was published in the Journal of Peace Research.\nBased on your results, you will write a policy memo for the Liberian government, with an emphasis on data-driven policy recommendations.",
+    "crumbs": [
+      "Homework Assignments",
+      "Homework 3"
+    ]
+  },
+  {
+    "objectID": "assignments/homework-3.html#data-and-variables",
+    "href": "assignments/homework-3.html#data-and-variables",
+    "title": "Assignment 3",
+    "section": "Data and Variables",
+    "text": "Data and Variables\nThe data from the Blair, Blattman, and Hartman (2017) study are included in “violence_data.csv”. Please refer to the paper for details about how the data were collected. Each unit in the data is a village.\nThe main outcome variable is anyConflict, which takes a value of 1 if any type of violence occurred in the community, and 0 if not. The outcome measures captures whether any of three different violent events occurred: collective violence, interpersonal violence, or extrajudicial violence. See paper for details.\nThe dataset includes 56 possible predictors of violence. The variable names and their descriptions are below in Section 4 . All of these predictors are standardized (the mean is 0 and one unit is equivalent to a standard deviation shift), which means they are on a scale where they can be compared.\nPlease read the paper for a description of the different kinds of predictors.",
+    "crumbs": [
+      "Homework Assignments",
+      "Homework 3"
+    ]
+  },
+  {
+    "objectID": "assignments/homework-3.html#your-task",
+    "href": "assignments/homework-3.html#your-task",
+    "title": "Assignment 3",
+    "section": "Your Task",
+    "text": "Your Task\n\nCreate a new folder and RProj file. Save the violence_data.csv file in that folder.\nPull in the violence_data.csv file. Examine descriptive information about the anyConflict variable and some of the predictors that seem interesting to you.\nTrain and assess the performance of a prediction model using logistic regression (one of the models used in the Blair, Blattman, and Hartman (2017) paper). Your first step will be to replicate the model used in Blair, Blattman, and Hartman (2017), which includes all of the predictors in the dataset (with no interactions).\n\nGo through each of the steps we have discussed.\nPresent evidence about the performance of the model.\nExamine the variables from the model that seem most predictive of violence (or lack thereof). Do any findings stand out? Examine the variables that seem to have no predictive value. Are there any interesting or surprising findings?\nCreate a figure (or a few figures) that help people to visualize the model results and the relative importance of different predictors.\n\nNext, develop an alternative to the Blair, Blattman, and Hartman (2017) model. You could take a number of different approaches. For example, you might examine whether creating some interactions between some of the variables would improve performance. Or, you might examine whether a more simple model – which might mean data are easier/cheaper to collect – would perform equally well.\n\nTrain the new model, assess its performance, and compare to the Blair, Blattman, and Hartman (2017) model.\n\nFinally, imagine that the Liberian Government has asked you to advise them about predicting and preventing local violence in the country. Write a policy memo that summarizes your analyses and results (including data viz outputs), and which develops a set of data-driven policy recommendations that are suggested by your analyses.",
+    "crumbs": [
+      "Homework Assignments",
+      "Homework 3"
+    ]
+  },
+  {
+    "objectID": "assignments/homework-3.html#sec-predictors",
+    "href": "assignments/homework-3.html#sec-predictors",
+    "title": "Assignment 3",
+    "section": "List of Predictors from Blair, Blattman, and Hartman (2017)",
+    "text": "List of Predictors from Blair, Blattman, and Hartman (2017)\n\n\n\nTable 1: Predictors and Descriptions\n\n\n## Define list of predictors\npredictors &lt;- c(\"sctownpop\",\n                \"sctownhh\",       \n                \"scnum_tribes\",     \n                \"sctownmusl_percap\",       \n                \"scmosquesdum\",        \n                \"scmuslim\",     \n                \"scprop_stranger\",       \n                \"sctownstrg_percap\",     \n                \"scprop_domgroup\",     \n                \"scexcom\",     \n                \"sctownexcm_percap\",     \n                \"sctownretn_percap\",     \n                \"scprop_under30\",     \n                \"scprop_male\",     \n                \"scedulevel\",     \n                \"scprop_noeduc\",     \n                \"scprop_anypeace\",     \n                \"scgroup_prtcptn\",      \n                \"scpubcontr\",     \n                \"scsafecommdum\",     \n                \"scciviccommdum\",     \n                \"scoll_action_add\",     \n                \"scngodependent\",    \n                \"scgovtdependent\",     \n                \"cequity_comm\",     \n                \"scpolicourtscorr\",       \n                \"screlmarry\",        \n                \"scmslmnolead\",     \n                \"sctribeviolent\",     \n                \"sctribedirty\",      \n                \"scmnrt_ldrshp\",     \n                \"sccrime_scale\",          \n                \"scviol_scale\",         \n                \"sclandconf_scale\",     \n                \"scany_majorconf\",        \n                \"sctownnlnd_percap\",        \n                \"scnolandnofarm\",    \n                \"scfarmocc\",        \n                \"scunemployed\",        \n                \"scwealthindex\",     \n                \"scwealth_inequality\",      \n                \"scviol_experienced\",        \n                \"scviol_part\",     \n                \"scanylndtake\",         \n                \"scdisp_ref\",         \n                \"sfacilities\",     \n                \"sstate_presence\",         \n                \"sfreq_visits\",         \n                \"sremote\",     \n                \"scmobilec\",        \n                \"scradio_low\",         \n                \"sctot_resources\",     \n                \"scmeanprice_above75\",\n                \"scpdis_shock\",         \n                \"scpani_shock\",         \n                \"scpcrop_shock\")\n\nvar.labels &lt;- c(\"Town Population\",\n                \"Number of Households\",\n                \"Number of Tribes\",\n                \"Percent Muslims (Leader)\",\n                \"Has Mosque (Resident)\",\n                \"Percent Muslims (Resident)\",\n                \"Percent Non-Native (Residents)\",\n                \"Percent Non-Native (Leader)\",\n                \"Percent in Dominant Group\",\n                \"Percent Ex-Combatants (Residents)\",\n                \"Percent Ex-Combatants (Leader)\",\n                \"Percent returned for Internal Displacement\",     \n                \"Percent under 30\",     \n                \"Percent Male\",     \n                \"Mean Educational Attainment\",     \n                \"Percent With No Education\",     \n                \"Proportion Receiving Any Peace Training\",     \n                \"Group Participation (0-9)\",      \n                \"Percent Who Contribute to Public Facilities\",     \n                \"Percent Saying Town is Safe at Night\",     \n                \"Percent Saying Neighbors Are Helpful\",     \n                \"Collective Public Goods\",     \n                \"Percent Who Rely on NGOs\",    \n                \"Percent Who Rely on Government\",     \n                \"Perceived Equity in Institutions\",     \n                \"Percent Describing Police/Courts as Corrupt\",       \n                \"Percent Accepting Inter-Racial Marriage\",        \n                \"Percent Who Say Muslims Shouldn't Be Leaders\",     \n                \"Percent Believing other Tribes are Violent\",     \n                \"Percent Believing Other Tribes are Dirty\",      \n                \"Minority Tribe in Town Leadership\",     \n                \"Percent Reporting Burglary or Robbery\",          \n                \"Percent Reporting Assault\",         \n                \"Percent Reporting Any Land Conflict\",     \n                \"Any Violent Event\",        \n                \"Percent of Town Landless (Leader)\",        \n                \"Percent of Town Landless (Residents)\",    \n                \"Percent of Town Farmers\",        \n                \"Unemployment Rate\",        \n                \"Wealth Index\",     \n                \"S.D. of Wealth Index In Town\",      \n                \"Exposure to War Violence\",        \n                \"Participation in War Violence\",     \n                \"Percent Reporting Loss of Land During War\",         \n                \"Percent Displaced During War\",         \n                \"Social Services in Town\",     \n                \"Police or Magistrate in Town\",         \n                \"Frequency of Police/ NGO Visits\",         \n                \"Town&gt;1 Hour from Road\",     \n                \"Mobile Phone Coverage\",        \n                \"Less than 2 Radio Stations\",         \n                \"Natural Resources In 2 Hours\",     \n                \"Commodity Price Index\",\n                \"Percent Affected By Human Disease\",         \n                \"Percent Affected By Livestock Disease\",         \n                \"Percent Affected By Crop Failure\"\n)\n\nvars &lt;- as.data.frame(cbind(predictors, var.labels))\ndatatable(vars)",
+    "crumbs": [
+      "Homework Assignments",
+      "Homework 3"
+    ]
+  },
+  {
+    "objectID": "assignments/homework-1.html",
+    "href": "assignments/homework-1.html",
+    "title": "Homework 1",
+    "section": "",
+    "text": "For this assignment, you are going to evaluate modernization theory as laid out in Seymour Martin Lipset’s classic article entitled “Some Social Requisites of Democracy: Economic Development and Political Legitimacy.” How classic is this article? According to Google Scholar, this piece has been cited more than 11.5 thousand times!\nWe are going to use data from V-Dem and modern data viz tools to explore Lipset’s hypothesis that economic modernization is highly correlated with democracy. We have already done this to some extent by looking at the relationship between wealth and the polyarchy score. But we are going to broaden things out by looking at other measures of modernization and democracy contained in the V-Dem dataset.\nBefore starting on this assignment, you will want to have a look at the V-Dem codebook. Look through the sections titled “V-Dem Democracy Indices” (section 2 of the codebook) and “Background Factors (E).” There are five democracy indicators, one of which is the polyarchy index. There are a number of background factors, many of which pertain to economic modernization. We are going to be looking at the relationship between these two sets of variables.\nNow have a look at “Some Social Requisites of Democracy” and in particular pay attention to the indicators in Table II and the discussion surrounding them. Think of each indicator (e.g. urbanization, education, etc.) as a sub-hypothesis of his theory. Which of these sub-hypotheses about modernization do you think is most compelling? Which would you like to test?\nSubmission note: Accept the invitation on Blackboard to submit this assignment via GitHub.",
+    "crumbs": [
+      "Homework Assignments",
+      "Homework 1"
+    ]
+  },
+  {
+    "objectID": "assignments/homework-1.html#overview",
+    "href": "assignments/homework-1.html#overview",
+    "title": "Homework 1",
+    "section": "",
+    "text": "For this assignment, you are going to evaluate modernization theory as laid out in Seymour Martin Lipset’s classic article entitled “Some Social Requisites of Democracy: Economic Development and Political Legitimacy.” How classic is this article? According to Google Scholar, this piece has been cited more than 11.5 thousand times!\nWe are going to use data from V-Dem and modern data viz tools to explore Lipset’s hypothesis that economic modernization is highly correlated with democracy. We have already done this to some extent by looking at the relationship between wealth and the polyarchy score. But we are going to broaden things out by looking at other measures of modernization and democracy contained in the V-Dem dataset.\nBefore starting on this assignment, you will want to have a look at the V-Dem codebook. Look through the sections titled “V-Dem Democracy Indices” (section 2 of the codebook) and “Background Factors (E).” There are five democracy indicators, one of which is the polyarchy index. There are a number of background factors, many of which pertain to economic modernization. We are going to be looking at the relationship between these two sets of variables.\nNow have a look at “Some Social Requisites of Democracy” and in particular pay attention to the indicators in Table II and the discussion surrounding them. Think of each indicator (e.g. urbanization, education, etc.) as a sub-hypothesis of his theory. Which of these sub-hypotheses about modernization do you think is most compelling? Which would you like to test?\nSubmission note: Accept the invitation on Blackboard to submit this assignment via GitHub.",
+    "crumbs": [
+      "Homework Assignments",
+      "Homework 1"
+    ]
+  },
+  {
+    "objectID": "assignments/homework-1.html#step-1-gather-your-data-20-pts",
+    "href": "assignments/homework-1.html#step-1-gather-your-data-20-pts",
+    "title": "Homework 1",
+    "section": "Step 1: Gather Your Data (20 pts)",
+    "text": "Step 1: Gather Your Data (20 pts)\nUse the vdemdata package to download data for your analysis. Since we already looked at the polyarchy score and wealth in class, you need to use a different measure of democracy and a different background factor for your analysis. Use a select() verb to include country, year, region (e_regionpol_6C), at least one of the other four measures of democracy, and one background factor that is not per capita GDP. Store your data in an object called dem_data. Pipe in a mutate() verb and use case_match() to label the regions. Review module 1.2 if you are confused on how to do this.",
+    "crumbs": [
+      "Homework Assignments",
+      "Homework 1"
+    ]
+  },
+  {
+    "objectID": "assignments/homework-1.html#step-2-make-a-bar-chart-20-pts",
+    "href": "assignments/homework-1.html#step-2-make-a-bar-chart-20-pts",
+    "title": "Homework 1",
+    "section": "Step 2: Make a bar chart (20 pts)",
+    "text": "Step 2: Make a bar chart (20 pts)\na) Insert a code chunk below this line and label it. Wrangle your data for the bar chart. Filter by year to include data since 2000, group by region and summarize by mean. Save the new data in an object called bar_chart_data.\nb) Insert a code chunk below this line and label it. Use ggplot() and geom_col() to create a bar chart showing levels of democracy across the regions with your wrangled data. Make sure to add appropriate axis labels, a title and a caption. Add a theme to spruce it up a bit.\nNote: From here on out I will expect you to know to add a code chunk and label it.",
+    "crumbs": [
+      "Homework Assignments",
+      "Homework 1"
+    ]
+  },
+  {
+    "objectID": "assignments/homework-1.html#step-3-make-a-colorblind-friendly-line-chart-20-pts",
+    "href": "assignments/homework-1.html#step-3-make-a-colorblind-friendly-line-chart-20-pts",
+    "title": "Homework 1",
+    "section": "Step 3: Make a colorblind-friendly line chart (20 pts)",
+    "text": "Step 3: Make a colorblind-friendly line chart (20 pts)\na) Filter your dem_data to include three or four countries of your choosing and create a line chart of your democracy indicator. You can save the data as a new data frame called dem_data_line or you can pipe your filtered data directly into ggplot().\nb) Use cvdPlot() to view your chart from the standpoint of someone with red-green color blindness and describe what you see.\nc) Add a colorblind-friendly color map using viridis or ColorBrewer.\nd) Run the plot through cvdPlot() and describe what you see. Is your plot colorblind friendly?",
+    "crumbs": [
+      "Homework Assignments",
+      "Homework 1"
+    ]
+  },
+  {
+    "objectID": "assignments/homework-1.html#step-4-make-a-scatter-plot-with-annotation-20-pts",
+    "href": "assignments/homework-1.html#step-4-make-a-scatter-plot-with-annotation-20-pts",
+    "title": "Homework 1",
+    "section": "Step 4: Make a scatter plot with annotation (20 pts)",
+    "text": "Step 4: Make a scatter plot with annotation (20 pts)\na) Using dem__data, filter out a ten year period. This could be the most recent ten years of data or a distinct ten year period that you want to look at. If you choose a recent period, make sure that you have enough data to take an average of ten years. Some of the background variables in V-Dem are not entirely up to date. You can check the availability of the data by looking at the V-Dem codebook or using glimpse() or View() to look at your data.Group by country and summarize by mean. Save your your data in a new object called dem_data_scatter.\nb) Now build a scatter plot with ggplot2. Put your modernization-related variable (background variable) on the x-axis and your measure of democracy on the y-axis and color the points by region. Add a trend line with geom_smooth(). This could be a linear model or a loess curve. Add appropriate labels and a viridis or ColorBrewer color map and change the theme to theme_minimal.\nc) Add an annotation to your scatter plot using annotate() and geom_vline() or geom_hline(). Your annotation could highlight a particular year or level of democracy that is relevant for your analysis. Explain briefly why you included this annotation",
+    "crumbs": [
+      "Homework Assignments",
+      "Homework 1"
+    ]
+  },
+  {
+    "objectID": "assignments/homework-1.html#step-5-make-your-scatter-plot-interactive-20-pts",
+    "href": "assignments/homework-1.html#step-5-make-your-scatter-plot-interactive-20-pts",
+    "title": "Homework 1",
+    "section": "Step 5: Make your scatter plot interactive (20 pts)",
+    "text": "Step 5: Make your scatter plot interactive (20 pts)\na) Make your scatter plot interactive using ggplotly(). Make sure that your tooltip includes the information that you want to display to the user.\nb) Interpret your results. Does your plot show a relationship between the two variables? Which countries are outliers in your analysis? Why do you think they are outliers and how does your explanation relate to Lipset’s hypothesis?",
+    "crumbs": [
+      "Homework Assignments",
+      "Homework 1"
     ]
   }
 ]

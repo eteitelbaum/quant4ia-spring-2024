@@ -1,5 +1,5 @@
 ---
-title: "Coding Assignment 1"
+title: "Homework 1"
 ---
 
 ## Overview

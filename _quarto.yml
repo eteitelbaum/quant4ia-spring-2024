@@ -70,19 +70,15 @@ website:
           #   text: "Week 5"
           # - href: weeks/week-6.qmd
           #   text: "Week 6"
-      - section: "Coding Assignments"
+      - section: "Homework Assignments"
         contents:
-          - href: assignments/coding-assignment-1.qmd
-            text: "Coding Assignment 1"
-          - href: assignments/coding-assignment-2.qmd
-            text: "Coding Assignment 2"
-          - href: assignments/coding-assignment-3.qmd
-            text: "Coding Assignment 3"
-          - href: assignments/coding-assignment-4.qmd
-            text: "Coding Assignment 4"
-          - href: assignments/coding-assignment-5.qmd
-            text: "Coding Assignment 5"
-      - section: "Project"
+          - href: assignments/homework-1.qmd
+            text: "Homework 1"
+          - href: assignments/homework-2.qmd
+            text: "Homework 2"
+          - href: assignments/homework-3.qmd
+            text: "Homework 3"
+      - section: "Final Project"
         contents:
           # - href: project/project-description.qmd
           #   text: "Description"
