@@ -6747,29 +6747,29 @@
     "objectID": "slides/week-3.2.html#where-does-data-come-from",
     "href": "slides/week-3.2.html#where-does-data-come-from",
     "title": "Where to Find Data",
-    "section": "",
-    "text": "Thoughts? 😎 💭\n. . .\n\n\nYour boss or a client sends you a file\nSurvey data collected by you or someone else\nYou can download it from a website\nYou can scrape it from a website\nA curated collection (e.g. unvotes)\nYou can access it through an API"
+    "section": "Where Does Data Come From?",
+    "text": "Where Does Data Come From?\n\nThoughts? 😎 💭\n\n\n\nYour boss or a client sends you a file\nSurvey data collected by you or someone else\nYou can download it from a website\nYou can scrape it from a website\nA curated collection (e.g. unvotes)\nYou can access it through an API"
   },
   {
     "objectID": "slides/week-3.2.html#apis",
     "href": "slides/week-3.2.html#apis",
     "title": "Where to Find Data",
-    "section": "",
-    "text": "API stands for “Application Programming Interface”\nWay for two computers to talk to each other\n\n\n\n\n\n\n%% Note: fig-width option not working as of Quarto 1.4, try again in 1.5 \n\nflowchart LR\n    Client--&gt;|Request|id1[(API)]\n    id1[(API)]--&gt;|Response|Client\n    id1[(API)]--&gt;Server\n    Server--&gt;id1[(API)]\n\n\n\n\n\n\n\nIn our case, we will use APIs to download social science data"
+    "section": "APIs",
+    "text": "APIs\n\n\nAPI stands for “Application Programming Interface”\nWay for two computers to talk to each other\n\n\n\n\n\n\n%% Note: fig-width option not working as of Quarto 1.4, try again in 1.5 \n\nflowchart LR\n    Client--&gt;|Request|id1[(API)]\n    id1[(API)]--&gt;|Response|Client\n    id1[(API)]--&gt;Server\n    Server--&gt;id1[(API)]\n\n\n\n\n\n\n\nIn our case, we will use APIs to download social science data"
   },
   {
     "objectID": "slides/week-3.2.html#apis-in-r",
     "href": "slides/week-3.2.html#apis-in-r",
     "title": "Where to Find Data",
-    "section": "",
-    "text": "APIs are accessed through packages in R\nSometimes there can be more than one package for an API\nMuch easier than reading in data from messy flat file!\nWe will use two APIs in this course\n\nWorld Bank data through wbstats\nVarieties of Democracy (V-Dem) through vdemdata\n\nBut there are many APIs out there (please explore!)"
+    "section": "APIs in R",
+    "text": "APIs in R\n\n\nAPIs are accessed through packages in R\nSometimes there can be more than one package for an API\nMuch easier than reading in data from messy flat file!\nWe will use two APIs in this course\n\nWorld Bank data through wbstats\nVarieties of Democracy (V-Dem) through vdemdata\n\nBut there are many APIs out there (please explore!)"
   },
   {
     "objectID": "slides/week-3.2.html#this-lesson",
     "href": "slides/week-3.2.html#this-lesson",
     "title": "Where to Find Data",
-    "section": "",
-    "text": "Access WB and V-Dem APIs with R packages\nWorld Bank data through wbstats\n\nThere is another package called WDI\n\nVarieties of Democracy (V-Dem) through vdemdata\n\nThis is the only package for V-Dem\nJust downloads all the data\nSo we have to use dplyr functions like filter() and select()"
+    "section": "This Lesson",
+    "text": "This Lesson\n\n\nAccess WB and V-Dem APIs with R packages\nWorld Bank data through wbstats\n\nThere is another package called WDI\n\nVarieties of Democracy (V-Dem) through vdemdata\n\nThis is the only package for V-Dem\nJust downloads all the data\nSo we have to use dplyr functions like filter() and select()"
   },
   {
     "objectID": "slides/week-3.2.html#searching-for-wb-indicators",
