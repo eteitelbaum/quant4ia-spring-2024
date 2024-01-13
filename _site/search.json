@@ -7742,7 +7742,7 @@
     "section": "",
     "text": "library(tidyverse)\nlibrary(dplyr)\nlibrary(haven)\nlibrary(tidymodels)\nlibrary(ggplot2)\ndat &lt;- read_dta(\"gbf_rep/gbf_analysis.dta\")\n#glimpse(dat)\n\nmydata &lt;- dat %&gt;% \n  select(id_vill, t, vdc, f_latrine, f_psch, role_wmn, trust_own, no_conflict)\nwrite_csv(mydata, \"gobifo_data.csv\")",
     "crumbs": [
-      "Homework Assignments",
+      "Homework",
       "Homework 2"
     ]
   },
@@ -7753,7 +7753,7 @@
     "section": "Overview",
     "text": "Overview\nCommunity Driven Development (CDD) programs have become increasingly popular in international development over the past several decades. CDD programs directly involve impacted communities in the selection, design, and implementation of development projects. Usually, this also involves building upon or creating community level organizations (or committees) that are involved with the projects, with the goal of creating democratic and inclusive decision-making processes. See this 3ie working paper for discussion of some common features of CDD.\nGiven these design features, proponents of CDD argue that these programs should (a) improve the quality and impact of development projects (e.g., public goods) AND (b) improve social cohesion, inclusion, and local governance. For this reason, CDD has been implemented in a number of post-conflict settings, where the hope is that CDD can both improve development outcomes and contribute to rebuilding social cohesion and governance (which are often harmed by conflict).\nDoes CDD improve development outcomes? Does it improve social cohesion after conflict? Your goal in this assignment is to write a policy brief that answers these questions, using data from an evaluation of a CDD program in post-conflict Sierra Leone.",
     "crumbs": [
-      "Homework Assignments",
+      "Homework",
       "Homework 2"
     ]
   },
@@ -7764,7 +7764,7 @@
     "section": "The GoBifo Program in Sierra Leone",
     "text": "The GoBifo Program in Sierra Leone\nSierra Leone was devastated by a civil war lasting from 1991 to 2002. In the post-conflict context, the Ministry of Local Government and Community Development implemented the GoBifo (“forge ahead”) CDD project in Sierra Leone from 2005-2009 (with support from the World Bank and other international donors). See this report for a detailed summary of the program.\nThe program had two key components:\n\nBlock grants of about 4,667 dollars (about 100 per household in each community) that communities could allocate to local development projects, skills trainings, and small-business investment.\n“Technical assistance that promoted democratic decision-making, the participation of socially marginalized women and youth in local politics, and transparent budgeting practices” (Casey, Glennerster, and Miguel 2012)\n\nThe GiBifo program also included an impact evaluation, conducted by economists Katherine Casey, Rachel Glennerster, and Edward Miguel. The academic paper generated from the project is in the References section (Casey, Glennerster, and Miguel 2012).\nWait until after you complete your assignment to read the full paper.\nImportantly, the impact evaluation included randomization: communities in the study were randomly assigned to receive the GoBifo program, or not. In this sense, the impact evaluation was similar to a clinical drug trial, where some subjects are randomly assigned to receive the medicine while others do not receive it. This aspect of the design makes it easier to assess the causal impact of this project: we can simply compare outcomes in the treatment (GoBifo program) and control groups, and test for whether any differences we observe are likely to be due to chance.",
     "crumbs": [
-      "Homework Assignments",
+      "Homework",
       "Homework 2"
     ]
   },
@@ -7775,7 +7775,7 @@
     "section": "Data",
     "text": "Data\n“gobifo_data.csv” provides a condensed version of the data collected by Casey, Glennerster, and Miguel (2012) for their evaluation of the project. The study team gathered literally hundreds of outcome variables, and the paper includes an interesting discussion of how they analyze the data and interpret the results given the large number of outcomes they measured.\nFor our purposes, we will focus on a smaller set of variables, summarized below:\n\nTreatment variable (named t in the data): this equals 1 if the community was randomly assigned to be in the program, and 0 if not.\nCommunity Decision Making Infrastructure: Is there a village development committee in the community? (vdc)\nPublic Goods\n\nIs there a functioning latrine in the community? (f_latrine)\nIs there a functioning primary school in the community? (f_psch)\n\nInclusion, Gender equality in participatory decision making (role_wmn).\n\n[“Enumerator account of how actively women participated in the deliberation compared to men, ranging from 5 = no difference between women and men to 1 = women not active at all compared to men (field activity #1)”]\n\nSocial Capital\n\nTrust in other in the community (trust_own)\nConflict, coded as percentage of respondents in the village that reported they had NO conflicts/disputes with others that required outside intervention (no_conflict)",
     "crumbs": [
-      "Homework Assignments",
+      "Homework",
       "Homework 2"
     ]
   },
@@ -7786,7 +7786,7 @@
     "section": "Tasks",
     "text": "Tasks\n\nCreate a folder and an RProj file for this assignment. Save “gobifo_data.csv” in that folder.\nCreate a new Quarto document in your RProj folder: call it “gobifo_notebook.qmd” or something similar. Use this document to explore the data, work on putting together the code for your analysis, and to take notes as you go.\nExamine the data. How many units (villages) are there in the study? How many were in the treatment (t) group (in the program) and how many were in control? Examine the different outcome measures, calcuate some summary statistics (e.g., the mean), and make some graphs.\nFor each outcome variable listed above, generate an estimate of the mean AND generate a 95 percent confidence interval, separately in treatment and control (where t==0 and t==1). Create a visualization (or multiple) that presents these means and 95 percent confidence intervals: the visualization should allow us to visibly examine the difference between treatment and control groups on these outcome measures.\nFor each outcome, conduct hypothesis tests that assess whether the GoBifo program had an impact. Clearly state the null hypothesis and the alternative hypothesis for each test.\nWrite a policy brief that (1) provides a very short background on the program and Sierra Leone case, (2) presents your results (including graphs), (3) accurately interprets the results, and (4) discusses the policy/program implications of the findings for CDD in post-conflict settings.\n\nCreate a new Quarto document for your policy brief, which includes your write-up and any code needed to produce the final figures/tables in your memo. [not everything you produce in your notebook.qmd file will make it here, but that is still information that you need and might reference in the policy brief.]",
     "crumbs": [
-      "Homework Assignments",
+      "Homework",
       "Homework 2"
     ]
   },
@@ -7797,7 +7797,7 @@
     "section": "Extra Credit",
     "text": "Extra Credit\nIf you are in the mood for more of a challenge, try the following:\n\nLocate the replication data and code for the Casey, Glennerster, and Miguel (2012) paper online\nAfter reading the description of the data and variables, select an additional 2-3 variables to analyze.\nInput the full replication dataset and filter on the variables you would like to use\n\nThe data will come in .dta format and so you will need to read_dta() function from the haven package.\n\nFollow the steps above.",
     "crumbs": [
-      "Homework Assignments",
+      "Homework",
       "Homework 2"
     ]
   },
@@ -7808,7 +7808,7 @@
     "section": "",
     "text": "library(tidyverse)\nlibrary(tidymodels)\nlibrary(ggplot2)\nlibrary(DT)\nlibrary(haven)\n\ndat &lt;- read_csv(\"violence_data.csv\")",
     "crumbs": [
-      "Homework Assignments",
+      "Homework",
       "Homework 3"
     ]
   },
@@ -7819,7 +7819,7 @@
     "section": "Overview",
     "text": "Overview\nAn important area where data analytics is relevant to international affairs is in the area of violence and conflict forecasting and prediction. If we can build good prediction models for early warning systems, then steps can be taken to reduce violence or its harmful impacts.\nIn this project, you will build and assess a violence prediction model using data about local incidents of violence in Liberia. The study was originally conducted by Blair, Blattman, and Hartman (2017) and was published in the Journal of Peace Research.\nBased on your results, you will write a policy memo for the Liberian government, with an emphasis on data-driven policy recommendations.",
     "crumbs": [
-      "Homework Assignments",
+      "Homework",
       "Homework 3"
     ]
   },
@@ -7830,7 +7830,7 @@
     "section": "Data and Variables",
     "text": "Data and Variables\nThe data from the Blair, Blattman, and Hartman (2017) study are included in “violence_data.csv”. Please refer to the paper for details about how the data were collected. Each unit in the data is a village.\nThe main outcome variable is anyConflict, which takes a value of 1 if any type of violence occurred in the community, and 0 if not. The outcome measures captures whether any of three different violent events occurred: collective violence, interpersonal violence, or extrajudicial violence. See paper for details.\nThe dataset includes 56 possible predictors of violence. The variable names and their descriptions are below in Section 4 . All of these predictors are standardized (the mean is 0 and one unit is equivalent to a standard deviation shift), which means they are on a scale where they can be compared.\nPlease read the paper for a description of the different kinds of predictors.",
     "crumbs": [
-      "Homework Assignments",
+      "Homework",
       "Homework 3"
     ]
   },
@@ -7841,7 +7841,7 @@
     "section": "Your Task",
     "text": "Your Task\n\nCreate a new folder and RProj file. Save the violence_data.csv file in that folder.\nPull in the violence_data.csv file. Examine descriptive information about the anyConflict variable and some of the predictors that seem interesting to you.\nTrain and assess the performance of a prediction model using logistic regression (one of the models used in the Blair, Blattman, and Hartman (2017) paper). Your first step will be to replicate the model used in Blair, Blattman, and Hartman (2017), which includes all of the predictors in the dataset (with no interactions).\n\nGo through each of the steps we have discussed.\nPresent evidence about the performance of the model.\nExamine the variables from the model that seem most predictive of violence (or lack thereof). Do any findings stand out? Examine the variables that seem to have no predictive value. Are there any interesting or surprising findings?\nCreate a figure (or a few figures) that help people to visualize the model results and the relative importance of different predictors.\n\nNext, develop an alternative to the Blair, Blattman, and Hartman (2017) model. You could take a number of different approaches. For example, you might examine whether creating some interactions between some of the variables would improve performance. Or, you might examine whether a more simple model – which might mean data are easier/cheaper to collect – would perform equally well.\n\nTrain the new model, assess its performance, and compare to the Blair, Blattman, and Hartman (2017) model.\n\nFinally, imagine that the Liberian Government has asked you to advise them about predicting and preventing local violence in the country. Write a policy memo that summarizes your analyses and results (including data viz outputs), and which develops a set of data-driven policy recommendations that are suggested by your analyses.",
     "crumbs": [
-      "Homework Assignments",
+      "Homework",
       "Homework 3"
     ]
   },
@@ -7852,7 +7852,7 @@
     "section": "List of Predictors from Blair, Blattman, and Hartman (2017)",
     "text": "List of Predictors from Blair, Blattman, and Hartman (2017)\n\n\n\nTable 1: Predictors and Descriptions\n\n\n## Define list of predictors\npredictors &lt;- c(\"sctownpop\",\n                \"sctownhh\",       \n                \"scnum_tribes\",     \n                \"sctownmusl_percap\",       \n                \"scmosquesdum\",        \n                \"scmuslim\",     \n                \"scprop_stranger\",       \n                \"sctownstrg_percap\",     \n                \"scprop_domgroup\",     \n                \"scexcom\",     \n                \"sctownexcm_percap\",     \n                \"sctownretn_percap\",     \n                \"scprop_under30\",     \n                \"scprop_male\",     \n                \"scedulevel\",     \n                \"scprop_noeduc\",     \n                \"scprop_anypeace\",     \n                \"scgroup_prtcptn\",      \n                \"scpubcontr\",     \n                \"scsafecommdum\",     \n                \"scciviccommdum\",     \n                \"scoll_action_add\",     \n                \"scngodependent\",    \n                \"scgovtdependent\",     \n                \"cequity_comm\",     \n                \"scpolicourtscorr\",       \n                \"screlmarry\",        \n                \"scmslmnolead\",     \n                \"sctribeviolent\",     \n                \"sctribedirty\",      \n                \"scmnrt_ldrshp\",     \n                \"sccrime_scale\",          \n                \"scviol_scale\",         \n                \"sclandconf_scale\",     \n                \"scany_majorconf\",        \n                \"sctownnlnd_percap\",        \n                \"scnolandnofarm\",    \n                \"scfarmocc\",        \n                \"scunemployed\",        \n                \"scwealthindex\",     \n                \"scwealth_inequality\",      \n                \"scviol_experienced\",        \n                \"scviol_part\",     \n                \"scanylndtake\",         \n                \"scdisp_ref\",         \n                \"sfacilities\",     \n                \"sstate_presence\",         \n                \"sfreq_visits\",         \n                \"sremote\",     \n                \"scmobilec\",        \n                \"scradio_low\",         \n                \"sctot_resources\",     \n                \"scmeanprice_above75\",\n                \"scpdis_shock\",         \n                \"scpani_shock\",         \n                \"scpcrop_shock\")\n\nvar.labels &lt;- c(\"Town Population\",\n                \"Number of Households\",\n                \"Number of Tribes\",\n                \"Percent Muslims (Leader)\",\n                \"Has Mosque (Resident)\",\n                \"Percent Muslims (Resident)\",\n                \"Percent Non-Native (Residents)\",\n                \"Percent Non-Native (Leader)\",\n                \"Percent in Dominant Group\",\n                \"Percent Ex-Combatants (Residents)\",\n                \"Percent Ex-Combatants (Leader)\",\n                \"Percent returned for Internal Displacement\",     \n                \"Percent under 30\",     \n                \"Percent Male\",     \n                \"Mean Educational Attainment\",     \n                \"Percent With No Education\",     \n                \"Proportion Receiving Any Peace Training\",     \n                \"Group Participation (0-9)\",      \n                \"Percent Who Contribute to Public Facilities\",     \n                \"Percent Saying Town is Safe at Night\",     \n                \"Percent Saying Neighbors Are Helpful\",     \n                \"Collective Public Goods\",     \n                \"Percent Who Rely on NGOs\",    \n                \"Percent Who Rely on Government\",     \n                \"Perceived Equity in Institutions\",     \n                \"Percent Describing Police/Courts as Corrupt\",       \n                \"Percent Accepting Inter-Racial Marriage\",        \n                \"Percent Who Say Muslims Shouldn't Be Leaders\",     \n                \"Percent Believing other Tribes are Violent\",     \n                \"Percent Believing Other Tribes are Dirty\",      \n                \"Minority Tribe in Town Leadership\",     \n                \"Percent Reporting Burglary or Robbery\",          \n                \"Percent Reporting Assault\",         \n                \"Percent Reporting Any Land Conflict\",     \n                \"Any Violent Event\",        \n                \"Percent of Town Landless (Leader)\",        \n                \"Percent of Town Landless (Residents)\",    \n                \"Percent of Town Farmers\",        \n                \"Unemployment Rate\",        \n                \"Wealth Index\",     \n                \"S.D. of Wealth Index In Town\",      \n                \"Exposure to War Violence\",        \n                \"Participation in War Violence\",     \n                \"Percent Reporting Loss of Land During War\",         \n                \"Percent Displaced During War\",         \n                \"Social Services in Town\",     \n                \"Police or Magistrate in Town\",         \n                \"Frequency of Police/ NGO Visits\",         \n                \"Town&gt;1 Hour from Road\",     \n                \"Mobile Phone Coverage\",        \n                \"Less than 2 Radio Stations\",         \n                \"Natural Resources In 2 Hours\",     \n                \"Commodity Price Index\",\n                \"Percent Affected By Human Disease\",         \n                \"Percent Affected By Livestock Disease\",         \n                \"Percent Affected By Crop Failure\"\n)\n\nvars &lt;- as.data.frame(cbind(predictors, var.labels))\ndatatable(vars)",
     "crumbs": [
-      "Homework Assignments",
+      "Homework",
       "Homework 3"
     ]
   },
