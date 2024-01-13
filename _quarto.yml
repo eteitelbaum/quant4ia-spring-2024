@@ -40,10 +40,8 @@ website:
     search: true
     collapse-level: 1
     contents:
-      - section: "Course information"
+      - section: "Course Information"
         contents:
-          #- href: course-description.qmd
-          #  text: Description
           - href: course-syllabus.qmd
             text: Syllabus
           - href: course-support.qmd
@@ -80,16 +78,8 @@ website:
             text: "Homework 3"
       - section: "Final Project"
         contents:
-          # - href: project/project-description.qmd
-          #   text: "Description"
-          - href: project/project-assignment-1.qmd
-            text: "Project Assignment 1"
-          - href: project/project-assignment-2.qmd
-            text: "Project Assignment 2"
-          - href: project/project-assignment-3.qmd
-            text: "Project Assignment 3"
-          - href: project/alternative-assignment.qmd
-            text: "Alternative Assignment"
+          - href: project/project-description.qmd
+            text: "Final Project"
           - href: project/project-datasets.qmd
             text: "Datasets"
       - section: "Course Modules"

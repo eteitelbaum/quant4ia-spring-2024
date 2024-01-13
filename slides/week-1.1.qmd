@@ -34,7 +34,7 @@ Office Hours: Thursdays, 3:30-5 (Zoom)
 
 <br>
 
-![](MLP.jpg)
+![](images/MLP.jpg)
 
 ::: notes
 MLP\'s digital tools provide fine-grained data tracking and forecasting major political events across nearly 60 countries by continuously scraping and process tens of millions of articles published by more than 300 local, regional, and international news sources in more than 30 languages. This infrastructure provides up-to-date data on recent and historical trends in civic space and foreign influence and builds forecasting models that learn from historical patterns to predict how conditions are likely to change in the near future.
@@ -44,7 +44,7 @@ MLP\'s digital tools provide fine-grained data tracking and forecasting major po
 
 <br>
 
-![](CSO.jpg)
+![](images/CSO.jpg)
 
 ::: notes
 State Department
@@ -54,10 +54,10 @@ State Department
 
 <br>
 
-![](dime.jpg)
+![](images/dime.jpg)
 <br>
 
-![](usaid.jpg)
+![](images/usaid.jpg)
 
 ::: notes
 Program Evaluation, Impact Evaluation
