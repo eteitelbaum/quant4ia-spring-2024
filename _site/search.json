@@ -24,7 +24,7 @@
     "section": "",
     "text": "Writing Center GW’s Writing Center cultivates confident writers in the University community by facilitating collaborative, critical, and inclusive conversations at all stages of the writing process. Working alongside peer mentors, writers develop strategies to write independently in academic and public settings. Appointments can be booked online here.\nAcademic Commons Academic Commons provides tutoring and other academic support resources to students in many courses. Students can schedule virtual one-on-one appointments or attend virtual drop-in sessions. Students may schedule an appointment, review the tutoring schedule, access other academic support resources, or obtain assistance here.",
     "crumbs": [
-      "Course information",
+      "Course Information",
       "Support"
     ]
   },
@@ -35,7 +35,7 @@
     "section": "",
     "text": "Writing Center GW’s Writing Center cultivates confident writers in the University community by facilitating collaborative, critical, and inclusive conversations at all stages of the writing process. Working alongside peer mentors, writers develop strategies to write independently in academic and public settings. Appointments can be booked online here.\nAcademic Commons Academic Commons provides tutoring and other academic support resources to students in many courses. Students can schedule virtual one-on-one appointments or attend virtual drop-in sessions. Students may schedule an appointment, review the tutoring schedule, access other academic support resources, or obtain assistance here.",
     "crumbs": [
-      "Course information",
+      "Course Information",
       "Support"
     ]
   },
@@ -46,7 +46,7 @@
     "section": "Support for students outside the classroom",
     "text": "Support for students outside the classroom\nDisability Support Services (DSS) 202-994-8250 Any student who may need an accommodation based on the potential impact of a disability should contact Disability Support Services to establish eligibility and to coordinate reasonable accommodations.\nCounseling and Psychological Services 202-994-5300 GW’s Colonial Health Center offers counseling and psychological services, supporting mental health and personal development by collaborating directly with students to overcome challenges and difficulties that may interfere with academic, emotional, and personal success.\nGW aims to create a community that cares for each other.The CARE Team fosters this goal by creating a pathway through which students who may need additional support can be identified and referred to the most appropriate services. Through the CARE Team, students are given the support they need to persist and succeed at GW and beyond.\nSafety and Security:\n\nIn an emergency: call GWPD 202-994-6111 or 911.\nFor situation-specific actions: review the Emergency Response Handbook\nStay informed: safety.gwu.edu/stay-informed",
     "crumbs": [
-      "Course information",
+      "Course Information",
       "Support"
     ]
   },
@@ -992,7 +992,7 @@
     "section": "",
     "text": "Location: Bell Hall 108\n\nInstructor: Prof. Emmanuel Teitelbaum\nEmail: ejt@gwu.edu\nOffice Hours: Tuesdays, 3-5 p.m.\n\nTeaching Assistant:\nEmail:\nOffice Hours:\n\nTeaching Assistant:\nEmail:\nOffice Hours: 10-11 a.m. on Mondays\n\nCredit Hours: 3.0.",
     "crumbs": [
-      "Course information",
+      "Course Information",
       "Syllabus"
     ]
   },
@@ -1010,7 +1010,7 @@
     "section": "Course Objectives: What You’ll Be Able To Do",
     "text": "Course Objectives: What You’ll Be Able To Do\nCourse and module objectives are guides to gauge your skill and knowledge development. By the end of this course, you should be able to:\n\nAnalyze data sets using modern computational tools (using R).\nIdentify and access data sets, and apply data wrangling concepts to optimize data for analysis and modeling purposes.\nUse data visualization to summarize simple and complex relationships between and among variables in a data set.\nUse tools of statistical inference to test hypotheses\nDevelop and use models for prediction/forecasting, and for causal inference\nCreate professional and reproducible data analysis outputs (reports, websites, slides, and so on) using Quarto",
     "crumbs": [
-      "Course information",
+      "Course Information",
       "Syllabus"
     ]
   },
@@ -1021,7 +1021,7 @@
     "section": "Aiming For Success",
     "text": "Aiming For Success\nI care about your learning and also about this subject matter, and I am here to help you have a meaningful learning experience. I expect you to take ownership of your learning: you can get more out of the course by thoughtfully participating in discussions, actively taking notes on readings and lectures, and giving your best effort overall. I will hold you to the highest standards for academic honesty and integrity in your work. I will also encourage you to collaborate and learn from your peers through thoughtful and respectful discussion. I must highlight that communication is vital, so I hope you feel comfortable reaching out to me if you are struggling or have concerns or need accommodations beyond accessibility. We can determine strategies to set you up for success. Finally, I look forward to collaborating with you in this course to create a meaningful experience for everyone.",
     "crumbs": [
-      "Course information",
+      "Course Information",
       "Syllabus"
     ]
   },
@@ -1032,7 +1032,7 @@
     "section": "Office Hours",
     "text": "Office Hours\nAnother way we can work toward your success in the course is through office/student hours. Please make an appointment to talk with me during this time. You can work with me to:\n\nClarify any questions about the syllabus or course content\nReview an assignment you’ve completed and have questions about\nStep through practice problems or questions\nGet study strategies\nDiscuss grades\n\nTo make the meeting more effective, you can:\n\nGather materials (assignments, notes, etc.) ready in advance\nBe ready to take notes during office hours\nAsk follow up questions if you need clarification\nConfirm any action plan at the close of the meeting\nFollowing through on any action plan",
     "crumbs": [
-      "Course information",
+      "Course Information",
       "Syllabus"
     ]
   },
@@ -1043,7 +1043,7 @@
     "section": "Prerequisites",
     "text": "Prerequisites\n\nAcademic\nNone\n\n\nTechnological\n\nConfiguration and software\nTo fully participate in our course, you will need regular access to broadband Internet access as well as other technology components. Please consult GW Online’s Technical Requirements and Support for details on recommended configurations and software available to you. You will need to use the following tools and platforms:\n\nRStudio: an IDE for generating data visualizations using the programming language, R.\nR\n\nBoth of these can be downloaded from https://posit.co/downloads/\nFor our course, you should be able to:\n\nAccess and use GW’s Blackboard system.\nUse your GW email for university-related communications per university policy.\nUse productivity software (e.g., Office 365, Google Suite) to collaborate with peers and submit assignments.\nUse web conferencing tools (e.g., Zoom, Webex) to collaborate with peers and me.\nUse a mobile device and/or computer to upload documents, images, and recordings.\nSeek technology help and tools by contacting GW Information Technology | (202)-994-4948 | ithelp@gwu.edu.\n\nIf you need assistance with technology tools we’ll use in this course, please visit the Technology Support link in the left navigation menu in our course on Blackboard.",
     "crumbs": [
-      "Course information",
+      "Course Information",
       "Syllabus"
     ]
   },
@@ -1054,7 +1054,7 @@
     "section": "Materials You’ll Need",
     "text": "Materials You’ll Need\nYou will need to download the RStudio desktop application. You can find our weekly assigned readings through GW libraries. You must use your GW credentials to access these readings. Other course materials will be provided in our Blackboard course modules.",
     "crumbs": [
-      "Course information",
+      "Course Information",
       "Syllabus"
     ]
   },
@@ -1065,7 +1065,7 @@
     "section": "Course Credit Hour Policy",
     "text": "Course Credit Hour Policy\nUPDATE\n\nHow this applies to you\nUse the credit hour policy to plan and manage your workload and time spent on this course. Please contact me if you are having difficulty managing your workload, and we can discuss strategies to help you succeed in the course.",
     "crumbs": [
-      "Course information",
+      "Course Information",
       "Syllabus"
     ]
   },
@@ -1076,7 +1076,7 @@
     "section": "How You Will Learn and Demonstrate Knowledge",
     "text": "How You Will Learn and Demonstrate Knowledge\nMy aim is to provide you opportunities for active learning and skills development that help you meet course learning objectives and also grow in your knowledge of this field.\n\nInstruction\nI’ve designed the following instructional components to support your learning and growth in the course.\n\nClass Sessions: Class sessions will involve a mix of lecture and active learning activities that ask you to practice the skills we are learning in a given session. Please come prepared to actively participate in class.\nReadings: Each week you will be responsible for various reading assignments. The readings contain essential content for completing the course assignments.\n\n\n\nAssessment\nThe following assessments help you gauge and demonstrate your progress in the course and support you in meeting course learning objectives.\n\nWeekly quizzes: In this course, you will have opportunities to assess your own knowledge. You are expected to complete weekly quizzes that provide immediate feedback and support ongoing learning.\n3 Homework Assignments (15 percent each): You will develop various skills through three assignments that ask you to apply the data analysis tools we are learning in the course. Thoughtfully and thoroughly completing these assignments helps you meet course objectives.\nGroup Project: In your final project, you will work in teams to apply your new data analysis skills in an international affairs project.\n\nYou’ll find support for Blackboard and other tools used for course activities and assignments under the Technology Support link in the left navigation menu in our course on Blackboard.",
     "crumbs": [
-      "Course information",
+      "Course Information",
       "Syllabus"
     ]
   },
@@ -1087,7 +1087,7 @@
     "section": "Demonstrating Academic Integrity",
     "text": "Demonstrating Academic Integrity\nAll of us in the course will comply with the GW Code of Academic Integrity. It states that “we, the Students, Faculty, Librarians, Staff, and Administration of The George Washington University, believing academic integrity to be central to the mission of the University, commit ourselves to promoting high standards for the integrity of academic work. Commitment to academic integrity upholds educational equity, development, and dissemination of meaningful knowledge, and mutual respect that our community values and nurtures. The George Washington University Code of Academic Integrity is established to further this commitment.”\nAcademic dishonesty is defined as cheating of any kind, including misrepresenting one’s own work, taking credit for the work of others without crediting them and without appropriate authorization, and the fabrication of information. For details and complete code, see the Code of Academic Integrity.Common examples of academic dishonesty include cheating, fabrication, plagiarism, falsification, forgery of University academic documents, and facilitating academic dishonesty by others. Learn more about avoiding these:\n\nGW guidance for students on academic integrity.\nPlagiarism: What is it and how to avoid it from GW Libraries.\nMaintaining academic honesty can be a challenging skill to learn. If you have questions about maintaining our course standards, please talk with me early on.",
     "crumbs": [
-      "Course information",
+      "Course Information",
       "Syllabus"
     ]
   },
@@ -1098,7 +1098,7 @@
     "section": "Assignments",
     "text": "Assignments\n\nQuizzes (20%)\n3 Homework assignments (15% each = 45%)\nFinal Group Project (35%)\n\n\nQuizzes\nStudents will complete 12 graded quizzes. These exercises will be oriented towards strengthening the student’s ability to use the tools we will be learning in the course. The quizzes will help to ensure that you keep up with the material consistently throughout the semester.\n\n\nCoding Homework Assignments\nStudents will complete three coding homework assignments. These assignments are designed to provide students with the opportunity to apply their newly-acquired skills to an international affairs related question or problem.\n\n\nFinal Group Project\nEach student will complete a final project that will be developed throughout the semester. We will provide more detail and time for you to work with your group in class.",
     "crumbs": [
-      "Course information",
+      "Course Information",
       "Syllabus"
     ]
   },
@@ -1109,7 +1109,7 @@
     "section": "Course Grading",
     "text": "Course Grading\nThe grading scale below maps your final point or percentage total to your final letter grade for the course.\n\n\n\nRange\nLetter Grade\n\n\n\n\n94-100\nA\n\n\n90-93\nA-\n\n\n87-89\nB+\n\n\n84-86\nB\n\n\n80-83\nB-\n\n\n77-79\nC+\n\n\n74-76\nC\n\n\n70-73\nC-\n\n\n67-69\nD+\n\n\n64-66\nD\n\n\n60-63\nD-\n\n\n&lt;59\nF",
     "crumbs": [
-      "Course information",
+      "Course Information",
       "Syllabus"
     ]
   },
@@ -1120,7 +1120,7 @@
     "section": "Late Work",
     "text": "Late Work\nWe understand that sometimes emergencies arise that might prevent you from submitting work on time. If you think you might miss an assignment deadline, it is your responsibility to contact me via email. We know life happens sometimes and will be as accommodating as possible, but it is important that you communicate with us in advance. If we do not hear from you, we will deduct 2.5 percentage points from your grade for every 24 hours the assignment is late.",
     "crumbs": [
-      "Course information",
+      "Course Information",
       "Syllabus"
     ]
   },
@@ -1131,7 +1131,7 @@
     "section": "Incomplete Grades",
     "text": "Incomplete Grades\nIncomplete grades may be given to graduate students only if for reasons beyond the student’s control (such as medical or family emergency) they are unable to complete the final work of the course. Faculty should not assign an Incomplete grade if not asked by the student.\nFor further information, please consult with your advisor.",
     "crumbs": [
-      "Course information",
+      "Course Information",
       "Syllabus"
     ]
   },
@@ -1142,7 +1142,7 @@
     "section": "Course Communication",
     "text": "Course Communication\nCommunication in our course is essential; clearing up questions earlier than later is a good practice, so please don’t hesitate to reach out to me.\nWe will communicate to you primarily through GW’s Blackboard System. Announcements and emails sent through Blackboard automatically go to your GW email address (i.e., userid@gwu.edu). Please check your GW email account on a daily basis or forward your GW email to another address that you check daily.\nI will respond to emails/discussion posts within 48 hours (i.e., “24 hours on weekdays and on the next business day over weekends and holidays.”) I will provide feedback on assignments/exams within 3 days (i.e., “five days on weekdays and on the next business day over weekends and holidays.”)\nYou can post general course-related questions to our Discord server. Please post your question here first rather than emailing me directly if your question regards the course material. However, if you have a question that is more personal in nature (i.e., grades), please email me directly to set up an appointment.",
     "crumbs": [
-      "Course information",
+      "Course Information",
       "Syllabus"
     ]
   },
@@ -1153,7 +1153,7 @@
     "section": "Netiquette",
     "text": "Netiquette\nBehind every name there is a person.\nTo ensure safe and meaningful learning experiences for everyone, we all agree to:\n\nRemain professional, respectful, and courteous at all times on all platforms.\nKeep in mind this is a college class. Something that would be inappropriate in an in-person classroom is also inappropriate in an online classroom.\nWhen upset, we’ll wait a day or two prior to posting. Messages posted or emailed in anger are often regretted later.\nAsk one another for clarification if we find a communication offensive or difficult to understand.\nAvoid sweeping generalizations. Back up our stated opinions with facts and reliable sources.\nUnderstand that we may disagree and that exposure to other people’s opinions is part of the learning experience.\nJust as we would like our privacy respected, we will respect the privacy of other course participants and what they share.\n\nI (the instructor) reserve the right to delete any post or communication in our course that is deemed inappropriate without prior notification to the student. This includes anything containing language that is offensive, rude, profane, racist, or hateful. Items that are seriously off-topic or serve no purpose other than to vent frustration will also be removed.\nUsing outside communication apps\nI am aware that you and your peers might communicate using tools outside of GW’s Blackboard, my course website, our course Discord channel, or email systems. Rules of netiquette and appropriate communication extend to these tools as well as to Blackboard. If you see any tool being used inappropriately (i.e., any communication containing language that is offensive, rude, profane, racist, or hateful; uses that promote cheating of any kind), contact me as soon as possible to speak privately about it.\n(Adapted from Lake Superior Connect, Creative Commons Attribution 3.0)",
     "crumbs": [
-      "Course information",
+      "Course Information",
       "Syllabus"
     ]
   },
@@ -1164,7 +1164,7 @@
     "section": "Policies",
     "text": "Policies\nTo make this a meaningful learning experience for everyone, please read and understand the following policies. All GW policies can be found on the GW Office of Ethics, Compliance, and Privacy site. All GW community members are responsible for adhering to and activating in accordance with all university policies. Please contact me if you have any questions.",
     "crumbs": [
-      "Course information",
+      "Course Information",
       "Syllabus"
     ]
   },
@@ -1175,7 +1175,7 @@
     "section": "Accessibility and Accommodations",
     "text": "Accessibility and Accommodations\n\nGW’s Disability Support Services\nIf you are a student with a disability, or think you may have a disability, you can let me know, and/or you can talk to GW’s Office of Disability Support Services (DSS). DSS works with both students with disabilities and instructors to identify reasonable accommodations. Contact the DSS office at (202) 994-8250, by email on dss@gwu.edu, or in-person in Rome Hall Suite 102 to establish eligibility and to coordinate reasonable accommodations. If you have already been approved for accommodations, please send me your accommodation letter and meet with me so we can develop an implementation plan together.\nHow are course technology tools accessible to everyone? To find out, access Technology Support Technology Tools Policies in the Blackboard course menu.\n\n\nAccommodations Beyond Disability\nEveryone has different needs for learning. If you don’t have a documented disability but feel that you would benefit from learning support for other reasons, please don’t hesitate to talk to me. If you have substantial non-academic obligations or other concerns (e.g., food insecurity, work, childcare, athletic commitments, language barriers, financial issues, technology access, commuting, etc.) that make learning difficult, please contact me. I’ll keep this information confidential, and together, we can brainstorm ways to meet your needs.\n\n\nOther Needs\nAny student who has difficulty affording groceries or accessing sufficient food to eat every day, or who lacks a safe and stable place to live, and believes this may affect their performance in the course, is urged to contact GW’s Office of Student Financial Assistance for support. Furthermore, please notify me if you are comfortable doing so. Some other resources to support you are found under the course menu item Student Resources and include support for academic achievement and personal well-being. (Adapted from Goldrick-Rab, 2017)",
     "crumbs": [
-      "Course information",
+      "Course Information",
       "Syllabus"
     ]
   },
@@ -1186,7 +1186,7 @@
     "section": "Counseling and Psychological Services",
     "text": "Counseling and Psychological Services\nGW’s Health Center offers counseling and psychological services to GW students. Please note that staff is licensed to offer short term therapy to students in Washington, DC, Maryland, and Virginia. If you are living outside these regions, the office may be able to refer you elsewhere. Assistance and referrals 24 hours a day, 365 days a year and can be reached on (202) 994-5300.\nThe Center provides assistance and referral to address students’ personal, social, career, and study skills problems. Services for students include: crisis and emergency mental health consultations, confidential assessment, counseling services (individual and small group), and referrals.\nVirtual Workshops are open to any student regardless of geographic location. These can be exceptionally valuable and help you build essential skills and cope with common ongoing mental health concerns. Please contact the GW Health Center on (202) 994-5300 for more information.",
     "crumbs": [
-      "Course information",
+      "Course Information",
       "Syllabus"
     ]
   },
@@ -1197,7 +1197,7 @@
     "section": "Religious Observances",
     "text": "Religious Observances\nAs members of the GW community, you have the right to observe religious holidays. University policy requires that students notify their instructors during the first week of the semester if they plan to be absent from class on days of religious observance. For further details, please consult the university policy on religious holiday observance.",
     "crumbs": [
-      "Course information",
+      "Course Information",
       "Syllabus"
     ]
   },
@@ -1208,7 +1208,7 @@
     "section": "Key Dates",
     "text": "Key Dates\nPlease defer to the due dates listed on the course website. You can also view due dates in the gradebook and under each individual course assignment item in Blackboard Ultra.",
     "crumbs": [
-      "Course information",
+      "Course Information",
       "Syllabus"
     ]
   },
@@ -1629,7 +1629,7 @@
     "section": "",
     "text": "Location: Bell Hall 108\n\nInstructor: Prof. Emmanuel Teitelbaum\nEmail: ejt@gwu.edu\nOffice Hours: Tuesdays, 3-5 p.m.\n\nTeaching Assistant:\nEmail:\nOffice Hours:\n\nTeaching Assistant:\nEmail:\nOffice Hours: 10-11 a.m. on Mondays\n\nCredit Hours: 3.0.",
     "crumbs": [
-      "Course information",
+      "Course Information",
       "Syllabus"
     ]
   },
@@ -8068,7 +8068,7 @@
     "section": "Why Are You Here: What Our Course Is About",
     "text": "Why Are You Here: What Our Course Is About\nThis course will focus on developing data analysis and data science skills that are relevant for international affairs practitioners. Students will develop coding, data visualization, data analysis, and data presentation skills that will allow them to use data to answer questions related to international affairs and to contribute to data driven policy and programmatic decision making.",
     "crumbs": [
-      "Course information",
+      "Course Information",
       "Syllabus"
     ]
   },
