@@ -12,7 +12,7 @@ format:
     #multiplex: true
     chalkboard: true
 execute:
-  echo: true
+  echo: false
   message: false
   warning: false
   freeze: auto
@@ -20,66 +20,24 @@ execute:
 
 ## Welcome!
 
-Professor Eric Kramon (ekramon\@gwu.edu)
+<br>
 
-Office Hours: Wednesdays, 12:30-2:30, Monroe Hall office 472 (or by appointment)
+| Professor Teitelbaum (ejt@gwu.edu)
+| Office Hours: Tuesdays, 12:30-2:30 p.m.
+| Monroe Hall Rm 411 or online
+| Go to my [calendly page](https://calendly.com/emmanuel-teitelbaum) to sign up for a slot 
 
-## Teaching Assistant
-
-Audrey Straw (audrey.straw\@gwmail.gwu.edu)
-
-Office Hours: Thursdays, 3:30-5 (Zoom)
-
-## Data Analysis in IA
+## Teaching Assistants
 
 <br>
 
-![](images/MLP.jpg)
-
-::: notes
-MLP\'s digital tools provide fine-grained data tracking and forecasting major political events across nearly 60 countries by continuously scraping and process tens of millions of articles published by more than 300 local, regional, and international news sources in more than 30 languages. This infrastructure provides up-to-date data on recent and historical trends in civic space and foreign influence and builds forecasting models that learn from historical patterns to predict how conditions are likely to change in the near future.
-:::
-
-## Data Analysis in IA
+| Yuchen Zhao 
+| yuchen.zhao1@gmail.com 
 
 <br>
 
-![](images/CSO.jpg)
-
-::: notes
-State Department
-:::
-
-## Data Analysis in IA
-
-<br>
-
-![](images/dime.jpg)
-<br>
-
-![](images/usaid.jpg)
-
-::: notes
-Program Evaluation, Impact Evaluation
-Tools for identifying causal impacts
-:::
-
-
-
-
-## Course Objectives
-
-Overarching goal: Provide you with data analysis skills that:
-
-1.  You can use in your IA (or other) career
-
-2.  Provide a foundation (and possibly interest!) for more advanced courses in the future
-
-3.  Will allow you to understand, interpret, and critically engage with the data analysis and conclusions of others.
-
-::: notes
-Emphasize some of the ways that data science is used in IA
-:::
+| Jeffrey Kuo
+| jeffkuo@gmail.com
 
 ## Sections of the Course
 
@@ -90,67 +48,123 @@ Emphasize some of the ways that data science is used in IA
     -   Making rigorous conclusions from data
 3.  Modeling
     -   For prediction and forecasting
-
     -   For drawing causal conclusions
 :::
 
+## 
+
+<br>
+
+![](images/MLP.jpg)
+
+::: notes
+MLP\'s digital tools provide fine-grained data tracking and forecasting major political events across nearly 60 countries by continuously scraping and process tens of millions of articles published by more than 300 local, regional, and international news sources in more than 30 languages. This infrastructure provides up-to-date data on recent and historical trends in civic space and foreign influence and builds forecasting models that learn from historical patterns to predict how conditions are likely to change in the near future.
+:::
+
+## 
+
+<br>
+
+![](images/CSO.jpg)
+
+## 
+
+<br>
+
+![](images/dime.jpg) 
+
+## 
+
+<br>
+
+![](images/usaid.jpg)
 
 ## Skills/knowledge you will pick up along the way
 
+
+::: {.incremental}
 1.  R coding skills (and RStudio), with focus on "tidy" approach and reproducible research
-
 2.  Quarto (html documents, PDFs, presentations, websites, books, blogs, ...)
-
 3.  How to access and "clean" data so that you can analyze it
-
 4.  When you hear terms like "machine learning", you'll have some sense of what people are talking about
+:::
 
+## How do I get an A? (requirements)
 
+<br>
 
-## How do I get an A (requirements)
+- Weekly quizzes (20 percent)
+- 3 Data Analysis Assignments (45 percent; 15 percent each)
+- Final Project (20 percent)
 
-1. Weekly quizzes (20 percent)
+## Course Website
 
-2. 3 Data Analysis Assignments (45 percent; 15 percent each)
+<br>
 
-3. Final Project Preliminary Assignments
+-   [https://quant4ia.rocks](https://quant4ia.rocks)
+-   Let's take a quick tour!
+
+## Install R and RStudio
+
+- 
+- 
+
+## Set up RStudio {.smaller}
+
+-   Go to Tools\>Global Options
+-   Under Code, enable native pipe operator (`|>`)
+-   Under Appearance, choose a theme
+-   Configure panes
+    -   Go to Pane Layout
+    -   Move Source, Console, etc. to preferred positions
     
-    - Abstract - what do you want to do, what is the data you will use (5 percent)
-    - EDA, Preliminary data viz, + analysis plan (10)
-
-4. Final Project (20 percent)
+## Illustration
 
 
-## Class Structure
 
-Most classes will be divided into four parts:
+```{r}
+#| label: timer1
 
-1.  Lecture topic A
+library(countdown)
+countdown(minutes = 5, 
+          id = "timer1", 
+          top = "0%",
+          right = "5%",
+          color_border = "#fff",
+          color_text = "#fff",
+          color_running_background = "#42affa",
+          color_running_text = "black",
+          color_finished_background = "#E5D19D",
+          color_finished_text = "#00264A")
+```
+    
+## Install key packages
 
-2.  In class coding work on topic A
+-   Install the Tidyverse group of packages from the console
+    -   `install.packages("tidyverse")`
+-   Install `devtools`
+    -   `install.packages("devtools")`)
+-   Install tinytex (for PDF rendering)
+    - Go to your terminal and type `quarto install tinytex`
 
-3.  Lecture topic B
+## Illustration
 
-4.  In class coding work on topic B
+
 
 ## Let's get going . . .
 
-Your first Data Visualizations
+<br>
+
+Your first data visualizations...
 
 (and making sure we have R and RStudio installed and ready to roll)
-
-## Let's get going . . .
-
-First, you need to make sure you have R and RStudio installed on your machine.
-
-We will come around to help if you need it
-
-After that, work one one of the three examples
 
 
 ## Example: Make a map!
 
-```{r echo=FALSE}
+```{r}
+#| label: leaflet_map
+
 library(leaflet)
 leaflet() %>% 
   addTiles() %>%   # Add default OpenStreetMap map tiles
@@ -161,7 +175,9 @@ leaflet() %>%
 
 ## Example: Plotting Democracy Over Time
 
-```{r echo=FALSE}
+```{r}
+#| label: plot_democracy
+
 # For nice colors that work for color blind
 cbPalette <- c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
 
@@ -190,24 +206,14 @@ vdem %>%
 
 ## Example: UN Voting Trends
 
-```{r echo=FALSE, warning=FALSE}
-# = c("tidyverse", "lubridate", "scales", "DT", "unvotes", "pacman")
+```{r}
+#| label: un_voting
 
 library(tidyverse)
 library(unvotes)
 library(lubridate)
 library(scales)
 library(pacman)
-## Now load or install&load all
-#package.check <- lapply(
- # packages,
-  #FUN = function(x) {
-   # if (!require(x, character.only = TRUE)) {
-    #  install.packages(x, dependencies = TRUE)
-    #  library(x, character.only = TRUE)
-    #}
-#  }
-#)
 
 unvotes <- un_votes %>%
   inner_join(un_roll_calls, by = "rcid") %>%
@@ -238,29 +244,17 @@ unvotes %>%
   )
 ```
 
-## Before we dive in
 
-We need to get to know R, RStudio, and Quarto...
-
-
-## Your Task
+## Your Task {.smaller}
 
 -   Make sure R and RStudio installed (we can help if needed)
-
 -   Create a folder for this class somewhere on your machine.
-
     - Create a sub-folder called "classwork"
     - save week1-classwork.qmd in that folder
-
 -   Open the week1-classwork.qmd file in RStudio, which has code for 3 data viz activities
-
     -   Map making
     -   Democracy Over Time
     -   UN Voting patterns
-  
-
 -   Follow the instructions to update the code
-
 -   Click Render to update your HTML output and examine
-
 -   Complete as much as you can (no problem if you do not finish)

@@ -121,12 +121,18 @@ countdown(minutes = 2,
 -   Try out the visual editor
 
 ```{r}
-#| label: timer2
-
+#| label: timer1
+library(countdown)
 countdown(minutes = 2, 
-          id = "timer2", 
-          bottom = "10%",
-          right = "10%")
+          id = "timer1", 
+          top = "0%",
+          right = "5%",
+          color_border = "#fff",
+          color_text = "#fff",
+          color_running_background = "#42affa",
+          color_running_text = "black",
+          color_finished_background = "#E5D19D",
+          color_finished_text = "#00264A")
 ```
 
 # Quarto Docs

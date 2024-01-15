@@ -6,7 +6,7 @@ format: html
 
 ## Readings
 
-| 📖 Review the [course syllabus](/course-syllabus.html) and \[support resources\](/course-support.html)
+| 📖 Review the [course syllabus](/course-syllabus.html) and [support resources](/course-support.html)
 | 📖 Read [this blog](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/) about a project-oriented workflow in R.
 
 ## Videos

@@ -6,7 +6,8 @@ format:
     code-link: true
 highlight-style: atom-one
 execute:
-  echo: true
+  eval: false # change to true if incorporated in course
+  echo: true  # and add back the data (which has been removed)
   message: false
   warning: false
 ---
