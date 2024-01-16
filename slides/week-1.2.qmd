@@ -205,7 +205,7 @@ countdown(minutes = 2,
 ```{r}
 #| label: timer4
 
-countdown(minutes = 5, 
+countdown(minutes = 10, 
           id = "timer4", 
           bottom = "10%",
           right = "10%")
