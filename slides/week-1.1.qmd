@@ -22,7 +22,7 @@ execute:
 
 <br>
 
-| Professor Teitelbaum (ejt@gwu.edu)
+| Professor Teitelbaum [ejt@gwu.edu](mailto:ejt@gwu.edu)
 | Office Hours: Tuesdays, 12:30-2:30 p.m.
 | Monroe Hall Rm 411 or online
 | Go to my [calendly page](https://calendly.com/emmanuel-teitelbaum) to sign up for a slot 
@@ -32,12 +32,12 @@ execute:
 <br>
 
 | Yuchen Zhao 
-| yuchen.zhao1@gmail.com 
+| email: [yuchen.zhao1@gwu.edu](mailto:yuchen.zhao1@gmail.com) 
 
 <br>
 
 | Jeffrey Kuo
-| jeffkuo@gmail.com
+| email: [jeffkuo@gwu.edu](mailto:jeffkuo@gmail.com)
 
 ## Sections of the Course
 

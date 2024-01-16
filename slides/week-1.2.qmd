@@ -19,39 +19,6 @@ execute:
   freeze: auto
 ---
 
-# R Studio
-
-## Set up RStudio {.smaller}
-
--   Go to Tools\>Global Options
--   Under Code, enable native pipe operator (`|>`)
--   Under Appearance, choose a theme
--   Configure panes
-    -   Go to Pane Layout
-    -   Move Source, Console, etc. to preferred positions
--   Install the Tidyverse group of packages from the console
-    -   `install.packages("tidyverse")`
--   Install `devtools`
-    -   `install.packages("devtools")`)
--   Install tinytex (for PDF rendering)
-    - Go to your terminal and type `quarto install tinytex`
-
-```{r}
-#| label: timer1
-
-library(countdown)
-countdown(minutes = 2, 
-          id = "timer1", 
-          top = "0%",
-          right = "5%",
-          color_border = "#fff",
-          color_text = "#fff",
-          color_running_background = "#42affa",
-          color_running_text = "black",
-          color_finished_background = "#E5D19D",
-          color_finished_text = "#00264A")
-```
-
 # Quarto
 
 ## Quarto
@@ -122,6 +89,7 @@ countdown(minutes = 2,
 
 ```{r}
 #| label: timer1
+
 library(countdown)
 countdown(minutes = 2, 
           id = "timer1", 

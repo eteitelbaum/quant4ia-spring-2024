@@ -1145,7 +1145,7 @@
     "href": "slides/week-1.1.html#welcome",
     "title": "Quantitative Analysis for IA Practitioners",
     "section": "Welcome!",
-    "text": "Welcome!\n\nProfessor Teitelbaum (ejt@gwu.edu)\nOffice Hours: Tuesdays, 12:30-2:30 p.m.\nMonroe Hall Rm 411 or online\nGo to my calendly page to sign up for a slot"
+    "text": "Welcome!\n\nProfessor Teitelbaum ejt@gwu.edu\nOffice Hours: Tuesdays, 12:30-2:30 p.m.\nMonroe Hall Rm 411 or online\nGo to my calendly page to sign up for a slot"
   },
   {
     "objectID": "slides/week-1.1.html#teaching-assistant",
@@ -1683,7 +1683,7 @@
   {
     "objectID": "instructor.html",
     "href": "instructor.html",
-    "title": "Instructor",
+    "title": "Instructors",
     "section": "",
     "text": "Emmanuel Teitelbaum is an associate professor of political science and international affairs at the The George Washington University His current research focuses on labor standards and understanding how labor unions, nonprofit organizations, consumers and corporations can help to promote them. He also has a strong interest in development studies and serves as a co-managing editor of the Journal of Development Studies.\nAt GW, Professor Teitelbaum teaches courses on comparative politics, comparative political economy and Data Science. He is on faculty in the Department of Political Science and the Elliott School of International Affairs where he is affiliated with the Sigur Center for Asian Studies as well as the Institute for International Economic Policy. Professor Teitelbaum is the founding co-director of the Elliott School’s Data Literacy Initiative and the Data Analytics for Policy Professionals (DAPP) program.",
     "crumbs": [
@@ -1694,9 +1694,9 @@
   {
     "objectID": "instructor.html#office-hours",
     "href": "instructor.html#office-hours",
-    "title": "Instructor",
+    "title": "Instructors",
     "section": "Office hours",
-    "text": "Office hours\nProfessor Teitelbaum’s office hours vary by semester. Please reference his Calendly page to sign up for a slot. He is available for consultation virtually on Zoom or in his office at 411 Monroe Hall (2115 G. ST NW).",
+    "text": "Office hours\nProfessor Teitelbaum’s office hours vary by semester. Please reference his Calendly page to sign up for a slot. He is available for consultation virtually on Zoom or in his office at 411 Monroe Hall (2115 G. ST NW).\nIf you have a special email request, please send Professor Teitelbaum and email at ejt@gwu.",
     "crumbs": [
       "Course Information",
       "Instructor"
@@ -3289,7 +3289,7 @@
     "href": "slides/week-1.1.html#teaching-assistants",
     "title": "Quantitative Analysis for IA Practitioners",
     "section": "Teaching Assistants",
-    "text": "Teaching Assistants\n\nYuchen Zhao\nyuchen.zhao1@gmail.com\n\nJeffrey Kuo\njeffkuo@gmail.com"
+    "text": "Teaching Assistants\n\nYuchen Zhao\nemail: yuchen.zhao1@gwu.edu\n\nJeffrey Kuo\nemail: jeffkuo@gwu.edu"
   },
   {
     "objectID": "slides/week-1.1.html#section",
@@ -3331,13 +3331,38 @@
     "href": "slides/week-1.1.html#illustration",
     "title": "Quantitative Analysis for IA Practitioners",
     "section": "Illustration",
-    "text": "Illustration"
+    "text": "Illustration\n\n\n\n−+\n05:00"
   },
   {
     "objectID": "slides/week-1.1.html#install-key-packages",
     "href": "slides/week-1.1.html#install-key-packages",
     "title": "Quantitative Analysis for IA Practitioners",
     "section": "Install key packages",
-    "text": "Install key packages\n\nInstall the Tidyverse group of packages from the console\n\ninstall.packages(\"tidyverse\")\n\nInstall devtools\n\ninstall.packages(\"devtools\"))\n\nInstall tinytex (for PDF rendering)\n\nGo to your terminal and type quarto install tinytex\n\n\n\n\n\n−+\n05:00"
+    "text": "Install key packages\n\nInstall the Tidyverse group of packages from the console\n\ninstall.packages(\"tidyverse\")\n\nInstall devtools\n\ninstall.packages(\"devtools\"))\n\nInstall tinytex (for PDF rendering)\n\nGo to your terminal and type quarto install tinytex"
+  },
+  {
+    "objectID": "slides/week-1.1.html#install-r-and-rstudio",
+    "href": "slides/week-1.1.html#install-r-and-rstudio",
+    "title": "Quantitative Analysis for IA Practitioners",
+    "section": "Install R and RStudio",
+    "text": "Install R and RStudio"
+  },
+  {
+    "objectID": "slides/week-1.1.html#illustration-1",
+    "href": "slides/week-1.1.html#illustration-1",
+    "title": "Quantitative Analysis for IA Practitioners",
+    "section": "Illustration",
+    "text": "Illustration"
+  },
+  {
+    "objectID": "instructor.html#teaching-assistants",
+    "href": "instructor.html#teaching-assistants",
+    "title": "Instructors",
+    "section": "Teaching Assistants",
+    "text": "Teaching Assistants\nYuchen Zhao\nemail: yuchen.zhao1@gwu.edu\n\nJeffrey Kuo\nemail: jeffkuo@gwu.edu",
+    "crumbs": [
+      "Course Information",
+      "Instructor"
+    ]
   }
 ]
