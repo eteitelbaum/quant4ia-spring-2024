@@ -1984,7 +1984,7 @@
     "href": "slides/week-1.1.html#your-task",
     "title": "Quantitative Analysis for IA Practitioners",
     "section": "Your Task",
-    "text": "Your Task\n\nMake sure R and RStudio installed (we can help if needed)\nCreate a folder for this class somewhere on your machine\n\nCreate a sub-folder called “classwork”\nDownload and save week1-classwork.qmd in that folder\n\nOpen the week1-classwork.qmd file in RStudio, which has code for 3 data viz activities\n\nMap making\nDemocracy Over Time\nUN Voting patterns\n\nFollow the instructions to update the code\nClick Render to update your HTML output and examine\nComplete as much as you can (no problem if you do not finish)"
+    "text": "Your Task\n\nMake sure R and RStudio installed (we can help if needed)\nCreate a folder for this class somewhere on your machine\n\nCreate a sub-folder called “classwork”\nDownload and save week1-classwork.qmd in that folder\n\nOpen the week1-classwork.qmd file in RStudio, which has code for 3 data viz activities\n\nMap making\nDemocracy Over Time\nUN Voting patterns\n\nFollow the instructions to update the code\nClick the little green arrow to run the code chunk\nClick Render to update your HTML output\nComplete as much as you can (no problem if you do not finish)"
   },
   {
     "objectID": "slides/week-1.2.html#quarto-1",
@@ -2932,5 +2932,19 @@
     "title": "Module 5.1",
     "section": "Displaying your app",
     "text": "Displaying your app\nAt this point it should be relatively simple to view your app. Just add the call to the Shiny app, e.g. shinyApp(ui = ui, server = server) and click “Run App” in RStudio.\n\n# See above for the definitions of ui and server\nui &lt;- ...\n\nserver &lt;- ...\n\n# Run the application \nshinyApp(ui = ui, server = server)\n\nOptionally, right now, you can try setting up an account on shinyapps.io. Read over the shinyapps.io user guide and see if you can get it to work. For your final project, you will need to be able to deploy your app but but right now it is fine if you only want to view it locally."
+  },
+  {
+    "objectID": "slides/week-1.1.html#skillsknowledge-you-will-gain",
+    "href": "slides/week-1.1.html#skillsknowledge-you-will-gain",
+    "title": "Quantitative Analysis for IA Practitioners",
+    "section": "Skills/Knowledge You Will Gain",
+    "text": "Skills/Knowledge You Will Gain\n\n\n\nR coding skills (and RStudio), with focus on “tidy” approach and reproducible research\nQuarto (html documents, PDFs, presentations, websites, books, blogs, …)\nHow to access and “clean” data so that you can analyze it\nWhen you hear terms like “machine learning”, you’ll have some sense of what people are talking about"
+  },
+  {
+    "objectID": "slides/week-1.1.html#structure-of-the-course",
+    "href": "slides/week-1.1.html#structure-of-the-course",
+    "title": "Quantitative Analysis for IA Practitioners",
+    "section": "Structure of the Course",
+    "text": "Structure of the Course\n\n\nData Visualization\n\nSummarizing and communicating effectively with data\n\nStatistical Inference\n\nMaking rigorous conclusions from data\n\nModeling\n\nFor prediction and forecasting\nFor drawing causal conclusions"
   }
 ]

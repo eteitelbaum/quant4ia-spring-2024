@@ -43,18 +43,6 @@ execute:
 | Office Hours: Wedensdays, 4:00-6:00 p.m.
 | Gelman Library
 
-## Sections of the Course
-
-::: incremental
-1.  Data Visualization
-    -   Summarizing and communicating effectively with data
-2.  Statistical Inference
-    -   Making rigorous conclusions from data
-3.  Modeling
-    -   For prediction and forecasting
-    -   For drawing causal conclusions
-:::
-
 ## Why Take this Course?
 
 <br>
@@ -135,7 +123,7 @@ MLP's digital tools provide fine-grained data tracking and forecasting major pol
 - A major component of MEL is the use of randomized control trials (RCTs) and other designs, which you will learn about in this class
 :::
 
-## Skills/knowledge you will learn
+## Skills/Knowledge You Will Gain
 
 <br>
 
@@ -144,6 +132,18 @@ MLP's digital tools provide fine-grained data tracking and forecasting major pol
 2.  Quarto (html documents, PDFs, presentations, websites, books, blogs, ...)
 3.  How to access and "clean" data so that you can analyze it
 4.  When you hear terms like "machine learning", you'll have some sense of what people are talking about
+:::
+
+## Structure of the Course
+
+::: incremental
+1.  Data Visualization
+    -   Summarizing and communicating effectively with data
+2.  Statistical Inference
+    -   Making rigorous conclusions from data
+3.  Modeling
+    -   For prediction and forecasting
+    -   For drawing causal conclusions
 :::
 
 ## How do I get an "A"? (requirements)
@@ -324,5 +324,6 @@ unvotes %>%
     -   Democracy Over Time
     -   UN Voting patterns
 -   Follow the instructions to update the code
--   Click Render to update your HTML output and examine
+-   Click the little green arrow to run the code chunk
+-   Click Render to update your HTML output
 -   Complete as much as you can (no problem if you do not finish)
