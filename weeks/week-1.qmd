@@ -1,6 +1,6 @@
 ---
 title: "Week 1"
-subtitle: "Getting Started, Part 1"
+subtitle: "Getting Started"
 format: html
 ---
 
@@ -11,4 +11,5 @@ format: html
 
 ## Videos
 
-| 🖥️ [R and RStudio](https://www.youtube.com/watch?v=gssjyyl7vxI)
+| 🖥️ [R and RStudio](https://youtu.be/eimM6pNkYjE)
+| 🖥 [Getting Started with Quarto](https://youtu.be/6QN9ZYURDFg)
