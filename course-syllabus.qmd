@@ -1,6 +1,5 @@
 ---
 title: "Course Syllabus"
-editor: visual
 ---
 
 ## Course Information
@@ -8,16 +7,16 @@ editor: visual
 | **Location**: Bell Hall 108
 | 
 | **Instructor**: Prof. Emmanuel Teitelbaum
-| Email: ejt\@gwu.edu
+| Email: [ejt@gwu.edu](mailto:ejt@gwu.edu)
 | Office Hours: [Tuesdays, 3-5 p.m.](https://calendly.com/emmanuel-teitelbaum/15min)
 | 
-| **Teaching Assistant**:
-| Email:
-| Office Hours:
+| **Teaching Assistant**: Yuchen Zhao
+| Email: [yuchen.zhao1@gwu.edu](mailto:yuchen.zhao1@gwu.edu)
+| Office Hours: Wednesdays, 1:00 - 3:00 p.m.
 | 
-| **Teaching Assistant**:
-| Email:
-| Office Hours: 10-11 a.m. on Mondays
+| **Teaching Assistant**: Jeffrey Kuo
+| Email: [jeffkuo@gwu.edu](mailto:jeffkuo@gwu.edu)
+| Office Hours: Wednesdays, 4:00 - 6:00 p.m. 
 | 
 | **Credit Hours**: 3.0.
 
@@ -108,11 +107,13 @@ You will need to download the RStudio desktop application. You can find our week
 
 ## Course Credit Hour Policy
 
-UPDATE
+37.5 hours of work per semester is required for one credit hour. These hours will consist of 50 minutes of direct or guided interaction plus 100 minutes of independent learning per week during the course of a normal 15-week semester, which includes one week for exams.
 
 ### How this applies to you
 
-Use the credit hour policy to plan and manage your workload and time spent on this course. Please contact me if you are having difficulty managing your workload, and we can discuss strategies to help you succeed in the course.
+Use the credit hour policy to plan and manage your workload and time spent on this course. You should expect to spend approximately 5 hours (300 minutes) per week on this course outside of class time.
+
+Please contact me if you are having difficulty managing your workload, and we can discuss strategies to help you succeed in the course.
 
 ## How You Will Learn and Demonstrate Knowledge
 
