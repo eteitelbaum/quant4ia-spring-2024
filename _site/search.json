@@ -2397,7 +2397,7 @@
     "href": "slides/week-2.2.html#your-turn",
     "title": "Line Charts & Scatter Plots",
     "section": "Your Turn!",
-    "text": "Your Turn!\n\n\nSee table three of this article\nSelect three countries to visualize\nAdjust setup code to filter data on those countries\nVisualize with geom_line()\n\n\n\n\n−+\n10:00"
+    "text": "Your Turn!\n\n\nSee table three of this article\nSelect three countries to visualize\nAdjust setup code to filter data on those countries\nVisualize with geom_line()\nUse scale_color_viridis_d() to specify a viridis color scheme\n\n\n\n\n−+\n10:00"
   },
   {
     "objectID": "slides/week-2.2.html#scatter-plot-setup",
@@ -2516,7 +2516,7 @@
     "href": "slides/week-2.2.html#your-turn-3",
     "title": "Line Charts & Scatter Plots",
     "section": "Your Turn!",
-    "text": "Your Turn!\n\n\nFacet wrap your scatter plot\nUse scales = \"free\" to fix the West\n\n\n\n\n−+\n05:00"
+    "text": "Your Turn!\n\n\nFacet wrap your scatter plot\nUse scales = \"free\" in facet_wrap call to fix the West\n\nfacet_wrap(~ region, scales = \"free\")\n\n\n\n\n\n−+\n05:00"
   },
   {
     "objectID": "slides/week-2.2.html#labeling-points",

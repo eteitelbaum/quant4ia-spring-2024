@@ -332,6 +332,7 @@ cvdPlot(dem_waves_viridis)
 - Select three countries to visualize
 - Adjust setup code to filter data on those countries 
 - Visualize with `geom_line()`
+- Use `scale_color_viridis_d()` to specify a viridis color scheme
 
 ```{r}
 #| label: timer1
@@ -701,7 +702,8 @@ ggplot(dem_summary_ctry, aes(x = gdp_pc, y = polyarchy)) +
 <br>
 
 - Facet wrap your scatter plot
-- Use `scales = "free"` to fix the West
+- Use `scales = "free"` in `facet_wrap` call to fix the West
+  - `facet_wrap(~ region, scales = "free")`
 
 ```{r}
 #|label: facet_wrap_time
