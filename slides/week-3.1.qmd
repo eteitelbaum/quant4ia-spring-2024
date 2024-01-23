@@ -3,7 +3,7 @@ title: Working With Data in R
 date: today
 date-format: long
 footer: "[IAFF 6501 Website](https://quant4ia.rocks)"
-logo: images/dataviz-logo.png
+logo: images/iaff6501-logo.png
 format:
   revealjs:
     theme: [simple, custom.scss]
