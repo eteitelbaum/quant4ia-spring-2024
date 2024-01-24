@@ -1,6 +1,0 @@
----
-title: "Project Description"
-editor: visual
----
-
-Details coming soon...
