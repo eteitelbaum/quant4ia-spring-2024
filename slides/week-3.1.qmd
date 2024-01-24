@@ -1,0 +1,329 @@
+---
+title: Working With Data in R
+date: today
+date-format: long
+footer: "[IAFF 6501 Website](https://quant4ia.rocks)"
+logo: images/iaff6501-logo.png
+format:
+  revealjs:
+    theme: [simple, custom.scss]
+    transition: fade
+    slide-number: true
+    #multiplex: true
+    chalkboard: true
+execute:
+  echo: false
+  message: false
+  warning: false
+  freeze: auto
+---
+
+## What are Tidy Data?
+
+<br>
+
+- Each column represents a single variable
+- Each row represents a single observation
+- Each cell represents a single value
+
+## Tidy Data Example
+
+![](images/tidy_data.jpg){fig-align="center"}
+
+## What are Clean Data?
+
+- Column names are easy to work with and are not duplicated
+- Missing values have been dealt with
+- There are no repeated observations or columns
+- There are no blank observations or columns
+- The data are in the proper format
+  - For example dates should be formatted as dates
+
+## Messy Data Example
+
+![](images/messy_wb_data.jpg){fig-align="center" width=70%}
+
+## Let's Download Some Messy Data
+
+<br>
+
+- Produce a folder called "data" in your course modules project folder
+- Download some messy WB data from WB 
+- Make it one variable other than FLFP
+- Download as a CSV file with a unique file name and store in your data folder
+
+```{r}
+#| label: timer1
+
+library(countdown)
+countdown(minutes = 5, 
+          id = "time1", 
+          bottom = "10%", 
+          right = "10%",
+          color_border = "#fff",
+          color_text = "#fff",
+          color_running_background = "#42affa",
+          color_running_text = "black",
+          color_finished_background = "#E5D19D",
+          color_finished_text = "#00264A")
+```
+
+## Let's Read the Data Into R
+
+<br>
+
+Store the data as an **object** with `read_csv()` from the `readr` package:
+
+<br>
+
+```{r}
+#| label: read_CSV
+#| eval: false
+#| echo: true
+
+# Load readr
+library(readr) 
+
+# Read data from csv file into an object called "wb_data_messy"
+wb_data_messy <- read_csv("data/your_file_name.csv")
+```
+
+## What is in That Data Frame?
+
+<br>
+
+You can view data columns and column types with `dplyr` `glimpse()`:
+
+```{r}
+#| label: view_data
+#| eval: false
+#| echo: true
+
+# load dplyr
+library(dplyr) 
+
+# View the data
+glimpse(wb_data_messy)
+```
+
+Also try viewing with `View("wb_data_messy")` or by clicking on the object in the Environment field.
+
+## How Can We Fix It? 
+
+<br>
+
+- Pivot the data from wide to long form
+- Change year and data to numeric 
+- Clean up the column names
+
+## Pivot Longer
+
+<br>
+
+`pivot_longer()` takes three arguments:
+
+- **cols** - which columns you want to pivot
+- **names_to** - the name of the column where the old column names are going to (identifier)
+- **values_to** - the name of the column where the values are going to
+
+## Let's Fill in the Blanks
+
+<br>
+
+Can you get `pivot_longer()` to work? 
+
+<br>
+
+```{r}
+#| label: pivot_trial
+#| eval: false
+#| echo: true
+
+# Load tidyr
+library(tidyr)
+
+# Reshape the data
+  ___    <- ___   |>
+  pivot_longer(
+    cols = ___
+    names_to = ___
+    values_to = ___
+  )
+
+glimpse()
+```
+
+```{r}
+#| label: timer2
+
+countdown(minutes = 5, 
+          id = "timer2", 
+          top = "10%", 
+          right = "0%")
+```
+
+## Solution
+
+<br>
+
+```{r}
+#| label: pivot
+#| eval: false
+#| echo: true
+
+# Load tidyr
+library(tidyr)
+
+# Reshape the data
+wb_data <- wb_data_messy |> 
+  pivot_longer(             
+    cols = `1973 [YR1973]`: `2022 [YR2022]`, # columns to pivot
+    names_to = "year", # new identifier column
+    values_to = "flfp" # column with numeric values
+  ) 
+
+# View the data
+glimpse(wb_data)
+```
+
+## Now Let's Change Variables to Numeric
+
+<br>
+
+```{r}
+#| label: mutate
+#| eval: false
+#| echo: true
+
+# Fix year and flfp
+wb_data <- wb_data |> # replace original data frame 
+  mutate(year = substring(year, 1, 4)) |> # truncate year
+  mutate_at(c("year", "flfp"), as.numeric) # change vars to numeric
+
+# View the data
+glimpse(wb_data)
+```
+
+- `mutate` is used to change (or create) a single variable 
+- `mutate_at()` is used to make changes to multiple variables at once
+
+## Then We Can Clean Our Variable Names
+
+<br>
+
+Very simple: use `clean_names()` from the `janitor` package!
+
+<br>
+
+```{r}
+#| label: janitor
+#| eval: false
+#| echo: true
+
+# Load janitor
+library(janitor)
+
+# Apply clean_names() to wb_data, store in new data frame called wb_data_clean
+wb_data_clean <- wb_data |>  
+  clean_names() 
+```
+
+## Write as CSV to New File
+
+<br>
+
+Use `write_csv()` from `readr` to save the clean data. 
+
+<br>
+
+```{r}
+#| label: write_clean_data
+#| eval: false
+#| echo: true
+
+# Write wb_data_clean to a csv file
+write_csv(wb_data_clean, "data/wb_data_clean.csv")
+
+# View the data
+glimpse(wb_data_clean)
+```
+
+## What About Multiple Variables?
+  
+![](images/multiple_vars.png){fig-align="center" width=70%}
+  
+## Step 1: Pivot Years Into One Column
+
+<br>
+
+Use `pivot_longer()` to get the years into one column and the values into another like we did before, but label the numeric column "values":
+
+```{r}
+#| label: pivot_longer_multiple
+#| eval: false
+#| echo: true
+#| code-line-numbers: "6"
+
+# Reshape the data
+wb_data <- wb_data_messy |> 
+  pivot_longer(             
+    cols = `1973 [YR1973]`: `2022 [YR2022]`, # columns to pivot
+    names_to = "year", # new identifier column
+    values_to = "values" # column with numeric values
+  ) 
+
+# View the data
+glimpse(wb_data)
+```
+
+
+## Step 2: Pivot Series Into Columns
+
+<br>
+
+Now drop series name and use `pivot_wider()` to separate the series into separate columns:
+  
+```{r}
+#| label: pivot_wider
+#| eval: false
+#| echo: true
+
+wb_data_multicolum <- messy_multicolumn_df |>
+  select(-`Series Name`) # dropping series name
+
+# Reshape the data
+tidy_data <- wb_data_multicolumn |> 
+  pivot_wider(             
+    names_from = `Series Code`, # column with series names
+    values_from = "values" # column with numeric values
+  ) 
+
+# View the data
+glimpse(wb_data)
+```
+
+## What if We Have Data in an Excel File?
+
+<br>
+
+- Follow same steps as with CSV file, but use `read_excel()` to read in the data instead of `read_csv`
+- The `readr` [cheatsheet](https://github.com/rstudio/cheatsheets/blob/main/data-import.pdf) is helpful in figuring out stuff like this!
+
+## Ten Minute Challenge!
+
+- Download more than one variable from the WB in Excel
+- Use pivot longer to put years in one column and values in another
+- Use pivot wider to separate the series into columns
+- Change variable names 
+- Change variable types
+- Clean variable names 
+- Save clean data as new Excel file
+
+```{r}
+#| label: timer3
+
+countdown(minutes = 10, 
+          id = "timer3", 
+          bottom = "10%", 
+          right = "10%")
+```

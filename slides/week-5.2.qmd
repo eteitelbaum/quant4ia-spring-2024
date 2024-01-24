@@ -1,0 +1,393 @@
+---
+title: "gt Tables"
+date: today
+date-format: long
+footer: "[DataViz 2102 Website](https://dataviz-gwu.rocks)"
+logo: images/dataviz-logo.png
+format:
+  revealjs:
+    theme: [simple, custom.scss]
+    transition: fade
+    slide-number: true
+    multiplex: true
+    chalkboard: true
+execute:
+  echo: false
+  message: false
+  warning: false
+  freeze: auto
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+library(stringr)
+library(dplyr)
+library(gt)
+library(tidycensus)
+
+my_api_key = Sys.getenv("census_api_key")
+census_api_key(my_api_key)
+
+
+v21 <- load_variables(2021, "acs5", cache = TRUE)
+
+quintiles <- get_acs(geography = "state", 
+                      variables = c(q1 = "B19081_001",
+                                    q2 = "B19081_002",
+                                    q3 = "B19081_003",
+                                    q4 = "B19081_004",
+                                    q5 = "B19081_005",
+                                    top5 = "B19081_006"),
+                      year = 2021,
+                      output = "wide") |>
+                      select(
+                        !ends_with("M"), # eliminate margin of error
+                        -GEOID) |> # eliminate geo id
+                      rename(name = NAME) |>
+                      rename_with(~str_remove(., 'E'))
+
+# lowest 
+state_min <- quintiles |> 
+  slice_min(q1) 
+
+# highest
+state_max <- quintiles |> 
+  slice_max(top5) 
+
+# randomly select five more
+five_more <- quintiles |>
+   slice_sample(n = 5) 
+
+states <- bind_rows(state_min, state_max, five_more) |>
+  arrange(desc(top5))
+
+awesometable <- gt(states) |> 
+  tab_header(
+    title = "Mean Household Income of Quintiles, 2021",
+    subtitle = "Seven Representative U.S. States"
+  ) |> 
+  cols_label(
+    name = "",
+    q1 = "lowest",
+    q2 = "second",
+    q3 = "third",
+    q4 = "fourth",
+    q5 = "highest",
+    top5 = "top 5%"
+  ) |> 
+  
+  fmt_currency(
+    columns = c(q1:top5),
+    currency = "USD", 
+    use_subunits = FALSE
+  ) |>
+  
+  # note that you can use markdown (md) to format the source note for html documents
+  tab_source_note(source_note = md("**Source**: US Census Bureau, American Community Survey")) |>
+  
+  cols_width(c(q1:top5) ~ px(90)) |>
+  
+  opt_table_font(font = "verdana") |>
+  cols_align(
+  align = "center",
+  columns = q1:top5
+) |>
+  tab_options(
+    table.border.top.color = "black", 
+    table.border.bottom.color = "black",
+    heading.border.bottom.color = "black", 
+    column_labels.border.bottom.color = "black", 
+    table_body.border.bottom.color = "black"
+  )
+```
+
+
+
+## Let's make a `gt` table
+
+Create `states` data frame... 
+
+```{r}
+#| echo: true
+#| eval: false
+
+# lowest 
+state_min <- quintiles |> 
+  slice_min(q1) 
+
+# highest
+state_max <- quintiles |> 
+  slice_max(top5) 
+
+# randomly select five more
+five_more <- quintiles |>
+   slice_sample(n = 5) 
+
+states <- bind_rows(state_min, state_max, five_more) |>
+  arrange(desc(top5))
+```
+
+```{r}
+#| label: setup_timer
+library(countdown)
+countdown(minutes = 10, 
+          id = "setup", 
+          #bottom = "10%", 
+          #right = "10%",
+          color_border = "#fff",
+          color_text = "#fff",
+          color_running_background = "#42affa",
+          color_running_text = "black",
+          color_finished_background = "#E5D19D",
+          color_finished_text = "#00264A")
+```
+
+## Let's make a `gt` table
+
+<br>
+
+```{r}
+#| echo: true
+library(gt)
+gt(states)
+```
+
+## Let's make a good `gt` table
+
+<br>
+
+```{r}
+goodtable <- gt(states) |> 
+  tab_header(
+    title = "Mean Household Income of Quintiles, 2021",
+    subtitle = "Seven Representative U.S. States"
+  ) |> 
+  cols_label(
+    name = "",
+    q1 = "lowest",
+    q2 = "second",
+    q3 = "third",
+    q4 = "fourth",
+    q5 = "highest",
+    top5 = "top 5%"
+  ) |> 
+  fmt_currency(
+    columns = c(q1:top5),
+    currency = "USD", 
+    use_subunits = FALSE
+  ) |>
+  # note that you can use markdown (md) to format the source note for html documents
+  tab_source_note(source_note = md("**Source**: US Census Bureau, American Community Survey"))
+
+goodtable
+```
+
+## Let's make a good `gt` table
+
+```{r}
+#| echo: true
+#| eval: false
+
+goodtable <- gt(states) |> 
+  tab_header(
+    title = "Mean Household Income of Quintiles, 2021",
+    subtitle = "Seven Representative U.S. States"
+  ) |> 
+  cols_label(
+    name = "",
+    q1 = "lowest",
+    q2 = "second",
+    q3 = "third",
+    q4 = "fourth",
+    q5 = "highest",
+    top5 = "top 5%"
+  ) |> 
+  fmt_currency(
+    columns = c(q1:top5),
+    currency = "USD", 
+    use_subunits = FALSE
+  ) |>
+  # note that you can use markdown (md) to format the source note for html documents
+  tab_source_note(source_note = md("**Source**: US Census Bureau, American Community Survey"))
+
+goodtable
+```
+
+```{r}
+countdown(minutes = 10, 
+          id = "goodtable") 
+```
+
+## Change Colum Width
+
+<br>
+
+```{r}
+vgoodtable <- goodtable |>
+  cols_width(c(q1:top5) ~ px(90))
+
+vgoodtable
+```
+
+## Change Colum Width
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: false 
+
+vgoodtable <- goodtable |>
+  cols_width(c(q1:top5) ~ px(90))
+
+vgoodtable
+```
+
+## Change Font
+
+<br>
+
+```{r}
+greattable <- vgoodtable |>
+  opt_table_font(font = "verdana")
+
+greattable
+```
+
+## Change Font
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: false
+
+greattable <- vgoodtable |>
+  opt_table_font(font = "verdana")
+
+greattable
+```
+
+## Center
+
+<br>
+
+```{r}
+#| label: center
+vgreattable <- greattable |>
+  cols_align(
+  align = "center",
+  columns = q1:top5
+)
+
+vgreattable
+```
+
+## Center
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: false
+
+vgreattable <- greattable |>
+  cols_align(
+  align = "center",
+  columns = q1:top5
+)
+
+vgreattable
+```
+
+## Add Borders and Lines
+
+<br>
+
+```{r}
+#| label: nolines
+awesometable <- vgreattable |>
+  tab_options(
+    table.border.top.color = "black", 
+    table.border.bottom.color = "black",
+    heading.border.bottom.color = "black", 
+    column_labels.border.bottom.color = "black", 
+    table_body.border.bottom.color = "black"
+  )
+
+awesometable
+```
+
+## Export Table
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: false
+
+gtsave(awesometable, "awesometable.png")
+```
+
+## Not a Good Table {.smaller}
+
+```{r}
+library(janitor)
+
+mass_med_inc <- get_acs(
+  geography = "county", 
+  variables = c(median_income = "B06011_001"), 
+  state = "MA", 
+  year = 2021
+  ) |>
+  mutate(
+    lower_90 = estimate - moe,
+    upper_90 = estimate + moe 
+  ) |>
+  clean_names() |>
+  mutate(name = str_replace_all(name, " County, Massachusetts", "")) |>
+  select(name, estimate, lower_90, upper_90)
+
+kableExtra::kable(mass_med_inc)
+```
+
+## Use Confidence Intervals Instead
+
+```{r}
+library(ggplot2)
+
+mass_med_inc |>
+  ggplot(aes(x = estimate, y = reorder(name, estimate))) +
+  geom_errorbar(aes(xmin = lower_90, xmax = upper_90)) +
+  geom_point(color = "red", size = 2) +
+  labs(title = "Household income by county in Massachusetts",
+       subtitle = "2017-2021 American Community Survey",
+       y = "",
+       x = "Median Income", 
+       caption = "ACS estimate (bars represent 90% confidence intervals)") +
+  theme_minimal()
+```
+
+## Use Confidence Intervals Instead
+
+```{r}
+#| echo: true
+#| output: false
+
+library(ggplot2)
+
+mass_med_inc |>
+  ggplot(aes(x = estimate, y = reorder(name, estimate))) +
+  geom_errorbar(aes(xmin = lower_90, xmax = upper_90)) +
+  geom_point(color = "red", size = 2) +
+  labs(title = "Household income by county in Massachusetts",
+       subtitle = "2017-2021 American Community Survey",
+       y = "",
+       x = "Median Income", 
+       caption = "ACS estimate (bars represent 90% confidence intervals)") +
+  theme_minimal()
+```
+
+

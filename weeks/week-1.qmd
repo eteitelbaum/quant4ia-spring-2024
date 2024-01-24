@@ -1,0 +1,15 @@
+---
+title: "Week 1"
+subtitle: "Getting Started"
+format: html
+---
+
+## Readings
+
+| 📖 Review the [course syllabus](/course-syllabus.html) and [support resources](/course-support.html)
+| 📖 Read [this blog](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/) about a project-oriented workflow in R.
+
+## Videos
+
+| 🖥️ [R and RStudio](https://youtu.be/eimM6pNkYjE)
+| 🖥 [Getting Started with Quarto](https://youtu.be/6QN9ZYURDFg)

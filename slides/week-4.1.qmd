@@ -1,0 +1,576 @@
+---
+title: Merging and Summarizing Data
+date: today
+date-format: long
+footer: "[IAFF 6501 Website](https://quant4ia.rocks)"
+logo: images/iaff6501-logo.png
+format:
+  revealjs:
+    theme: [simple, custom.scss]
+    transition: fade
+    slide-number: true
+    #multiplex: true
+    chalkboard: true
+execute:
+  echo: false
+  message: false
+  warning: false
+  freeze: auto
+---
+
+# Merging Data
+
+## Merging Data Frames
+
+- Often we have data from two different sources
+- Results in two data frames
+- How to make them one so we can analyze? 
+- Key questions
+  - What is the unit of analysis? 
+  - What is/are the corresponding identifier variables?
+  - Are the identifier variables in common? 
+  - Or do they have to be added/transformed to match?
+  
+## Merging WB and V-Dem Data
+
+- These are both time-series, country-level data
+- Need to merge by country-year
+- Year is easy
+- But there are many different country codes
+- Can use `countrycode` package to assign country codes
+
+## `countrycode` Example
+
+```{r}
+#| label: countrycode
+#| eval: false
+#| echo: true
+
+# Load countrycode
+library(countrycode)
+
+# Create new iso3c variable
+democracy <- democracy |>    
+  mutate(iso3c = countrycode(sourcevar = vdem_ctry_id, # what we are converting
+        origin = "vdem",         # we are converting from vdem
+        destination = "wb"))  |> # and converting to the WB iso3c code 
+  relocate(iso3c, .after = vdem_ctry_id) # move iso3c 
+
+# View the data
+glimpse(democracy)
+```
+
+## Try it Yourself
+
+- Using your democracy data frame from the last lesson
+- Use `mutate()` and `countrycode()` to add iso3c country codes
+- Use `relocate` to move your iso3c code to the "front" of your data frame (optional)
+
+## Types of Joins in `dplyr`
+
+- Mutating versus filtering joins
+- Four types of mutating joins
+  - `inner_join()`
+  - `full_join()`
+  - `left_join()`
+  - `right_join()`
+- For the most part we will use `left_join()`
+
+## `left_join()` Example
+
+```{r}
+#| label: left_join()
+#| eval: false
+#| echo: true
+
+# Load readr
+library(readr)
+
+# Perform left join using common iso3c variable and year
+dem_women <- left_join(democracy, women_emp, by = c("iso3c", "year")) |> 
+  rename(country = country.x) |> # rename country.x
+  select(!country.y)             # crop country.y
+
+# Save as .csv for future use
+write_csv(dem_women, "data/dem_women.csv")
+
+# View the data
+glimpse(dem_women)  
+```
+
+## Try it Yourself
+
+- Take your V-Dem data frame and your World Bank data frame
+- Using `left_join()` to merge on country code and year
+- Along the way, use `rename()` and `select()` to insure you have just one country name
+
+
+# Group, Summarize and Arrange
+
+## Group, Summarize and Arrange
+
+- `group_by()`, `summarize()`, `arrange()`
+- A very common sequence of `dplyr` verbs:
+  - Take an average or some other statistic for a group
+  - Rank from high to low values of summary value
+  
+## Example: Take Averages by Region
+
+<br>
+
+```{r}
+#| label: summarize1
+#| eval: false
+#| echo: true
+
+# group_by(), summarize() and arrange()
+dem_region <- democracy |> # save result as new object
+  group_by(region)  |> # group data by region
+  summarize(           # summarize following vars (by region)
+    polyarchy = mean(polyarchy, na.rm = TRUE), # calculate mean, remove NAs
+    gdp_pc = mean(gdp_pc, na.rm = TRUE)
+  ) |> 
+  arrange(desc(polyarchy)) # arrange in descending order by polyarchy score
+
+# Save as .csv for future use
+write_csv(dem_region, "data/dem_summary.csv")
+
+# View the data
+glimpse(dem_summary)
+```
+
+##
+
+Use `group_by()` to group all data across countries and years by region...
+
+<br>
+
+```{r}
+#| label: summarize2
+#| eval: false
+#| echo: true
+#| code-line-numbers: "3"
+
+# group_by(), summarize() and arrange()
+dem_region <- democracy |> # save result as new object
+  group_by(region)  |> # group data by region
+  summarize(           # summarize following vars (by region)
+    polyarchy = mean(polyarchy, na.rm = TRUE), # calculate mean, remove NAs
+    gdp_pc = mean(gdp_pc, na.rm = TRUE)
+  ) |> 
+  arrange(desc(polyarchy)) # arrange in descending order by polyarchy score
+
+# Save as .csv for future use
+write_csv(dem_region, "data/dem_summary.csv")
+
+# View the data
+glimpse(dem_summary)
+```
+
+##
+
+Use `summarize()` to get the regional means polyarchy and gpd_pc....
+
+<br>
+
+```{r}
+#| label: summarize3
+#| eval: false
+#| echo: true
+#| code-line-numbers: "4-7"
+
+# group_by(), summarize() and arrange()
+dem_region <- democracy |> # save result as new object
+  group_by(region)  |> # group data by region
+  summarize(           # summarize following vars (by region)
+    polyarchy = mean(polyarchy, na.rm = TRUE), # calculate mean, remove NAs
+    gdp_pc = mean(gdp_pc, na.rm = TRUE)
+  ) |> 
+  arrange(desc(polyarchy)) # arrange in descending order by polyarchy score
+
+# Save as .csv for future use
+write_csv(dem_region, "data/dem_summary.csv")
+
+# View the data
+glimpse(dem_summary)
+```
+
+## 
+
+Then use `arrange()` with `desc()` to sort in descending order by polyarchy score...
+
+<br>
+
+```{r}
+#| label: summarize
+#| eval: false
+#| echo: true
+#| code-line-numbers: "8"
+
+# group_by(), summarize() and arrange()
+dem_region <- democracy |> # save result as new object
+  group_by(region)  |> # group data by region
+  summarize(           # summarize following vars (by region)
+    polyarchy = mean(polyarchy, na.rm = TRUE), # calculate mean, remove NAs
+    gdp_pc = mean(gdp_pc, na.rm = TRUE)
+  ) |> 
+  arrange(desc(polyarchy)) # arrange in descending order by polyarchy score
+
+# Save as .csv for future use
+write_csv(dem_region, "data/dem_summary.csv")
+
+# View the data
+glimpse(dem_summary)
+```
+
+## Try it Yourself {.scrollable}
+
+- Try running a `group_by()`, `summarize()` and `arrange()` in your Quarto document
+- Try changing the parameters to answer these questions: 
+
+1. Try summarizing the data with a [different function](https://dplyr.tidyverse.org/reference/summarise.html#useful-functions) for one or more of the variables. 
+  a. What is the median value of `polyarchy` for The West?
+  b. What is the max value of `gdp_pc` for Eastern Europe?
+  c. What is the standard deviation of `flfp` for Africa?
+  d. What is the interquartile range of `women_rep` for the Middle East?
+  
+2. Now try grouping by country instead of region. 
+
+  a. What is the median value of `polyarchy` for Sweden?
+  b. What is the max value of `gdp_pc` New Zealand?
+  c. What is the standard deviation of `flfp` for Spain?
+  d. What is the interquartile range of `women_rep` for Germany?
+
+3. Sort countries in descending order based on the mean value of `gdp_pc` (instead of the median value of `polyarchy`). Which country ranks first based on this sorting?
+
+4. Now try sorting countries in ascending order based on the median value of `women_rep` (hint: delete "desc" from the `arrange()` call). Which country ranks at the "top" of the list?
+
+```{r}
+#| label: timer1
+
+library(countdown)
+countdown(minutes = 5, 
+          id = "timer1", 
+          top = "0%", 
+          right = "5%",
+          color_border = "#fff",
+          color_text = "#fff",
+          color_running_background = "#42affa",
+          color_running_text = "black",
+          color_finished_background = "#E5D19D",
+          color_finished_text = "#00264A")
+```
+
+# Choropleth Maps
+
+## Choropleth Maps
+
+<br>
+
+- Choropleth maps are shaded maps that show variation in a variable across geographic space
+- Now that you have a handle on how to merge data, you should be able to make one!
+
+```{r}
+#| label: setup
+source("functions/wb-maps.R", local = knitr::knit_global())
+```
+
+## Choropleth Map
+
+```{r}
+#| label: flfp_map
+create_map(var_id = "SL.TLF.CACT.FE.ZS", 
+           title = "Female Labor Force Participation", 
+           legend_title = "FLFP %", 
+           theme = "inferno", 
+           direction = -1)
+```
+
+## Choropleth Map
+
+```{r}
+#| label: gdp_map
+create_map(var_id = "NY.GDP.PCAP.PP.KD", 
+           title= "GDP per capita (constant 2017 internatioal $)", 
+           legend_title = "Geary-Khamis $", 
+           theme = "mako", 
+           direction = -1)
+```
+
+## The `rnaturalearth` package
+
+- `rnaturalearth` is a package that provides access to shapefiles for countries, states, and provinces
+- Uses the [Natural Earth](https://www.naturalearthdata.com/) dataset which features the "natural earth" projection
+- Contrasts with Mercator projection used by Google Maps, etc.
+- Also uses simple features (sf) dataframes 
+  - A new way of storing spatial data in R
+  - Allows for easy storage, manipulation and plotting
+
+## Mercator Projection
+
+![*Source:* Wikipedia](images/mercator.jpg){fig-align=center}
+
+## Natural Earth Projection
+
+![*Source:* Wikipedia](images/natural_earth.jpg)
+
+## Simple Features
+
+![](images/simple_feature_dataframe.png){fig-align=center}
+
+## Map Code
+
+<br> 
+
+Grab country shapes with `ne_countries()`
+
+<br>
+
+```{r}
+#| label: country_shapes
+#| echo: true
+#| output: false
+
+library(rnaturalearth)
+library(dplyr)
+
+world_map_df <- ne_countries(scale = "medium", returnclass = "sf") |>
+    filter(name != "Antarctica") # remove Antarctica
+
+#world_map_df |>
+#glimpse()
+
+# view contents of geometry column
+world_map_df |>
+  select(geometry) 
+```
+
+## Basic Choropleth Map
+
+<br>
+
+Make a map using `geom_sf()` from `ggplot2`.
+
+<br>
+
+```{r}
+#| label: first_map1
+#| echo: true
+#| eval: false
+#| cole-line-numbers: "|,4"
+ 
+library(ggplot2)
+
+ggplot(data = world_map_df) +
+  geom_sf(aes(fill = income_grp)) + 
+  labs(title = "World Bank country income categories")
+```
+
+## 
+
+That gives us...
+
+```{r}
+#| label: first_map2
+
+library(ggplot2)
+
+ggplot(data = world_map_df) +
+  geom_sf(aes(fill = income_grp)) + 
+  labs(title = "World Bank country income categories")
+```
+
+
+## Beautiful Map
+
+<br>
+
+Change label of legend with `fill=`, add viridis color scheme and change theme with `theme_map()` from `ggthemes`.
+
+```{r}
+#| label: beautify_map1
+#| echo: true
+#| output: false
+#| code-line-numbers: "|7|9|1,10"
+
+library(ggthemes)
+
+ggplot(data = world_map_df) +
+  geom_sf(aes(fill = income_grp)) + 
+  labs(
+    title = "World Bank country income categories",
+    fill = "Category"
+    ) +
+    scale_fill_viridis_d() +
+    theme_map() 
+```
+
+## 
+
+And now we have...
+
+```{r}
+#| label: beautify_map2
+
+library(ggthemes)
+
+ggplot(data = world_map_df) +
+  geom_sf(aes(fill = income_grp)) + 
+  labs(
+    title = "World Bank country income categories",
+    fill = "Category"
+    ) +
+    scale_fill_viridis_d() +
+    theme_map() 
+```
+
+## Your Turn!
+
+<br>
+
+- Make a map of WB income categories
+- Grab country shapes and store data in an object
+- Use `geom_sf()` to make the map
+- Style the map with `labs()` and `scale_fill_viridis_d()`
+- Try mapping a different variable (*check on this*)
+
+```{r}
+#| label: timer2
+countdown(minutes = 5, 
+          id = "timer2", 
+          bottom = "5%", 
+          right = "10%"
+          )
+```
+
+
+## Map Other Data
+
+<br>
+
+```{r}
+#| label: oil_rents1
+
+library(wbstats)
+
+oil_rents_df <- wb_data(c(oil_rents_gdp = "NY.GDP.PETR.RT.ZS"), mrnev = 1) 
+
+rents_map_df <- left_join(world_map_df, oil_rents_df, join_by(iso_a3 == iso3c))
+
+ggplot(data = rents_map_df) +
+  geom_sf(aes(fill = oil_rents_gdp)) + # shade based on oil rents
+  labs(
+    title = "Oil rents (% of GDP)",
+    subtitle = "(Most recent available data)", # add subtitle
+    fill = "Percent", 
+    caption = "Source: World Bank Development Indicators"
+    ) +
+  theme_map() +
+  theme(
+    legend.position = "right", 
+    #legend.title = element_text(size = 8),
+    #legend.text = element_text(size = 6)
+    plot.title = element_text(face = "bold"), # move legend
+    ) +
+  scale_fill_viridis_c( # chg from discrete (_d) to continuous (_c)
+      option = "magma", #  chg to magma theme
+      labels = scales::label_percent(scale = 1) # add % label for legend
+      ) 
+```
+
+## Map Other Data
+
+<br>
+
+Grab data from the WB, join with country shapes...
+
+<br>
+
+```{r}
+#| label: oil_rents2
+#| echo: true
+#| output: false
+#| code-line-numbers: "|1-5|7-8|10-13"
+
+# Load wbstats
+library(wbstats)
+
+# Grab oil rents data
+oil_rents_df <- wb_data(c(oil_rents_gdp = "NY.GDP.PETR.RT.ZS"), mrnev = 1) 
+
+# Join with country shapes
+rents_map_df <- left_join(world_map_df, oil_rents_df, join_by(iso_a3 == iso3c))
+
+# Have a look at the special features column
+rents_map_df |>
+  select(last_col(5):last_col()) |> #select last 5 columns of df
+  glimpse()
+```
+
+## Map Other Data
+
+<br>
+
+```{r}
+#| label: oil_rents3
+#| echo: true
+#| output: false
+#| code-line-numbers: "|1|2|3-8|9-13|14-17"
+
+ggplot(data = rents_map_df) +
+  geom_sf(aes(fill = oil_rents_gdp)) + # shade based on oil rents
+  labs(
+    title = "Oil rents (% of GDP)",
+    subtitle = "(Most recent available data)", # add subtitle
+    fill = "Percent", 
+    caption = "Source: World Bank Development Indicators"
+    ) +
+  theme_map() +
+  theme(
+    legend.position = "right", 
+    plot.title = element_text(face = "bold"), # move legend
+    ) +
+  scale_fill_viridis_c( # chg from discrete (_d) to continuous (_c)
+      option = "magma", #  chg to magma theme
+      labels = scales::label_percent(scale = 1) # add % label for legend
+      ) 
+```
+
+## Your Turn! 
+
+<br>
+
+- Try mapping a favorite variable from the World Bank
+- First, download the relevant data using `wbstats`
+- Then merge it with your country shapes
+- Map using `geom_sf()`
+- Beautify your map! 
+
+
+```{r}
+#| label: timer3
+countdown(minutes = 5, 
+          id = "timer3", 
+          bottom = "10%", 
+          right = "10%"
+          )
+```
+
+## Map Some V-Dem Data
+
+<br>
+
+- Now try mapping some V-Dem data
+- Remind yourself of how to download data from V-Dem
+- You will have to convert country codes to iso3c
+- Then merge with country shapes
+- Then map your V-Dem indicator!
+
+```{r}
+#| label: timer4
+countdown(minutes = 5, 
+          id = "timer4", 
+          bottom = "10%", 
+          right = "10%"
+          )
+```

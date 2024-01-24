@@ -1,0 +1,186 @@
+---
+title: "Assignment 3"
+subtitle: "Conflict Forecasting"
+editor: source
+execute:
+  echo: true
+  eval: false
+bibliography: references.bib
+---
+
+```{r}
+library(tidyverse)
+library(tidymodels)
+library(ggplot2)
+library(DT)
+library(haven)
+
+dat <- read_csv("violence_data.csv")
+```
+
+## Overview
+
+An important area where data analytics is relevant to international affairs is in the area of violence and conflict forecasting and prediction. If we can build good prediction models for early warning systems, then steps can be taken to reduce violence or its harmful impacts.
+
+In this project, you will build and assess a violence prediction model using data about local incidents of violence in Liberia. The study was originally conducted by @blair2017 and was published in the Journal of Peace Research.
+
+Based on your results, you will write a policy memo for the Liberian government, with an emphasis on data-driven policy recommendations.
+
+## Data and Variables
+
+The data from the @blair2017 study are included in "violence_data.csv". Please refer to the [paper](https://journals.sagepub.com/doi/10.1177/0022343316684009#table3-0022343316684009) for details about how the data were collected. Each unit in the data is a village.
+
+The main outcome variable is *anyConflict*, which takes a value of 1 if any type of violence occurred in the community, and 0 if not. The outcome measures captures whether any of three different violent events occurred: collective violence, interpersonal violence, or extrajudicial violence. See [paper](https://journals.sagepub.com/doi/10.1177/0022343316684009#table3-0022343316684009) for details.
+
+The dataset includes 56 possible predictors of violence. The variable names and their descriptions are below in @sec-predictors . All of these predictors are standardized (the mean is 0 and one unit is equivalent to a standard deviation shift), which means they are on a scale where they can be compared.
+
+Please read the [paper](https://journals.sagepub.com/doi/10.1177/0022343316684009#table3-0022343316684009) for a description of the different kinds of predictors.
+
+## Your Task
+
+-   Create a new folder and RProj file. Save the violence_data.csv file in that folder.
+
+-   Pull in the violence_data.csv file. Examine descriptive information about the anyConflict variable and some of the predictors that seem interesting to you.
+
+-   Train and assess the performance of a prediction model using logistic regression (one of the models used in the @blair2017 paper). Your first step will be to replicate the model used in @blair2017, which includes all of the predictors in the dataset (with no interactions).
+
+    -   Go through each of the steps we have discussed.
+
+    -   Present evidence about the performance of the model.
+
+    -   Examine the variables from the model that seem most predictive of violence (or lack thereof). Do any findings stand out? Examine the variables that seem to have no predictive value. Are there any interesting or surprising findings?
+
+    -   Create a figure (or a few figures) that help people to visualize the model results and the relative importance of different predictors.
+
+-   Next, develop an alternative to the @blair2017 model. You could take a number of different approaches. For example, you might examine whether creating some interactions between some of the variables would improve performance. Or, you might examine whether a more simple model -- which might mean data are easier/cheaper to collect -- would perform equally well.
+
+    -   Train the new model, assess its performance, and compare to the @blair2017 model.
+
+-   Finally, imagine that the Liberian Government has asked you to advise them about predicting and preventing local violence in the country. Write a policy memo that summarizes your analyses and results (including data viz outputs), and which develops a set of data-driven policy recommendations that are suggested by your analyses.
+
+## List of Predictors from @blair2017 {#sec-predictors}
+
+```{r}
+#| label: tbl-vars
+#| tbl-cap: Predictors and Descriptions
+
+## Define list of predictors
+predictors <- c("sctownpop",
+                "sctownhh",       
+                "scnum_tribes",     
+                "sctownmusl_percap",       
+                "scmosquesdum",        
+                "scmuslim",     
+                "scprop_stranger",       
+                "sctownstrg_percap",     
+                "scprop_domgroup",     
+                "scexcom",     
+                "sctownexcm_percap",     
+                "sctownretn_percap",     
+                "scprop_under30",     
+                "scprop_male",     
+                "scedulevel",     
+                "scprop_noeduc",     
+                "scprop_anypeace",     
+                "scgroup_prtcptn",      
+                "scpubcontr",     
+                "scsafecommdum",     
+                "scciviccommdum",     
+                "scoll_action_add",     
+                "scngodependent",    
+                "scgovtdependent",     
+                "cequity_comm",     
+                "scpolicourtscorr",       
+                "screlmarry",        
+                "scmslmnolead",     
+                "sctribeviolent",     
+                "sctribedirty",      
+                "scmnrt_ldrshp",     
+                "sccrime_scale",          
+                "scviol_scale",         
+                "sclandconf_scale",     
+                "scany_majorconf",        
+                "sctownnlnd_percap",        
+                "scnolandnofarm",    
+                "scfarmocc",        
+                "scunemployed",        
+                "scwealthindex",     
+                "scwealth_inequality",      
+                "scviol_experienced",        
+                "scviol_part",     
+                "scanylndtake",         
+                "scdisp_ref",         
+                "sfacilities",     
+                "sstate_presence",         
+                "sfreq_visits",         
+                "sremote",     
+                "scmobilec",        
+                "scradio_low",         
+                "sctot_resources",     
+                "scmeanprice_above75",
+                "scpdis_shock",         
+                "scpani_shock",         
+                "scpcrop_shock")
+
+var.labels <- c("Town Population",
+                "Number of Households",
+                "Number of Tribes",
+                "Percent Muslims (Leader)",
+                "Has Mosque (Resident)",
+                "Percent Muslims (Resident)",
+                "Percent Non-Native (Residents)",
+                "Percent Non-Native (Leader)",
+                "Percent in Dominant Group",
+                "Percent Ex-Combatants (Residents)",
+                "Percent Ex-Combatants (Leader)",
+                "Percent returned for Internal Displacement",     
+                "Percent under 30",     
+                "Percent Male",     
+                "Mean Educational Attainment",     
+                "Percent With No Education",     
+                "Proportion Receiving Any Peace Training",     
+                "Group Participation (0-9)",      
+                "Percent Who Contribute to Public Facilities",     
+                "Percent Saying Town is Safe at Night",     
+                "Percent Saying Neighbors Are Helpful",     
+                "Collective Public Goods",     
+                "Percent Who Rely on NGOs",    
+                "Percent Who Rely on Government",     
+                "Perceived Equity in Institutions",     
+                "Percent Describing Police/Courts as Corrupt",       
+                "Percent Accepting Inter-Racial Marriage",        
+                "Percent Who Say Muslims Shouldn't Be Leaders",     
+                "Percent Believing other Tribes are Violent",     
+                "Percent Believing Other Tribes are Dirty",      
+                "Minority Tribe in Town Leadership",     
+                "Percent Reporting Burglary or Robbery",          
+                "Percent Reporting Assault",         
+                "Percent Reporting Any Land Conflict",     
+                "Any Violent Event",        
+                "Percent of Town Landless (Leader)",        
+                "Percent of Town Landless (Residents)",    
+                "Percent of Town Farmers",        
+                "Unemployment Rate",        
+                "Wealth Index",     
+                "S.D. of Wealth Index In Town",      
+                "Exposure to War Violence",        
+                "Participation in War Violence",     
+                "Percent Reporting Loss of Land During War",         
+                "Percent Displaced During War",         
+                "Social Services in Town",     
+                "Police or Magistrate in Town",         
+                "Frequency of Police/ NGO Visits",         
+                "Town>1 Hour from Road",     
+                "Mobile Phone Coverage",        
+                "Less than 2 Radio Stations",         
+                "Natural Resources In 2 Hours",     
+                "Commodity Price Index",
+                "Percent Affected By Human Disease",         
+                "Percent Affected By Livestock Disease",         
+                "Percent Affected By Crop Failure"
+)
+
+vars <- as.data.frame(cbind(predictors, var.labels))
+datatable(vars)
+
+```

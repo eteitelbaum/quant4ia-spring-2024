@@ -1,0 +1,107 @@
+---
+title: "Assignment 2"
+subtitle: "Community Driven Development after Conflict"
+editor: source
+execute:
+  echo: true
+  eval: false
+bibliography: references.bib
+---
+
+```{r packages}
+library(tidyverse)
+library(dplyr)
+library(haven)
+library(tidymodels)
+library(ggplot2)
+```
+
+```{r prepData}
+dat <- read_dta("gbf_rep/gbf_analysis.dta")
+#glimpse(dat)
+
+mydata <- dat %>% 
+  select(id_vill, t, vdc, f_latrine, f_psch, role_wmn, trust_own, no_conflict)
+write_csv(mydata, "gobifo_data.csv")
+```
+
+## Overview
+
+[Community Driven Development (CDD)](https://www.worldbank.org/en/topic/communitydrivendevelopment) programs have become increasingly popular in international development over the past several decades. CDD programs directly involve impacted communities in the selection, design, and implementation of development projects. Usually, this also involves building upon or creating community level organizations (or committees) that are involved with the projects, with the goal of creating democratic and inclusive decision-making processes. See this [3ie working paper](http://3ieimpact.org/sites/default/files/2019-01/wp30-cdd_0.pdf) for discussion of some common features of CDD. 
+
+Given these design features, proponents of CDD argue that these programs should (a) improve the quality and impact of development projects (e.g., public goods) *AND* (b) improve social cohesion, inclusion, and local governance. For this reason, CDD has been implemented in a number of [post-conflict settings](https://openknowledge.worldbank.org/entities/publication/3284f88b-62db-5138-8798-e7ab2674c1bf), where the hope is that CDD can both improve development outcomes and contribute to rebuilding social cohesion and governance (which are often harmed by conflict).
+
+Does CDD improve development outcomes? Does it improve social cohesion after conflict? Your goal in this assignment is to write a policy brief that answers these questions, using data from an evaluation of a CDD program in post-conflict Sierra Leone.
+
+## The GoBifo Program in Sierra Leone
+
+Sierra Leone was devastated by a [civil war](http://web.undp.org/evaluation/documents/thematic/conflict/SierraLeone.pdf) lasting from 1991 to 2002. In the post-conflict context, the Ministry of Local Government and Community Development implemented the GoBifo ("forge ahead") CDD project in Sierra Leone from 2005-2009 (with support from the World Bank and other international donors). See this [report](https://thedocs.worldbank.org/en/doc/6f445967d38ba97805febe703b2482ef-0060052022/original/Sierra-Leone-GoBifo-Strengthening-Social-Capital-through-Capacity-Development.pdf) for a detailed summary of the program.
+
+The program had two key components:
+
+-   Block grants of about 4,667 dollars (about 100 per household in each community) that communities could allocate to local development projects, skills trainings, and small-business investment.
+
+-   "Technical assistance that promoted democratic decision-making, the participation of socially marginalized women and youth in local politics, and transparent budgeting practices" [@casey2012]
+
+The GiBifo program also included an impact evaluation, conducted by economists Katherine Casey, Rachel Glennerster, and Edward Miguel. The academic paper generated from the project is in the References section [@casey2012].
+
+**Wait until after you complete your assignment to read the full paper.**
+
+Importantly, the impact evaluation included randomization: communities in the study were randomly assigned to receive the GoBifo program, or not. In this sense, the impact evaluation was similar to a clinical drug trial, where some subjects are randomly assigned to receive the medicine while others do not receive it. This aspect of the design makes it easier to assess the causal impact of this project: we can simply compare outcomes in the treatment (GoBifo program) and control groups, and test for whether any differences we observe are likely to be due to chance.
+
+## Data
+
+"gobifo_data.csv" provides a condensed version of the data collected by @casey2012 for their evaluation of the project. The study team gathered literally hundreds of outcome variables, and the paper includes an interesting discussion of how they analyze the data and interpret the results given the large number of outcomes they measured.
+
+For our purposes, we will focus on a smaller set of variables, summarized below:
+
+-   **Treatment** variable (named *t* in the data): this equals 1 if the community was randomly assigned to be in the program, and 0 if not.
+
+-   **Community Decision Making Infrastructure**: Is there a village development committee in the community? (*vdc*)
+
+-   **Public Goods**
+
+    -   Is there a functioning latrine in the community? (*f_latrine)*
+
+    -   Is there a functioning primary school in the community? (*f_psch*)
+
+-   Inclusion, **Gender equality** in participatory decision making (*role_wmn*).
+
+    -   \["Enumerator account of how actively women participated in the deliberation compared to men, ranging from 5 = no difference between women and men to 1 = women not active at all compared to men (field activity #1)"\]
+
+-   **Social Capital**
+
+    -   Trust in other in the community (*trust_own*)
+
+    -   Conflict, coded as percentage of respondents in the village that reported they had NO conflicts/disputes with others that required outside intervention (*no_conflict*)
+
+## Tasks
+
+-   Create a folder and an RProj file for this assignment. Save "gobifo_data.csv" in that folder.
+
+-   Create a new Quarto document in your RProj folder: call it "gobifo_notebook.qmd" or something similar. Use this document to explore the data, work on putting together the code for your analysis, and to take notes as you go.
+
+-   Examine the data. How many units (villages) are there in the study? How many were in the treatment (**t**) group (in the program) and how many were in control? Examine the different outcome measures, calcuate some summary statistics (e.g., the mean), and make some graphs.
+
+-   For each outcome variable listed above, generate an estimate of the mean AND generate a 95 percent confidence interval, *separately* in treatment and control (where t==0 and t==1). Create a visualization (or multiple) that presents these means and 95 percent confidence intervals: the visualization should allow us to visibly examine the difference between treatment and control groups on these outcome measures.
+
+-   For each outcome, conduct hypothesis tests that assess whether the GoBifo program had an impact. Clearly state the null hypothesis and the alternative hypothesis for each test.
+
+-   Write a policy brief that (1) provides a very short background on the program and Sierra Leone case, (2) presents your results (including graphs), (3) accurately interprets the results, and (4) discusses the policy/program implications of the findings for CDD in post-conflict settings.
+
+    -   Create a new Quarto document for your policy brief, which includes your write-up and any code needed to produce the final figures/tables in your memo. \[not everything you produce in your notebook.qmd file will make it here, but that is still information that you need and might reference in the policy brief.\]
+
+## Extra Credit
+
+If you are in the mood for more of a challenge, try the following:
+
+- Locate the replication data and code for the @casey2012 paper online
+
+- After reading the description of the data and variables, select an additional 2-3 variables to analyze.
+
+- Input the full replication dataset and filter on the variables you would like to use
+
+    - The data will come in .dta format and so you will need to *read_dta()* function from the *haven* package.
+    
+- Follow the steps above.
+
