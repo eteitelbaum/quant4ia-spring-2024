@@ -98,10 +98,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <meta property="og:title" content="IAFF 6501–Spring 2024 Schedule - Module 3.2">
-<meta property="og:description" content="Leaflet Maps">
+<meta property="og:description" content="Summarizing Data">
 <meta property="og:site_name" content="IAFF 6501--Spring 2024 Schedule">
 <meta name="twitter:title" content="IAFF 6501–Spring 2024 Schedule - Module 3.2">
-<meta name="twitter:description" content="Leaflet Maps">
+<meta name="twitter:description" content="Summarizing Data">
 <meta name="twitter:card" content="summary">
 </head>
 <body class="nav-sidebar docked">
@@ -258,29 +258,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-<li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#working-with-ucdp-data" id="toc-working-with-ucdp-data" class="nav-link" data-scroll-target="#working-with-ucdp-data">Working with UCDP data</a></li>
-  <li>
-<a href="#make-a-leaflet-map" id="toc-make-a-leaflet-map" class="nav-link" data-scroll-target="#make-a-leaflet-map">Make a leaflet map</a>
-  <ul class="collapse">
-<li><a href="#plot-a-single-marker" id="toc-plot-a-single-marker" class="nav-link" data-scroll-target="#plot-a-single-marker">Plot a single marker</a></li>
-  <li><a href="#plot-some-conflict-events-from-yemen" id="toc-plot-some-conflict-events-from-yemen" class="nav-link" data-scroll-target="#plot-some-conflict-events-from-yemen">Plot some conflict events from Yemen</a></li>
-  </ul>
-</li>
-  <li>
-<a href="#customize-your-leaflet-map" id="toc-customize-your-leaflet-map" class="nav-link" data-scroll-target="#customize-your-leaflet-map">Customize your leaflet map</a>
-  <ul class="collapse">
-<li><a href="#use-an-awesome-icon" id="toc-use-an-awesome-icon" class="nav-link" data-scroll-target="#use-an-awesome-icon">Use an awesome icon</a></li>
-  <li><a href="#change-content-of-the-popup" id="toc-change-content-of-the-popup" class="nav-link" data-scroll-target="#change-content-of-the-popup">Change content of the popup</a></li>
-  <li><a href="#using-basemaps" id="toc-using-basemaps" class="nav-link" data-scroll-target="#using-basemaps">Using basemaps</a></li>
-  </ul>
-</li>
+<li><a href="#group-summarize-and-arrange" id="toc-group-summarize-and-arrange" class="nav-link active" data-scroll-target="#group-summarize-and-arrange">Group, summarize and arrange</a></li>
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/eteitelbaum/dataviz-summer-2023/edit/main/modules/module-3.2.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/eteitelbaum/dataviz-summer-2023/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title">Module 3.2</h1>
-<p class="subtitle lead">Leaflet Maps</p>
+<p class="subtitle lead">Summarizing Data</p>
 </div>
 
 
@@ -294,30 +278,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Prework
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>Install <a href="https://www.andybeger.com/states/index.html">states</a>, <a href="http://rstudio.github.io/leaflet/">leaflet</a>, <a href="https://r-spatial.github.io/sf/">sf</a> and <a href="https://rstudio.github.io/htmltools/">html tools</a> and have a look at the documentation for each.</li>
-<li>Have a look at the <a href="https://posit.co/wp-content/uploads/2022/10/leaflet.pdf">leaflet</a> and <a href="https://posit.co/wp-content/uploads/2022/10/sf.pdf">sf</a> cheatsheets.</li>
-</ul>
-<p><code>install.packages(c("states", "leaflet", "sf", "htmltools))</code></p>
-</div>
-</div>
-<section id="overview" class="level2"><h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>This module is going to introduce you to how to make maps with markers and pop-ups using leaflet. <em>Markers</em> are icons or symbols that show where something is located. <em>Pop-ups</em> are fields that display information about a location on a map. Together, pop-ups and markers allow you to show information related to a particular point or feature on a map without having to navigate away from the current view.</p>
-<p>Markers and pop-ups can be used to display information such as an address or the name of a city or town. You can customize how pop-ups look, choose what data to display in them. As you get more advanced, you can do even more cool things like link them to other pages or external websites.</p>
-</section><section id="working-with-ucdp-data" class="level2"><h2 class="anchored" data-anchor-id="working-with-ucdp-data">Working with UCDP data</h2>
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/If2PwFv90iI" title="Working with UCDP data" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-<p>Our running example in this module is going to involve mapping conflict events for Yemen from the Uppsala Conflict Data Program UCDP. So while we will be building on some of our earlier knowledge, this module is going to depart a bit from previous ones in that we are using an entirely new dataset. Specifically, we will be using the UCDP georeferenced event dataset, which you can download from <a href="https://ucdp.uu.se/">here</a>.</p>
-<p>After you have downloaded the data and saved it in your modules folder, go ahead and, read it in and have a look at its contents with <code><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse()</a></code>.</p>
+</header><section id="group-summarize-and-arrange" class="level2"><h2 class="anchored" data-anchor-id="group-summarize-and-arrange">Group, summarize and arrange</h2>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/mgBwVzMV-v8" title="Group, Summarize and Arrange" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p>Now that we have completed some wrangling, let’s do something with our data. A common sequence in data science is <a href="https://dplyr.tidyverse.org/reference/group_by.html">group by()</a>, <a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize()</a> and <a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a>. First, we group the data by certain value or category. Then we summarize it by applying a function like <code><a href="https://rdrr.io/r/base/Extremes.html">min()</a></code>, <code><a href="https://rdrr.io/r/base/Extremes.html">max()</a></code>, <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code>, <code><a href="https://rdrr.io/r/stats/median.html">median()</a></code> or <code><a href="https://rdrr.io/r/stats/sd.html">sd()</a></code>. Finally, we order the data according to column values.</p>
+<p>Let’s go ahead and apply our three new verbs to a data frame and store the resulting new data frame in an object.</p>
+<p>You can download the raw data from <a href="https://github.com/eteitelbaum/course-datasets/blob/main/dem_women.csv">here</a> and read it into your environment with the <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> function from the <code>readr</code> package. Store it in an object called <code>dem_women</code>.</p>
+<p>We will group the data by region, take the mean of each variable, and sort the data in descending order based on the regions’ polyarchy scores. Then we will print the object to view its contents. Along the way, we can also export the data to a .csv file for future use.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -328,164 +294,46 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>I am working with a truncated version of the UCDP GED data so that I can upload everything to GitHub. Consequently, my <code><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse()</a></code> output may look slightly different from yours if you are using the full data.</p>
+<p>Remember to check your file path when reading in a CSV file. If the file is not in the same directory as your R script, you will need to specify the path to the file.</p>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readr.tidyverse.org">readr</a></span><span class="op">)</span></span>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Load packages</span></span>
+<span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readr.tidyverse.org">readr</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">ged_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"data/GEDEvent_v22_1.csv"</span><span class="op">)</span></span>
+<span><span class="va">dem_women</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"data/dem_women.csv"</span><span class="op">)</span> <span class="co"># if the path is different, adjust this code</span></span>
 <span></span>
-<span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">ged_data</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>One thing we have to manage right away is the specific country codes used in these data. There is a whole <a href="http://svmiller.com/blog/2021/01/a-tutorial-on-state-classification-systems/">art</a> to managing international standards organization (ISO) codes which we have already touched on in our discussion of the <code>countrycodes</code> package. For the pruposes of this course, it is enough to be aware of the fact that country-level data sets use different coding systems and that this poses a small hurdle to the visualization and analysis of country-level data.</p>
-<p>For this analysis, we are going to want to filter by country and specifically we want conflict data for Yemen. According to the <a href="https://ucdp.uu.se/downloads/ged/ged221.pdf">UCDP codebook</a>, this dataset uses Gleditsch-Ward (GW) country identifiers. One option could be to simply look up the GW country code for Yemen. But there is also a nice package developed called <a href="https://www.andybeger.com/states/index.html">states</a>. It has a function called <code><a href="https://www.andybeger.com/states/reference/sfind.html">sfind()</a></code> that we can use to find the relevant country code.</p>
-<div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/andybega/states">states</a></span><span class="op">)</span></span>
+<span><span class="co"># group_by(), summarize() and arrange()</span></span>
+<span><span class="va">dem_summary</span> <span class="op">&lt;-</span> <span class="va">dem_women</span> <span class="op">|&gt;</span> <span class="co"># save result as new object</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">region</span><span class="op">)</span>  <span class="op">|&gt;</span> <span class="co"># group dem_women data by region</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>           <span class="co"># summarize following vars (by region)</span></span>
+<span>    polyarchy <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">polyarchy</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>, <span class="co"># calculate mean, remove NAs</span></span>
+<span>    gdp_pc <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">gdp_pc</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>, </span>
+<span>    flfp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">flfp</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>, </span>
+<span>    women_rep <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">women_rep</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">polyarchy</span><span class="op">)</span><span class="op">)</span> <span class="co"># arrange in descending order by polyarchy score</span></span>
 <span></span>
-<span><span class="fu"><a href="https://www.andybeger.com/states/reference/sfind.html">sfind</a></span><span class="op">(</span><span class="st">"Yemen"</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Here we see that the GW code for Yemen is 678. Although there are many listings for Yemen, we know that it is the right code because the Arab Republic of Yemen (our other option for a GW Yemen code) ceased to exist in 1990 following its unification with the People’s Democratic Republic of Yemen.</p>
-<p>Let’s go ahead and use our newly discovered country code to wrangle some data for Yemen. We will filter for Yemen’s country ID and events from 2021 and, to keep things manageable, we will only include events that started before March 1 2021.</p>
-<p>Looking again at the codebook, we see there are codings for how certain the coders were regarding where an event occurred and that they also coded for the quality of the reporting. We will keep events with a location precision score less than 3 and an event clarity score equal to 1.</p>
-<p>From there we will create a new variable <code>deaths</code> that sums the different categories of deaths (side a, side b, civilian and unknown). Then we will select all of these variables and the location coordinates and use the <code>st_as_sf()</code> function from the <code>sf</code> package to conver the coordinates into simple features objects.</p>
-<div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ged_yemen</span> <span class="op">&lt;-</span> <span class="va">ged_data</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span></span>
-<span>    <span class="va">country_id</span> <span class="op">==</span> <span class="fl">678</span>, <span class="co">#gw country code</span></span>
-<span>    <span class="va">year</span> <span class="op">==</span> <span class="fl">2021</span>,</span>
-<span>    <span class="va">date_start</span> <span class="op">&lt;</span> <span class="st">"2021-03-01"</span>, </span>
-<span>    <span class="va">where_prec</span> <span class="op">&lt;</span> <span class="fl">3</span>, <span class="co"># keep if certain where event occurred</span></span>
-<span>    <span class="va">event_clarity</span> <span class="op">==</span> <span class="fl">1</span>, <span class="co"># keep if event reporting is clear</span></span>
-<span>      <span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>deaths <span class="op">=</span> <span class="va">deaths_a</span> <span class="op">+</span> <span class="va">deaths_b</span> <span class="op">+</span> <span class="va">deaths_civilians</span> <span class="op">+</span> <span class="va">deaths_unknown</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="va">id</span>,</span>
-<span>         <span class="va">country_id</span>,</span>
-<span>         date <span class="op">=</span> <span class="va">date_start</span>,</span>
-<span>         gov_deaths <span class="op">=</span> <span class="va">deaths_a</span>, </span>
-<span>         rebel_deaths <span class="op">=</span> <span class="va">deaths_b</span>, </span>
-<span>         civilian_deaths <span class="op">=</span> <span class="va">deaths_civilians</span>, </span>
-<span>         <span class="va">deaths</span>, </span>
-<span>         place <span class="op">=</span> <span class="va">where_coordinates</span>,</span>
-<span>         <span class="va">latitude</span>, </span>
-<span>         <span class="va">longitude</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html">st_as_sf</a></span><span class="op">(</span>coords <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"longitude"</span>, <span class="st">"latitude"</span><span class="op">)</span><span class="op">)</span> </span>
+<span><span class="co"># Save as .csv for future use</span></span>
+<span><span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv</a></span><span class="op">(</span><span class="va">dem_summary</span>, <span class="st">"data/dem_summary.csv"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">ged_yemen</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section><section id="make-a-leaflet-map" class="level2"><h2 class="anchored" data-anchor-id="make-a-leaflet-map">Make a leaflet map</h2>
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/hHUPqgHRqYU" title="Plot conlfict" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-<p>Now that we have our data, let’s make our first pop-up map. To do this we are going to be using the <a href="https://rstudio.github.io/leaflet/">leaflet</a> package. Leaflet is a really popular JavaScript library for interactive maps. To get started with leaflet, we’ll make a really simple map with one marker that says “First conflict event.”</p>
-<section id="plot-a-single-marker" class="level3"><h3 class="anchored" data-anchor-id="plot-a-single-marker">Plot a single marker</h3>
-<p>Let’s start with a really simple hypothetical example. Let’s say we want to plot one conflict event that we have the coordinates for and label it “First conflict event.” To do this, we would first call the <code><a href="https://rdrr.io/pkg/leaflet/man/leaflet.html">leaflet()</a></code>function. From there will add default street map tiles with <code><a href="https://rdrr.io/pkg/leaflet/man/map-layers.html">addTiles()</a></code> and then our single pop-up marker with <code><a href="https://rdrr.io/pkg/leaflet/man/map-layers.html">addMarkers()</a></code>.</p>
-<div class="cell">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rstudio.github.io/leaflet/">leaflet</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/leaflet.html">leaflet</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/map-layers.html">addTiles</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span>  <span class="co"># Add default OpenStreetMap map tiles</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/map-layers.html">addMarkers</a></span><span class="op">(</span>lng <span class="op">=</span> <span class="fl">45.46916</span>, lat <span class="op">=</span> <span class="fl">14.14912</span>, label <span class="op">=</span> <span class="st">"First conflict event"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section><section id="plot-some-conflict-events-from-yemen" class="level3"><h3 class="anchored" data-anchor-id="plot-some-conflict-events-from-yemen">Plot some conflict events from Yemen</h3>
-<p>Now that you have the hang of it, we can move on to plotting some conflict events from our data frame. Again we will call <code><a href="https://rdrr.io/pkg/leaflet/man/leaflet.html">leaflet()</a></code> but this time we will add <code>data = ged_yemen</code> as an argument. We will also use <code><a href="https://rdrr.io/pkg/leaflet/man/map-methods.html">setView()</a></code> to center the map on Yemen’s capital Sana’a. We include two arguments for <code>addMarkers</code>. <code>popup = ~as.character(deaths)</code> displays the number of deaths when the user clicks on the marker and <code>label = ~place</code> displays the name of the town that the coordinates correspond to.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
+<span><span class="co"># View the data</span></span>
+<span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">dem_summary</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 6
+Columns: 5
+$ region    &lt;chr&gt; "The West", "Latin America", "Eastern Europe", "Asia", "Afri…
+$ polyarchy &lt;dbl&gt; 0.8709230, 0.6371358, 0.5387451, 0.4076602, 0.3934166, 0.245…
+$ gdp_pc    &lt;dbl&gt; 37.913054, 9.610284, 12.176554, 9.746391, 4.410484, 21.134319
+$ flfp      &lt;dbl&gt; 52.99082, 48.12645, 50.45894, 50.32171, 56.69530, 26.57872
+$ women_rep &lt;dbl&gt; 28.12921, 21.32548, 17.99728, 14.45225, 17.44296, 10.21568</code></pre>
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p>Note that arguments for the <code>popup =</code> argument take the form of a one-sided formula, meaning that they require a tilde (~) as a prefix. Scroll to the bottom of <a href="http://rstudio.github.io/leaflet/map_widget.html">this page</a> for a more detailed explanation of the ~ notation in this context.</p>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/leaflet.html">leaflet</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">ged_yemen</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="co"># map points in ged_yemen data frame</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/map-layers.html">addTiles</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="co"># add default tile</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/map-methods.html">setView</a></span><span class="op">(</span>lng <span class="op">=</span> <span class="fl">44.1910</span>, lat <span class="op">=</span> <span class="fl">15.3694</span>, zoom <span class="op">=</span> <span class="fl">6</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="co"># Sana'a coordinates</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/map-layers.html">addMarkers</a></span><span class="op">(</span></span>
-<span>    popup <span class="op">=</span> <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="va">deaths</span><span class="op">)</span>, <span class="co"># when user clicks, show deaths</span></span>
-<span>    label <span class="op">=</span> <span class="op">~</span><span class="va">place</span> <span class="co"># when user hovers, show town</span></span>
-<span>    <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section></section><section id="customize-your-leaflet-map" class="level2"><h2 class="anchored" data-anchor-id="customize-your-leaflet-map">Customize your leaflet map</h2>
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/qLYeSsoDvgs" title="Customize your leaflet plot" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-<p>Next, let’s do some customization to make our map look amazing. We will talk about changing the icon style, customized the information displayed in the icon and adding base maps.</p>
-<section id="use-an-awesome-icon" class="level3"><h3 class="anchored" data-anchor-id="use-an-awesome-icon">Use an awesome icon</h3>
-<p>We can dress our leaflet map up a little bit with the <code><a href="https://rdrr.io/pkg/leaflet/man/addAwesomeMarkers.html">addAwesomeMarkers()</a></code> function which allows us to use the <a href="https://getbootstrap.com/docs/3.3/components/">glyphicons</a>, <a href="https://fontawesome.com/search?q=location&amp;o=r&amp;m=free">font awesome</a> and <a href="https://ionic.io/ionicons">ionicons</a> libraries.</p>
-<p>First we will use <code><a href="https://rdrr.io/pkg/leaflet/man/awesomeIcons.html">awesomeIcons()</a></code> to store the icon we want to use. Here we choose “ios-close” from the ionic library. We will say that we want the icon colorto be black and the surrounding marker color to be red. Then we call <code><a href="https://rdrr.io/pkg/leaflet/man/addAwesomeMarkers.html">addAwesomeMarkers()</a></code> and specify <code>icon = icon</code> to call the red and black ionic marker.</p>
-<div class="cell">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># save icon</span></span>
-<span><span class="va">icon</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/awesomeIcons.html">awesomeIcons</a></span><span class="op">(</span></span>
-<span>  icon <span class="op">=</span> <span class="st">"ios-close"</span>,</span>
-<span>  iconColor <span class="op">=</span> <span class="st">"black"</span>,</span>
-<span>  markerColor <span class="op">=</span> <span class="st">"red"</span>, </span>
-<span>  library <span class="op">=</span> <span class="st">"ion"</span> </span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Build map</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/leaflet.html">leaflet</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">ged_yemen</span><span class="op">)</span> <span class="op">|&gt;</span>   </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/map-layers.html">addTiles</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/map-methods.html">setView</a></span><span class="op">(</span>lng <span class="op">=</span> <span class="fl">44.1910</span>, lat <span class="op">=</span> <span class="fl">15.3694</span>, zoom <span class="op">=</span> <span class="fl">6</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="co"># Sana'a coordinates</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/addAwesomeMarkers.html">addAwesomeMarkers</a></span><span class="op">(</span></span>
-<span>    icon <span class="op">=</span> <span class="va">icon</span>, </span>
-<span>    popup <span class="op">=</span> <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="va">deaths</span><span class="op">)</span>, </span>
-<span>    label <span class="op">=</span> <span class="op">~</span><span class="va">place</span></span>
-<span>    <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section><section id="change-content-of-the-popup" class="level3"><h3 class="anchored" data-anchor-id="change-content-of-the-popup">Change content of the popup</h3>
-<p>Let’s say we want to add more information to our pop-up when the user clicks on it. Instead of just showing the total number of deaths, we also want to show the date of the event and the breakdown of government deaths, rebel deaths and civilian deaths.</p>
-<p>The easiest way to do this is going to be to add a column to our data frame with a label associated with each event. We will use the base R <code><a href="https://rdrr.io/r/base/sprintf.html">sprintf()</a></code> function combined with <code>htmltools</code> to create these labels. <code><a href="https://rdrr.io/r/base/sprintf.html">sprintf()</a></code> returns a formatted string using values in a list. The first parameter in <code>sprintf</code> is the format and the second is the values that go into the format.</p>
-<p>In this example, we are separating the lines of our label with html (<br>) and we are passing in a string (%s) for the date and numeric values (%.0f) for the number of deaths.</p>
-<p>Then we call <code>HMTL</code> from <code>htmltools</code> and use <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/lapply">lapply()</a> to apply the function to every line in the data frame.</p>
-<div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ged_yemen</span><span class="op">$</span><span class="va">popup_text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span></span>
-<span>      <span class="st">"Date: %s &lt;br&gt; </span></span>
-<span><span class="st">       Total Deaths: %.0f &lt;br&gt; </span></span>
-<span><span class="st">       Govt. Deaths: %.0f &lt;br&gt; </span></span>
-<span><span class="st">       Rebel Deaths: %.0f &lt;br&gt; </span></span>
-<span><span class="st">       Civilian Death: %.0f &lt;br&gt;"</span>,</span>
-<span>      <span class="va">ged_yemen</span><span class="op">$</span><span class="va">date</span>, </span>
-<span>      <span class="va">ged_yemen</span><span class="op">$</span><span class="va">deaths</span>, </span>
-<span>      <span class="va">ged_yemen</span><span class="op">$</span><span class="va">gov_deaths</span>, </span>
-<span>      <span class="va">ged_yemen</span><span class="op">$</span><span class="va">rebel_deaths</span>,</span>
-<span>      <span class="va">ged_yemen</span><span class="op">$</span><span class="va">civilian_deaths</span></span>
-<span>    <span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fu">htmltools</span><span class="fu">::</span><span class="va"><a href="https://rstudio.github.io/htmltools/reference/HTML.html">HTML</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Now we can use the new labels to enhance the markers by specifying <code>popup = ~popup_text</code> in the <code><a href="https://rdrr.io/pkg/leaflet/man/addAwesomeMarkers.html">addAwesomeMarkers()</a></code> function.</p>
-<div class="cell">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/leaflet.html">leaflet</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">ged_yemen</span><span class="op">)</span> <span class="op">|&gt;</span>  </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/map-layers.html">addTiles</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/map-methods.html">setView</a></span><span class="op">(</span>lng <span class="op">=</span> <span class="fl">44.1910</span>, lat <span class="op">=</span> <span class="fl">15.3694</span>, zoom <span class="op">=</span> <span class="fl">6</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="co"># Sana'a coordinates</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/addAwesomeMarkers.html">addAwesomeMarkers</a></span><span class="op">(</span></span>
-<span>    icon <span class="op">=</span> <span class="va">icon</span>, </span>
-<span>    popup <span class="op">=</span> <span class="op">~</span><span class="va">popup_text</span>, </span>
-<span>    label <span class="op">=</span> <span class="op">~</span><span class="va">place</span></span>
-<span>    <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Now let’s spot check the labels.</p>
-<div class="cell">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ged_yemen</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">place</span> <span class="op">==</span> <span class="st">"Marib Dam"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section><section id="using-basemaps" class="level3"><h3 class="anchored" data-anchor-id="using-basemaps">Using basemaps</h3>
-<p>As a last step, let’s change the basemap. We can do this by specifying <code><a href="https://rdrr.io/pkg/leaflet/man/addProviderTiles.html">addProviderTiles()</a></code> instead of <code><a href="https://rdrr.io/pkg/leaflet/man/map-layers.html">addTiles()</a></code> and specifying the basemap that we want to use. Here is a list of <a href="http://leaflet-extras.github.io/leaflet-providers/preview/index.html">available basemaps</a>. For this example, we are going to use “OpenTopoMap.”</p>
-<div class="cell">
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/leaflet.html">leaflet</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">ged_yemen</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="co"># Jan and Feb  </span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/addProviderTiles.html">addProviderTiles</a></span><span class="op">(</span><span class="st">"OpenTopoMap"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="co"># include name of provider here</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/map-methods.html">setView</a></span><span class="op">(</span>lng <span class="op">=</span> <span class="fl">44.1910</span>, lat <span class="op">=</span> <span class="fl">15.3694</span>, zoom <span class="op">=</span> <span class="fl">6</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="co"># Sana'a coordinates</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/addAwesomeMarkers.html">addAwesomeMarkers</a></span><span class="op">(</span></span>
-<span>    icon <span class="op">=</span> <span class="va">icon</span>, </span>
-<span>    popup <span class="op">=</span> <span class="op">~</span><span class="va">popup_text</span>, </span>
-<span>    label <span class="op">=</span> <span class="op">~</span><span class="va">place</span></span>
-<span>    <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Now we can see a bit more about the topography, which could be super-useful for conflict analysis.</p>
 
 
-</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
