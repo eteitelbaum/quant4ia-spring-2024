@@ -3515,5 +3515,12 @@
     "title": "Summarizing Data",
     "section": "Messages, Warnings and Errors",
     "text": "Messages, Warnings and Errors\n\n\nMessages are printed in blue and tell you what R is doing\nWarnings are printed in yellow and tell you that something might be wrong\nErrors are printed in red and tell you that something is definitely wrong\n\nLocate the error line number in the console and check your code\nError line tells you about where the error occurred, not exact\nErrors are normal, don’t freak out!\nIn fact, you should practice making errors to learn how to fix them"
+  },
+  {
+    "objectID": "slides/week-2.2.html#links-to-classwork-folders",
+    "href": "slides/week-2.2.html#links-to-classwork-folders",
+    "title": "Line Charts & Scatter Plots",
+    "section": "Links to Classwork Folders",
+    "text": "Links to Classwork Folders\n\nBox\nDropbox"
   }
 ]
