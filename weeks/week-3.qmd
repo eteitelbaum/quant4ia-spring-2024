@@ -1,21 +1,28 @@
 ---
 title: "Week 3"
-subtitle: "Working with Flat Files"
+subtitle: "Working with Data in R"
 ---
+
+```{r}
+#| label: setup
+#| include: false
+
+source("../helper.R")
+```
+
+::: {.callout-important}
+Quiz due by 11:59pm on `r advdate2(mon, 3)`. 
+:::
 
 ## Readings
 
-| 📖 [r4ds, chs 8.1 & 8.2](https://r4ds.hadley.nz/data-import.html#introduction)
-| 📖 [r4ds, chs 6.1 & 6.3](https://r4ds.hadley.nz/data-tidy.html)
+| 📖 [r4ds, ch 3](https://r4ds.hadley.nz/data-transform.html)
 
 ## Videos
 
-| 🖥️ [Retrieve Some Messy WB Data](https://youtu.be/YLOaKB8dfF4)
-| 🖥️ [Reading Data into R](https://youtu.be/i5galFqlj8c)
-| 🖥️ [Reshaping Data with pivot_longer](https://youtu.be/yhFUUblhTNA)
-| 🖥️ [Truncating Strings and Changing Variable Types](https://youtu.be/-JT8JSR1z5A)
-| 🖥️ [Cleaning Variable Names with the janitor Package](https://youtu.be/7bgoebbzfKQ)
+| 🖥 [Transforming Data with dplyr Verbs](https://youtu.be/ScQD47eJeAE)
+| 🖥 [Summarizing Data by Groups with dplyr Verbs](https://youtu.be/mgBwVzMV-v8)
 
 ## Assignments
 
-| 📘 [Module 1.1 Quiz](https://blackboard.gwu.edu/ultra/courses/_394195_1/outline)
+| 📘 [Module 3 Quiz](https://blackboard.gwu.edu/ultra/courses/_394195_1/outline)

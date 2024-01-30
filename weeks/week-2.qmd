@@ -1,21 +1,35 @@
 ---
 title: "Week 2"
-subtitle: "Getting Started, Part 2"
+subtitle: "Basic Data Visualization"
 format: html
 ---
 
-::: callout-important
-## No Class
+```{r}
+#| label: setup
+#| include: false
 
-September 4 is Labor Day!
+source("../helper.R")
+```
+
+::: {.callout-important}
+Quiz due by 11:59pm on `r advdate2(mon, 2)`
 :::
 
 ## Readings
 
-| 📖 [Happy Git and Github for the R useR](https://happygitwithr.com/), chaps 4,6,9,11 & 12
+| 📖 [r4ds, ch 7](https://r4ds.hadley.nz/data-import)
+| 📖 [r4ds, ch 2](https://r4ds.hadley.nz/data-visualize.html)
+| 📖 [r4ds, 10.1 - 10.4](https://r4ds.hadley.nz/layers.html)
+| 📖 [r4ds, 12.2](https://r4ds.hadley.nz/communication.html)
 
 ## Videos
 
-| 🖥[Getting Started With Quarto](https://www.youtube.com/watch?v=c654j7aQjcg)
-| 🖥[Git and Github Classroom](https://www.youtube.com/watch?v=ApvMnAfQe8A)
+| 🖥 [Make a Bar Chart in R with ggplot2](https://youtu.be/QG1oDJPoIio)
+| 🖥 [Make a Histogram in R with ggplot2](https://youtu.be/-1YhCql-gMo)
+| 🖥 [Make a Line Chart in R with ggplot2](https://youtu.be/PnmQ2MFQpIc)
+| 🖥 [Make a Scatterplot in R with ggplot2](https://youtu.be/FiosjUVyfLM)
+
+## Assignments
+
+| 📘 [Module 2 Quiz](https://blackboard.gwu.edu/ultra/courses/_395476_1/cl/outline)
 

@@ -392,7 +392,7 @@ Use `geom_point()`...
 #| eval: false
 #| code-line-numbers: "2"
 
-ggplot(dem_summary_ctry, aes(x = gdp_pc, y = polyarchy, color = region, size = women_rep)) + 
+ggplot(dem_summary_ctry, aes(x = gdp_pc, y = polyarchy, color = region, size = women_rep)) +
   geom_point() + # use geom_point() for scatter plots
   scale_x_log10(labels = scales::label_number(prefix = "$", suffix = "k")) +
   labs(

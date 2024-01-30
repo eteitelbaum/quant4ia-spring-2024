@@ -1,9 +1,10 @@
 ---
-title: Working With Data in R
+title: Working with V-Dem Data
 date: today
 date-format: long
 footer: "[IAFF 6501 Website](https://quant4ia.rocks)"
 logo: images/iaff6501-logo.png
+from: markdown+emoji
 format:
   revealjs:
     theme: [simple, custom.scss]
@@ -18,7 +19,24 @@ execute:
   freeze: auto
 ---
 
-## What are Tidy Data?
+## Where Does Data Come From?
+
+<br>
+
+Thoughts? :sunglasses: :thought_balloon:
+
+. . .
+
+:::{.incremental}
+- Your boss or a client sends you a file
+- Survey data collected by you or someone else 
+- You can download it from a website 
+- You can scrape it from a website
+- A curated collection (e.g. `unvotes`)
+- You can access it through an API
+:::
+
+## The Concept of "Tidy Data"
 
 <br>
 
@@ -30,7 +48,9 @@ execute:
 
 ![](images/tidy_data.jpg){fig-align="center"}
 
-## What are Clean Data?
+## The Concept of "Clean Data"
+
+<br>
 
 - Column names are easy to work with and are not duplicated
 - Missing values have been dealt with
@@ -43,22 +63,122 @@ execute:
 
 ![](images/messy_wb_data.jpg){fig-align="center" width=70%}
 
-## Let's Download Some Messy Data
+## Which of These is Likely Tidy/Clean?
 
 <br>
 
-- Produce a folder called "data" in your course modules project folder
-- Download some messy WB data from WB 
-- Make it one variable other than FLFP
-- Download as a CSV file with a unique file name and store in your data folder
+- Your boss or a client sends you a file
+- Survey data collected by you or someone else 
+- You can download it from a website 
+- You can scrape it from a website
+- A curated collection (e.g. `unvotes`)
+- You can access it through an API
+
+## How Do We Get Tidy/Clean Data? 
+
+<br>
+
+- Wrangle it ourselves
+- Use a package where it has been wrangled for us
+- Download via an API 
+
+## APIs
+
+<br>
+
+- API stands for "Application Programming Interface"
+- Way for two computers to talk to each other
+
+```{mermaid}
+%%| fig-align: center
+%%| fig-width: 7
+%% Note: fig-width option not working as of Quarto 1.4, try again in 1.5 
+
+flowchart LR
+    Client-->|Request|id1[(API)]
+    id1[(API)]-->|Response|Client
+    id1[(API)]-->Server
+    Server-->id1[(API)]
+```
+
+- In our case, we will use APIs to download social science data
+
+## APIs in R
+
+::: {.incremental}
+- APIs are accessed through packages in R
+- Sometimes there can be more than one package for an API
+- Much easier than reading in data from messy flat file!
+- We will use two APIs in this course
+  - Varieties of Democracy (V-Dem) through `vdemdata`
+  - World Bank data through `wbstats`
+- But there are many APIs out there (please explore!)
+:::
+
+## This Lesson
+
+<br>
+
+::: {.incremental}
+- Access V-Dem API with `vdemdata` Package
+- This is the only package for V-Dem
+- Just downloads all the data
+- So we have to use `dplyr` functions like `filter()` and `select()`
+:::
+
+## 
+
+<br>
+
+- Run this code and see what happens. 
+- What is `vdem` and what does it do? 
+
+```{r}
+#| label: vdemdata1
+#| echo: true
+
+# Load packages
+library(vdemdata) # to download V-Dem data
+library(dplyr)
+
+# Download the data
+democracy <- vdem 
+
+# View the data
+glimpse(democracy)
+```
+
+## `filter()`, `select()`, `mutate()`
+
+<br>
+
+- `filter()` is used to select observations based on their values
+- `select()` is used to select variables
+- `mutate()` is used to create new variables or modifying existing ones
+
+## `filter()`
+
+- Run this code. What do you see?
+- Try changing the year 
+- For one year, use `==` instead of `>=`
+- Or try `<=` and see what happens 
+
+```{r}
+#| label: vdemdata2
+#| echo: true
+
+democracy <- vdem |> # download the V-Dem dataset
+  filter(year >= 1990) # filter out years less than 1990
+  
+glimpse(democracy)  
+```
 
 ```{r}
 #| label: timer1
-
 library(countdown)
 countdown(minutes = 5, 
-          id = "time1", 
-          bottom = "10%", 
+          id = "timer1", 
+          top = "10%", 
           right = "10%",
           color_border = "#fff",
           color_text = "#fff",
@@ -68,262 +188,288 @@ countdown(minutes = 5,
           color_finished_text = "#00264A")
 ```
 
-## Let's Read the Data Into R
+## `=` versus `==`
 
 <br>
 
-Store the data as an **object** with `read_csv()` from the `readr` package:
+- `=` is used to assign values to variables, just like `<-`
+- `==` is used to test if two values are equal to each other
+- So filter(`year == 1990`) will give you just the observations for 1990
 
-<br>
+## `>=` and `<=`
+
+- `>=` is used to test if a value is greater than or equal to another value
+- `<=` is used to test if a value is less than or equal to another value
+- So `filter(year >= 1990)` will give you the observations for 1990 and later
+- And `filter(year <= 1990)` will give you the observations for 1990 and earlier
+
+## `select()`
+
+- Run this code. What do you see?
+- Now try `v2x_libdem` instead of `v2x_polyarchy`
+- Choose more from the [codebook](https://v-dem.net/documents/24/codebook_v13.pdf) 
 
 ```{r}
-#| label: read_CSV
-#| eval: false
+#| label: vdemdata3
 #| echo: true
 
-# Load readr
-library(readr) 
-
-# Read data from csv file into an object called "wb_data_messy"
-wb_data_messy <- read_csv("data/your_file_name.csv")
-```
-
-## What is in That Data Frame?
-
-<br>
-
-You can view data columns and column types with `dplyr` `glimpse()`:
-
-```{r}
-#| label: view_data
-#| eval: false
-#| echo: true
-
-# load dplyr
-library(dplyr) 
-
-# View the data
-glimpse(wb_data_messy)
-```
-
-Also try viewing with `View("wb_data_messy")` or by clicking on the object in the Environment field.
-
-## How Can We Fix It? 
-
-<br>
-
-- Pivot the data from wide to long form
-- Change year and data to numeric 
-- Clean up the column names
-
-## Pivot Longer
-
-<br>
-
-`pivot_longer()` takes three arguments:
-
-- **cols** - which columns you want to pivot
-- **names_to** - the name of the column where the old column names are going to (identifier)
-- **values_to** - the name of the column where the values are going to
-
-## Let's Fill in the Blanks
-
-<br>
-
-Can you get `pivot_longer()` to work? 
-
-<br>
-
-```{r}
-#| label: pivot_trial
-#| eval: false
-#| echo: true
-
-# Load tidyr
-library(tidyr)
-
-# Reshape the data
-  ___    <- ___   |>
-  pivot_longer(
-    cols = ___
-    names_to = ___
-    values_to = ___
+democracy <- vdem |> # download the V-Dem dataset
+  select(                  # select (and rename) these variables
+    country = country_name,     # before the = sign is new name  
+    vdem_ctry_id = country_id,  # after the = sign is the old name
+    year, 
+    polyarchy = v2x_polyarchy
   )
-
-glimpse()
+  
+glimpse(democracy)  
 ```
 
 ```{r}
 #| label: timer2
-
 countdown(minutes = 5, 
-          id = "timer2", 
-          top = "10%", 
-          right = "0%")
+          id = "timer2",
+          top = "0%",
+          right = "5%")
 ```
 
-## Solution
+## `mutate()`
 
-<br>
+- Modify the code to create new variable that is three times the value of `polyarchy` 
+- How about `polyarchy` squared? 
 
 ```{r}
-#| label: pivot
-#| eval: false
+#| label: vdemdata4
 #| echo: true
 
-# Load tidyr
-library(tidyr)
-
-# Reshape the data
-wb_data <- wb_data_messy |> 
-  pivot_longer(             
-    cols = `1973 [YR1973]`: `2022 [YR2022]`, # columns to pivot
-    names_to = "year", # new identifier column
-    values_to = "flfp" # column with numeric values
-  ) 
-
-# View the data
-glimpse(wb_data)
-```
-
-## Now Let's Change Variables to Numeric
-
-<br>
-
-```{r}
-#| label: mutate
-#| eval: false
-#| echo: true
-
-# Fix year and flfp
-wb_data <- wb_data |> # replace original data frame 
-  mutate(year = substring(year, 1, 4)) |> # truncate year
-  mutate_at(c("year", "flfp"), as.numeric) # change vars to numeric
-
-# View the data
-glimpse(wb_data)
-```
-
-- `mutate` is used to change (or create) a single variable 
-- `mutate_at()` is used to make changes to multiple variables at once
-
-## Then We Can Clean Our Variable Names
-
-<br>
-
-Very simple: use `clean_names()` from the `janitor` package!
-
-<br>
-
-```{r}
-#| label: janitor
-#| eval: false
-#| echo: true
-
-# Load janitor
-library(janitor)
-
-# Apply clean_names() to wb_data, store in new data frame called wb_data_clean
-wb_data_clean <- wb_data |>  
-  clean_names() 
-```
-
-## Write as CSV to New File
-
-<br>
-
-Use `write_csv()` from `readr` to save the clean data. 
-
-<br>
-
-```{r}
-#| label: write_clean_data
-#| eval: false
-#| echo: true
-
-# Write wb_data_clean to a csv file
-write_csv(wb_data_clean, "data/wb_data_clean.csv")
-
-# View the data
-glimpse(wb_data_clean)
-```
-
-## What About Multiple Variables?
+democracy <- vdem |> # download the V-Dem dataset
+  filter(year == 2015) |> # keep only observations from 2015
+  select(                  # select (and rename) these variables
+    country = country_name,     # name before the = sign is new name  
+    vdem_ctry_id = country_id,  # name after the = sign is old name
+    year, 
+    polyarchy = v2x_polyarchy 
+    ) |>
+  mutate(
+    polyarchy_dbl = polyarchy * 2 # create variable 2X polyarchy
+  )
   
-![](images/multiple_vars.png){fig-align="center" width=70%}
-  
-## Step 1: Pivot Years Into One Column
-
-<br>
-
-Use `pivot_longer()` to get the years into one column and the values into another like we did before, but label the numeric column "values":
-
-```{r}
-#| label: pivot_longer_multiple
-#| eval: false
-#| echo: true
-#| code-line-numbers: "6"
-
-# Reshape the data
-wb_data <- wb_data_messy |> 
-  pivot_longer(             
-    cols = `1973 [YR1973]`: `2022 [YR2022]`, # columns to pivot
-    names_to = "year", # new identifier column
-    values_to = "values" # column with numeric values
-  ) 
-
-# View the data
-glimpse(wb_data)
+glimpse(democracy)  
 ```
-
-
-## Step 2: Pivot Series Into Columns
-
-<br>
-
-Now drop series name and use `pivot_wider()` to separate the series into separate columns:
-  
-```{r}
-#| label: pivot_wider
-#| eval: false
-#| echo: true
-
-wb_data_multicolum <- messy_multicolumn_df |>
-  select(-`Series Name`) # dropping series name
-
-# Reshape the data
-tidy_data <- wb_data_multicolumn |> 
-  pivot_wider(             
-    names_from = `Series Code`, # column with series names
-    values_from = "values" # column with numeric values
-  ) 
-
-# View the data
-glimpse(wb_data)
-```
-
-## What if We Have Data in an Excel File?
-
-<br>
-
-- Follow same steps as with CSV file, but use `read_excel()` to read in the data instead of `read_csv`
-- The `readr` [cheatsheet](https://github.com/rstudio/cheatsheets/blob/main/data-import.pdf) is helpful in figuring out stuff like this!
-
-## Ten Minute Challenge!
-
-- Download more than one variable from the WB in Excel
-- Use pivot longer to put years in one column and values in another
-- Use pivot wider to separate the series into columns
-- Change variable names 
-- Change variable types
-- Clean variable names 
-- Save clean data as new Excel file
 
 ```{r}
 #| label: timer3
+countdown(minutes = 5, 
+          id = "timer2",
+          top = "0%",
+          right = "5%")
+```
+
+## Some Common Arithmetic Operators
+
+<br>
+
+- `+` addition
+- `-` subtraction
+- `*` multiplication
+- `/` division
+- `^` exponentiation (also `**`)
+
+## `vdemdata` Example {.smaller}
+
+```{r}
+#| label: vdemdata5
+#| output: false
+#| echo: true
+
+# Load packages
+library(vdemdata) # to download V-Dem data
+library(dplyr)
+
+# Download the data
+democracy <- vdem |> # download the V-Dem dataset
+  filter(year == 2015)  |> # filter year, keep 2015
+  select(                  # select (and rename) these variables
+    country = country_name,     # the name before the = sign is the new name  
+    vdem_ctry_id = country_id,  # the name after the = sign is the old name
+    year, 
+    polyarchy = v2x_polyarchy, 
+    gdp_pc = e_gdppc, 
+    region = e_regionpol_6C
+    ) |>
+  mutate(
+    region = case_match(region, # replace the values in region with country names
+                     1 ~ "Eastern Europe", 
+                     2 ~ "Latin America",  
+                     3 ~ "Middle East",   
+                     4 ~ "Africa", 
+                     5 ~ "The West", 
+                     6 ~ "Asia")
+  )
+
+# View the data
+glimpse(democracy)
+```
+
+## 
+
+Use `filter()` to select years...
+
+```{r}
+#| label: vdemdata6
+#| eval: false
+#| echo: true
+#| code-line-numbers: "2-3"
+
+# Download the data
+democracy <- vdem |> 
+  filter(year == 2015)  |> # keep 2015
+  select(                 
+    country = country_name,       
+    vdem_ctry_id = country_id,  
+    year, 
+    polyarchy = v2x_polyarchy, 
+    gdp_pc = e_gdppc, 
+    region = e_regionpol_6C
+    ) |>
+  mutate(
+    region = case_match(region,
+                     1 ~ "Eastern Europe", 
+                     2 ~ "Latin America",  
+                     3 ~ "Middle East",   
+                     4 ~ "Africa", 
+                     5 ~ "The West", 
+                     6 ~ "Asia")
+  )
+```
+
+## 
+
+Use `select()` to choose variables...
+
+```{r}
+#| label: vdemdata7
+#| eval: false
+#| echo: true
+#| code-line-numbers: "4-11"
+
+# Download the data
+democracy <- vdem |> 
+  filter(year == 2015)  |> 
+  select(                  # select (and rename) these variables
+    country = country_name,     # the name before the = sign is the new name  
+    vdem_ctry_id = country_id,  # the name after the = sign is the old name
+    year, 
+    polyarchy = v2x_polyarchy, 
+    gdp_pc = e_gdppc, 
+    region = e_regionpol_6C
+    ) |>
+  mutate(
+    region = case_match(region, 
+                     1 ~ "Eastern Europe", 
+                     2 ~ "Latin America",  
+                     3 ~ "Middle East",   
+                     4 ~ "Africa", 
+                     5 ~ "The West", 
+                     6 ~ "Asia")
+  )
+```
+
+## 
+
+Use `mutate` with `case_match()` to Recode Region....
+
+```{r}
+#| label: vdemdata8
+#| eval: false
+#| echo: true
+#| code-line-numbers: "12-23"
+
+# Download the data
+democracy <- vdem |>
+  filter(year == 2015)  |> 
+  select(                  
+    country = country_name,     
+    vdem_ctry_id = country_id,  
+    year, 
+    polyarchy = v2x_polyarchy, 
+    gdp_pc = e_gdppc, 
+    region = e_regionpol_6C
+    ) |>
+  mutate(
+    region = case_match(region, # replace the values in region with country names
+                     1 ~ "Eastern Europe", 
+                     2 ~ "Latin America",  
+                     3 ~ "Middle East",   
+                     4 ~ "Africa", 
+                     5 ~ "The West", 
+                     6 ~ "Asia")
+                    # number on the left of the ~ is the V-Dem region code
+                    # we are changing the number to the country name on the right
+                    # of the equals sign
+  )
+```
+
+## Visualize It! 
+
+```{r}
+#| label: scatterplot1
+#| eval: false
+#| echo: true
+
+library(ggplot2)
+
+ggplot(democracy, aes(x = gdp_pc, y = polyarchy)) + 
+  geom_point(aes(color = region)) + 
+  geom_smooth(method = "lm", linewidth = 1) + 
+  scale_x_log10(labels = scales::label_number(prefix = "$", suffix = "k")) +
+  labs(
+    x= "GDP per Capita", 
+    y = "Polyarchy Score",
+    title = "Wealth and democracy in 2015", 
+    caption = "Source: V-Dem Institute", 
+    color = "Region"
+    ) +
+  scale_color_viridis_d(option = "inferno", end = .8)
+```
+
+## Visualize It! 
+
+```{r}
+#| label: scatterplot2
+
+library(ggplot2)
+
+ggplot(democracy, aes(x = gdp_pc, y = polyarchy)) + 
+  geom_point(aes(color = region)) + 
+  geom_smooth(method = "lm", linewidth = 1) + 
+  scale_x_log10(labels = scales::label_number(prefix = "$", suffix = "k")) +
+  labs(
+    x= "GDP per Capita", 
+    y = "Polyarchy Score",
+    title = "Wealth and democracy in 2020", 
+    caption = "Source: V-Dem Institute", 
+    color = "Region"
+    ) +
+  scale_color_viridis_d(option = "inferno", end = .8)
+```
+
+## Try it Yourself
+
+- Go to the V-Dem [Codebook](https://www.v-dem.net/documents/24/codebook_v13.pdf) 
+- Select a democracy indicator from Part 2.1 (high level indicators) and one other indicator
+- Note the indicator code (e.g. "v2x_polyarchy" for the polyarchy score)
+- Change the code and download the data so you can visualize it
+- Now make a scatter plot with the data
+- How would you make a line chart?
+
+```{r}
+#| label: timer4
 
 countdown(minutes = 10, 
-          id = "timer3", 
-          bottom = "10%", 
+          id = "timer4", 
+          top = "5%", 
           right = "10%")
 ```
+
+
+
