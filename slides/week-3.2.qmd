@@ -1,5 +1,5 @@
 ---
-title: Where to Find Data
+title: Summarizing Data
 date: today
 date-format: long
 footer: "[IAFF 6501 Website](https://quant4ia.rocks)"
@@ -262,7 +262,7 @@ ggplot(dem_summary, aes(x = reorder(region, -polyarchy), y = polyarchy)) +
 
 ## Try it Yourself
 
-- Run the code and a bar chart with the `dem_summary` data you wrangled
+- Run the code and a bar chart with the `dem_summary` data you wrangled, again grouping by region (instead of country)
 - Try visualizing different variables, e.g. `libdem`, `corruption`, `gdp_pc`
 - Try different summary statistics, e.g. mean, median, standard deviation, etc.
 - Try grouping by country instead of region and visualizing that
@@ -270,9 +270,9 @@ ggplot(dem_summary, aes(x = reorder(region, -polyarchy), y = polyarchy)) +
 ```{r}
 #| label: timer2
 
-countdown(minutes = 5, 
+countdown(minutes = 10, 
           id = "timer2", 
-          bottom = "5%", 
+          top = "0%", 
           right = "5%")
 ```
 

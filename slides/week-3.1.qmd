@@ -456,11 +456,11 @@ ggplot(democracy, aes(x = gdp_pc, y = polyarchy)) +
 ## Try it Yourself
 
 - Go to the V-Dem [Codebook](https://www.v-dem.net/documents/24/codebook_v13.pdf) 
-- Select a democracy indicator from Part 2.1 (high level indicators) and one other indicator
+- Select a democracy indicator from Part 2.1 (high level indicators) to visualize
 - Note the indicator code (e.g. "v2x_polyarchy" for the polyarchy score)
 - Change the code and download the data so you can visualize it
-- Now make a scatter plot with the data
-- How would you make a line chart?
+- Now make a scatter plot of your indicator versus GDP
+- Bonus: How would you make a line chart?
 
 ```{r}
 #| label: timer4

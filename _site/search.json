@@ -1498,7 +1498,7 @@
   {
     "objectID": "slides/week-3.2.html#try-it-yourself",
     "href": "slides/week-3.2.html#try-it-yourself",
-    "title": "Where to Find Data",
+    "title": "Summarizing Data",
     "section": "Try it Yourself",
     "text": "Try it Yourself\n\nTry running a group_by(), summarize() and arrange() in your Quarto document\nTry changing the parameters to answer these questions:\n\n\nTry summarizing the data with a different function for one or more of the variables.\n\n\nWhat is the median value of polyarchy for The West?\nWhat is the max value of libdem for Eastern Europe?\nWhat is the standard deviation of corruption for Africa?\nWhat is the mean of gdp_pc for the Middle East?\n\n\nNow try grouping by country instead of region.\n\n\nWhat is the median value of polyarchy for Sweden?\nWhat is the max value of libdem New Zealand?\nWhat is the standard deviation of corruption for Spain?\nWhat is the interquartile range of gdp_pc for Germany?\n\n\nSort countries in descending order based on the mean value of gdp_pc (instead of the median value of polyarchy). Which country ranks first based on this sorting?\nNow try sorting countries in ascending order based on the median value of libdem (hint: delete “desc” from the arrange() call). Which country ranks at the “top” of the list?\n\n\n\n\n−+\n05:00"
   },
@@ -1540,9 +1540,9 @@
   {
     "objectID": "slides/week-3.2.html#try-it-yourself-1",
     "href": "slides/week-3.2.html#try-it-yourself-1",
-    "title": "Where to Find Data",
+    "title": "Summarizing Data",
     "section": "Try it Yourself",
-    "text": "Try it Yourself\n\nRun the code and a bar chart with the dem_summary data you wrangled\nTry visualizing different variables, e.g. libdem, corruption, gdp_pc\nTry different summary statistics, e.g. mean, median, standard deviation, etc.\nTry grouping by country instead of region and visualizing that\n\n\n\n\n−+\n05:00"
+    "text": "Try it Yourself\n\nRun the code and a bar chart with the dem_summary data you wrangled, again grouping by region (instead of country)\nTry visualizing different variables, e.g. libdem, corruption, gdp_pc\nTry different summary statistics, e.g. mean, median, standard deviation, etc.\nTry grouping by country instead of region and visualizing that\n\n\n\n\n−+\n10:00"
   },
   {
     "objectID": "slides/week-3.2.html#downloading-v-dem-data",
@@ -1554,7 +1554,7 @@
   {
     "objectID": "slides/week-3.2.html#section",
     "href": "slides/week-3.2.html#section",
-    "title": "Where to Find Data",
+    "title": "Summarizing Data",
     "section": "",
     "text": "Use group_by() to group countries by region…\n\n\n# group_by(), summarize() and arrange()\ndem_summary &lt;- democracy |&gt; # save result as new object\n  group_by(region)  |&gt; # group data by region\n  summarize(           # summarize following vars (by region)\n    polyarchy = mean(polyarchy, na.rm = TRUE), # calculate mean, remove NAs\n    libdem = median(libdem, na.rm = TRUE),\n    corruption = sd(corruption, na.rm = TRUE),\n    gdp_pc = max(gdp_pc, na.rm = TRUE)\n  ) |&gt; \n  arrange(desc(polyarchy)) # arrange in descending order by polyarchy score\n\n# View the data\nglimpse(dem_summary)"
   },
@@ -1568,14 +1568,14 @@
   {
     "objectID": "slides/week-3.2.html#section-1",
     "href": "slides/week-3.2.html#section-1",
-    "title": "Where to Find Data",
+    "title": "Summarizing Data",
     "section": "",
     "text": "Use summarize() to get the regional means polyarchy and gpd_pc….\n\n\n# group_by(), summarize() and arrange()\ndem_summary &lt;- democracy |&gt; # save result as new object\n  group_by(region)  |&gt; # group data by region\n  summarize(           # summarize following vars (by region)\n    polyarchy = mean(polyarchy, na.rm = TRUE), # calculate mean, remove NAs\n    libdem = median(libdem, na.rm = TRUE),\n    corruption = sd(corruption, na.rm = TRUE),\n    gdp_pc = max(gdp_pc, na.rm = TRUE)\n  ) |&gt; \n  arrange(desc(polyarchy)) # arrange in descending order by polyarchy score\n\n# View the data\nglimpse(dem_summary)"
   },
   {
     "objectID": "slides/week-3.2.html#section-2",
     "href": "slides/week-3.2.html#section-2",
-    "title": "Where to Find Data",
+    "title": "Summarizing Data",
     "section": "",
     "text": "Then use arrange() with desc() to sort in descending order by polyarchy score…\n\n\n# group_by(), summarize() and arrange()\ndem_summary &lt;- democracy |&gt; # save result as new object\n  group_by(region)  |&gt; # group data by region\n  summarize(           # summarize following vars (by region)\n    polyarchy = mean(polyarchy, na.rm = TRUE), # calculate mean, remove NAs\n    libdem = median(libdem, na.rm = TRUE),\n    corruption = sd(corruption, na.rm = TRUE),\n    gdp_pc = max(gdp_pc, na.rm = TRUE)\n  ) |&gt; \n  arrange(desc(polyarchy)) # arrange in descending order by polyarchy score\n\n# View the data\nglimpse(dem_summary)"
   },
@@ -3052,7 +3052,7 @@
     "href": "slides/week-3.1.html#try-it-yourself",
     "title": "Working with V-Dem Data",
     "section": "Try it Yourself",
-    "text": "Try it Yourself\n\nGo to the V-Dem Codebook\nSelect a democracy indicator from Part 2.1 (high level indicators) and one other indicator\nNote the indicator code (e.g. “v2x_polyarchy” for the polyarchy score)\nChange the code and download the data so you can visualize it\nNow make a scatter plot with the data\nHow would you make a line chart?\n\n\n\n\n−+\n10:00"
+    "text": "Try it Yourself\n\nGo to the V-Dem Codebook\nSelect a democracy indicator from Part 2.1 (high level indicators) to visualize\nNote the indicator code (e.g. “v2x_polyarchy” for the polyarchy score)\nChange the code and download the data so you can visualize it\nNow make a scatter plot of your indicator versus GDP\nBonus: How would you make a line chart?\n\n\n\n\n−+\n10:00"
   },
   {
     "objectID": "slides/week-3.1.html#which-of-these-is-likely-tidyclean",
@@ -3463,42 +3463,42 @@
   {
     "objectID": "slides/week-3.2.html#group-summarize-and-arrange",
     "href": "slides/week-3.2.html#group-summarize-and-arrange",
-    "title": "Where to Find Data",
+    "title": "Summarizing Data",
     "section": "Group, Summarize and Arrange",
     "text": "Group, Summarize and Arrange\n\n\ngroup_by(), summarize(), arrange()\nA very common sequence of dplyr verbs:\n\nTake an average or some other statistic for a group\nRank from high to low values of summary value"
   },
   {
     "objectID": "slides/week-3.2.html#setup",
     "href": "slides/week-3.2.html#setup",
-    "title": "Where to Find Data",
+    "title": "Summarizing Data",
     "section": "Setup",
     "text": "Setup\n\n# Load packages\nlibrary(vdemdata) # to download V-Dem data\nlibrary(dplyr)\n\n# Download the data\ndemocracy &lt;- vdem |&gt; # download the V-Dem dataset\n  filter(year == 2015)  |&gt; # filter year, keep 2015\n  select(                  # select (and rename) these variables\n    country = country_name,     # the name before the = sign is the new name  \n    vdem_ctry_id = country_id,  # the name after the = sign is the old name\n    year, \n    polyarchy = v2x_polyarchy,\n    libdem = v2x_libdem,\n    corruption = v2x_corr,\n    gdp_pc = e_gdppc, \n    region = e_regionpol_6C\n    ) |&gt;\n  mutate(\n    region = case_match(region, # replace the values in region with country names\n                     1 ~ \"Eastern Europe\", \n                     2 ~ \"Latin America\",  \n                     3 ~ \"Middle East\",   \n                     4 ~ \"Africa\", \n                     5 ~ \"The West\", \n                     6 ~ \"Asia\")\n  )\n\n# View the data\nglimpse(democracy)"
   },
   {
     "objectID": "slides/week-3.2.html#summarize-by-region",
     "href": "slides/week-3.2.html#summarize-by-region",
-    "title": "Where to Find Data",
+    "title": "Summarizing Data",
     "section": "Summarize by Region",
     "text": "Summarize by Region\n\n\n# group_by(), summarize() and arrange()\ndem_summary &lt;- democracy |&gt; # save result as new object\n  group_by(region)  |&gt; # group data by region\n  summarize(           # summarize following vars (by region)\n    polyarchy = mean(polyarchy, na.rm = TRUE), # calculate mean, remove NAs\n    libdem = median(libdem, na.rm = TRUE),\n    corruption = sd(corruption, na.rm = TRUE),\n    gdp_pc = max(gdp_pc, na.rm = TRUE)\n  ) |&gt; \n  arrange(desc(polyarchy)) # arrange in descending order by polyarchy score\n\n# View the data\nglimpse(dem_summary)"
   },
   {
     "objectID": "slides/week-3.2.html#some-common-arithmetic-functions",
     "href": "slides/week-3.2.html#some-common-arithmetic-functions",
-    "title": "Where to Find Data",
+    "title": "Summarizing Data",
     "section": "Some Common Arithmetic Functions",
     "text": "Some Common Arithmetic Functions\n\n\nsqrt() square root\nlog() natural logarithm\nmean() mean\nmedian() median\nsd() standard deviation"
   },
   {
     "objectID": "slides/week-3.2.html#visualize-it",
     "href": "slides/week-3.2.html#visualize-it",
-    "title": "Where to Find Data",
+    "title": "Summarizing Data",
     "section": "Visualize It!",
     "text": "Visualize It!\n\n\nlibrary(ggplot2)\n\nggplot(dem_summary, aes(x = reorder(region, -polyarchy), y = polyarchy)) +\n  geom_col(fill = \"steelblue\") + \n  labs(\n    x = \"Region\", \n    y = \"Avg. Polyarchy Score\", \n    title = \"Democracy by region, 2015\", \n    caption = \"Source: V-Dem Institute\"\n    ) + theme_minimal()"
   },
   {
     "objectID": "slides/week-3.2.html#visualize-it-1",
     "href": "slides/week-3.2.html#visualize-it-1",
-    "title": "Where to Find Data",
+    "title": "Summarizing Data",
     "section": "Visualize It!",
     "text": "Visualize It!"
   }
