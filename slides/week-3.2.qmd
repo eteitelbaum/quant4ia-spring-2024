@@ -73,7 +73,7 @@ glimpse(democracy)
 
 ```{r}
 #| label: summarize1
-#| output: false
+#| eval: false
 #| echo: true
 
 # group_by(), summarize() and arrange()
@@ -87,8 +87,30 @@ dem_summary <- democracy |> # save result as new object
   ) |> 
   arrange(desc(polyarchy)) # arrange in descending order by polyarchy score
 
-# View the data
-glimpse(dem_summary)
+# Print the data
+dem_summary
+```
+
+## Summarize by Region
+
+<br>
+
+```{r}
+#| label: summarize2
+
+# group_by(), summarize() and arrange()
+dem_summary <- democracy |> # save result as new object
+  group_by(region)  |> # group data by region
+  summarize(           # summarize following vars (by region)
+    polyarchy = mean(polyarchy, na.rm = TRUE), # calculate mean, remove NAs
+    libdem = median(libdem, na.rm = TRUE),
+    corruption = sd(corruption, na.rm = TRUE),
+    gdp_pc = max(gdp_pc, na.rm = TRUE)
+  ) |> 
+  arrange(desc(polyarchy)) # arrange in descending order by polyarchy score
+
+# Print the data
+dem_summary
 ```
 
 ##
@@ -98,7 +120,7 @@ Use `group_by()` to group countries by region...
 <br>
 
 ```{r}
-#| label: summarize2
+#| label: summarize3
 #| eval: false
 #| echo: true
 #| code-line-numbers: "3"
@@ -114,8 +136,8 @@ dem_summary <- democracy |> # save result as new object
   ) |> 
   arrange(desc(polyarchy)) # arrange in descending order by polyarchy score
 
-# View the data
-glimpse(dem_summary)
+# Print the data
+dem_summary
 ```
 
 ##
@@ -125,10 +147,10 @@ Use `summarize()` to get the regional means polyarchy and gpd_pc....
 <br>
 
 ```{r}
-#| label: summarize3
+#| label: summarize4
 #| eval: false
 #| echo: true
-#| code-line-numbers: "4-7"
+#| code-line-numbers: "4-9"
 
 # group_by(), summarize() and arrange()
 dem_summary <- democracy |> # save result as new object
@@ -141,8 +163,8 @@ dem_summary <- democracy |> # save result as new object
   ) |> 
   arrange(desc(polyarchy)) # arrange in descending order by polyarchy score
 
-# View the data
-glimpse(dem_summary)
+# Print the data
+dem_summary
 ```
 
 ## 
@@ -152,10 +174,10 @@ Then use `arrange()` with `desc()` to sort in descending order by polyarchy scor
 <br>
 
 ```{r}
-#| label: summarize
+#| label: summarize5
 #| eval: false
 #| echo: true
-#| code-line-numbers: "8"
+#| code-line-numbers: "10"
 
 # group_by(), summarize() and arrange()
 dem_summary <- democracy |> # save result as new object
@@ -168,9 +190,37 @@ dem_summary <- democracy |> # save result as new object
   ) |> 
   arrange(desc(polyarchy)) # arrange in descending order by polyarchy score
 
-# View the data
-glimpse(dem_summary)
+# Print the data
+dem_summary
 ```
+
+## 
+
+We are printing the data frame instead of using `glimpse()` here...
+
+<br>
+
+```{r}
+#| label: summarize6
+#| eval: false
+#| echo: true
+#| code-line-numbers: "12-13"
+
+# group_by(), summarize() and arrange()
+dem_summary <- democracy |> # save result as new object
+  group_by(region)  |> # group data by region
+  summarize(           # summarize following vars (by region)
+    polyarchy = mean(polyarchy, na.rm = TRUE), # calculate mean, remove NAs
+    libdem = median(libdem, na.rm = TRUE),
+    corruption = sd(corruption, na.rm = TRUE),
+    gdp_pc = max(gdp_pc, na.rm = TRUE)
+  ) |> 
+  arrange(desc(polyarchy)) # arrange in descending order by polyarchy score
+
+# Print the data
+dem_summary
+```
+
 
 ## Some Common Arithmetic Functions
 
@@ -276,3 +326,15 @@ countdown(minutes = 10,
           right = "5%")
 ```
 
+## Messages, Warnings and Errors {.smaller}
+
+<br>
+
+- Messages are printed in blue and tell you what R is doing
+- Warnings are printed in yellow and tell you that something might be wrong
+- Errors are printed in red and tell you that something is definitely wrong
+  - Locate the error line number in the console and check your code
+  - Error line tells you *about* where the error occurred, not exact
+  - Errors are normal, don't freak out! 
+  - In fact, you should practice making errors to learn how to fix them
+  
