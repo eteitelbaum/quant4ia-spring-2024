@@ -450,7 +450,8 @@ ggplot(democracy, aes(x = gdp_pc, y = polyarchy)) +
     caption = "Source: V-Dem Institute", 
     color = "Region"
     ) +
-  scale_color_viridis_d(option = "inferno", end = .8)
+  scale_color_viridis_d(option = "inferno", end = .8) +
+  theme_minimal()
 ```
 
 ## Try it Yourself
