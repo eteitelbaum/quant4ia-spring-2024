@@ -194,7 +194,7 @@ countdown(minutes = 5,
 
 - `=` is used to assign values to variables, just like `<-`
 - `==` is used to test if two values are equal to each other
-- So filter(`year == 1990`) will give you just the observations for 1990
+- So `filter(year == 1990)` will give you just the observations for 1990
 
 ## `>=` and `<=`
 
