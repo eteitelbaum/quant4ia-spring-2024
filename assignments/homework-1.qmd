@@ -16,7 +16,7 @@ Now have a look at "Some Social Requisites of Democracy" and in particular pay a
 
 ## Step 1: Gather Your Data (20 pts)
 
-*Use the `vdemdata` package to download data for your analysis. Since we already looked at the polyarchy score and wealth in class, you need to use a different measure of democracy and a different background factor for your analysis. Use a `select()` verb to include country, year, region (`e_regionpol_6C`), at least one of the other four measures of democracy, and one background factor that is not per capita GDP. Store your data in an object called `dem_data`. Pipe in a mutate() verb and use `case_match()` to label the regions. Review [module 1.2](https://dataviz-gwu.rocks/modules/module-1.2.html) if you are confused on how to do this.*
+*Start a new code chunk. Use the `vdemdata` package to download data for your analysis. Since we already looked at the polyarchy score and wealth in class, you need to use a different measure of democracy and a different background factor for your analysis. Use a `select()` verb to include country, year, region (`e_regionpol_6C`), at least one of the other four measures of democracy, and one background factor that is not per capita GDP. Store your data in an object called `dem_data`. Pipe in a mutate() verb and use `case_match()` to label the regions. Review [module 1.2](https://dataviz-gwu.rocks/modules/module-1.2.html) if you are confused on how to do this.*
 
 ## Step 2: Make a bar chart (20 pts)
 
