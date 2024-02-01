@@ -12,32 +12,29 @@ Before starting on this assignment, you will want to have a look at the V-Dem [c
 
 Now have a look at "Some Social Requisites of Democracy" and in particular pay attention to the indicators in Table II and the discussion surrounding them. Think of each indicator (e.g. urbanization, education, etc.) as a sub-hypothesis of his theory. Which of these sub-hypotheses about modernization do you think is most compelling? Which would you like to test?
 
-**Submission note**: Accept the invitation on Blackboard to submit this assignment via GitHub.
+**Submission note**: Please uplaod the completed assignment 
 
 ## Step 1: Gather Your Data (20 pts)
 
-*Start a new code chunk. Use the `vdemdata` package to download data for your analysis. Since we already looked at the polyarchy score and wealth in class, you need to use a different measure of democracy and a different background factor for your analysis. Use a `select()` verb to include country, year, region (`e_regionpol_6C`), at least one of the other four measures of democracy, and one background factor that is not per capita GDP. Store your data in an object called `dem_data`. Pipe in a mutate() verb and use `case_match()` to label the regions. Review [module 1.2](https://dataviz-gwu.rocks/modules/module-1.2.html) if you are confused on how to do this.*
+*Insert a code chunk below this paragraph and label it. Use the `vdemdata` package to download data for your analysis. Since we already looked at the polyarchy score and wealth in class, you need to use a different measure of democracy and a different background factor for your analysis. Use a `select()` verb to include country, year, region (`e_regionpol_6C`), at least one of the other four measures of democracy, and one background factor that is not per capita GDP. Store your data in an object called `dem_data`. Pipe in a mutate() verb and use `case_match()` to label the regions. Review [module 3.1](https://quant4ia.rocks/modules/module-3.1) if you are confused on how to do this.*
 
-## Step 2: Make a bar chart (20 pts)
+## Step 2: Make a line chart showing country trends (20 pts)
 
-*a) Insert a code chunk below this line and label it. Wrangle your data for the bar chart. Filter by year to include data since 2000, group by region and summarize by mean. Save the new data in an object called `bar_chart_data`.* 
+*a) Insert a code chunk below this paragraph and label it. Filter your `dem_data` to include three or four countries at various levels of economic development and create a line chart of your democracy indicator. See the [World Bank country classifications](https://blogs.worldbank.org/opendata/new-world-bank-country-classifications-income-level-2022-2023) by income level to make your selections. You can save the data as a new data frame called `dem_data_line` or you can pipe your filtered data directly into `ggplot()`.* 
 
-*b) Insert a code chunk below this line and label it. Use `ggplot()` and `geom_col()` to create a bar chart showing levels of democracy across the regions with your wrangled data. Make sure to add appropriate axis labels, a title and a caption. Add a theme to spruce it up a bit.* 
+**Note: From here on out I will expect you to know to add a code chunk and label it. So I won't keep repeating that portion of the instructions.**
 
+*b) Add a colorblind-friendly color map using `viridis`. Now add appropriate axis labels, a title and a caption.**
 
-**Note: From here on out I will expect you to know to add a code chunk and label it.**
+*c) In a few sentences, interpret your chart. Have the more developed countries achieved a higher level of democracy?*
 
-## Step 3: Make a colorblind-friendly line chart (20 pts)
+## Step 3: Make a bar chart comparing regional levels (20 pts)
 
-*a) Filter your `dem_data` to include three or four countries of your choosing and create a line chart of your democracy indicator. You can save the data as a new data frame called `dem_data_line` or you can pipe your filtered data directly into `ggplot()`.*
+*a) Going back to your original `dem_data` data frame, wrangle your data for the bar chart. You can do one of things here. Filter the data for a single year and then group by region and summarize your democracy indicator by mean. Save the new data in an object called `bar_chart_data`.* 
 
-*b) Use `cvdPlot()` to view your chart from the standpoint of someone with red-green color blindness and describe what you see.*
+*b) Use `ggplot()` and `geom_col()` to create a bar chart showing levels of democracy across the regions with `bar_chart_data`. Make sure to add appropriate axis labels, a title and a caption. Change the fill color and add a theme to spruce it up a bit.* 
 
-*c) Add a colorblind-friendly color map using `viridis` or ColorBrewer.*
-
-*d) Run the plot through `cvdPlot()` and describe what you see. Is your plot colorblind friendly?* 
-
-## Step 4: Make a scatter plot with annotation (20 pts)
+## Step 5: Make a scatter plot to show  (20 pts)
 
 *a) Using `dem__data`, filter out a ten year period. This could be the most recent ten years of data or a distinct ten year period that you want to look at. If you choose a recent period, make sure that you have enough data to take an average of ten years. Some of the background variables in V-Dem are not entirely up to date. You can check the availability of the data by looking at the V-Dem codebook or using `glimpse()` or `View()` to look at your data.Group by country and summarize by mean. Save your your data in a new object called `dem_data_scatter`.*
 
@@ -45,8 +42,15 @@ Now have a look at "Some Social Requisites of Democracy" and in particular pay a
 
 *c) Add an annotation to your scatter plot using `annotate()` and `geom_vline()` or `geom_hline()`. Your annotation could highlight a particular year or level of democracy that is relevant for your analysis. Explain briefly why you included this annotation*
 
-## Step 5: Make your scatter plot interactive (20 pts)
 
-*a) Make your scatter plot interactive using `ggplotly()`. Make sure that your tooltip includes the information that you want to display to the user.*
+## Step 5: Bonus points (up to 4 pts)
 
-*b) Interpret your results. Does your plot show a relationship between the two variables? Which countries are outliers in your analysis? Why do you think they are outliers and how does your explanation relate to Lipset's hypothesis?*  
+*a) Add a trendline. Make sure it is a single trend line and not one for each region.*
+
+*b) Facet wrap your scatter plot by region.*
+
+*c) Display the relationship for one region and annotate your points.*
+
+*d) Make your scatter plot interactive using `ggplotly()`. Make sure that your tooltip includes the information that you want to display to the user.*
+
+

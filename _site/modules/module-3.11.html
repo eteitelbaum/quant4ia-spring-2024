@@ -260,6 +260,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Module 1.2</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/module-2.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 2.1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/module-2.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 2.2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/module-3.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 3.1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/module-3.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 3.2</span></a>
+  </div>
+</li>
       </ul>
 </li>
     </ul>
@@ -435,7 +459,7 @@ Warning
 <span><span class="va">rents_map_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">world_map_df</span>, <span class="va">oil_rents_df</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/join_by.html">join_by</a></span><span class="op">(</span><span class="va">iso_a3</span> <span class="op">==</span> <span class="va">iso3c</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">rents_map_df</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/tidyselect/man/everything.html">last_col</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/pkg/tidyselect/man/everything.html">last_col</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="co">#select last 5 columns of df</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">last_col</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span><span class="op">:</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">last_col</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="co">#select last 5 columns of df</span></span>
 <span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 240

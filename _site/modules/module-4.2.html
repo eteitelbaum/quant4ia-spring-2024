@@ -260,6 +260,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Module 1.2</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/module-2.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 2.1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/module-2.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 2.2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/module-3.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 3.1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/module-3.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 3.2</span></a>
+  </div>
+</li>
       </ul>
 </li>
     </ul>
@@ -310,7 +334,7 @@ Prework
 </div>
 </div>
 <section id="overview" class="level2"><h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>A very common use of tables in the social sciences is to present regression results. There are numerous packages available for presenting regression output. In this lesson, we are going to focus on one of them that I think is particularly good for both pdf and html output: <code>modelsummary</code>. <code>modelsummary</code> also includes a function (<code><a href="https://rdrr.io/pkg/modelsummary/man/modelplot.html">modelplot()</a></code>) for plotting point estimates and confidence intervals. So part of the objective of this lesson is going to be to learn when you should use a table to present your regression results versus when you should use a plot.</p>
+<p>A very common use of tables in the social sciences is to present regression results. There are numerous packages available for presenting regression output. In this lesson, we are going to focus on one of them that I think is particularly good for both pdf and html output: <code>modelsummary</code>. <code>modelsummary</code> also includes a function (<code><a href="https://modelsummary.com/reference/modelplot.html">modelplot()</a></code>) for plotting point estimates and confidence intervals. So part of the objective of this lesson is going to be to learn when you should use a table to present your regression results versus when you should use a plot.</p>
 <p>We will be taking our example from the peace studies literature. We are going to download data using the <code>peacesciencer</code> package and use it to partially reproduce a famous analysis of conflict onset by <a href="https://www-jstor-org.proxygw.wrlc.org/stable/3118222">Fearon and Laitin</a>.</p>
 </section><section id="run-a-regression-model-and-display-results-with-broom" class="level2"><h2 class="anchored" data-anchor-id="run-a-regression-model-and-display-results-with-broom">Run a regression model and display results with broom</h2>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/upn8dlhvbns" title="Make regression tables with broom" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
@@ -428,11 +452,11 @@ $ newlmtnest     &lt;dbl&gt; 3.214868, 3.214868, 3.214868, 3.214868, 3.214868, 3
 <span><span class="va">caption</span> <span class="op">=</span> <span class="st">"Table 1: Predictors of Conflict Onset"</span> <span class="co"># store caption</span></span>
 <span><span class="va">reference</span> <span class="op">=</span> <span class="st">"See appendix for data sources."</span>      <span class="co"># store reference notes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Now we can call <code><a href="https://rdrr.io/pkg/modelsummary/man/modelsummary.html">modelsummary()</a></code>. The first argument is the list of models we want to display. Next we tell <code>modelsummary</code> that we want it to show stars for statistical significance (<code>stars = TRUE</code>). And in <code>gof_map</code>, we say that, of the many goodness of fit statistics available to us, we only want to include the number of observations. Finally we plug our title into <code>title =</code> and a source note into <code>notes =</code>.</p>
+<p>Now we can call <code><a href="https://modelsummary.com/reference/modelsummary.html">modelsummary()</a></code>. The first argument is the list of models we want to display. Next we tell <code>modelsummary</code> that we want it to show stars for statistical significance (<code>stars = TRUE</code>). And in <code>gof_map</code>, we say that, of the many goodness of fit statistics available to us, we only want to include the number of observations. Finally we plug our title into <code>title =</code> and a source note into <code>notes =</code>.</p>
 <div class="cell">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://modelsummary.com">modelsummary</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/modelsummary/man/modelsummary.html">modelsummary</a></span><span class="op">(</span><span class="va">models</span>,                      <span class="co"># display the table</span></span>
+<span><span class="fu"><a href="https://modelsummary.com/reference/modelsummary.html">modelsummary</a></span><span class="op">(</span><span class="va">models</span>,                      <span class="co"># display the table</span></span>
 <span>             stars <span class="op">=</span> <span class="cn">TRUE</span>,                <span class="co"># include stars for significance</span></span>
 <span>             gof_map <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"nobs"</span><span class="op">)</span>,         <span class="co"># goodness of fit stats to include   </span></span>
 <span>             coef_map <span class="op">=</span> <span class="va">coef_map</span>,         <span class="co"># coefficient mapping</span></span>
@@ -580,7 +604,7 @@ $ newlmtnest     &lt;dbl&gt; 3.214868, 3.214868, 3.214868, 3.214868, 3.214868, 3
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/gif_wkqyub8" title="Display regression results with a plot" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <p>A regression table is great when we have many models that we want to display. But what happens when we have just one model? We could present something like our earlier <code><a href="https://generics.r-lib.org/reference/tidy.html">tidy()</a></code> output which has the beta coefficient, the standard error, t-statistic and p-values in separate columns, but this would be unconventional and would take up a lot of space. Another option is just to present a table with one column like this:</p>
 <div class="cell">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/modelsummary/man/modelsummary.html">modelsummary</a></span><span class="op">(</span><span class="va">conflict_model</span>, </span>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://modelsummary.com/reference/modelsummary.html">modelsummary</a></span><span class="op">(</span><span class="va">conflict_model</span>, </span>
 <span>             stars <span class="op">=</span> <span class="cn">TRUE</span>,  </span>
 <span>             gof_map <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"nobs"</span><span class="op">)</span>,</span>
 <span>             coef_map <span class="op">=</span> <span class="va">coef_map</span>,</span>
@@ -671,7 +695,7 @@ $ newlmtnest     &lt;dbl&gt; 3.214868, 3.214868, 3.214868, 3.214868, 3.214868, 3
 </div>
 </div>
 <p>But this is also somewhat unconventional and makes our regression output look a little bit lonely. A better option could be to display a coefficient plot that shows point estimates and confidence intervals. This is often preferable with one model because it makes our results so much easier to interpret.</p>
-<p>Let’s try making a coefficient plot with <code><a href="https://rdrr.io/pkg/modelsummary/man/modelplot.html">modelplot()</a></code> from the <code>modelsummary</code> package. The syntax for <code><a href="https://rdrr.io/pkg/modelsummary/man/modelplot.html">modelplot()</a></code> is very similar to that of <code><a href="https://rdrr.io/pkg/modelsummary/man/modelsummary.html">modelsummary()</a></code> but there are a few small differences.</p>
+<p>Let’s try making a coefficient plot with <code><a href="https://modelsummary.com/reference/modelplot.html">modelplot()</a></code> from the <code>modelsummary</code> package. The syntax for <code><a href="https://modelsummary.com/reference/modelplot.html">modelplot()</a></code> is very similar to that of <code><a href="https://modelsummary.com/reference/modelsummary.html">modelsummary()</a></code> but there are a few small differences.</p>
 <p>First, it puts maps the coefficients from the bottom up, so if you to maintain the order of the coefficients you need to reverse the mapping. We do this with the <code><a href="https://rdrr.io/r/base/rev.html">rev()</a></code> function.</p>
 <p>Second, we want to omit the intercept with <code>coef_omit = "Intercept"</code> because the emphasis in a coefficient plot is less on the exact regression equation and more on the magnitude and significance of the coefficients.</p>
 <p>Third we can customize various things. We can specify the color of the points and confidence intervals and we can load <code>ggplot2</code> for further customization. Now we can add geoms and labels just like any other ggplot object. Here we add a red vertical intercept line at zero to make it clearer which variables are significant (e.g.&nbsp;the confidence interval does not overlap with zero). And we add a title and a caption using the <code><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs()</a></code> function.</p>
@@ -679,7 +703,7 @@ $ newlmtnest     &lt;dbl&gt; 3.214868, 3.214868, 3.214868, 3.214868, 3.214868, 3
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
 <span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/modelsummary/man/modelplot.html">modelplot</a></span><span class="op">(</span><span class="va">conflict_model</span>, </span>
+<span><span class="fu"><a href="https://modelsummary.com/reference/modelplot.html">modelplot</a></span><span class="op">(</span><span class="va">conflict_model</span>, </span>
 <span>          coef_map <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rev.html">rev</a></span><span class="op">(</span><span class="va">coef_map</span><span class="op">)</span>, <span class="co"># rev() reverses list order</span></span>
 <span>          coef_omit <span class="op">=</span> <span class="st">"Intercept"</span>, </span>
 <span>          color <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span> <span class="op">+</span> <span class="co"># use plus to add customizations like any ggplot object</span></span>
