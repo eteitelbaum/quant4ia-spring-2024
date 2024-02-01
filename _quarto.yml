@@ -5,21 +5,17 @@ website:
   page-navigation: true
   title: "IAFF 6501--Spring 2024 Schedule"
   description: "Homepage for IAFF 6501, George Washington University."
-  
   site-url: "https://dataviz-gwu.rocks"
   repo-url: "https://github.com/eteitelbaum/dataviz-summer-2023"
   repo-actions: [edit, issue]
-  
   open-graph: true
   favicon: "images/iaff6501-logo.png"
   twitter-card: true
   reader-mode: true
-  
   page-footer:
     right: "This page is built with [Quarto](https://quarto.org/). 👷🛠️"
     left: "&copy; Copyright 2024, [Emmanuel Teitelbaum](https://emmanuel.teitelbaum.com)"
     background: "#1F45FC"
-  
   sidebar:
     background: "#1F45FC"
     logo: "images/iaff6501-logo.png"
@@ -35,7 +31,6 @@ website:
       - icon: r-project # bootstrap-reboot
         href: https://posit.co/download/rstudio-desktop
         text: "RStudio Desktop"
-        
     style: "docked"
     search: true
     collapse-level: 1
@@ -58,10 +53,10 @@ website:
         contents: 
           - href: weeks/week-1.qmd
             text: "Week 1"
-          # - href: weeks/week-2.qmd
-          #   text: "Week 2"
-          # - href: weeks/week-3.qmd
-          #   text: "Week 3"
+          - href: weeks/week-2.qmd
+            text: "Week 2"
+          - href: weeks/week-3.qmd
+            text: "Week 3"
           # - href: weeks/week-4.qmd
           #   text: "Week 4"
           # - href: weeks/week-5.qmd
