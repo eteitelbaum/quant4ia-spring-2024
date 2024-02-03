@@ -8,11 +8,11 @@ For this assignment, you are going to evaluate modernization theory as laid out 
 
 We are going to use data from V-Dem and modern data viz tools to explore Lipset's hypothesis that economic modernization is highly correlated with democracy. We have already done this to some extent by looking at the relationship between wealth and the polyarchy score. But we are going to broaden things out by looking at other measures of modernization and democracy contained in the V-Dem dataset.
 
-Before starting on this assignment, you will want to have a look at the V-Dem [codebook](https://www.v-dem.net/static/website/img/refs/codebookv111.pdf). Look through the sections titled "V-Dem Democracy Indices" (section 2 of the codebook) and "Background Factors (E)." There are five democracy indicators, one of which is the polyarchy index. There are a number of background factors, many of which pertain to economic modernization. We are going to be looking at the relationship between these two sets of variables.
+Before starting on this assignment, you will want to have a look at the V-Dem [codebook](https://www.v-dem.net/static/website/img/refs/codebookv111.pdf). Look through the sections titled "V-Dem Democracy Indices" (section 2 of the codebook) and "Background Factors (E)." There are five democracy indicators, one of which is the polyarchy index. There are a number of background factors, many of which pertain to economic modernization. We are going to be looking at the relationship between these two sets of variables. In the code book, you will also find a list of country names and codes, which will be useful for downloading and filtering the data.
 
 Now have a look at "Some Social Requisites of Democracy" and in particular pay attention to the indicators in Table II and the discussion surrounding them. Think of each indicator (e.g. urbanization, education, etc.) as a sub-hypothesis of his theory. Which of these sub-hypotheses about modernization do you think is most compelling? Which would you like to test?
 
-## Step 1: Gather Your Data (20 pts)
+## Step 1: Gather your data (20 pts)
 
 *Insert a code chunk below this paragraph and label it. Use the `vdemdata` package to download data for your analysis. Since we already looked at the polyarchy score and wealth in class, you need to use a different measure of democracy and a different background factor for your analysis. Use a `select()` verb to include country, year, region (`e_regionpol_6C`), at least one of the other four measures of democracy, and one background factor that is not per capita GDP. Store your data in an object called `dem_data`. Pipe in a mutate() verb and use `case_match()` to label the regions. Review [module 3.1](https://quant4ia.rocks/modules/module-3.1) if you are confused on how to do this.*
 
@@ -22,7 +22,7 @@ Now have a look at "Some Social Requisites of Democracy" and in particular pay a
 
 **Note: From here on out I will expect you to know to add a code chunk and label it. So I won't keep repeating that portion of the instructions.**
 
-*b) Make a line chart using `ggplot2`. Be sure to specify `x = `, `y = ` and `color =` in your aes() call and use `geom_line()` to create the chart. Add a colorblind-friendly color map using `viridis`. Now add appropriate axis labels, a title and a caption.**
+*b) Make a line chart using `ggplot2`. Be sure to specify `x = `, `y = ` and `color =` in your aes() call and use `geom_line()` to create the chart. Add a colorblind-friendly color map using `viridis`. Now add appropriate axis labels, a title and a caption.*
 
 *c) In a few sentences, interpret your chart. Have the more developed countries achieved a higher level of democracy? Put your answer right below this line in markdown text.*
 

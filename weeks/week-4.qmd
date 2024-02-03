@@ -3,3 +3,14 @@ title: Week 4
 subtitle: Data Visualization Review
 ---
 
+::: {.callout-important}
+Homework Assignment 1 due by 11:59pm on `r advdate2(mon, 4)`. 
+:::
+
+## Readings
+
+| 📖 [Lipset, Some Social Requisites of Democracy](https://www-jstor-org.proxygw.wrlc.org/stable/1951731?seq=8)
+
+## Assignments
+
+| 📘 [Homework 1](assignments/homework-1.qmd)
