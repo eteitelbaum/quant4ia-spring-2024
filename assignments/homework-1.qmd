@@ -12,6 +12,8 @@ Before starting on this assignment, you will want to have a look at the V-Dem [c
 
 Now have a look at "Some Social Requisites of Democracy" and in particular pay attention to the indicators in Table II and the discussion surrounding them. Think of each indicator (e.g. urbanization, education, etc.) as a sub-hypothesis of his theory. Which of these sub-hypotheses about modernization do you think is most compelling? Which would you like to test?
 
+Finally, go ahead and download the Homework 1 assignment from the IAFF 6501 [classwork folder](https://www.dropbox.com/scl/fo/mi8lvj38jucku9qhavsll/h?rlkey=vui8jhnpny8zvvu69tu39pukz&dl=0). 
+
 ## Step 1: Gather your data (20 pts)
 
 *Insert a code chunk below this paragraph and label it. Use the `vdemdata` package to download data for your analysis. Since we already looked at the polyarchy score and wealth in class, you need to use a different measure of democracy and a different background factor for your analysis. Use a `select()` verb to include country, year, region (`e_regionpol_6C`), at least one of the other four measures of democracy, and one background factor that is not per capita GDP. Store your data in an object called `dem_data`. Pipe in a mutate() verb and use `case_match()` to label the regions. Review [module 3.1](https://quant4ia.rocks/modules/module-3.1) if you are confused on how to do this.*
@@ -56,4 +58,12 @@ Now have a look at "Some Social Requisites of Democracy" and in particular pay a
 
 *e) Upload your rendered HTML file to Quarto Pub and share the link with the class on Discord.*
 
-**Submission note**: After you complete the assignment, please render it and uplaod your project folder to Box.
+::: {.callout-important}
+## Submission Instructions
+
+After you complete the assignment, please render it and uplaod your project folder [using this link](https://www.dropbox.com/request/S74tp3nfDiUyDtPKgHPy). Take a screen shot of the confirmation message ("Finished Uploading") and store it on your computer. 
+
+Then, make your way over to the Blackboard site and go to the Homework 1 assignment submission page. Click "Create Sumbission" and there write a statement saying that you have submitted the assignment and that all of the work is your own. If you have uploaded your document to Quarto Pub, then you can include the link to that as well. 
+
+Then, upload the screenshot you saved in the first step. Now submit the assignment.  
+:::

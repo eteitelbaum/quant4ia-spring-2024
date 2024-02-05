@@ -57,7 +57,7 @@ polyarchy_annual <- vdem %>%
 ## Links to Classwork Folders
 
 - [Box](https://gwu.box.com/s/9xwaelyhv7uibtegxrgh80vgo7da10ie)
-- [Dropbox](https://www.dropbox.com/scl/fo/g4tdpdwcij78nyydvr4bp/h?rlkey=hctskhle6222csnwre5ir9gz3&dl=0)
+- [Dropbox](https://www.dropbox.com/scl/fo/mi8lvj38jucku9qhavsll/h?rlkey=vui8jhnpny8zvvu69tu39pukz&dl=0)
 
 ## Huntington's Three Waves
 
