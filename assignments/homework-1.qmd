@@ -44,7 +44,7 @@ Finally, go ahead and download the Homework 1 assignment from the IAFF 6501 [cla
 
 ## Step 5: Conclusion (20 pts)
 
-*Write a brief conclusion to your analysis. What did you find? Did you find support for Lipset's theory? What are the limitations of your analysis?*
+*Render your document and write a brief conclusion to your analysis. What did you find? Did you find support for Lipset's theory? What are the limitations of your analysis?*
 
 ## Step 6: Bonus questions (one point each)
 
@@ -61,9 +61,9 @@ Finally, go ahead and download the Homework 1 assignment from the IAFF 6501 [cla
 ::: {.callout-important}
 ## Submission Instructions
 
-After you complete the assignment, please render it and uplaod your project folder [using this link](https://www.dropbox.com/request/S74tp3nfDiUyDtPKgHPy). Take a screen shot of the confirmation message ("Finished Uploading") and store it on your computer. 
+Head over to Blackboard and go to the Homework 1 assignment. There you will find a that you can lose to upload your *project folder*. Take a screen shot of the confirmation message ("Finished Uploading") and store it on your computer. 
 
-Then, make your way over to the Blackboard site and go to the Homework 1 assignment submission page. Click "Create Sumbission" and there write a statement saying that you have submitted the assignment and that all of the work is your own. If you have uploaded your document to Quarto Pub, then you can include the link to that as well. 
+Next, click "Create Sumbission" and write a statement saying that you have submitted the assignment and that all of the work is your own. If you have uploaded your document to Quarto Pub, then you can include the link to that as well. 
 
 Then, upload the screenshot you saved in the first step. Now submit the assignment.  
 :::

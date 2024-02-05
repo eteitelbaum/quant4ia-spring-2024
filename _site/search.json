@@ -1287,7 +1287,7 @@
     "href": "assignments/homework-1.html#step-5-conclusion-20-pts",
     "title": "Homework 1",
     "section": "Step 5: Conclusion (20 pts)",
-    "text": "Step 5: Conclusion (20 pts)\nWrite a brief conclusion to your analysis. What did you find? Did you find support for Lipset’s theory? What are the limitations of your analysis?",
+    "text": "Step 5: Conclusion (20 pts)\nRender your document and write a brief conclusion to your analysis. What did you find? Did you find support for Lipset’s theory? What are the limitations of your analysis?",
     "crumbs": [
       "Homework",
       "Homework 1"
@@ -1298,7 +1298,7 @@
     "href": "assignments/homework-1.html#step-6-bonus-questions-one-point-each",
     "title": "Homework 1",
     "section": "Step 6: Bonus questions (one point each)",
-    "text": "Step 6: Bonus questions (one point each)\na) Facet wrap your scatter plot by region.\nb) Remove the facet_wrap() call and display the relationship for one region and use geom_text() to label your points.\nc) Remove the text labels and make your scatter plot interactive using ggplotly(). Make sure that your tooltip includes the information that you want to display to the user.\nd) Add annotation to your plot using hline() or vline() to highlight a significant point in your data, like the mean or some other significant value.\ne) Upload your rendered HTML file to Quarto Pub and share the link with the class on Discord.\n\n\n\n\n\n\nSubmission Instructions\n\n\n\nAfter you complete the assignment, please render it and uplaod your project folder using this link. Take a screen shot of the confirmation message (“Finished Uploading”) and store it on your computer.\nThen, make your way over to the Blackboard site and go to the Homework 1 assignment submission page. Click “Create Sumbission” and there write a statement saying that you have submitted the assignment and that all of the work is your own. If you have uploaded your document to Quarto Pub, then you can include the link to that as well.\nThen, upload the screenshot you saved in the first step. Now submit the assignment.",
+    "text": "Step 6: Bonus questions (one point each)\na) Facet wrap your scatter plot by region.\nb) Remove the facet_wrap() call and display the relationship for one region and use geom_text() to label your points.\nc) Remove the text labels and make your scatter plot interactive using ggplotly(). Make sure that your tooltip includes the information that you want to display to the user.\nd) Add annotation to your plot using hline() or vline() to highlight a significant point in your data, like the mean or some other significant value.\ne) Upload your rendered HTML file to Quarto Pub and share the link with the class on Discord.\n\n\n\n\n\n\nSubmission Instructions\n\n\n\nHead over to Blackboard and go to the Homework 1 assignment. There you will find a that you can lose to upload your project folder. Take a screen shot of the confirmation message (“Finished Uploading”) and store it on your computer.\nNext, click “Create Sumbission” and write a statement saying that you have submitted the assignment and that all of the work is your own. If you have uploaded your document to Quarto Pub, then you can include the link to that as well.\nThen, upload the screenshot you saved in the first step. Now submit the assignment.",
     "crumbs": [
       "Homework",
       "Homework 1"
