@@ -1,5 +1,5 @@
 ---
-title: "IAFF 6501: Quantitative Analysis for International Affairs Practitioners"
+title: "IAFF 6501: Quantitative Analysis for IA Practitioners"
 subtitle: "Course Syllabus"
 format:
   html: default

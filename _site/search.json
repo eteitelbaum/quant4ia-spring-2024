@@ -2215,161 +2215,161 @@
   {
     "objectID": "course-syllabus.html",
     "href": "course-syllabus.html",
-    "title": "IAFF 6501: Quantitative Analysis for International Affairs Practitioners",
+    "title": "IAFF 6501: Quantitative Analysis for IA Practitioners",
     "section": "",
     "text": "Location: Duques 151\n\nInstructor: Prof. Emmanuel Teitelbaum\nEmail: ejt@gwu.edu\nOffice Hours: Tuesdays, 3-5 p.m.\n\nTeaching Assistant: Yuchen Zhao\nEmail: yuchen.zhao1@gwu.edu\nOffice Hours: Wednesdays, 1:00 - 3:00 p.m.\n\nTeaching Assistant: Jeffrey Kuo\nEmail: jeffkuo@gwu.edu\nOffice Hours: Wednesdays, 4:00 - 6:00 p.m.\n\nCredit Hours: 3.0."
   },
   {
     "objectID": "course-syllabus.html#course-information",
     "href": "course-syllabus.html#course-information",
-    "title": "IAFF 6501: Quantitative Analysis for International Affairs Practitioners",
+    "title": "IAFF 6501: Quantitative Analysis for IA Practitioners",
     "section": "",
     "text": "Location: Duques 151\n\nInstructor: Prof. Emmanuel Teitelbaum\nEmail: ejt@gwu.edu\nOffice Hours: Tuesdays, 3-5 p.m.\n\nTeaching Assistant: Yuchen Zhao\nEmail: yuchen.zhao1@gwu.edu\nOffice Hours: Wednesdays, 1:00 - 3:00 p.m.\n\nTeaching Assistant: Jeffrey Kuo\nEmail: jeffkuo@gwu.edu\nOffice Hours: Wednesdays, 4:00 - 6:00 p.m.\n\nCredit Hours: 3.0."
   },
   {
     "objectID": "course-syllabus.html#why-are-you-here-what-our-course-is-about",
     "href": "course-syllabus.html#why-are-you-here-what-our-course-is-about",
-    "title": "IAFF 6501: Quantitative Analysis for International Affairs Practitioners",
+    "title": "IAFF 6501: Quantitative Analysis for IA Practitioners",
     "section": "Why Are You Here: What Our Course Is About",
     "text": "Why Are You Here: What Our Course Is About\nThis course will focus on developing data analysis and data science skills that are relevant for international affairs practitioners. Students will develop coding, data visualization, data analysis, and data presentation skills that will allow them to use data to answer questions related to international affairs and to contribute to data driven policy and programmatic decision making."
   },
   {
     "objectID": "course-syllabus.html#course-objectives-what-youll-be-able-to-do",
     "href": "course-syllabus.html#course-objectives-what-youll-be-able-to-do",
-    "title": "IAFF 6501: Quantitative Analysis for International Affairs Practitioners",
+    "title": "IAFF 6501: Quantitative Analysis for IA Practitioners",
     "section": "Course Objectives: What You’ll Be Able To Do",
     "text": "Course Objectives: What You’ll Be Able To Do\nCourse and module objectives are guides to gauge your skill and knowledge development. By the end of this course, you should be able to:\n\nAnalyze data sets using modern computational tools (using R).\nIdentify and access data sets, and apply data wrangling concepts to optimize data for analysis and modeling purposes.\nUse data visualization to summarize simple and complex relationships between and among variables in a data set.\nUse tools of statistical inference to test hypotheses\nDevelop and use models for prediction/forecasting, and for causal inference\nCreate professional and reproducible data analysis outputs (reports, websites, slides, and so on) using Quarto"
   },
   {
     "objectID": "course-syllabus.html#aiming-for-success",
     "href": "course-syllabus.html#aiming-for-success",
-    "title": "IAFF 6501: Quantitative Analysis for International Affairs Practitioners",
+    "title": "IAFF 6501: Quantitative Analysis for IA Practitioners",
     "section": "Aiming For Success",
     "text": "Aiming For Success\nI care about your learning and also about this subject matter, and I am here to help you have a meaningful learning experience. I expect you to take ownership of your learning: you can get more out of the course by thoughtfully participating in discussions, actively taking notes on readings and lectures, and giving your best effort overall. I will hold you to the highest standards for academic honesty and integrity in your work. I will also encourage you to collaborate and learn from your peers through thoughtful and respectful discussion. I must highlight that communication is vital, so I hope you feel comfortable reaching out to me if you are struggling or have concerns or need accommodations beyond accessibility. We can determine strategies to set you up for success. Finally, I look forward to collaborating with you in this course to create a meaningful experience for everyone."
   },
   {
     "objectID": "course-syllabus.html#office-hours",
     "href": "course-syllabus.html#office-hours",
-    "title": "IAFF 6501: Quantitative Analysis for International Affairs Practitioners",
+    "title": "IAFF 6501: Quantitative Analysis for IA Practitioners",
     "section": "Office Hours",
     "text": "Office Hours\nAnother way we can work toward your success in the course is through office/student hours. Please make an appointment to talk with me during this time. You can work with me to:\n\nClarify any questions about the syllabus or course content\nReview an assignment you’ve completed and have questions about\nStep through practice problems or questions\nGet study strategies\nDiscuss grades\n\nTo make the meeting more effective, you can:\n\nGather materials (assignments, notes, etc.) ready in advance\nBe ready to take notes during office hours\nAsk follow up questions if you need clarification\nConfirm any action plan at the close of the meeting\nFollowing through on any action plan"
   },
   {
     "objectID": "course-syllabus.html#prerequisites",
     "href": "course-syllabus.html#prerequisites",
-    "title": "IAFF 6501: Quantitative Analysis for International Affairs Practitioners",
+    "title": "IAFF 6501: Quantitative Analysis for IA Practitioners",
     "section": "Prerequisites",
     "text": "Prerequisites\n\nAcademic\nNone\n\n\nTechnological\n\nConfiguration and software\nTo fully participate in our course, you will need regular access to broadband Internet access as well as other technology components. Please consult GW Online’s Technical Requirements and Support for details on recommended configurations and software available to you. You will need to use the following tools and platforms:\n\nRStudio: an IDE for generating data visualizations using the programming language, R.\nR\n\nBoth of these can be downloaded from https://posit.co/downloads/\nFor our course, you should be able to:\n\nAccess and use GW’s Blackboard system.\nUse your GW email for university-related communications per university policy.\nUse productivity software (e.g., Office 365, Google Suite) to collaborate with peers and submit assignments.\nUse web conferencing tools (e.g., Zoom, Webex) to collaborate with peers and me.\nUse a mobile device and/or computer to upload documents, images, and recordings.\nSeek technology help and tools by contacting GW Information Technology | (202)-994-4948 | ithelp@gwu.edu.\n\nIf you need assistance with technology tools we’ll use in this course, please visit the Technology Support link in the left navigation menu in our course on Blackboard."
   },
   {
     "objectID": "course-syllabus.html#materials-youll-need",
     "href": "course-syllabus.html#materials-youll-need",
-    "title": "IAFF 6501: Quantitative Analysis for International Affairs Practitioners",
+    "title": "IAFF 6501: Quantitative Analysis for IA Practitioners",
     "section": "Materials You’ll Need",
     "text": "Materials You’ll Need\nYou will need to download the RStudio desktop application. You can find our weekly assigned readings through GW libraries. You must use your GW credentials to access these readings. Other course materials will be provided in our Blackboard course modules."
   },
   {
     "objectID": "course-syllabus.html#course-credit-hour-policy",
     "href": "course-syllabus.html#course-credit-hour-policy",
-    "title": "IAFF 6501: Quantitative Analysis for International Affairs Practitioners",
+    "title": "IAFF 6501: Quantitative Analysis for IA Practitioners",
     "section": "Course Credit Hour Policy",
     "text": "Course Credit Hour Policy\n37.5 hours of work per semester is required for one credit hour. These hours will consist of 50 minutes of direct or guided interaction plus 100 minutes of independent learning per week during the course of a normal 15-week semester, which includes one week for exams.\n\nHow this applies to you\nUse the credit hour policy to plan and manage your workload and time spent on this course. You should expect to spend approximately 5 hours (300 minutes) per week on this course outside of class time.\nPlease contact me if you are having difficulty managing your workload, and we can discuss strategies to help you succeed in the course."
   },
   {
     "objectID": "course-syllabus.html#how-you-will-learn-and-demonstrate-knowledge",
     "href": "course-syllabus.html#how-you-will-learn-and-demonstrate-knowledge",
-    "title": "IAFF 6501: Quantitative Analysis for International Affairs Practitioners",
+    "title": "IAFF 6501: Quantitative Analysis for IA Practitioners",
     "section": "How You Will Learn and Demonstrate Knowledge",
     "text": "How You Will Learn and Demonstrate Knowledge\nMy aim is to provide you opportunities for active learning and skills development that help you meet course learning objectives and also grow in your knowledge of this field.\n\nInstruction\nI’ve designed the following instructional components to support your learning and growth in the course.\n\nClass Sessions: Class sessions will involve a mix of lecture and active learning activities that ask you to practice the skills we are learning in a given session. Please come prepared to actively participate in class.\nReadings: Each week you will be responsible for various reading assignments. The readings contain essential content for completing the course assignments.\n\n\n\nAssessment\nThe following assessments help you gauge and demonstrate your progress in the course and support you in meeting course learning objectives.\n\nWeekly quizzes: In this course, you will have opportunities to assess your own knowledge. You are expected to complete weekly quizzes that provide immediate feedback and support ongoing learning.\n3 Homework Assignments (15 percent each): You will develop various skills through three assignments that ask you to apply the data analysis tools we are learning in the course. Thoughtfully and thoroughly completing these assignments helps you meet course objectives.\nGroup Project: In your final project, you will work in teams to apply your new data analysis skills in an international affairs project.\n\nYou’ll find support for Blackboard and other tools used for course activities and assignments under the Technology Support link in the left navigation menu in our course on Blackboard."
   },
   {
     "objectID": "course-syllabus.html#demonstrating-academic-integrity",
     "href": "course-syllabus.html#demonstrating-academic-integrity",
-    "title": "IAFF 6501: Quantitative Analysis for International Affairs Practitioners",
+    "title": "IAFF 6501: Quantitative Analysis for IA Practitioners",
     "section": "Demonstrating Academic Integrity",
     "text": "Demonstrating Academic Integrity\nAll of us in the course will comply with the GW Code of Academic Integrity. It states that “we, the Students, Faculty, Librarians, Staff, and Administration of The George Washington University, believing academic integrity to be central to the mission of the University, commit ourselves to promoting high standards for the integrity of academic work. Commitment to academic integrity upholds educational equity, development, and dissemination of meaningful knowledge, and mutual respect that our community values and nurtures. The George Washington University Code of Academic Integrity is established to further this commitment.”\nAcademic dishonesty is defined as cheating of any kind, including misrepresenting one’s own work, taking credit for the work of others without crediting them and without appropriate authorization, and the fabrication of information. For details and complete code, see the Code of Academic Integrity.Common examples of academic dishonesty include cheating, fabrication, plagiarism, falsification, forgery of University academic documents, and facilitating academic dishonesty by others. Learn more about avoiding these:\n\nGW guidance for students on academic integrity.\nPlagiarism: What is it and how to avoid it from GW Libraries.\nMaintaining academic honesty can be a challenging skill to learn. If you have questions about maintaining our course standards, please talk with me early on."
   },
   {
     "objectID": "course-syllabus.html#assignments",
     "href": "course-syllabus.html#assignments",
-    "title": "IAFF 6501: Quantitative Analysis for International Affairs Practitioners",
+    "title": "IAFF 6501: Quantitative Analysis for IA Practitioners",
     "section": "Assignments",
     "text": "Assignments\n\nQuizzes (20%)\n3 Homework assignments (15% each = 45%)\nFinal Group Project (35%)\n\n\nQuizzes\nStudents will complete 12 graded quizzes. These exercises will be oriented towards strengthening the student’s ability to use the tools we will be learning in the course. The quizzes will help to ensure that you keep up with the material consistently throughout the semester.\n\n\nCoding Homework Assignments\nStudents will complete three coding homework assignments. These assignments are designed to provide students with the opportunity to apply their newly-acquired skills to an international affairs related question or problem.\n\n\nFinal Group Project\nEach student will complete a final project that will be developed throughout the semester. We will provide more detail and time for you to work with your group in class."
   },
   {
     "objectID": "course-syllabus.html#course-grading",
     "href": "course-syllabus.html#course-grading",
-    "title": "IAFF 6501: Quantitative Analysis for International Affairs Practitioners",
+    "title": "IAFF 6501: Quantitative Analysis for IA Practitioners",
     "section": "Course Grading",
     "text": "Course Grading\nThe grading scale below maps your final point or percentage total to your final letter grade for the course.\n\n\n\nRange\nLetter Grade\n\n\n\n\n94-100\nA\n\n\n90-93\nA-\n\n\n87-89\nB+\n\n\n84-86\nB\n\n\n80-83\nB-\n\n\n77-79\nC+\n\n\n74-76\nC\n\n\n70-73\nC-\n\n\n&lt;=69\nF"
   },
   {
     "objectID": "course-syllabus.html#late-work",
     "href": "course-syllabus.html#late-work",
-    "title": "IAFF 6501: Quantitative Analysis for International Affairs Practitioners",
+    "title": "IAFF 6501: Quantitative Analysis for IA Practitioners",
     "section": "Late Work",
     "text": "Late Work\nWe understand that sometimes emergencies arise that might prevent you from submitting work on time. If you think you might miss an assignment deadline, it is your responsibility to contact me via email. We know life happens sometimes and will be as accommodating as possible, but it is important that you communicate with us in advance. If we do not hear from you, we will deduct 2.5 percentage points from your grade for every 24 hours the assignment is late."
   },
   {
     "objectID": "course-syllabus.html#incomplete-grades",
     "href": "course-syllabus.html#incomplete-grades",
-    "title": "IAFF 6501: Quantitative Analysis for International Affairs Practitioners",
+    "title": "IAFF 6501: Quantitative Analysis for IA Practitioners",
     "section": "Incomplete Grades",
     "text": "Incomplete Grades\nIncomplete grades may be given to graduate students only if for reasons beyond the student’s control (such as medical or family emergency) they are unable to complete the final work of the course. Faculty should not assign an Incomplete grade if not asked by the student.\nFor further information, please consult with your advisor."
   },
   {
     "objectID": "course-syllabus.html#course-communication",
     "href": "course-syllabus.html#course-communication",
-    "title": "IAFF 6501: Quantitative Analysis for International Affairs Practitioners",
+    "title": "IAFF 6501: Quantitative Analysis for IA Practitioners",
     "section": "Course Communication",
     "text": "Course Communication\nCommunication in our course is essential; clearing up questions earlier than later is a good practice, so please don’t hesitate to reach out to me.\nWe will communicate to you primarily through GW’s Blackboard System. Announcements and emails sent through Blackboard automatically go to your GW email address (i.e., userid@gwu.edu). Please check your GW email account on a daily basis or forward your GW email to another address that you check daily.\nI will respond to emails/discussion posts within 48 hours (i.e., “24 hours on weekdays and on the next business day over weekends and holidays.”) I will provide feedback on assignments/exams within 3 days (i.e., “five days on weekdays and on the next business day over weekends and holidays.”)\nYou can post general course-related questions to our Discord server. Please post your question here first rather than emailing me directly if your question regards the course material. However, if you have a question that is more personal in nature (i.e., grades), please email me directly to set up an appointment."
   },
   {
     "objectID": "course-syllabus.html#netiquette",
     "href": "course-syllabus.html#netiquette",
-    "title": "IAFF 6501: Quantitative Analysis for International Affairs Practitioners",
+    "title": "IAFF 6501: Quantitative Analysis for IA Practitioners",
     "section": "Netiquette",
     "text": "Netiquette\nBehind every name there is a person.\nTo ensure safe and meaningful learning experiences for everyone, we all agree to:\n\nRemain professional, respectful, and courteous at all times on all platforms.\nKeep in mind this is a college class. Something that would be inappropriate in an in-person classroom is also inappropriate in an online classroom.\nWhen upset, we’ll wait a day or two prior to posting. Messages posted or emailed in anger are often regretted later.\nAsk one another for clarification if we find a communication offensive or difficult to understand.\nAvoid sweeping generalizations. Back up our stated opinions with facts and reliable sources.\nUnderstand that we may disagree and that exposure to other people’s opinions is part of the learning experience.\nJust as we would like our privacy respected, we will respect the privacy of other course participants and what they share.\n\nI (the instructor) reserve the right to delete any post or communication in our course that is deemed inappropriate without prior notification to the student. This includes anything containing language that is offensive, rude, profane, racist, or hateful. Items that are seriously off-topic or serve no purpose other than to vent frustration will also be removed.\nUsing outside communication apps\nI am aware that you and your peers might communicate using tools outside of GW’s Blackboard, my course website, our course Discord channel, or email systems. Rules of netiquette and appropriate communication extend to these tools as well as to Blackboard. If you see any tool being used inappropriately (i.e., any communication containing language that is offensive, rude, profane, racist, or hateful; uses that promote cheating of any kind), contact me as soon as possible to speak privately about it.\n(Adapted from Lake Superior Connect, Creative Commons Attribution 3.0)"
   },
   {
     "objectID": "course-syllabus.html#policies",
     "href": "course-syllabus.html#policies",
-    "title": "IAFF 6501: Quantitative Analysis for International Affairs Practitioners",
+    "title": "IAFF 6501: Quantitative Analysis for IA Practitioners",
     "section": "Policies",
     "text": "Policies\nTo make this a meaningful learning experience for everyone, please read and understand the following policies. All GW policies can be found on the GW Office of Ethics, Compliance, and Privacy site. All GW community members are responsible for adhering to and activating in accordance with all university policies. Please contact me if you have any questions."
   },
   {
     "objectID": "course-syllabus.html#accessibility-and-accommodations",
     "href": "course-syllabus.html#accessibility-and-accommodations",
-    "title": "IAFF 6501: Quantitative Analysis for International Affairs Practitioners",
+    "title": "IAFF 6501: Quantitative Analysis for IA Practitioners",
     "section": "Accessibility and Accommodations",
     "text": "Accessibility and Accommodations\n\nGW’s Disability Support Services\nIf you are a student with a disability, or think you may have a disability, you can let me know, and/or you can talk to GW’s Office of Disability Support Services (DSS). DSS works with both students with disabilities and instructors to identify reasonable accommodations. Contact the DSS office at (202) 994-8250, by email on dss@gwu.edu, or in-person in Rome Hall Suite 102 to establish eligibility and to coordinate reasonable accommodations. If you have already been approved for accommodations, please send me your accommodation letter and meet with me so we can develop an implementation plan together.\nHow are course technology tools accessible to everyone? To find out, access Technology Support Technology Tools Policies in the Blackboard course menu.\n\n\nAccommodations Beyond Disability\nEveryone has different needs for learning. If you don’t have a documented disability but feel that you would benefit from learning support for other reasons, please don’t hesitate to talk to me. If you have substantial non-academic obligations or other concerns (e.g., food insecurity, work, childcare, athletic commitments, language barriers, financial issues, technology access, commuting, etc.) that make learning difficult, please contact me. I’ll keep this information confidential, and together, we can brainstorm ways to meet your needs.\n\n\nOther Needs\nAny student who has difficulty affording groceries or accessing sufficient food to eat every day, or who lacks a safe and stable place to live, and believes this may affect their performance in the course, is urged to contact GW’s Office of Student Financial Assistance for support. Furthermore, please notify me if you are comfortable doing so. Some other resources to support you are found under the course menu item Student Resources and include support for academic achievement and personal well-being. (Adapted from Goldrick-Rab, 2017)"
   },
   {
     "objectID": "course-syllabus.html#counseling-and-psychological-services",
     "href": "course-syllabus.html#counseling-and-psychological-services",
-    "title": "IAFF 6501: Quantitative Analysis for International Affairs Practitioners",
+    "title": "IAFF 6501: Quantitative Analysis for IA Practitioners",
     "section": "Counseling and Psychological Services",
     "text": "Counseling and Psychological Services\nGW’s Health Center offers counseling and psychological services to GW students. Please note that staff is licensed to offer short term therapy to students in Washington, DC, Maryland, and Virginia. If you are living outside these regions, the office may be able to refer you elsewhere. Assistance and referrals 24 hours a day, 365 days a year and can be reached on (202) 994-5300.\nThe Center provides assistance and referral to address students’ personal, social, career, and study skills problems. Services for students include: crisis and emergency mental health consultations, confidential assessment, counseling services (individual and small group), and referrals.\nVirtual Workshops are open to any student regardless of geographic location. These can be exceptionally valuable and help you build essential skills and cope with common ongoing mental health concerns. Please contact the GW Health Center on (202) 994-5300 for more information."
   },
   {
     "objectID": "course-syllabus.html#religious-observances",
     "href": "course-syllabus.html#religious-observances",
-    "title": "IAFF 6501: Quantitative Analysis for International Affairs Practitioners",
+    "title": "IAFF 6501: Quantitative Analysis for IA Practitioners",
     "section": "Religious Observances",
     "text": "Religious Observances\nAs members of the GW community, you have the right to observe religious holidays. University policy requires that students notify their instructors during the first week of the semester if they plan to be absent from class on days of religious observance. For further details, please consult the university policy on religious holiday observance."
   },
   {
     "objectID": "course-syllabus.html#key-dates",
     "href": "course-syllabus.html#key-dates",
-    "title": "IAFF 6501: Quantitative Analysis for International Affairs Practitioners",
+    "title": "IAFF 6501: Quantitative Analysis for IA Practitioners",
     "section": "Key Dates",
     "text": "Key Dates\nPlease defer to the due dates listed on the course website. You can also view due dates in the gradebook and under each individual course assignment item in Blackboard Ultra."
   },
   {
     "objectID": "course-syllabus.html#pdf-version-of-syllabus",
     "href": "course-syllabus.html#pdf-version-of-syllabus",
-    "title": "IAFF 6501: Quantitative Analysis for International Affairs Practitioners",
+    "title": "IAFF 6501: Quantitative Analysis for IA Practitioners",
     "section": "PDF Version of Syllabus",
     "text": "PDF Version of Syllabus\nYou can download a PDF version of this syllabus here."
   },
@@ -2532,7 +2532,7 @@
   {
     "objectID": "course-syllabus.html#emergency-preparedness-and-response-procedures",
     "href": "course-syllabus.html#emergency-preparedness-and-response-procedures",
-    "title": "IAFF 6501: Quantitative Analysis for International Affairs Practitioners",
+    "title": "IAFF 6501: Quantitative Analysis for IA Practitioners",
     "section": "Emergency Preparedness and Response Procedures",
     "text": "Emergency Preparedness and Response Procedures\nThe University has asked all faculty to inform students of these procedures, prepared by the GW Office of Public Safety and Emergency Management in collaboration with the Office of the Executive Vice President for Academic Affairs.\n\nTo Report an Emergency or Suspicious Activity\nCall the University Police Department at 202-994-6111 (Foggy Bottom) or 202-242-6111 (Mount Vernon).\n\n\nShelter in Place – General Guidance\nAlthough it is unlikely that we will ever need to shelter in place, it is helpful to know what to do just in case. No matter where you are, the basic steps of shelter in place will generally remain the same.\n\nIf you are inside, stay where you are unless the building you are in is affected. If it is affected, you should evacuate. If you are outdoors, proceed into the closest building or follow instructions from emergency personnel on the scene.\nLocate an interior room to shelter inside. If possible, it should be above ground level and have the fewest number of windows. If sheltering in a room with windows, move away from the windows. If there is a large group of people inside a particular building, several rooms may be necessary.\nShut and lock all windows (for a tighter seal) and close exterior doors.\nTurn off air conditioners, heaters, and fans. Close vents to ventilation systems as you are able. (University staff will turn off ventilation systems as quickly as possible).\nMake a list of the people with you and ask someone to call the list in to UPD so they know where you are sheltering and who is with you. If only students are present, one of the students should call in the list.\nAwait further instructions. If possible, visit GW Campus Advisories for incident updates or call the GW Information Line 202-994-5050.\nMake yourself comfortable and look after one other. You will get word as soon as it is safe to come out.\n\n\n\nEvacuation\nAn evacuation will be considered if the building we are in is affected or we must move to a location of greater safety. We will always evacuate if the fire alarm sounds. In the event of an evacuation, please gather your personal belongings quickly (purse, keys, GWorld card, etc.) and proceed to the nearest exit. Every classroom has a map at the door designating both the shortest egress and an alternate egress. Anyone who is physically unable to walk down the stairs should wait in the stairwell, behind the closed doors. Firemen will check the stairwells upon entering the building. Once you have evacuated the building, proceed to our primary rendezvous location: the court yard area between the GW Hospital and Ross Hall. In the event that this location is unavailable, we will meet on the ground level of the Visitors Parking Garage (I Street entrance, at 22nd Street). From our rendezvous location, we will await instructions to re-enter the School.\n\n\nAlert DC\nAlert DC provides free notification by e-mail or text message during an emergency. Visit GW Campus Advisories for a link and instructions on how to sign up for alerts pertaining to GW. If you receive an Alert DC notification during class, you are encouraged to share the information immediately.\n\n\nGW Alert\nGW Alert provides popup notification to desktop and laptop computers during an emergency. In the event that we receive an alert to the computer in our classroom, we will follow the instructions given. You are also encouraged to download this application to your personal computer. Visit GW Campus Advisories to learn how.\n\n\nAdditional Information\nAdditional information about emergency preparedness and response at GW or the University’s operating status can be found on GW Campus Advisories or by calling the GW Information Line at 202-994-5050."
   }
