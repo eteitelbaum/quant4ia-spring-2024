@@ -40,30 +40,13 @@ Your boss wants you to...
 - View the relationship between GDP per capita and electoral democracy in 2020
 :::
 
-## Can You Reproduce It? 
+## Could You Reproduce It? 
 
 <br>
 
 - Have a look at my ["Democracy Around the World"](https://emmanuelteitelbaum.shinyapps.io/vdem-dashboard/) Shiny app
 - Can you reproduce the visualizations in the app using the V-Dem data?
 - What are the steps you would take to do so? 
-- Pick a region or country and give it a shot! 
-
-```{r}
-#| label: timer1
-
-library(countdown)
-countdown(minutes = 10, 
-          id = "timer1", 
-          bottom = "5%", 
-          right = "10%",
-          color_border = "#fff",
-          color_text = "#fff",
-          color_running_background = "#42affa",
-          color_running_text = "black",
-          color_finished_background = "#E5D19D",
-          color_finished_text = "#00264A")
-```
 
 ## Homework 1
 

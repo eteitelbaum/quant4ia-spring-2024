@@ -323,8 +323,6 @@
       margin-right: 0; 
     }
   </style>
-  <link href="../site_libs/countdown-0.4.0/countdown.css" rel="stylesheet">
-  <script src="../site_libs/countdown-0.4.0/countdown.js"></script>
 <meta property="og:title" content="IAFF 6501–Spring 2024 Schedule - Data Viz Review">
 <meta property="og:site_name" content="IAFF 6501--Spring 2024 Schedule">
 <meta name="twitter:title" content="IAFF 6501–Spring 2024 Schedule - Data Viz Review">
@@ -368,23 +366,14 @@
 </ul>
 </div>
 </section>
-<section id="can-you-reproduce-it" class="slide level2">
-<h2>Can You Reproduce It?</h2>
+<section id="could-you-reproduce-it" class="slide level2">
+<h2>Could You Reproduce It?</h2>
 <p><br></p>
 <ul>
 <li>Have a look at my <a href="https://emmanuelteitelbaum.shinyapps.io/vdem-dashboard/">“Democracy Around the World”</a> Shiny app</li>
 <li>Can you reproduce the visualizations in the app using the V-Dem data?</li>
 <li>What are the steps you would take to do so?</li>
-<li>Pick a region or country and give it a shot!</li>
 </ul>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer1" data-update-every="1" tabindex="0" style="right:10%;bottom:5%;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
 </section>
 <section id="homework-1" class="slide level2">
 <h2>Homework 1</h2>
@@ -613,44 +602,6 @@
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

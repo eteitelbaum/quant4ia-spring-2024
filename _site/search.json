@@ -2653,5 +2653,12 @@
       "Course Modules",
       "Module 3.2"
     ]
+  },
+  {
+    "objectID": "slides/week-4.1.html#could-you-reproduce-it",
+    "href": "slides/week-4.1.html#could-you-reproduce-it",
+    "title": "Data Viz Review",
+    "section": "Could You Reproduce It?",
+    "text": "Could You Reproduce It?\n\n\nHave a look at my “Democracy Around the World” Shiny app\nCan you reproduce the visualizations in the app using the V-Dem data?\nWhat are the steps you would take to do so?"
   }
 ]
