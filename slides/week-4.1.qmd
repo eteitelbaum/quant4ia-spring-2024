@@ -37,7 +37,6 @@ Your boss wants you to...
 ::: {.incremental}
 - Visualize trends in liberal democracy since the end of WWII for countries in South Asia
 - See how regions compare in terms of levels of corruption in 2015
-- See how regions compare in terms of levels of GDP per capita over the last 10 years
 - View the relationship between GDP per capita and electoral democracy in 2020
 :::
 
