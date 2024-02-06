@@ -9,7 +9,7 @@ format:
     theme: [simple, custom.scss]
     transition: fade
     slide-number: true
-    #multiplex: true
+    multiplex: true
     chalkboard: true
     mermaid:
       theme: neutral
@@ -326,15 +326,5 @@ countdown(minutes = 10,
           right = "5%")
 ```
 
-## Messages, Warnings and Errors {.smaller}
 
-<br>
-
-- Messages are printed in blue and tell you what R is doing
-- Warnings are printed in yellow and tell you that something might be wrong
-- Errors are printed in red and tell you that something is definitely wrong
-  - Locate the error line number in the console and check your code
-  - Error line tells you *about* where the error occurred, not exact
-  - Errors are normal, don't freak out! 
-  - In fact, you should practice making errors to learn how to fix them
   

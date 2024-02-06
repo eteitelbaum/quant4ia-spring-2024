@@ -18,3 +18,55 @@ execute:
   freeze: auto
 ---
 
+## Messages, Warnings and Errors {.smaller}
+
+<br>
+
+- Messages tell you what R is doing
+- Warnings tell you that something might be wrong
+- Errors tell you that something is definitely wrong
+  - Locate the error line number in the console and check your code
+  - Error line tells you *about* where the error occurred, not exact
+  - Errors are normal, don't freak out! 
+  - In fact, you should practice making errors to learn how to fix them
+
+## 
+
+Your boss wants you to...
+
+- Visualize trends in liberal democracy since the end of WWII for countries in South Asia
+- See how regions compare in terms of levels of corruption in 2015
+- See how regions compare in terms of levels of GDP per capita over the last 10 years
+- View the relationship between GDP per capita and electoral democracy in 2020
+
+## Can You Reproduce It? 
+
+<br>
+
+- Have a look at my ["Democracy Around the World"](https://emmanuelteitelbaum.shinyapps.io/vdem-dashboard/) Shiny app
+- Can you reproduce the visualizations in the app using the V-Dem data?
+- What are the steps you would take to do so? 
+- Pick a region or country and give it a shot! 
+
+```{r}
+#| label: timer1
+
+library(countdown)
+countdown(minutes = 10, 
+          id = "timer1", 
+          bottom = "5%", 
+          right = "10%",
+          color_border = "#fff",
+          color_text = "#fff",
+          color_running_background = "#42affa",
+          color_running_text = "black",
+          color_finished_background = "#E5D19D",
+          color_finished_text = "#00264A")
+```
+
+## Homework 1
+
+<br>
+
+- Find Homework 1 on the [course website](https://quant4ia.rocks/assignments/homework-1)
+- Get started today! 
