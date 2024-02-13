@@ -111,7 +111,9 @@ How can we summarize measures of democracy? :thinking:
 
 We could calculate the **median**. 
 
-```{r echo=TRUE}
+```{r}
+#| label: median
+#| echo: true
 vdem2022 |>
   summarize(median_democracy = median(polyarchy))
 ```
@@ -660,7 +662,8 @@ ggplot(democracy_region, aes(x = reorder(region, -mean_dem), y = mean_dem)) +
     y = "Mean Polyarchy Score", 
     title = "Democracy by region, 1990 - present", 
     caption = "Source: V-Dem Institute"
-    ) + theme_minimal()
+    ) + 
+  theme_minimal()
 ```
 
 ## Numerical Variable by Group
