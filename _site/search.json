@@ -2204,7 +2204,7 @@
     "href": "slides/week-5.2.html#interquartile-range",
     "title": "Numerical Data",
     "section": "Interquartile Range",
-    "text": "Interquartile Range\n\nThe middle 50 percent of the countries in the data lie between 0.262 and 0.747\nThe range length of 0.485 tells us something about the spread of the distribution\n\n\nvdem2022 %&gt;% \n  summarize(IQRlow =  quantile(polyarchy, .25),\n            IQRhigh = quantile(polyarchy, .75),\n            IQRlength = IQR(polyarchy)\n          )\n\n  IQRlow IQRhigh IQRlength\n1  0.262   0.747     0.485"
+    "text": "Interquartile Range\n\nThe middle 50 percent of the countries in the data lie between 0.262 and 0.747\nThe IQR (0.485) is the difference between the Q3 and Q1 values\n\n\nvdem2022 %&gt;% \n  summarize(IQRlow =  quantile(polyarchy, .25),\n            IQRhigh = quantile(polyarchy, .75),\n            IQRlength = IQR(polyarchy)\n          )\n\n  IQRlow IQRhigh IQRlength\n1  0.262   0.747     0.485"
   },
   {
     "objectID": "slides/week-5.2.html#measure-of-spead-standard-deviation",
@@ -2295,7 +2295,7 @@
     "href": "slides/week-5.2.html#your-turn-1",
     "title": "Numerical Data",
     "section": "Your Turn!",
-    "text": "Your Turn!\n\n\nCalculate measures of spread for the polyarchy variable in the V-Dem data\nHow would you interpret these measures?\nTry another variable in the V-Dem data\nHow does it compare to polyarchy?\n\n\n\n\n−+\n05:00"
+    "text": "Your Turn!\n\n\nCalculate measures of spread for the polyarchy variable in the V-Dem data (mean, median, IQR, standard deviation)\nHow would you interpret these measures?\nTry a box plot for the polyarchy variable\nTry another variable in the V-Dem data\nHow does it compare to polyarchy?\n\n\n\n\n−+\n05:00"
   },
   {
     "objectID": "slides/week-5.2.html#calculating-statistics-by-groups",
@@ -3136,5 +3136,19 @@
     "title": "Categorical Data",
     "section": "Today’s Classwork",
     "text": "Today’s Classwork\n\nDownload classwork folder for today’s class from here"
+  },
+  {
+    "objectID": "slides/week-5.2.html#box-plot",
+    "href": "slides/week-5.2.html#box-plot",
+    "title": "Numerical Data",
+    "section": "Box Plot",
+    "text": "Box Plot\n\nA box plot is a graphical representation of the distribution based on the median and quartiles\nIt is a standardized way of displaying the distribution of data based on a five number summary: minimum, first quartile, median, third quartile, and maximum"
+  },
+  {
+    "objectID": "slides/week-5.2.html#box-plot-1",
+    "href": "slides/week-5.2.html#box-plot-1",
+    "title": "Numerical Data",
+    "section": "Box Plot",
+    "text": "Box Plot\n\n\nCode\nggplot(vdem2022, aes(x = \"\", y = polyarchy)) +\n  geom_boxplot(fill = \"steelblue\") + \n   labs(\n    x = \"\", \n    y = \"Electoral Democracy\", \n    title = \"Distribution of Electoral Democracy in 2022\", \n    caption = \"Source: V-Dem Institute\"\n  ) +\n  theme_minimal()"
   }
 ]

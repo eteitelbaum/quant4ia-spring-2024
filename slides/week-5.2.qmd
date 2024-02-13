@@ -468,7 +468,7 @@ ggplot(vdem2022, aes(x = polyarchy )) +
 ## Interquartile Range
 
 - The middle 50 percent of the countries in the data lie between 0.262 and 0.747
-- The range length of 0.485 tells us something about the spread of the distribution
+- The IQR (0.485) is the difference between the Q3 and Q1 values 
 
 ```{r}
 #| label: iqr
@@ -479,6 +479,29 @@ vdem2022 %>%
             IQRhigh = quantile(polyarchy, .75),
             IQRlength = IQR(polyarchy)
           )
+```
+
+## Box Plot
+
+- A box plot is a graphical representation of the distribution based on the median and quartiles
+- It is a standardized way of displaying the distribution of data based on a five number summary: minimum, first quartile, median, third quartile, and maximum
+
+## Box Plot
+
+```{r}
+#| label: boxplot
+#| echo: true
+#| code-fold: true
+
+ggplot(vdem2022, aes(x = "", y = polyarchy)) +
+  geom_boxplot(fill = "steelblue") + 
+   labs(
+    x = "", 
+    y = "Electoral Democracy", 
+    title = "Distribution of Electoral Democracy in 2022", 
+    caption = "Source: V-Dem Institute"
+  ) +
+  theme_minimal()
 ```
 
 ## Measure of Spead: Standard Deviation
@@ -596,10 +619,12 @@ sd(x)
 
 <br>
 
-- Calculate measures of spread for the `polyarchy` variable in the V-Dem data
+- Calculate measures of spread for the `polyarchy` variable in the V-Dem data (mean, median, IQR, standard deviation)
 - How would you interpret these measures?
+- Try a box plot for the `polyarchy` variable
 - Try another variable in the V-Dem data
 - How does it compare to `polyarchy`?
+
 
 ```{r}
 #| label: timer2
