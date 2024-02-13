@@ -1,9 +1,10 @@
 ---
-title: The World Bank API
+title: Categorical Data
 date: today
 date-format: long
 footer: "[IAFF 6501 Website](https://quant4ia.rocks)"
 logo: images/iaff6501-logo.png
+from: markdown+emoji
 format:
   revealjs:
     theme: [simple, custom.scss]
@@ -18,38 +19,206 @@ execute:
   freeze: auto
 ---
 
-# The World Bank API
+# Thinking About Data
 
-## Searching for WB Indicators
+## 
+
+What are some ways we can classify data? :sunglasses: :thought_balloon:
+
+. . .
+
+::: {.incremental}
+- anecdotal vs. representative
+- census vs. sample
+- observational vs. experimental
+- categorical vs. numerical
+- discrete vs. continuous
+- cross-sectional vs. time series
+- longitudinal vs. panel
+- unstructured vs. structured
+:::
+
+## 
+
+What are some ways we can classify data? :sunglasses: :thought_balloon:
+
+- anecdotal vs. representative
+- census vs. sample
+- observational vs. experimental
+- **categorical vs. numerical**
+- **discrete vs. continuous**
+- cross-sectional vs. time series
+- longitudinal vs. panel
+- unstructured vs. structured
+
+## Variable Types
+    
+-   Categorical
+    - Binary - two categories
+    - Nominal - multiple unordered categories
+    - Ordinal - multiple ordered categories
+-   Numerical
+    - Continuous - fractional values (measurement data)
+    - Discrete - non-negative whole numbers (count data)
+
+## 
+
+What types of variables are these? :thinking:
+
+::: {.incremental}
+-  Is a country a democracy? (yes/no)
+-  Polity (-10 to 10 in 1 unit increments)
+-  V-Dem Polyarchy (0-1 in 0.01 increments)
+-  V-Dem Regimes of the World Measure 
+    - closed autocracy | electoral autocracy | electoral democracy | democracy
+- Number of protest events
+- Protest types (sit in, march, strike, etc.)
+:::
+
+# Categorical Data
+
+## V-Dem Regimes of the World Measure
+
+<br>
+
+-   Closed Autocracy
+-   Electoral Autocracy
+-   Electoral Democracy
+-   Liberal Democracy
+
+## Data Setup {.smaller}
+
+```{r}
+#| label: setup
+#| echo: true
+
+library(tidyverse)
+library(vdemdata)
+
+vdem2022 <- vdem |>
+  filter(year == 2022) |>
+  select(
+    country = country_name, 
+    polyarchy = v2x_polyarchy,
+    regime = v2x_regime, 
+    region = e_regionpol_6C
+    ) |>
+  mutate(
+    region = case_match(region, # replace the values in region with country names
+                     1 ~ "Eastern Europe", 
+                     2 ~ "Latin America",  
+                     3 ~ "Middle East",   
+                     4 ~ "Africa", 
+                     5 ~ "The West", 
+                     6 ~ "Asia")
+  ) |>
+  mutate(regime = case_match(regime,
+                    0 ~ "Closed Autocracy",
+                    1 ~ "Electoral Autocracy",
+                    2 ~  "Electoral Democracy",
+                    3 ~  "Liberal Democracy")
+  )
+```
+
+## 
+
+<br>
+
+Let's count the number of regimes by type...
 
 <br>
 
 ```{r}
-#| label: search_wb
-#| eval: false
+#| label: regime-count
 #| echo: true
 
-# Load the wbstats package
-library(wbstats)
-
-# store the list of indicators
-flfp_indicators <- wb_search("female labor force") 
-
-# view the indicators
-print(flfp_indicators,n = 26) 
+vdem2022 |>
+  count(regime)
 ```
+
+
+## 
+
+Now let's visualize the distribution of regimes with a bar plot...
+
+```{r}
+#| label: regime-bar-1
+
+vdem2022 |>
+  ggplot(aes(x = regime)) +
+  geom_bar(fill = "steelblue") +
+  labs(
+    x = "Regime",
+    y = "Frequency",
+    title = "Regimes of the World in 2022",
+    caption = "Source: V-Dem Institute"
+  ) +
+  theme_minimal()
+```
+
+## 
+
+Now let's visualize the distribution of regimes with a bar plot...
 
 <br>
 
-Sometimes it is easier to search using the [WDI website](https://databank.worldbank.org/source/world-development-indicators#).
-  
-## Try it Yourself
+```{r}
+#| label: regime-bar-2
+#| echo: true
+#| output: false 
 
-- Start a new Quarto document
-- Start a new code chunk
-- Load the `wbstats` package
-- Use `wb_search()` to find some indicators you are interested in
-- Compare with a manual search on the [WDI website](https://databank.worldbank.org/source/world-development-indicators#) 
+vdem2022 |>
+  ggplot(aes(x = regime)) +
+  geom_bar(fill = "steelblue") +
+  labs(
+    x = "Regime",
+    y = "Frequency",
+    title = "Regimes of the World in 2022",
+    caption = "Source: V-Dem Institute"
+  ) +
+  theme_minimal()
+```
+
+## 
+
+Now let's visualize the distribution of regimes with a bar plot...
+
+<br>
+
+```{r}
+#| label: regime-bar-3
+#| echo: true
+#| output: false 
+#| code-line-numbers: "3"
+
+vdem2022 |>
+  ggplot(aes(x = regime)) +
+  geom_bar(fill = "steelblue") +
+  labs(
+    x = "Regime",
+    y = "Frequency",
+    title = "Regimes of the World in 2022",
+    caption = "Source: V-Dem Institute"
+  ) +
+  theme_minimal()
+```
+
+## More about `geom_bar()`
+
+<br>
+
+-  `geom_bar()` is different from `geom_col()`
+-   Used to create bar plots where the height of the bar represents counts or frequencies of categorical variable
+-   By default, geom_bar() counts the number of occurrences of each category or group and plots it as the height of the bar
+-   Like `geom_histogram()`, `geom_bar()` only requires the x aesthetic (y is automatically calcualted for you)
+
+## Your Turn! 
+
+- Expore the distribution of regimes for a different year
+- Preprocess your data to include only the year you are interested in
+- Visualize the distribution of regimes using `geom_bar()`
+- Use the `labs()` function to change title
+- What is different about the year that you chose relative to 2022?
 
 ```{r}
 #| label: time1
@@ -68,142 +237,173 @@ countdown(minutes = 5,
           color_finished_text = "#00264A")
 ```
 
-## The `wbdata()` Function
+
+## How do Regimes Vary by Region?
 
 <br>
 
-Store the list of indicators you want in an object and then use `wb_data()` to download the data:
-
 ```{r}
-#| label: use_wbdata
-#| eval: false
-#| echo: true
+#| label: regime-region-1
+#| code-fold: true
 
-# load dplyr 
-library(dplyr) 
-
-# store the list of indicators in an object
-indicators <- c("flfp" = "SL.TLF.CACT.FE.ZS", "women_rep" = "SG.GEN.PARL.ZS") 
-
-# download the data 
-women_emp <- wb_data(indicators, mrv = 50) # download data for last 50 yrs
-
-# glimpse the data
-glimpse(women_emp)
+vdem2022 |>
+  ggplot(aes(x = region, fill = regime)) +
+      geom_bar() +
+  theme_minimal() +
+  labs(
+    x = "Region",
+    y = "Frequency",
+    title = "Regimes of the World by World Region in 2022",
+    caption = "Source: V-Dem Institute",
+    fill = "Regime"
+  ) +
+  scale_fill_viridis_d(option = "inferno", end = .8)
 ```
 
-## Some Functions for Wrangling Data {.smaller}
-
-- From `dplyr`
-  - `filter()` to filter observations (rows)
-  - `select()` to select or drop variables (columns)
-  - `mutate()` to create new variables or modify existing ones
-  - `rename()` to rename variables
-  - `case_match()` to recode variables
-- From the `janitor` package
-  - `clean_names()` (used earlier)
-  - `round_to_fraction()` to round to nearest fraction
-
-## Cleaning the WB Data
+## How do Regimes Vary by Region?
 
 <br>
 
-Use `select()` to drop iso2c variable and `rename()` to rename date to year:
-
 ```{r}
-#| label: mutate_women_emp
-#| eval: false
+#| label: regime-region-2
 #| echo: true
-#| code-line-numbers: "|6|7"
+#| output: false
 
-# Load janitor
-library(janitor) 
-
-# Download the data  
-women_emp <- women_emp |> 
-  select(!iso2c) |> # drop the iso2c code which we won't be using
-  rename(year = date) |> # rename date to year 
-  mutate(
-    flfp = round_to_fraction(flfp, denominator = 100), # round to nearest 100th
-    women_rep = round_to_fraction(women_rep, denominator = 100) 
-  )
-
-# View the data
-glimpse(women_emp) 
+vdem2022 |>
+  ggplot(aes(x = region, fill = regime)) +
+      geom_bar() +
+  theme_minimal() +
+  labs(
+    x = "Region",
+    y = "Frequency",
+    title = "Regimes of the World by World Region in 2022",
+    caption = "Source: V-Dem Institute",
+    fill = "Regime"
+  ) +
+  scale_fill_viridis_d(option = "inferno", end = .8)
 ```
 
-## Cleaning the WB Data
+## How do Regimes Vary by Region?
 
 <br>
 
-Use `mutate()` and `round_to_fraction` to round the `flfp` and `women_rep` variables to the nearest 100th:
-
 ```{r}
-#| label: round_variables
-#| eval: false
+#| label: regime-region-3
 #| echo: true
-#| code-line-numbers: "2,8-11"
+#| output: false
+#| code-line-numbers: "2"
 
-# Load janitor
-library(janitor) 
-
-# Download the data  
-women_emp <- women_emp |> 
-  select(!iso2c) |> # drop the iso2c code which we won't be using
-  rename(year = date) |> # rename date to year 
-  mutate(
-    flfp = round_to_fraction(flfp, denominator = 100), # round to nearest 100th
-    women_rep = round_to_fraction(women_rep, denominator = 100) 
-  )
-
-# View the data
-glimpse(women_emp) 
+vdem2022 |>
+  ggplot(aes(x = region, fill = regime)) +
+      geom_bar() +
+  theme_minimal() +
+  labs(
+    x = "Region",
+    y = "Frequency",
+    title = "Regimes of the World by World Region in 2022",
+    caption = "Source: V-Dem Institute",
+    fill = "Regime"
+  ) +
+  scale_fill_viridis_d(option = "inferno", end = .8)
 ```
 
-## Or Do it All in One Go
-
-<br> 
-
-```{r}
-#| label: one_go_no_highlight
-#| eval: false
-#| echo: true
-#| code-line-numbers: "|5-9"
-
-# load th4e packages
-library(janitor)
-library(dplyr)
-
-# store the list of indicators in an object
-indicators <- c("flfp" = "SL.TLF.CACT.FE.ZS", "women_rep" = "SG.GEN.PARL.ZS") 
-
-# Download the data  
-women_emp <- wb_data(indicators, mrv = 50) |> # download data for last 50 yrs
-  select(!iso2c) |> # drop the iso2c code which we won't be using
-  rename(year = date) |> # rename date to year 
-  mutate(
-    flfp = round_to_fraction(flfp, denominator = 100), # round to nearest 100th
-    women_rep = round_to_fraction(women_rep, denominator = 100) 
-  )
-
-# View the data
-glimpse(women_emp) 
-```
-
-## Try it Yourself
+## What Did We Just Do?
 
 <br>
 
-- Using the variables you identified in your search, download the data
-- Think about what elements of the code you need to change
-- Hint: the indicators are going to change!
+:::{.incremental}
+-  We used `geom_bar()` to visualize the distribution of regimes by region
+-  Essentially, we used two categorical variables to create a bar plot
+-  Regime type is...
+    -  ...an ordered categorical variable
+-  Region is... 
+    - ...a nominal categorical variable
+:::
+
+## 
+
+Some regions have more countries than others.  Why does this create an issue for telling a story with our data here?
+
+```{r}
+#| label: regime-region-4
+#| echo: false
+
+vdem2022 |>
+  ggplot(aes(x = region, fill = regime)) +
+      geom_bar() +
+  theme_minimal() +
+  labs(
+    x = "Region",
+    y = "Frequency",
+    title = "Regimes of the World by World Region in 2022",
+    caption = "Source: V-Dem Institute",
+    fill = "Regime"
+  ) +
+  scale_fill_viridis_d(option = "inferno", end = .8)
+```
+
+## Show Proportions Instead
+
+<br>
+
+```{r}
+#| label: regime-region-5
+#| code-fold: true
+#| code-line-numbers: "3"
+vdem2022 %>%
+  ggplot(., aes(x = region, fill = regime)) +
+      geom_bar(position = "fill") +
+  theme_minimal() +
+  labs(
+    x = "Region",
+    y = "Proportion",
+    title = "Regimes of the World by World Region in 2022",
+    caption = "Source: V-Dem Institute",
+    fill = "Regime"
+  ) +
+  scale_fill_viridis_d(option = "inferno", end = .8)
+```
+
+
+## 
+
+We use `position = "fill"` to normalize the data and make the plot more interpretable...
+
+<br>
+
+```{r}
+#| label: regime-region-6
+#| echo: true
+#| output: false
+#| code-line-numbers: "3"
+
+vdem2022 %>%
+  ggplot(., aes(x = region, fill = regime)) +
+      geom_bar(position = "fill") +
+  theme_minimal() +
+  labs(
+    x = "Region",
+    y = "Proportion",
+    title = "Regimes of the World by World Region in 2022",
+    caption = "Source: V-Dem Institute",
+    fill = "Regime"
+  ) +
+  scale_fill_viridis_d(option = "inferno", end = .8)
+```
+
+## Your Turn! 
+
+- Explore the distribution of regimes by region for a different year
+- Preprocess your data to include only the year you are interested in
+- Visualize the distribution of regimes using `geom_bar()` and `position = "fill"`
+- Use the `labs()` function to change title
+- What is different about the year that you chose relative to 2022?
 
 ```{r}
 #| label: timer2
 
-countdown(minutes = 10, 
+countdown(minutes = 5, 
           id = "timer2", 
-          bottom = "10%", 
-          right = "10%")
+          bottom = "0%", 
+          right = "5%")
 ```
-

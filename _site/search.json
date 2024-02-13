@@ -1342,7 +1342,11 @@
     "href": "course-links.html",
     "title": "Useful links",
     "section": "",
-    "text": "RStudio\n🔗 go here to install R and R Studio\n\n\nQuarto\n🔗 see the Guide and Reference sections\n\n\nPosit Cheat Sheets\n🔗 cheat sheets for important packages\n\n\nQuizzes, etc.\n🔗 on Blackboard\n\n\nProf T’s Zoom Office\n🔗 on Zoom\n\n\nOffice Hours Appointments\n🔗 on Calendly"
+    "text": "RStudio\n🔗 go here to install R and R Studio\n\n\nQuarto\n🔗 see the Guide and Reference sections\n\n\nPosit Cheat Sheets\n🔗 cheat sheets for important packages\n\n\nQuizzes, etc.\n🔗 on Blackboard\n\n\nProf T’s Zoom Office\n🔗 on Zoom\n\n\nOffice Hours Appointments\n🔗 on Calendly",
+    "crumbs": [
+      "Course Information",
+      "Useful links"
+    ]
   },
   {
     "objectID": "LICENSE.html#creative-commons-attribution-sharealike-4.0-international-public-license",
@@ -1503,7 +1507,11 @@
     "href": "index.html",
     "title": "Course Schedule",
     "section": "",
-    "text": "This page displays an outline of the topics, content, and assignments for the term. Each module starts on a Monday. There are no assignments due on Sundays.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModule\nDate\nTopic\nReadings\nReference\nSlides\nVideos\nAssignments\n\n\n\n\n1.1\nJan 16\nCourse Intro\n\n\n🖥️\n🖥️\n\n\n\n1.2\n\nGetting Started with Quarto\n\n📖\n🖥️\n🖥️\n\n\n\n2.1\nJan 23\nBar charts, histograms\n\n📖 📖\n🖥️\n🖥️ 🖥️\n\n\n\n2.2\n\nLine charts, scatter plots\n\n📖 📖\n🖥️\n🖥️ 🖥️\n📘\n\n\n3.1\nJan 29\nDownloading and manipulating data\n\n📖\n🖥️\n🖥️\n\n\n\n3.2\n\nSummarizing by groups\n\n📖\n🖥️\n🖥️\n📘\n\n\n4.1\nFeb 6\nData viz recap\n\n\n🖥️\n\n\n\n\n4.2\n\nExercise 1: Visualize modernization theory\n📖\n\n\n\n🧮\n\n\n5.1\nFeb 13\nResearch Design\n\n📖\n🖥️\n\n\n\n\n5.2\n\nDistributions\n\n📖📖\n🖥️\n\n📘\n\n\n6.1\nFeb 20\nUncertainty and sampling distributions\n\n\n🖥️\n🖥️\n\n\n\n6.2\n\nUsing a bootstrap to generate confidence intervals\n\n\n🖥️\n🖥️\n📘\n\n\n7.1\nFeb 27\nSimulation-based hypothesis testing\n\n\n🖥️\n🖥️\n\n\n\n7.2\n\nExercise 2: Evaluate a claim\n📖\n\n🖥️\n🖥️\n🧮\n\n\n8.1\nMar 5\nUSAID walkthrough\n\n\n🖥️\n🖥️\n\n\n\n8.2\n\nUSAID walkthrough\n\n\n\n🖥️\n\n\n\n\nMar 12\nNo Class\nSpring Break\n☀️🌴🏄\n\n\n\n\n\n9.1\nMar 19\nModels and their uses\n\n\n🖥️\n🖥️\n\n\n\n9.2\n\nLinear regression 1\n\n\n🖥️\n🖥️\n📘\n\n\n10.1\nMar 26\nLinear regression 2\n\n\n🖥️\n🖥️\n\n\n\n10.2\n\nMultiple regression\n\n\n\n🖥️\n📘\n\n\n11.1\nApr 2\nInteractions and nonlinearity\n\n\n🖥️\n🖥️\n\n\n\n11.2\n\nInterpreting regression results\n\n\n\n🖥️\n📘\n\n\n12.1\nApr 9\nLogistic regression\n\n\n🖥️\n🖥️\n\n\n\n12.2\n\nPrediction\n📖\n\n\n\n\n\n\n13.1\nApr 16\nModeling review\n\n\n\n\n\n\n\n13.2\n\nExercise 3–Predicting conflict\n\n\n\n\n🧮\n\n\n14.1\nApr 23\nAdvanced Quarto\n\n\n\n🖥️\n\n\n\n14.2\n\nFinal project workshop\n\n\n\n🖥️\n✍️"
+    "text": "This page displays an outline of the topics, content, and assignments for the term. Each module starts on a Monday. There are no assignments due on Sundays.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModule\nDate\nTopic\nReadings\nReference\nSlides\nVideos\nAssignments\n\n\n\n\n1.1\nJan 16\nCourse Intro\n\n\n🖥️\n🖥️\n\n\n\n1.2\n\nGetting Started with Quarto\n\n📖\n🖥️\n🖥️\n\n\n\n2.1\nJan 23\nBar charts, histograms\n\n📖 📖\n🖥️\n🖥️ 🖥️\n\n\n\n2.2\n\nLine charts, scatter plots\n\n📖 📖\n🖥️\n🖥️ 🖥️\n📘\n\n\n3.1\nJan 29\nDownloading and manipulating data\n\n📖\n🖥️\n🖥️\n\n\n\n3.2\n\nSummarizing by groups\n\n📖\n🖥️\n🖥️\n📘\n\n\n4.1\nFeb 6\nData viz recap\n\n\n🖥️\n\n\n\n\n4.2\n\nExercise 1: Visualize modernization theory\n📖\n\n\n\n🧮\n\n\n5.1\nFeb 13\nResearch Design\n\n📖\n🖥️\n\n\n\n\n5.2\n\nDistributions\n\n📖\n🖥️\n\n📘\n\n\n6.1\nFeb 20\nUncertainty and sampling distributions\n\n📖\n🖥️\n🖥️\n\n\n\n6.2\n\nUsing a bootstrap to generate confidence intervals\n\n📖\n🖥️\n🖥️\n📘\n\n\n7.1\nFeb 27\nHypothesis testing\n\n📖\n🖥️\n🖥️\n\n\n\n7.2\n\nExercise 2: Evaluate a claim\n📖\n\n🖥️\n🖥️\n🧮\n\n\n8.1\nMar 5\nUSAID walkthrough\n\n\n🖥️\n🖥️\n\n\n\n8.2\n\nUSAID walkthrough\n\n\n\n🖥️\n\n\n\n\nMar 12\nNo Class\nSpring Break\n☀️🌴🏄\n\n\n\n\n\n9.1\nMar 19\nModels and their uses\n\n\n🖥️\n🖥️\n\n\n\n9.2\n\nLinear regression 1\n\n\n🖥️\n🖥️\n📘\n\n\n10.1\nMar 26\nLinear regression 2\n\n\n🖥️\n🖥️\n\n\n\n10.2\n\nMultiple regression\n\n\n\n🖥️\n📘\n\n\n11.1\nApr 2\nInteractions and nonlinearity\n\n\n🖥️\n🖥️\n\n\n\n11.2\n\nInterpreting regression results\n\n\n\n🖥️\n📘\n\n\n12.1\nApr 9\nLogistic regression\n\n\n🖥️\n🖥️\n\n\n\n12.2\n\nPrediction\n📖\n\n\n\n\n\n\n13.1\nApr 16\nModeling review\n\n\n\n\n\n\n\n13.2\n\nExercise 3–Predicting conflict\n\n\n\n\n🧮\n\n\n14.1\nApr 23\nAdvanced Quarto\n\n\n\n🖥️\n\n\n\n14.2\n\nFinal project workshop\n\n\n\n🖥️\n✍️",
+    "crumbs": [
+      "Course Information",
+      "Schedule"
+    ]
   },
   {
     "objectID": "slides/week-11.2.html#whats-in-a-regression-table",
@@ -2652,5 +2660,1307 @@
     "title": "Data Viz Review",
     "section": "Could You Reproduce It?",
     "text": "Could You Reproduce It?\n\n\nHave a look at my “Democracy Around the World” Shiny app\nCan you reproduce the visualizations in the app using the V-Dem data?\nWhat are the steps you would take to do so?"
+  },
+  {
+    "objectID": "slides/zz_wbdata.html#searching-for-wb-indicators",
+    "href": "slides/zz_wbdata.html#searching-for-wb-indicators",
+    "title": "World Bank Data",
+    "section": "Searching for WB Indicators",
+    "text": "Searching for WB Indicators\n\n\n# Load the wbstats package\nlibrary(wbstats)\n\n# store the list of indicators\nflfp_indicators &lt;- wb_search(\"female labor force\") \n\n# view the indicators\nprint(flfp_indicators,n = 26)"
+  },
+  {
+    "objectID": "slides/zz_wbdata.html#searching-for-wb-indicators-1",
+    "href": "slides/zz_wbdata.html#searching-for-wb-indicators-1",
+    "title": "World Bank Data",
+    "section": "Searching for WB Indicators",
+    "text": "Searching for WB Indicators\n\nSometimes it is easier to search using the WDI website."
+  },
+  {
+    "objectID": "slides/zz_wbdata.html#try-it-yourself",
+    "href": "slides/zz_wbdata.html#try-it-yourself",
+    "title": "World Bank Data",
+    "section": "Try it Yourself",
+    "text": "Try it Yourself\n\nStart a new Quarto document\nStart a new code chunk\nLoad the wbstats package\nUse wb_search() to find some indicators you are interested in\nCompare with a manual search on the WDI website\n\n\n\n\n−+\n05:00"
+  },
+  {
+    "objectID": "slides/zz_wbdata.html#the-wbdata-function",
+    "href": "slides/zz_wbdata.html#the-wbdata-function",
+    "title": "World Bank Data",
+    "section": "The wbdata() Function",
+    "text": "The wbdata() Function\n\nStore the list of indicators you want in an object and then use wb_data() to download the data:\n\n# load dplyr \nlibrary(dplyr) \n\n# store the list of indicators in an object\nindicators &lt;- c(\"flfp\" = \"SL.TLF.CACT.FE.ZS\", \"women_rep\" = \"SG.GEN.PARL.ZS\") \n\n# download the data \nwomen_emp &lt;- wb_data(indicators, mrv = 50) # download data for last 50 yrs\n\n# glimpse the data\nglimpse(women_emp)"
+  },
+  {
+    "objectID": "slides/zz_wbdata.html#some-functions-for-wrangling-data",
+    "href": "slides/zz_wbdata.html#some-functions-for-wrangling-data",
+    "title": "World Bank Data",
+    "section": "Some Functions for Wrangling Data",
+    "text": "Some Functions for Wrangling Data\n\nFrom dplyr\n\nfilter() to filter observations (rows)\nselect() to select or drop variables (columns)\nmutate() to create new variables or modify existing ones\nrename() to rename variables\ncase_match() to recode variables\n\nFrom the janitor package\n\nclean_names() (used earlier)\nround_to_fraction() to round to nearest fraction"
+  },
+  {
+    "objectID": "slides/zz_wbdata.html#cleaning-the-wb-data",
+    "href": "slides/zz_wbdata.html#cleaning-the-wb-data",
+    "title": "World Bank Data",
+    "section": "Cleaning the WB Data",
+    "text": "Cleaning the WB Data\n\nUse select() to drop iso2c variable and rename() to rename date to year:\n\n# Load janitor\nlibrary(janitor) \n\n# Download the data  \nwomen_emp &lt;- women_emp |&gt; \n  select(!iso2c) |&gt; # drop the iso2c code which we won't be using\n  rename(year = date) |&gt; # rename date to year \n  mutate(\n    flfp = round_to_fraction(flfp, denominator = 100), # round to nearest 100th\n    women_rep = round_to_fraction(women_rep, denominator = 100) \n  )\n\n# View the data\nglimpse(women_emp)"
+  },
+  {
+    "objectID": "slides/zz_wbdata.html#cleaning-the-wb-data-1",
+    "href": "slides/zz_wbdata.html#cleaning-the-wb-data-1",
+    "title": "World Bank Data",
+    "section": "Cleaning the WB Data",
+    "text": "Cleaning the WB Data\n\nUse mutate() and round_to_fraction to round the flfp and women_rep variables to the nearest 100th:\n\n# Load janitor\nlibrary(janitor) \n\n# Download the data  \nwomen_emp &lt;- women_emp |&gt; \n  select(!iso2c) |&gt; # drop the iso2c code which we won't be using\n  rename(year = date) |&gt; # rename date to year \n  mutate(\n    flfp = round_to_fraction(flfp, denominator = 100), # round to nearest 100th\n    women_rep = round_to_fraction(women_rep, denominator = 100) \n  )\n\n# View the data\nglimpse(women_emp)"
+  },
+  {
+    "objectID": "slides/zz_wbdata.html#or-do-it-all-in-one-go",
+    "href": "slides/zz_wbdata.html#or-do-it-all-in-one-go",
+    "title": "World Bank Data",
+    "section": "Or Do it All in One Go",
+    "text": "Or Do it All in One Go\n\n\n# load th4e packages\nlibrary(janitor)\nlibrary(dplyr)\n\n# store the list of indicators in an object\nindicators &lt;- c(\"flfp\" = \"SL.TLF.CACT.FE.ZS\", \"women_rep\" = \"SG.GEN.PARL.ZS\") \n\n# Download the data  \nwomen_emp &lt;- wb_data(indicators, mrv = 50) |&gt; # download data for last 50 yrs\n  select(!iso2c) |&gt; # drop the iso2c code which we won't be using\n  rename(year = date) |&gt; # rename date to year \n  mutate(\n    flfp = round_to_fraction(flfp, denominator = 100), # round to nearest 100th\n    women_rep = round_to_fraction(women_rep, denominator = 100) \n  )\n\n# View the data\nglimpse(women_emp)"
+  },
+  {
+    "objectID": "slides/zz_wbdata.html#try-it-yourself-1",
+    "href": "slides/zz_wbdata.html#try-it-yourself-1",
+    "title": "World Bank Data",
+    "section": "Try it Yourself",
+    "text": "Try it Yourself\n\n\nUsing the variables you identified in your search, download the data\nThink about what elements of the code you need to change\nHint: the indicators are going to change!\n\n\n\n\n−+\n10:00\n\n\n\nexecute: echo: false message: false warning: false freeze: auto"
+  },
+  {
+    "objectID": "slides/week-5.2.html#types-of-variables",
+    "href": "slides/week-5.2.html#types-of-variables",
+    "title": "Describing and Visualizing Variables",
+    "section": "Types of variables",
+    "text": "Types of variables\n\nNumerical variables\n\nContinuous - infinite values\nDiscrete - non-negative whole numbers\n\nCategorical\n\nOrdinal – if there is a natural ordering\nWorld Region is categorical, but NOT ordinal"
+  },
+  {
+    "objectID": "slides/week-5.2.html#start-with-summarizing-a-numerical-variable",
+    "href": "slides/week-5.2.html#start-with-summarizing-a-numerical-variable",
+    "title": "Describing and Visualizing Variables",
+    "section": "Start with summarizing a numerical variable",
+    "text": "Start with summarizing a numerical variable\nLet’s Use the V-Dem Data Again"
+  },
+  {
+    "objectID": "slides/week-5.2.html#electoral-democracy-measure",
+    "href": "slides/week-5.2.html#electoral-democracy-measure",
+    "title": "Describing and Visualizing Variables",
+    "section": "Electoral Democracy Measure",
+    "text": "Electoral Democracy Measure\n\n\nTo what extent is the ideal of electoral democracy in its fullest sense achieved?\nMeasure runs from 0 (lowest) to 1 (highest) [0.5 is a cutoff they use for determining electoral democracy from electoral autocracy]\nClarification: The electoral principle of democracy seeks to embody the core value of making rulers responsive to citizens, achieved through electoral competition for the electorate’s approval under circumstances when suffrage is extensive; political and civil society organizations can operate freely; elections are clean and not marred by fraud or systematic irregularities; and elections affect the composition of the chief executive of the country. In between elections, there is freedom of expression and an independent media capable of presenting alternative views on matters of political relevance."
+  },
+  {
+    "objectID": "slides/week-5.2.html#other-high-level-v-dem-democracy-measures",
+    "href": "slides/week-5.2.html#other-high-level-v-dem-democracy-measures",
+    "title": "Describing and Visualizing Variables",
+    "section": "Other High Level V-Dem Democracy Measures",
+    "text": "Other High Level V-Dem Democracy Measures\n(to be explored in your homework…)\n\nLiberal Democracy\nEgalitarian Democracy\nParticipatory Democracy\nDeliberative Democracy"
+  },
+  {
+    "objectID": "slides/week-5.2.html#describe-and-summarize",
+    "href": "slides/week-5.2.html#describe-and-summarize",
+    "title": "Describing and Visualizing Variables",
+    "section": "Describe and Summarize",
+    "text": "Describe and Summarize\n\nHow can we use our data to describe or summarize the state of electoral democracy in the year 2022?"
+  },
+  {
+    "objectID": "slides/week-5.2.html#create-the-data",
+    "href": "slides/week-5.2.html#create-the-data",
+    "title": "Describing and Visualizing Variables",
+    "section": "Create the data",
+    "text": "Create the data\n\n# Create dataset for year 2022, with country name, year, and electoral dem\nlibrary(vdemdata)\nvdem2022 &lt;- vdem %&gt;% \n  mutate(region = e_regionpol_6C) %&gt;% \n  mutate(region = case_match(region, \n                        1 ~ \"Eastern Europe\", \n                        2 ~ \"Latin America\",  \n                        3 ~ \"Middle East\",   \n                        4 ~ \"Africa\", \n                        5 ~ \"The West\", \n                        6 ~ \"Asia\")) %&gt;%\n  filter(year == 2022)  %&gt;% \n  select(country_name, year, v2x_polyarchy, region, v2x_regime)"
+  },
+  {
+    "objectID": "slides/week-5.2.html#examine-the-data",
+    "href": "slides/week-5.2.html#examine-the-data",
+    "title": "Describing and Visualizing Variables",
+    "section": "Examine the data",
+    "text": "Examine the data\n\nglimpse(vdem2022)\n\nRows: 179\nColumns: 5\n$ country_name  &lt;chr&gt; \"Mexico\", \"Suriname\", \"Sweden\", \"Switzerland\", \"Ghana\", …\n$ year          &lt;dbl&gt; 2022, 2022, 2022, 2022, 2022, 2022, 2022, 2022, 2022, 20…\n$ v2x_polyarchy &lt;dbl&gt; 0.598, 0.770, 0.899, 0.898, 0.633, 0.692, 0.833, 0.093, …\n$ region        &lt;chr&gt; \"Latin America\", \"Latin America\", \"The West\", \"The West\"…\n$ v2x_regime    &lt;dbl&gt; 2, 2, 3, 3, 2, 2, 3, 0, 1, 1, 1, 0, 2, 2, 2, 3, 2, 1, 1,…"
+  },
+  {
+    "objectID": "slides/week-5.2.html#how-can-we-summarize-electoral-democracy",
+    "href": "slides/week-5.2.html#how-can-we-summarize-electoral-democracy",
+    "title": "Describing and Visualizing Variables",
+    "section": "How can we summarize electoral democracy?",
+    "text": "How can we summarize electoral democracy?"
+  },
+  {
+    "objectID": "slides/week-5.2.html#measures-of-centrality",
+    "href": "slides/week-5.2.html#measures-of-centrality",
+    "title": "Describing and Visualizing Variables",
+    "section": "Measures of Centrality",
+    "text": "Measures of Centrality\nWe could calculate the mean (mean)\n\nvdem2022 %&gt;% \n  summarize(mean_democracy = mean(v2x_polyarchy))\n\n  mean_democracy\n1          0.497"
+  },
+  {
+    "objectID": "slides/week-5.2.html#measures-of-centrality-1",
+    "href": "slides/week-5.2.html#measures-of-centrality-1",
+    "title": "Describing and Visualizing Variables",
+    "section": "Measures of Centrality",
+    "text": "Measures of Centrality\nWe could calculate the median (median)\n\nvdem2022 %&gt;% \n  summarize(median_democracy = median(v2x_polyarchy))\n\n  median_democracy\n1            0.501"
+  },
+  {
+    "objectID": "slides/week-5.2.html#describe-and-visualize-the-distribution",
+    "href": "slides/week-5.2.html#describe-and-visualize-the-distribution",
+    "title": "Describing and Visualizing Variables",
+    "section": "Describe and visualize the distribution",
+    "text": "Describe and visualize the distribution\nWe can describe the shape of the distribution\n\nsymmetric\nright-skewed\nleft-skewed\nunimodal (one peak)\nbimodal (multiple peaks)"
+  },
+  {
+    "objectID": "slides/week-5.2.html#symmetric-distributions",
+    "href": "slides/week-5.2.html#symmetric-distributions",
+    "title": "Describing and Visualizing Variables",
+    "section": "Symmetric distributions",
+    "text": "Symmetric distributions"
+  },
+  {
+    "objectID": "slides/week-5.2.html#symmetric-distributions-1",
+    "href": "slides/week-5.2.html#symmetric-distributions-1",
+    "title": "Describing and Visualizing Variables",
+    "section": "Symmetric distributions",
+    "text": "Symmetric distributions"
+  },
+  {
+    "objectID": "slides/week-5.2.html#skewed-distributions",
+    "href": "slides/week-5.2.html#skewed-distributions",
+    "title": "Describing and Visualizing Variables",
+    "section": "Skewed Distributions",
+    "text": "Skewed Distributions"
+  },
+  {
+    "objectID": "slides/week-5.2.html#skewed-distributions-1",
+    "href": "slides/week-5.2.html#skewed-distributions-1",
+    "title": "Describing and Visualizing Variables",
+    "section": "Skewed Distributions",
+    "text": "Skewed Distributions"
+  },
+  {
+    "objectID": "slides/week-5.2.html#bimodal-distribution",
+    "href": "slides/week-5.2.html#bimodal-distribution",
+    "title": "Describing and Visualizing Variables",
+    "section": "Bimodal Distribution",
+    "text": "Bimodal Distribution"
+  },
+  {
+    "objectID": "slides/week-5.2.html#when-is-the-mean-useful",
+    "href": "slides/week-5.2.html#when-is-the-mean-useful",
+    "title": "Describing and Visualizing Variables",
+    "section": "When is the mean useful?",
+    "text": "When is the mean useful?"
+  },
+  {
+    "objectID": "slides/week-5.2.html#when-is-the-mean-useful-1",
+    "href": "slides/week-5.2.html#when-is-the-mean-useful-1",
+    "title": "Describing and Visualizing Variables",
+    "section": "When is the mean useful?",
+    "text": "When is the mean useful?"
+  },
+  {
+    "objectID": "slides/week-5.2.html#when-is-the-mean-useful-2",
+    "href": "slides/week-5.2.html#when-is-the-mean-useful-2",
+    "title": "Describing and Visualizing Variables",
+    "section": "When is the mean useful?",
+    "text": "When is the mean useful?"
+  },
+  {
+    "objectID": "slides/week-5.2.html#when-is-the-mean-useful-3",
+    "href": "slides/week-5.2.html#when-is-the-mean-useful-3",
+    "title": "Describing and Visualizing Variables",
+    "section": "When is the mean useful?",
+    "text": "When is the mean useful?\n\n\nthe Mean works well as a summary statistic when the distribution is relatively symmetric\nNot as well when distributions are skewed or bimodal (or multi-modal)\n\nWith skewed distributions, the mean is sensitive to extreme values\n\nThe median is more robust"
+  },
+  {
+    "objectID": "slides/week-5.2.html#lesson",
+    "href": "slides/week-5.2.html#lesson",
+    "title": "Describing and Visualizing Variables",
+    "section": "Lesson",
+    "text": "Lesson\n\n\nAlways look at your data\nWhen reading or in a presentation, ask yourself:\n\nDoes the mean make sense given the distribution of the measure?\nCould extreme values in a skewed distribution make the mean not as useful?\nHave the analysts shown you the distribution? If not, ask about it!"
+  },
+  {
+    "objectID": "slides/week-5.2.html#visualize-our-measure",
+    "href": "slides/week-5.2.html#visualize-our-measure",
+    "title": "Describing and Visualizing Variables",
+    "section": "Visualize Our Measure",
+    "text": "Visualize Our Measure"
+  },
+  {
+    "objectID": "slides/week-5.2.html#recap",
+    "href": "slides/week-5.2.html#recap",
+    "title": "Describing and Visualizing Variables",
+    "section": "Recap",
+    "text": "Recap\n\n\nWe can use statistics like mean or median to describe the center of a variable\nWe can visualize the entire distribution to charachterize the distribution of the variable\nWe should also say something about the spread of the distribution"
+  },
+  {
+    "objectID": "slides/week-5.2.html#why-measure-and-visualize-spread",
+    "href": "slides/week-5.2.html#why-measure-and-visualize-spread",
+    "title": "Describing and Visualizing Variables",
+    "section": "Why Measure and Visualize Spread?",
+    "text": "Why Measure and Visualize Spread?"
+  },
+  {
+    "objectID": "slides/week-5.2.html#measures-of-spread",
+    "href": "slides/week-5.2.html#measures-of-spread",
+    "title": "Describing and Visualizing Variables",
+    "section": "Measures of Spread",
+    "text": "Measures of Spread\n\nRange (min and max values)\n\nNot ideal b/c does not tell us much about where most of the values are located\n\n\n\nvdem2022 %&gt;% \n  summarize(min = min(v2x_polyarchy),\n            max = max(v2x_polyarchy))\n\n    min   max\n1 0.016 0.916"
+  },
+  {
+    "objectID": "slides/week-5.2.html#interquartile-range",
+    "href": "slides/week-5.2.html#interquartile-range",
+    "title": "Describing and Visualizing Variables",
+    "section": "Interquartile Range",
+    "text": "Interquartile Range\nIQR: 25th percentile - 75th percentile"
+  },
+  {
+    "objectID": "slides/week-5.2.html#interquartile-range-1",
+    "href": "slides/week-5.2.html#interquartile-range-1",
+    "title": "Describing and Visualizing Variables",
+    "section": "Interquartile Range",
+    "text": "Interquartile Range\nThe middle 50 percent of the countries in the data lie between 0.262 and 0.747\nThe range length of 0.485 tells us something about the spread of the distribution\n\nvdem2022 %&gt;% \n  summarize(IQRlow =  quantile(v2x_polyarchy, .25),\n            IQRhigh = quantile(v2x_polyarchy, .75),\n            IQRlength = IQR(v2x_polyarchy)\n          )\n\n  IQRlow IQRhigh IQRlength\n1  0.262   0.747     0.485"
+  },
+  {
+    "objectID": "slides/week-5.2.html#measure-of-spead-standard-deviation",
+    "href": "slides/week-5.2.html#measure-of-spead-standard-deviation",
+    "title": "Describing and Visualizing Variables",
+    "section": "Measure of Spead: Standard Deviation",
+    "text": "Measure of Spead: Standard Deviation\n\n\nStandard deviation\nCan think of this as something like the “average distance” of each data point from the mean"
+  },
+  {
+    "objectID": "slides/week-5.2.html#measure-of-spead-standard-deviation-1",
+    "href": "slides/week-5.2.html#measure-of-spead-standard-deviation-1",
+    "title": "Describing and Visualizing Variables",
+    "section": "Measure of Spead: Standard Deviation",
+    "text": "Measure of Spead: Standard Deviation\n\n\nCan think of this as something like the “average distance” of each data point from the mean\n\n\nvdem2022 %&gt;% \n  summarize(mean = mean(v2x_polyarchy),\n            stdDev = sd(v2x_polyarchy))\n\n   mean   stdDev\n1 0.497 0.259951"
+  },
+  {
+    "objectID": "slides/week-5.2.html#standard-deviation-simple-example",
+    "href": "slides/week-5.2.html#standard-deviation-simple-example",
+    "title": "Describing and Visualizing Variables",
+    "section": "Standard Deviation Simple Example",
+    "text": "Standard Deviation Simple Example\n\nx = c(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\nmean(x)\n\n[1] 5"
+  },
+  {
+    "objectID": "slides/week-5.2.html#standard-deviation-simple-example-1",
+    "href": "slides/week-5.2.html#standard-deviation-simple-example-1",
+    "title": "Describing and Visualizing Variables",
+    "section": "Standard Deviation Simple Example",
+    "text": "Standard Deviation Simple Example\n\n\n\nFirst, we calculate the variance:\nFor each point, we calculate the deviation from the mean: \\[e_i = X_i - mean(X)\\]\n\nFor the point where the value is 0, this is: 0-5 = -5\nFor the point where the value is 10, this is: 10-5 = 5\n\nThen we square all of the \\(e_i\\) –&gt; \\(e_i^2\\), and add them up\n\nWhy do we square them?"
+  },
+  {
+    "objectID": "slides/week-5.2.html#standard-deviation-simple-example-2",
+    "href": "slides/week-5.2.html#standard-deviation-simple-example-2",
+    "title": "Describing and Visualizing Variables",
+    "section": "Standard Deviation Simple Example",
+    "text": "Standard Deviation Simple Example\n\n\n\nThen we divide by \\(N-1\\), the number of observations, to get an average squared deviation from the mean\nFinally, to get standard deviation, then take the square root of the variance\n\nThis transforms the variance back into the units of the original variable (it basically undoes the squaring we did before)"
+  },
+  {
+    "objectID": "slides/week-5.2.html#standard-deviation-simple-example-3",
+    "href": "slides/week-5.2.html#standard-deviation-simple-example-3",
+    "title": "Describing and Visualizing Variables",
+    "section": "Standard Deviation Simple Example",
+    "text": "Standard Deviation Simple Example\n\nx = c(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\ne &lt;- x - mean(x)\ne\n\n [1] -5 -4 -3 -2 -1  0  1  2  3  4  5"
+  },
+  {
+    "objectID": "slides/week-5.2.html#standard-deviation-simple-example-4",
+    "href": "slides/week-5.2.html#standard-deviation-simple-example-4",
+    "title": "Describing and Visualizing Variables",
+    "section": "Standard Deviation Simple Example",
+    "text": "Standard Deviation Simple Example\n\nx = c(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\ne_squared &lt;- e^2\ne_squared\n\n [1] 25 16  9  4  1  0  1  4  9 16 25"
+  },
+  {
+    "objectID": "slides/week-5.2.html#standard-deviation-simple-example-5",
+    "href": "slides/week-5.2.html#standard-deviation-simple-example-5",
+    "title": "Describing and Visualizing Variables",
+    "section": "Standard Deviation Simple Example",
+    "text": "Standard Deviation Simple Example\n\nx = c(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\nsum_e_squared &lt;- sum(e_squared)\nsum_e_squared\n\n[1] 110"
+  },
+  {
+    "objectID": "slides/week-5.2.html#standard-deviation-simple-example-6",
+    "href": "slides/week-5.2.html#standard-deviation-simple-example-6",
+    "title": "Describing and Visualizing Variables",
+    "section": "Standard Deviation Simple Example",
+    "text": "Standard Deviation Simple Example\n\nvariance &lt;- sum_e_squared/(length(x)-1)\nvariance\n\n[1] 11"
+  },
+  {
+    "objectID": "slides/week-5.2.html#standard-deviation-simple-example-7",
+    "href": "slides/week-5.2.html#standard-deviation-simple-example-7",
+    "title": "Describing and Visualizing Variables",
+    "section": "Standard Deviation Simple Example",
+    "text": "Standard Deviation Simple Example\n\nstandard_dev &lt;- sqrt(variance)\nstandard_dev\n\n[1] 3.316625\n\nsd(x)\n\n[1] 3.316625"
+  },
+  {
+    "objectID": "slides/week-5.2.html#questions",
+    "href": "slides/week-5.2.html#questions",
+    "title": "Describing and Visualizing Variables",
+    "section": "Questions?",
+    "text": "Questions?"
+  },
+  {
+    "objectID": "slides/week-5.2.html#calculating-statistics-by-groups",
+    "href": "slides/week-5.2.html#calculating-statistics-by-groups",
+    "title": "Describing and Visualizing Variables",
+    "section": "Calculating Statistics by groups",
+    "text": "Calculating Statistics by groups\n\n\n\nWhat if we want to describe electoral democracy and see how it differs by some different variable? For example, by world region, or by year?\nThis brings us back to bar chart\nLast week, I made the data for you: with the code I’ve shown today, you could make it yourself straight from V-Dem"
+  },
+  {
+    "objectID": "slides/week-5.2.html#calculating-statistics-by-groups-1",
+    "href": "slides/week-5.2.html#calculating-statistics-by-groups-1",
+    "title": "Describing and Visualizing Variables",
+    "section": "Calculating Statistics by groups",
+    "text": "Calculating Statistics by groups\n\nLet’s calculate the mean and median of electoral democracy in each world region\nFor this, we add the group_by() to our previous code\n\n\nvdem2022 %&gt;% \n  group_by(region) %&gt;% \n  summarize(mean_dem = mean(v2x_polyarchy),\n            median_dem = median(v2x_polyarchy))\n\n# A tibble: 6 × 3\n  region         mean_dem median_dem\n  &lt;chr&gt;             &lt;dbl&gt;      &lt;dbl&gt;\n1 Africa            0.403      0.371\n2 Asia              0.424      0.428\n3 Eastern Europe    0.533      0.558\n4 Latin America     0.605      0.678\n5 Middle East       0.235      0.213\n6 The West          0.854      0.857"
+  },
+  {
+    "objectID": "slides/week-5.2.html#calculating-statistics-by-groups-2",
+    "href": "slides/week-5.2.html#calculating-statistics-by-groups-2",
+    "title": "Describing and Visualizing Variables",
+    "section": "Calculating Statistics by groups",
+    "text": "Calculating Statistics by groups\n\nLet’s store our statistics as a new data object, democracy_region\n\n\ndemocracy_region &lt;- vdem2022 %&gt;% \n  group_by(region) %&gt;% \n  summarize(mean_dem = mean(v2x_polyarchy),\n            median_dem = median(v2x_polyarchy))\n\ndemocracy_region\n\n# A tibble: 6 × 3\n  region         mean_dem median_dem\n  &lt;chr&gt;             &lt;dbl&gt;      &lt;dbl&gt;\n1 Africa            0.403      0.371\n2 Asia              0.424      0.428\n3 Eastern Europe    0.533      0.558\n4 Latin America     0.605      0.678\n5 Middle East       0.235      0.213\n6 The West          0.854      0.857"
+  },
+  {
+    "objectID": "slides/week-5.2.html#visualize-using-our-bar-chart-skills",
+    "href": "slides/week-5.2.html#visualize-using-our-bar-chart-skills",
+    "title": "Describing and Visualizing Variables",
+    "section": "Visualize using our Bar Chart Skills",
+    "text": "Visualize using our Bar Chart Skills\n\n\nCode\nggplot(democracy_region, aes(x = reorder(region, -mean_dem), y = mean_dem)) +\n  geom_col(fill = \"steelblue\") + \n  labs(\n    x = \"Region\", \n    y = \"Mean Polyarchy Score\", \n    title = \"Democracy by region, 1990 - present\", \n    caption = \"Source: V-Dem Institute\"\n    ) + theme_minimal()"
+  },
+  {
+    "objectID": "slides/week-5.2.html#v-dem-regimes-of-the-world-measure",
+    "href": "slides/week-5.2.html#v-dem-regimes-of-the-world-measure",
+    "title": "Describing and Visualizing Variables",
+    "section": "V-Dem Regimes of the World Measure",
+    "text": "V-Dem Regimes of the World Measure\n\nClosed Autocracy\nElectoral Autocracy\nElectoral Democracy\nLiberal Democracy"
+  },
+  {
+    "objectID": "slides/week-5.2.html#data-setup",
+    "href": "slides/week-5.2.html#data-setup",
+    "title": "Describing and Visualizing Variables",
+    "section": "Data Setup",
+    "text": "Data Setup\n\nvdem2022 &lt;- vdem2022 %&gt;% \n  mutate(regime = case_match(v2x_regime,\n                    0 ~ \"Closed Autocracy\",\n                    1 ~ \"Electoral Autocracy\",\n                    2 ~  \"Electoral Democracy\",\n                    3 ~  \"Liberal Democracy\")\n  )"
+  },
+  {
+    "objectID": "slides/week-5.2.html#describe-regimes-of-the-world-in-2022",
+    "href": "slides/week-5.2.html#describe-regimes-of-the-world-in-2022",
+    "title": "Describing and Visualizing Variables",
+    "section": "Describe regimes of the world in 2022",
+    "text": "Describe regimes of the world in 2022\nWe could count the number of each regime type\n\nvdem2022 %&gt;% \n  count(regime)\n\n               regime  n\n1    Closed Autocracy 33\n2 Electoral Autocracy 56\n3 Electoral Democracy 58\n4   Liberal Democracy 32"
+  },
+  {
+    "objectID": "slides/week-5.2.html#describe-regimes-of-the-world-in-2022-1",
+    "href": "slides/week-5.2.html#describe-regimes-of-the-world-in-2022-1",
+    "title": "Describing and Visualizing Variables",
+    "section": "Describe regimes of the world in 2022",
+    "text": "Describe regimes of the world in 2022\nContingency Table\n\nlibrary(gt)\ncount_regime &lt;-vdem2022 %&gt;% \n  count(regime)\ngt(count_regime)\n\n\n\n\n\n\n\nregime\nn\n\n\n\n\nClosed Autocracy\n33\n\n\nElectoral Autocracy\n56\n\n\nElectoral Democracy\n58\n\n\nLiberal Democracy\n32"
+  },
+  {
+    "objectID": "slides/week-5.2.html#bar-plot-is-usually-better",
+    "href": "slides/week-5.2.html#bar-plot-is-usually-better",
+    "title": "Describing and Visualizing Variables",
+    "section": "Bar Plot is Usually Better",
+    "text": "Bar Plot is Usually Better\n\n\nCode\nvdem2022 %&gt;%\n  ggplot(., aes(x = regime)) +\n      geom_bar(fill = \"steelblue\") +\n  theme_minimal() +\n  labs(\n    x = \"Regime\",\n    y = \"Frequency\",\n    title = \"Regimes of the World in 2022\",\n    caption = \"Source: V-Dem Institute\"\n  )"
+  },
+  {
+    "objectID": "slides/week-5.2.html#summarizing-a-categorical-variable-by-a-goup",
+    "href": "slides/week-5.2.html#summarizing-a-categorical-variable-by-a-goup",
+    "title": "Describing and Visualizing Variables",
+    "section": "Summarizing a categorical variable by a goup",
+    "text": "Summarizing a categorical variable by a goup\nHow do Regimes Vary by Region?"
+  },
+  {
+    "objectID": "slides/week-5.2.html#how-do-regimes-vary-by-region",
+    "href": "slides/week-5.2.html#how-do-regimes-vary-by-region",
+    "title": "Describing and Visualizing Variables",
+    "section": "How do Regimes Vary by Region?",
+    "text": "How do Regimes Vary by Region?\n\n\nCode\nvdem2022 %&gt;%\n  ggplot(., aes(x = region, fill = regime)) +\n      geom_bar() +\n  theme_minimal() +\n  labs(\n    x = \"Region\",\n    y = \"Frequency\",\n    title = \"Regimes of the World by World Region in 2022\",\n    caption = \"Source: V-Dem Institute\",\n    fill = \"Regime\"\n  )"
+  },
+  {
+    "objectID": "slides/week-5.2.html#how-could-we-improve-this-graph",
+    "href": "slides/week-5.2.html#how-could-we-improve-this-graph",
+    "title": "Describing and Visualizing Variables",
+    "section": "How could we improve this graph??",
+    "text": "How could we improve this graph??"
+  },
+  {
+    "objectID": "slides/week-5.2.html#colors-need-improving",
+    "href": "slides/week-5.2.html#colors-need-improving",
+    "title": "Describing and Visualizing Variables",
+    "section": "Colors need improving",
+    "text": "Colors need improving\n\n\nCode\nvdem2022 %&gt;%\n  ggplot(., aes(x = region, fill = regime)) +\n      geom_bar() +\n  theme_minimal() +\n  labs(\n    x = \"Region\",\n    y = \"Frequency\",\n    title = \"Regimes of the World by World Region in 2022\",\n    caption = \"Source: V-Dem Institute\",\n    fill = \"Regime\"\n  ) +\n  scale_fill_viridis_d(option = \"inferno\", end = .8)"
+  },
+  {
+    "objectID": "slides/week-5.2.html#region-size",
+    "href": "slides/week-5.2.html#region-size",
+    "title": "Describing and Visualizing Variables",
+    "section": "Region Size",
+    "text": "Region Size\nSome regions have more countries than others. Why does this create an issue for telling a story with our data here?"
+  },
+  {
+    "objectID": "slides/week-5.2.html#is-this-better",
+    "href": "slides/week-5.2.html#is-this-better",
+    "title": "Describing and Visualizing Variables",
+    "section": "Is this better?",
+    "text": "Is this better?\n\n\nCode\nvdem2022 %&gt;%\n  ggplot(., aes(x = region, fill = regime)) +\n      geom_bar(position = \"fill\") +\n  theme_minimal() +\n  labs(\n    x = \"Region\",\n    y = \"Proportion\",\n    title = \"Regimes of the World by World Region in 2022\",\n    caption = \"Source: V-Dem Institute\",\n    fill = \"Regime\"\n  ) +\n  scale_fill_viridis_d(option = \"inferno\", end = .8)"
+  },
+  {
+    "objectID": "slides/week-5.2.html#numerical-variable-by-group",
+    "href": "slides/week-5.2.html#numerical-variable-by-group",
+    "title": "Describing and Visualizing Variables",
+    "section": "Numerical Variable by Group",
+    "text": "Numerical Variable by Group\nHow should we interpret this plot?\n\n\nCode\nlibrary(ggridges)\nlibrary(forcats)\n  ggplot(vdem2022, aes(x = v2x_polyarchy, y = region, fill = region)) +\n           geom_density_ridges() +\n      labs(\n    x = \"Electoral Democracy\",\n    y = \"Region\",\n    title = \"A Ridge Plot\",\n    caption = \"Source: V-Dem Institute\",\n  ) +\n  scale_fill_viridis_d() +\n    theme_bw()"
+  },
+  {
+    "objectID": "slides/zz_tables2.html",
+    "href": "slides/zz_tables2.html",
+    "title": "gt Tables",
+    "section": "",
+    "text": "Create states data frame…\n\n# lowest \nstate_min &lt;- quintiles |&gt; \n  slice_min(q1) \n\n# highest\nstate_max &lt;- quintiles |&gt; \n  slice_max(top5) \n\n# randomly select five more\nfive_more &lt;- quintiles |&gt;\n   slice_sample(n = 5) \n\nstates &lt;- bind_rows(state_min, state_max, five_more) |&gt;\n  arrange(desc(top5))\n\n\n\n\n−+\n10:00"
+  },
+  {
+    "objectID": "slides/zz_tables2.html#lets-make-a-gt-table",
+    "href": "slides/zz_tables2.html#lets-make-a-gt-table",
+    "title": "gt Tables",
+    "section": "",
+    "text": "Create states data frame…\n\n# lowest \nstate_min &lt;- quintiles |&gt; \n  slice_min(q1) \n\n# highest\nstate_max &lt;- quintiles |&gt; \n  slice_max(top5) \n\n# randomly select five more\nfive_more &lt;- quintiles |&gt;\n   slice_sample(n = 5) \n\nstates &lt;- bind_rows(state_min, state_max, five_more) |&gt;\n  arrange(desc(top5))\n\n\n\n\n−+\n10:00"
+  },
+  {
+    "objectID": "slides/zz_tables2.html#lets-make-a-gt-table-1",
+    "href": "slides/zz_tables2.html#lets-make-a-gt-table-1",
+    "title": "gt Tables",
+    "section": "Let’s make a gt table",
+    "text": "Let’s make a gt table\n\n\nlibrary(gt)\ngt(states)\n\n\n\n\n\n\n\nname\nq1\nq2\nq3\nq4\nq5\ntop5\n\n\n\n\nDistrict of Columbia\n12971\n51060\n94478\n157803\n375792\n670768\n\n\nWashington\n19367\n50803\n82817\n127003\n277165\n487950\n\n\nRhode Island\n15069\n42774\n74564\n115030\n242103\n424473\n\n\nNevada\n15024\n40468\n66247\n101591\n224480\n410161\n\n\nNebraska\n16506\n41590\n66977\n100910\n213091\n378679\n\n\nMaine\n14836\n38190\n63621\n97559\n205365\n359776\n\n\nPuerto Rico\n2906\n12144\n22163\n38397\n99043\n187234"
+  },
+  {
+    "objectID": "slides/zz_tables2.html#lets-make-a-good-gt-table",
+    "href": "slides/zz_tables2.html#lets-make-a-good-gt-table",
+    "title": "gt Tables",
+    "section": "Let’s make a good gt table",
+    "text": "Let’s make a good gt table\n\n\n\n\n\n\n\n\n\nMean Household Income of Quintiles, 2021\n\n\nSeven Representative U.S. States\n\n\n\nlowest\nsecond\nthird\nfourth\nhighest\ntop 5%\n\n\n\n\nDistrict of Columbia\n$12,971\n$51,060\n$94,478\n$157,803\n$375,792\n$670,768\n\n\nWashington\n$19,367\n$50,803\n$82,817\n$127,003\n$277,165\n$487,950\n\n\nRhode Island\n$15,069\n$42,774\n$74,564\n$115,030\n$242,103\n$424,473\n\n\nNevada\n$15,024\n$40,468\n$66,247\n$101,591\n$224,480\n$410,161\n\n\nNebraska\n$16,506\n$41,590\n$66,977\n$100,910\n$213,091\n$378,679\n\n\nMaine\n$14,836\n$38,190\n$63,621\n$97,559\n$205,365\n$359,776\n\n\nPuerto Rico\n$2,906\n$12,144\n$22,163\n$38,397\n$99,043\n$187,234\n\n\n\nSource: US Census Bureau, American Community Survey"
+  },
+  {
+    "objectID": "slides/zz_tables2.html#lets-make-a-good-gt-table-1",
+    "href": "slides/zz_tables2.html#lets-make-a-good-gt-table-1",
+    "title": "gt Tables",
+    "section": "Let’s make a good gt table",
+    "text": "Let’s make a good gt table\n\ngoodtable &lt;- gt(states) |&gt; \n  tab_header(\n    title = \"Mean Household Income of Quintiles, 2021\",\n    subtitle = \"Seven Representative U.S. States\"\n  ) |&gt; \n  cols_label(\n    name = \"\",\n    q1 = \"lowest\",\n    q2 = \"second\",\n    q3 = \"third\",\n    q4 = \"fourth\",\n    q5 = \"highest\",\n    top5 = \"top 5%\"\n  ) |&gt; \n  fmt_currency(\n    columns = c(q1:top5),\n    currency = \"USD\", \n    use_subunits = FALSE\n  ) |&gt;\n  # note that you can use markdown (md) to format the source note for html documents\n  tab_source_note(source_note = md(\"**Source**: US Census Bureau, American Community Survey\"))\n\ngoodtable\n\n\n\n\n−+\n10:00"
+  },
+  {
+    "objectID": "slides/zz_tables2.html#change-colum-width",
+    "href": "slides/zz_tables2.html#change-colum-width",
+    "title": "gt Tables",
+    "section": "Change Colum Width",
+    "text": "Change Colum Width\n\n\n\n\n\n\n\n\n\nMean Household Income of Quintiles, 2021\n\n\nSeven Representative U.S. States\n\n\n\nlowest\nsecond\nthird\nfourth\nhighest\ntop 5%\n\n\n\n\nDistrict of Columbia\n$12,971\n$51,060\n$94,478\n$157,803\n$375,792\n$670,768\n\n\nWashington\n$19,367\n$50,803\n$82,817\n$127,003\n$277,165\n$487,950\n\n\nRhode Island\n$15,069\n$42,774\n$74,564\n$115,030\n$242,103\n$424,473\n\n\nNevada\n$15,024\n$40,468\n$66,247\n$101,591\n$224,480\n$410,161\n\n\nNebraska\n$16,506\n$41,590\n$66,977\n$100,910\n$213,091\n$378,679\n\n\nMaine\n$14,836\n$38,190\n$63,621\n$97,559\n$205,365\n$359,776\n\n\nPuerto Rico\n$2,906\n$12,144\n$22,163\n$38,397\n$99,043\n$187,234\n\n\n\nSource: US Census Bureau, American Community Survey"
+  },
+  {
+    "objectID": "slides/zz_tables2.html#change-colum-width-1",
+    "href": "slides/zz_tables2.html#change-colum-width-1",
+    "title": "gt Tables",
+    "section": "Change Colum Width",
+    "text": "Change Colum Width\n\n\nvgoodtable &lt;- goodtable |&gt;\n  cols_width(c(q1:top5) ~ px(90))\n\nvgoodtable"
+  },
+  {
+    "objectID": "slides/zz_tables2.html#change-font",
+    "href": "slides/zz_tables2.html#change-font",
+    "title": "gt Tables",
+    "section": "Change Font",
+    "text": "Change Font\n\n\n\n\n\n\n\n\n\nMean Household Income of Quintiles, 2021\n\n\nSeven Representative U.S. States\n\n\n\nlowest\nsecond\nthird\nfourth\nhighest\ntop 5%\n\n\n\n\nDistrict of Columbia\n$12,971\n$51,060\n$94,478\n$157,803\n$375,792\n$670,768\n\n\nWashington\n$19,367\n$50,803\n$82,817\n$127,003\n$277,165\n$487,950\n\n\nRhode Island\n$15,069\n$42,774\n$74,564\n$115,030\n$242,103\n$424,473\n\n\nNevada\n$15,024\n$40,468\n$66,247\n$101,591\n$224,480\n$410,161\n\n\nNebraska\n$16,506\n$41,590\n$66,977\n$100,910\n$213,091\n$378,679\n\n\nMaine\n$14,836\n$38,190\n$63,621\n$97,559\n$205,365\n$359,776\n\n\nPuerto Rico\n$2,906\n$12,144\n$22,163\n$38,397\n$99,043\n$187,234\n\n\n\nSource: US Census Bureau, American Community Survey"
+  },
+  {
+    "objectID": "slides/zz_tables2.html#change-font-1",
+    "href": "slides/zz_tables2.html#change-font-1",
+    "title": "gt Tables",
+    "section": "Change Font",
+    "text": "Change Font\n\n\ngreattable &lt;- vgoodtable |&gt;\n  opt_table_font(font = \"verdana\")\n\ngreattable"
+  },
+  {
+    "objectID": "slides/zz_tables2.html#center",
+    "href": "slides/zz_tables2.html#center",
+    "title": "gt Tables",
+    "section": "Center",
+    "text": "Center\n\n\n\n\n\n\n\n\n\nMean Household Income of Quintiles, 2021\n\n\nSeven Representative U.S. States\n\n\n\nlowest\nsecond\nthird\nfourth\nhighest\ntop 5%\n\n\n\n\nDistrict of Columbia\n$12,971\n$51,060\n$94,478\n$157,803\n$375,792\n$670,768\n\n\nWashington\n$19,367\n$50,803\n$82,817\n$127,003\n$277,165\n$487,950\n\n\nRhode Island\n$15,069\n$42,774\n$74,564\n$115,030\n$242,103\n$424,473\n\n\nNevada\n$15,024\n$40,468\n$66,247\n$101,591\n$224,480\n$410,161\n\n\nNebraska\n$16,506\n$41,590\n$66,977\n$100,910\n$213,091\n$378,679\n\n\nMaine\n$14,836\n$38,190\n$63,621\n$97,559\n$205,365\n$359,776\n\n\nPuerto Rico\n$2,906\n$12,144\n$22,163\n$38,397\n$99,043\n$187,234\n\n\n\nSource: US Census Bureau, American Community Survey"
+  },
+  {
+    "objectID": "slides/zz_tables2.html#center-1",
+    "href": "slides/zz_tables2.html#center-1",
+    "title": "gt Tables",
+    "section": "Center",
+    "text": "Center\n\n\nvgreattable &lt;- greattable |&gt;\n  cols_align(\n  align = \"center\",\n  columns = q1:top5\n)\n\nvgreattable"
+  },
+  {
+    "objectID": "slides/zz_tables2.html#add-borders-and-lines",
+    "href": "slides/zz_tables2.html#add-borders-and-lines",
+    "title": "gt Tables",
+    "section": "Add Borders and Lines",
+    "text": "Add Borders and Lines\n\n\n\n\n\n\n\n\n\nMean Household Income of Quintiles, 2021\n\n\nSeven Representative U.S. States\n\n\n\nlowest\nsecond\nthird\nfourth\nhighest\ntop 5%\n\n\n\n\nDistrict of Columbia\n$12,971\n$51,060\n$94,478\n$157,803\n$375,792\n$670,768\n\n\nWashington\n$19,367\n$50,803\n$82,817\n$127,003\n$277,165\n$487,950\n\n\nRhode Island\n$15,069\n$42,774\n$74,564\n$115,030\n$242,103\n$424,473\n\n\nNevada\n$15,024\n$40,468\n$66,247\n$101,591\n$224,480\n$410,161\n\n\nNebraska\n$16,506\n$41,590\n$66,977\n$100,910\n$213,091\n$378,679\n\n\nMaine\n$14,836\n$38,190\n$63,621\n$97,559\n$205,365\n$359,776\n\n\nPuerto Rico\n$2,906\n$12,144\n$22,163\n$38,397\n$99,043\n$187,234\n\n\n\nSource: US Census Bureau, American Community Survey"
+  },
+  {
+    "objectID": "slides/zz_tables2.html#export-table",
+    "href": "slides/zz_tables2.html#export-table",
+    "title": "gt Tables",
+    "section": "Export Table",
+    "text": "Export Table\n\n\ngtsave(awesometable, \"awesometable.png\")"
+  },
+  {
+    "objectID": "slides/zz_tables2.html#not-a-good-table",
+    "href": "slides/zz_tables2.html#not-a-good-table",
+    "title": "gt Tables",
+    "section": "Not a Good Table",
+    "text": "Not a Good Table\n\n\n\n\n\nname\nestimate\nlower_90\nupper_90\n\n\n\n\nBarnstable\n40442\n39554\n41330\n\n\nBerkshire\n33040\n32074\n34006\n\n\nBristol\n36910\n36347\n37473\n\n\nDukes\n40119\n34791\n45447\n\n\nEssex\n39756\n39174\n40338\n\n\nFranklin\n34775\n33712\n35838\n\n\nHampden\n32262\n31707\n32817\n\n\nHampshire\n30795\n29868\n31722\n\n\nMiddlesex\n51808\n51337\n52279\n\n\nNantucket\n45717\n38260\n53174\n\n\nNorfolk\n52591\n51991\n53191\n\n\nPlymouth\n43684\n43014\n44354\n\n\nSuffolk\n39200\n38624\n39776\n\n\nWorcester\n39009\n38454\n39564"
+  },
+  {
+    "objectID": "slides/zz_tables2.html#use-confidence-intervals-instead",
+    "href": "slides/zz_tables2.html#use-confidence-intervals-instead",
+    "title": "gt Tables",
+    "section": "Use Confidence Intervals Instead",
+    "text": "Use Confidence Intervals Instead"
+  },
+  {
+    "objectID": "slides/zz_tables2.html#use-confidence-intervals-instead-1",
+    "href": "slides/zz_tables2.html#use-confidence-intervals-instead-1",
+    "title": "gt Tables",
+    "section": "Use Confidence Intervals Instead",
+    "text": "Use Confidence Intervals Instead\n\nlibrary(ggplot2)\n\nmass_med_inc |&gt;\n  ggplot(aes(x = estimate, y = reorder(name, estimate))) +\n  geom_errorbar(aes(xmin = lower_90, xmax = upper_90)) +\n  geom_point(color = \"red\", size = 2) +\n  labs(title = \"Household income by county in Massachusetts\",\n       subtitle = \"2017-2021 American Community Survey\",\n       y = \"\",\n       x = \"Median Income\", \n       caption = \"ACS estimate (bars represent 90% confidence intervals)\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "slides/zz_tables.html",
+    "href": "slides/zz_tables.html",
+    "title": "Making Tables",
+    "section": "",
+    "text": "Summary statistics\nPrecise values (for small number of cases)\nRegression tables"
+  },
+  {
+    "objectID": "slides/zz_tables.html#why-tables",
+    "href": "slides/zz_tables.html#why-tables",
+    "title": "Making Tables",
+    "section": "",
+    "text": "Summary statistics\nPrecise values (for small number of cases)\nRegression tables"
+  },
+  {
+    "objectID": "slides/zz_tables.html#awesome-table",
+    "href": "slides/zz_tables.html#awesome-table",
+    "title": "Making Tables",
+    "section": "Awesome Table",
+    "text": "Awesome Table\n\n\n\n\n\n\n\n\n\nMean Household Income of Quintiles, 2021\n\n\nSeven Representative U.S. States\n\n\n\nlowest\nsecond\nthird\nfourth\nhighest\ntop 5%\n\n\n\n\nDistrict of Columbia\n$12,971\n$51,060\n$94,478\n$157,803\n$375,792\n$670,768\n\n\nColorado\n$18,963\n$49,711\n$80,679\n$123,359\n$264,516\n$466,181\n\n\nNevada\n$15,024\n$40,468\n$66,247\n$101,591\n$224,480\n$410,161\n\n\nSouth Carolina\n$12,680\n$34,881\n$58,665\n$92,118\n$207,367\n$374,427\n\n\nLouisiana\n$10,371\n$29,781\n$53,925\n$89,536\n$201,514\n$357,026\n\n\nMississippi\n$10,096\n$27,963\n$49,418\n$80,125\n$175,581\n$308,523\n\n\nPuerto Rico\n$2,906\n$12,144\n$22,163\n$38,397\n$99,043\n$187,234\n\n\n\nSource: US Census Bureau, American Community Survey"
+  },
+  {
+    "objectID": "slides/zz_tables.html#when-not-to-use-tables",
+    "href": "slides/zz_tables.html#when-not-to-use-tables",
+    "title": "Making Tables",
+    "section": "When Not to Use Tables?",
+    "text": "When Not to Use Tables?\n\n\n\nTo show a trend\nDisplay a relationship\nLots of values\nFew values but column chart is better"
+  },
+  {
+    "objectID": "slides/zz_tables.html#the-grammar-of-tables",
+    "href": "slides/zz_tables.html#the-grammar-of-tables",
+    "title": "Making Tables",
+    "section": "The Grammar of Tables",
+    "text": "The Grammar of Tables"
+  },
+  {
+    "objectID": "slides/zz_tables.html#prep",
+    "href": "slides/zz_tables.html#prep",
+    "title": "Making Tables",
+    "section": "Prep",
+    "text": "Prep\n\nDo the prework for the module\nGet a census API key"
+  },
+  {
+    "objectID": "slides/zz_tables.html#set-api-key",
+    "href": "slides/zz_tables.html#set-api-key",
+    "title": "Making Tables",
+    "section": "Set API key",
+    "text": "Set API key\n\n\nlibrary(tidycensus)\ncensus_api_key(\"YOUR API KEY\") # enter your census api key here in quotes"
+  },
+  {
+    "objectID": "slides/zz_tables.html#load-variables",
+    "href": "slides/zz_tables.html#load-variables",
+    "title": "Making Tables",
+    "section": "Load Variables",
+    "text": "Load Variables\n\nSearch for “quintile”…\n\n\nv21 &lt;- load_variables(2021, \"acs5\", cache = TRUE)\n\n#View(v21)"
+  },
+  {
+    "objectID": "slides/zz_tables.html#clean-the-data",
+    "href": "slides/zz_tables.html#clean-the-data",
+    "title": "Making Tables",
+    "section": "Clean the Data",
+    "text": "Clean the Data\n\nlibrary(stringr)\nlibrary(dplyr)\n\nquintiles &lt;- get_acs(geography = \"state\", \n                      variables = c(q1 = \"B19081_001\",\n                                    q2 = \"B19081_002\",\n                                    q3 = \"B19081_003\",\n                                    q4 = \"B19081_004\",\n                                    q5 = \"B19081_005\",\n                                    top5 = \"B19081_006\"),\n                      year = 2021,\n                      output = \"wide\") |&gt;\n                      select(\n                        !ends_with(\"M\"), # eliminate margin of error\n                        -GEOID) |&gt; # eliminate geo id\n                      rename(name = NAME) |&gt;\n                      rename_with(~str_remove(., 'E'))\n    \n\nglimpse(quintiles)\n\n\n\n\n−+\n10:00"
+  },
+  {
+    "objectID": "slides/zz_tables.html#kableextra-table",
+    "href": "slides/zz_tables.html#kableextra-table",
+    "title": "Making Tables",
+    "section": "kableExtra Table",
+    "text": "kableExtra Table\n\n\n\n\n\nname\nq1\nq2\nq3\nq4\nq5\ntop5\n\n\n\n\nDistrict of Columbia\n12971\n51060\n94478\n157803\n375792\n670768\n\n\nConnecticut\n17417\n48870\n84042\n133488\n319533\n602707\n\n\nNew York\n14054\n42220\n75647\n123318\n302676\n574063\n\n\nNew Jersey\n18458\n52339\n90337\n142858\n319140\n562886\n\n\nMassachusetts\n16812\n50519\n89602\n142491\n316447\n558616\n\n\nCalifornia\n17433\n49234\n84658\n134560\n309857\n555007\n\n\nMaryland\n19946\n55165\n91725\n140353\n293979\n503597\n\n\nWashington\n19367\n50803\n82817\n127003\n277165\n487950\n\n\nVirginia\n17922\n48359\n81072\n127411\n280299\n486006\n\n\nIllinois\n15102\n42688\n72900\n114531\n258373\n466713"
+  },
+  {
+    "objectID": "slides/zz_tables.html#kableextra-table-1",
+    "href": "slides/zz_tables.html#kableextra-table-1",
+    "title": "Making Tables",
+    "section": "kableExtra Table",
+    "text": "kableExtra Table\n\n\ntop_10 &lt;- quintiles |&gt;\n  slice_max(top5, n = 10)\n\nkable(top_10)"
+  },
+  {
+    "objectID": "slides/zz_tables.html#issues-with-this-table",
+    "href": "slides/zz_tables.html#issues-with-this-table",
+    "title": "Making Tables",
+    "section": "Issues with this table?",
+    "text": "Issues with this table?\n\n\n\n\n\nname\nq1\nq2\nq3\nq4\nq5\ntop5\n\n\n\n\nDistrict of Columbia\n12971\n51060\n94478\n157803\n375792\n670768\n\n\nConnecticut\n17417\n48870\n84042\n133488\n319533\n602707\n\n\nNew York\n14054\n42220\n75647\n123318\n302676\n574063\n\n\nNew Jersey\n18458\n52339\n90337\n142858\n319140\n562886\n\n\nMassachusetts\n16812\n50519\n89602\n142491\n316447\n558616\n\n\nCalifornia\n17433\n49234\n84658\n134560\n309857\n555007\n\n\nMaryland\n19946\n55165\n91725\n140353\n293979\n503597\n\n\nWashington\n19367\n50803\n82817\n127003\n277165\n487950\n\n\nVirginia\n17922\n48359\n81072\n127411\n280299\n486006\n\n\nIllinois\n15102\n42688\n72900\n114531\n258373\n466713"
+  },
+  {
+    "objectID": "slides/zz_tables.html#lets-make-a-gt-table",
+    "href": "slides/zz_tables.html#lets-make-a-gt-table",
+    "title": "Making Tables",
+    "section": "Let’s make a gt table",
+    "text": "Let’s make a gt table\nCreate states data frame…\n\n# lowest \nstate_min &lt;- quintiles |&gt; \n  slice_min(q1) \n\n# highest\nstate_max &lt;- quintiles |&gt; \n  slice_max(top5) \n\n# randomly select five more\nfive_more &lt;- quintiles |&gt;\n   slice_sample(n = 5) \n\nstates &lt;- bind_rows(state_min, state_max, five_more) |&gt;\n  arrange(desc(top5))\n\n\n\n\n−+\n05:00"
+  },
+  {
+    "objectID": "slides/zz_tables.html#lets-make-a-gt-table-1",
+    "href": "slides/zz_tables.html#lets-make-a-gt-table-1",
+    "title": "Making Tables",
+    "section": "Let’s make a gt table",
+    "text": "Let’s make a gt table\n\n\nlibrary(gt)\ngt(states)\n\n\n\n\n\n\n\nname\nq1\nq2\nq3\nq4\nq5\ntop5\n\n\n\n\nDistrict of Columbia\n12971\n51060\n94478\n157803\n375792\n670768\n\n\nColorado\n18963\n49711\n80679\n123359\n264516\n466181\n\n\nNevada\n15024\n40468\n66247\n101591\n224480\n410161\n\n\nSouth Carolina\n12680\n34881\n58665\n92118\n207367\n374427\n\n\nLouisiana\n10371\n29781\n53925\n89536\n201514\n357026\n\n\nMississippi\n10096\n27963\n49418\n80125\n175581\n308523\n\n\nPuerto Rico\n2906\n12144\n22163\n38397\n99043\n187234"
+  },
+  {
+    "objectID": "slides/zz_tables.html#lets-make-a-good-gt-table",
+    "href": "slides/zz_tables.html#lets-make-a-good-gt-table",
+    "title": "Making Tables",
+    "section": "Let’s make a good gt table",
+    "text": "Let’s make a good gt table\n\n\n\n\n\n\n\n\n\nMean Household Income of Quintiles, 2021\n\n\nSeven Representative U.S. States\n\n\n\nlowest\nsecond\nthird\nfourth\nhighest\ntop 5%\n\n\n\n\nDistrict of Columbia\n$12,971\n$51,060\n$94,478\n$157,803\n$375,792\n$670,768\n\n\nColorado\n$18,963\n$49,711\n$80,679\n$123,359\n$264,516\n$466,181\n\n\nNevada\n$15,024\n$40,468\n$66,247\n$101,591\n$224,480\n$410,161\n\n\nSouth Carolina\n$12,680\n$34,881\n$58,665\n$92,118\n$207,367\n$374,427\n\n\nLouisiana\n$10,371\n$29,781\n$53,925\n$89,536\n$201,514\n$357,026\n\n\nMississippi\n$10,096\n$27,963\n$49,418\n$80,125\n$175,581\n$308,523\n\n\nPuerto Rico\n$2,906\n$12,144\n$22,163\n$38,397\n$99,043\n$187,234\n\n\n\nSource: US Census Bureau, American Community Survey"
+  },
+  {
+    "objectID": "slides/zz_tables.html#lets-make-a-good-gt-table-1",
+    "href": "slides/zz_tables.html#lets-make-a-good-gt-table-1",
+    "title": "Making Tables",
+    "section": "Let’s make a good gt table",
+    "text": "Let’s make a good gt table\n\ngoodtable &lt;- gt(states) |&gt; \n  tab_header(\n    title = \"Mean Household Income of Quintiles, 2021\",\n    subtitle = \"Seven Representative U.S. States\"\n  ) |&gt; \n  cols_label(\n    name = \"\",\n    q1 = \"lowest\",\n    q2 = \"second\",\n    q3 = \"third\",\n    q4 = \"fourth\",\n    q5 = \"highest\",\n    top5 = \"top 5%\"\n  ) |&gt; \n  fmt_currency(\n    columns = c(q1:top5),\n    currency = \"USD\", \n    use_subunits = FALSE\n  ) |&gt;\n  # note that you can use markdown (md) to format the source note for html documents\n  tab_source_note(source_note = md(\"**Source**: US Census Bureau, American Community Survey\"))\n\ngoodtable\n\n\n\n\n−+\n10:00"
+  },
+  {
+    "objectID": "slides/zz_tables.html#change-colum-width",
+    "href": "slides/zz_tables.html#change-colum-width",
+    "title": "Making Tables",
+    "section": "Change Colum Width",
+    "text": "Change Colum Width\n\n\n\n\n\n\n\n\nMean Household Income of Quintiles, 2021\n\n\nSeven Representative U.S. States\n\n\n\nlowest\nsecond\nthird\nfourth\nhighest\ntop 5%\n\n\n\n\nDistrict of Columbia\n$12,971\n$51,060\n$94,478\n$157,803\n$375,792\n$670,768\n\n\nColorado\n$18,963\n$49,711\n$80,679\n$123,359\n$264,516\n$466,181\n\n\nNevada\n$15,024\n$40,468\n$66,247\n$101,591\n$224,480\n$410,161\n\n\nSouth Carolina\n$12,680\n$34,881\n$58,665\n$92,118\n$207,367\n$374,427\n\n\nLouisiana\n$10,371\n$29,781\n$53,925\n$89,536\n$201,514\n$357,026\n\n\nMississippi\n$10,096\n$27,963\n$49,418\n$80,125\n$175,581\n$308,523\n\n\nPuerto Rico\n$2,906\n$12,144\n$22,163\n$38,397\n$99,043\n$187,234\n\n\n\nSource: US Census Bureau, American Community Survey"
+  },
+  {
+    "objectID": "slides/zz_tables.html#change-colum-width-1",
+    "href": "slides/zz_tables.html#change-colum-width-1",
+    "title": "Making Tables",
+    "section": "Change Colum Width",
+    "text": "Change Colum Width\n\nvgoodtable &lt;- goodtable |&gt;\n  cols_width(c(q1:top5) ~ px(90))\n\nvgoodtable"
+  },
+  {
+    "objectID": "slides/zz_tables.html#change-font",
+    "href": "slides/zz_tables.html#change-font",
+    "title": "Making Tables",
+    "section": "Change Font",
+    "text": "Change Font\n\n\n\n\n\n\n\n\nMean Household Income of Quintiles, 2021\n\n\nSeven Representative U.S. States\n\n\n\nlowest\nsecond\nthird\nfourth\nhighest\ntop 5%\n\n\n\n\nDistrict of Columbia\n$12,971\n$51,060\n$94,478\n$157,803\n$375,792\n$670,768\n\n\nColorado\n$18,963\n$49,711\n$80,679\n$123,359\n$264,516\n$466,181\n\n\nNevada\n$15,024\n$40,468\n$66,247\n$101,591\n$224,480\n$410,161\n\n\nSouth Carolina\n$12,680\n$34,881\n$58,665\n$92,118\n$207,367\n$374,427\n\n\nLouisiana\n$10,371\n$29,781\n$53,925\n$89,536\n$201,514\n$357,026\n\n\nMississippi\n$10,096\n$27,963\n$49,418\n$80,125\n$175,581\n$308,523\n\n\nPuerto Rico\n$2,906\n$12,144\n$22,163\n$38,397\n$99,043\n$187,234\n\n\n\nSource: US Census Bureau, American Community Survey"
+  },
+  {
+    "objectID": "slides/zz_tables.html#change-font-1",
+    "href": "slides/zz_tables.html#change-font-1",
+    "title": "Making Tables",
+    "section": "Change Font",
+    "text": "Change Font\n\ngreattable &lt;- vgoodtable |&gt;\n  opt_table_font(font = \"verdana\")\n\ngreattable"
+  },
+  {
+    "objectID": "slides/zz_tables.html#center",
+    "href": "slides/zz_tables.html#center",
+    "title": "Making Tables",
+    "section": "Center",
+    "text": "Center\n\n\n\n\n\n\n\n\nMean Household Income of Quintiles, 2021\n\n\nSeven Representative U.S. States\n\n\n\nlowest\nsecond\nthird\nfourth\nhighest\ntop 5%\n\n\n\n\nDistrict of Columbia\n$12,971\n$51,060\n$94,478\n$157,803\n$375,792\n$670,768\n\n\nColorado\n$18,963\n$49,711\n$80,679\n$123,359\n$264,516\n$466,181\n\n\nNevada\n$15,024\n$40,468\n$66,247\n$101,591\n$224,480\n$410,161\n\n\nSouth Carolina\n$12,680\n$34,881\n$58,665\n$92,118\n$207,367\n$374,427\n\n\nLouisiana\n$10,371\n$29,781\n$53,925\n$89,536\n$201,514\n$357,026\n\n\nMississippi\n$10,096\n$27,963\n$49,418\n$80,125\n$175,581\n$308,523\n\n\nPuerto Rico\n$2,906\n$12,144\n$22,163\n$38,397\n$99,043\n$187,234\n\n\n\nSource: US Census Bureau, American Community Survey"
+  },
+  {
+    "objectID": "slides/zz_tables.html#center-1",
+    "href": "slides/zz_tables.html#center-1",
+    "title": "Making Tables",
+    "section": "Center",
+    "text": "Center\n\nvgreattable &lt;- greattable |&gt;\n  cols_align(\n  align = \"center\",\n  columns = q1:top5\n)\n\nvgreattable"
+  },
+  {
+    "objectID": "slides/zz_tables.html#add-borders-and-lines",
+    "href": "slides/zz_tables.html#add-borders-and-lines",
+    "title": "Making Tables",
+    "section": "Add Borders and Lines",
+    "text": "Add Borders and Lines\n\n\n\n\n\n\n\n\nMean Household Income of Quintiles, 2021\n\n\nSeven Representative U.S. States\n\n\n\nlowest\nsecond\nthird\nfourth\nhighest\ntop 5%\n\n\n\n\nDistrict of Columbia\n$12,971\n$51,060\n$94,478\n$157,803\n$375,792\n$670,768\n\n\nColorado\n$18,963\n$49,711\n$80,679\n$123,359\n$264,516\n$466,181\n\n\nNevada\n$15,024\n$40,468\n$66,247\n$101,591\n$224,480\n$410,161\n\n\nSouth Carolina\n$12,680\n$34,881\n$58,665\n$92,118\n$207,367\n$374,427\n\n\nLouisiana\n$10,371\n$29,781\n$53,925\n$89,536\n$201,514\n$357,026\n\n\nMississippi\n$10,096\n$27,963\n$49,418\n$80,125\n$175,581\n$308,523\n\n\nPuerto Rico\n$2,906\n$12,144\n$22,163\n$38,397\n$99,043\n$187,234\n\n\n\nSource: US Census Bureau, American Community Survey"
+  },
+  {
+    "objectID": "slides/zz_tables.html#add-borders-and-lines-1",
+    "href": "slides/zz_tables.html#add-borders-and-lines-1",
+    "title": "Making Tables",
+    "section": "Add Borders and Lines",
+    "text": "Add Borders and Lines\n\nawesometable &lt;- vgreattable |&gt;\n  tab_options(\n    table.border.top.color = \"black\", \n    table.border.bottom.color = \"black\",\n    heading.border.bottom.color = \"black\", \n    column_labels.border.bottom.color = \"black\", \n    table_body.border.bottom.color = \"black\"\n  )\n\nawesometable"
+  },
+  {
+    "objectID": "slides/zz_tables.html#export-table",
+    "href": "slides/zz_tables.html#export-table",
+    "title": "Making Tables",
+    "section": "Export Table",
+    "text": "Export Table\n\ngtsave(awesometable, \"awesometable.png\")"
+  },
+  {
+    "objectID": "slides/week-5.1.html",
+    "href": "slides/week-5.1.html",
+    "title": "Describing and Visualizing Variables",
+    "section": "",
+    "text": "Numerical variables\n\nContinuous - infinite values\nDiscrete - non-negative whole numbers\n\nCategorical\n\nOrdinal – if there is a natural ordering\nWorld Region is categorical, but NOT ordinal"
+  },
+  {
+    "objectID": "slides/week-5.1.html#types-of-variables",
+    "href": "slides/week-5.1.html#types-of-variables",
+    "title": "Categorical Data",
+    "section": "Types of Variables",
+    "text": "Types of Variables\n\n\nCategorical\n\nBinary - two categories\nNominal - multiple unordered categories\nOrdinal - multiple ordered categories\n\nNumerical variables\n\nContinuous - infinite values\nDiscrete - non-negative whole numbers (count data)"
+  },
+  {
+    "objectID": "slides/week-5.1.html#start-with-summarizing-a-numerical-variable",
+    "href": "slides/week-5.1.html#start-with-summarizing-a-numerical-variable",
+    "title": "Describing and Visualizing Variables",
+    "section": "Start with summarizing a numerical variable",
+    "text": "Start with summarizing a numerical variable\nLet’s Use the V-Dem Data Again"
+  },
+  {
+    "objectID": "slides/week-5.1.html#electoral-democracy-measure",
+    "href": "slides/week-5.1.html#electoral-democracy-measure",
+    "title": "Describing and Visualizing Variables",
+    "section": "Electoral Democracy Measure",
+    "text": "Electoral Democracy Measure\n\n\nTo what extent is the ideal of electoral democracy in its fullest sense achieved?\nMeasure runs from 0 (lowest) to 1 (highest) [0.5 is a cutoff they use for determining electoral democracy from electoral autocracy]\nClarification: The electoral principle of democracy seeks to embody the core value of making rulers responsive to citizens, achieved through electoral competition for the electorate’s approval under circumstances when suffrage is extensive; political and civil society organizations can operate freely; elections are clean and not marred by fraud or systematic irregularities; and elections affect the composition of the chief executive of the country. In between elections, there is freedom of expression and an independent media capable of presenting alternative views on matters of political relevance."
+  },
+  {
+    "objectID": "slides/week-5.1.html#other-high-level-v-dem-democracy-measures",
+    "href": "slides/week-5.1.html#other-high-level-v-dem-democracy-measures",
+    "title": "Describing and Visualizing Variables",
+    "section": "Other High Level V-Dem Democracy Measures",
+    "text": "Other High Level V-Dem Democracy Measures\n(to be explored in your homework…)\n\nLiberal Democracy\nEgalitarian Democracy\nParticipatory Democracy\nDeliberative Democracy"
+  },
+  {
+    "objectID": "slides/week-5.1.html#describe-and-summarize",
+    "href": "slides/week-5.1.html#describe-and-summarize",
+    "title": "Describing and Visualizing Variables",
+    "section": "Describe and Summarize",
+    "text": "Describe and Summarize\n\nHow can we use our data to describe or summarize the state of electoral democracy in the year 2022?"
+  },
+  {
+    "objectID": "slides/week-5.1.html#create-the-data",
+    "href": "slides/week-5.1.html#create-the-data",
+    "title": "Describing and Visualizing Variables",
+    "section": "Create the data",
+    "text": "Create the data\n\n# Create dataset for year 2022, with country name, year, and electoral dem\nlibrary(vdemdata)\nvdem2022 &lt;- vdem %&gt;% \n  mutate(region = e_regionpol_6C) %&gt;% \n  mutate(region = case_match(region, \n                        1 ~ \"Eastern Europe\", \n                        2 ~ \"Latin America\",  \n                        3 ~ \"Middle East\",   \n                        4 ~ \"Africa\", \n                        5 ~ \"The West\", \n                        6 ~ \"Asia\")) %&gt;%\n  filter(year == 2022)  %&gt;% \n  select(country_name, year, v2x_polyarchy, region, v2x_regime)"
+  },
+  {
+    "objectID": "slides/week-5.1.html#examine-the-data",
+    "href": "slides/week-5.1.html#examine-the-data",
+    "title": "Describing and Visualizing Variables",
+    "section": "Examine the data",
+    "text": "Examine the data\n\nglimpse(vdem2022)\n\nRows: 179\nColumns: 5\n$ country_name  &lt;chr&gt; \"Mexico\", \"Suriname\", \"Sweden\", \"Switzerland\", \"Ghana\", …\n$ year          &lt;dbl&gt; 2022, 2022, 2022, 2022, 2022, 2022, 2022, 2022, 2022, 20…\n$ v2x_polyarchy &lt;dbl&gt; 0.598, 0.770, 0.899, 0.898, 0.633, 0.692, 0.833, 0.093, …\n$ region        &lt;chr&gt; \"Latin America\", \"Latin America\", \"The West\", \"The West\"…\n$ v2x_regime    &lt;dbl&gt; 2, 2, 3, 3, 2, 2, 3, 0, 1, 1, 1, 0, 2, 2, 2, 3, 2, 1, 1,…"
+  },
+  {
+    "objectID": "slides/week-5.1.html#how-can-we-summarize-electoral-democracy",
+    "href": "slides/week-5.1.html#how-can-we-summarize-electoral-democracy",
+    "title": "Describing and Visualizing Variables",
+    "section": "How can we summarize electoral democracy?",
+    "text": "How can we summarize electoral democracy?"
+  },
+  {
+    "objectID": "slides/week-5.1.html#measures-of-centrality",
+    "href": "slides/week-5.1.html#measures-of-centrality",
+    "title": "Describing and Visualizing Variables",
+    "section": "Measures of Centrality",
+    "text": "Measures of Centrality\nWe could calculate the mean (mean)\n\nvdem2022 %&gt;% \n  summarize(mean_democracy = mean(v2x_polyarchy))\n\n  mean_democracy\n1          0.497"
+  },
+  {
+    "objectID": "slides/week-5.1.html#measures-of-centrality-1",
+    "href": "slides/week-5.1.html#measures-of-centrality-1",
+    "title": "Describing and Visualizing Variables",
+    "section": "Measures of Centrality",
+    "text": "Measures of Centrality\nWe could calculate the median (median)\n\nvdem2022 %&gt;% \n  summarize(median_democracy = median(v2x_polyarchy))\n\n  median_democracy\n1            0.501"
+  },
+  {
+    "objectID": "slides/week-5.1.html#describe-and-visualize-the-distribution",
+    "href": "slides/week-5.1.html#describe-and-visualize-the-distribution",
+    "title": "Describing and Visualizing Variables",
+    "section": "Describe and visualize the distribution",
+    "text": "Describe and visualize the distribution\nWe can describe the shape of the distribution\n\nsymmetric\nright-skewed\nleft-skewed\nunimodal (one peak)\nbimodal (multiple peaks)"
+  },
+  {
+    "objectID": "slides/week-5.1.html#symmetric-distributions",
+    "href": "slides/week-5.1.html#symmetric-distributions",
+    "title": "Describing and Visualizing Variables",
+    "section": "Symmetric distributions",
+    "text": "Symmetric distributions"
+  },
+  {
+    "objectID": "slides/week-5.1.html#symmetric-distributions-1",
+    "href": "slides/week-5.1.html#symmetric-distributions-1",
+    "title": "Describing and Visualizing Variables",
+    "section": "Symmetric distributions",
+    "text": "Symmetric distributions"
+  },
+  {
+    "objectID": "slides/week-5.1.html#skewed-distributions",
+    "href": "slides/week-5.1.html#skewed-distributions",
+    "title": "Describing and Visualizing Variables",
+    "section": "Skewed Distributions",
+    "text": "Skewed Distributions"
+  },
+  {
+    "objectID": "slides/week-5.1.html#skewed-distributions-1",
+    "href": "slides/week-5.1.html#skewed-distributions-1",
+    "title": "Describing and Visualizing Variables",
+    "section": "Skewed Distributions",
+    "text": "Skewed Distributions"
+  },
+  {
+    "objectID": "slides/week-5.1.html#bimodal-distribution",
+    "href": "slides/week-5.1.html#bimodal-distribution",
+    "title": "Describing and Visualizing Variables",
+    "section": "Bimodal Distribution",
+    "text": "Bimodal Distribution"
+  },
+  {
+    "objectID": "slides/week-5.1.html#when-is-the-mean-useful",
+    "href": "slides/week-5.1.html#when-is-the-mean-useful",
+    "title": "Describing and Visualizing Variables",
+    "section": "When is the mean useful?",
+    "text": "When is the mean useful?"
+  },
+  {
+    "objectID": "slides/week-5.1.html#when-is-the-mean-useful-1",
+    "href": "slides/week-5.1.html#when-is-the-mean-useful-1",
+    "title": "Describing and Visualizing Variables",
+    "section": "When is the mean useful?",
+    "text": "When is the mean useful?"
+  },
+  {
+    "objectID": "slides/week-5.1.html#when-is-the-mean-useful-2",
+    "href": "slides/week-5.1.html#when-is-the-mean-useful-2",
+    "title": "Describing and Visualizing Variables",
+    "section": "When is the mean useful?",
+    "text": "When is the mean useful?"
+  },
+  {
+    "objectID": "slides/week-5.1.html#when-is-the-mean-useful-3",
+    "href": "slides/week-5.1.html#when-is-the-mean-useful-3",
+    "title": "Describing and Visualizing Variables",
+    "section": "When is the mean useful?",
+    "text": "When is the mean useful?\n\n\nthe Mean works well as a summary statistic when the distribution is relatively symmetric\nNot as well when distributions are skewed or bimodal (or multi-modal)\n\nWith skewed distributions, the mean is sensitive to extreme values\n\nThe median is more robust"
+  },
+  {
+    "objectID": "slides/week-5.1.html#lesson",
+    "href": "slides/week-5.1.html#lesson",
+    "title": "Describing and Visualizing Variables",
+    "section": "Lesson",
+    "text": "Lesson\n\n\nAlways look at your data\nWhen reading or in a presentation, ask yourself:\n\nDoes the mean make sense given the distribution of the measure?\nCould extreme values in a skewed distribution make the mean not as useful?\nHave the analysts shown you the distribution? If not, ask about it!"
+  },
+  {
+    "objectID": "slides/week-5.1.html#visualize-our-measure",
+    "href": "slides/week-5.1.html#visualize-our-measure",
+    "title": "Describing and Visualizing Variables",
+    "section": "Visualize Our Measure",
+    "text": "Visualize Our Measure"
+  },
+  {
+    "objectID": "slides/week-5.1.html#recap",
+    "href": "slides/week-5.1.html#recap",
+    "title": "Describing and Visualizing Variables",
+    "section": "Recap",
+    "text": "Recap\n\n\nWe can use statistics like mean or median to describe the center of a variable\nWe can visualize the entire distribution to charachterize the distribution of the variable\nWe should also say something about the spread of the distribution"
+  },
+  {
+    "objectID": "slides/week-5.1.html#why-measure-and-visualize-spread",
+    "href": "slides/week-5.1.html#why-measure-and-visualize-spread",
+    "title": "Describing and Visualizing Variables",
+    "section": "Why Measure and Visualize Spread?",
+    "text": "Why Measure and Visualize Spread?"
+  },
+  {
+    "objectID": "slides/week-5.1.html#measures-of-spread",
+    "href": "slides/week-5.1.html#measures-of-spread",
+    "title": "Describing and Visualizing Variables",
+    "section": "Measures of Spread",
+    "text": "Measures of Spread\n\nRange (min and max values)\n\nNot ideal b/c does not tell us much about where most of the values are located\n\n\n\nvdem2022 %&gt;% \n  summarize(min = min(v2x_polyarchy),\n            max = max(v2x_polyarchy))\n\n    min   max\n1 0.016 0.916"
+  },
+  {
+    "objectID": "slides/week-5.1.html#interquartile-range",
+    "href": "slides/week-5.1.html#interquartile-range",
+    "title": "Describing and Visualizing Variables",
+    "section": "Interquartile Range",
+    "text": "Interquartile Range\nIQR: 25th percentile - 75th percentile"
+  },
+  {
+    "objectID": "slides/week-5.1.html#interquartile-range-1",
+    "href": "slides/week-5.1.html#interquartile-range-1",
+    "title": "Describing and Visualizing Variables",
+    "section": "Interquartile Range",
+    "text": "Interquartile Range\nThe middle 50 percent of the countries in the data lie between 0.262 and 0.747\nThe range length of 0.485 tells us something about the spread of the distribution\n\nvdem2022 %&gt;% \n  summarize(IQRlow =  quantile(v2x_polyarchy, .25),\n            IQRhigh = quantile(v2x_polyarchy, .75),\n            IQRlength = IQR(v2x_polyarchy)\n          )\n\n  IQRlow IQRhigh IQRlength\n1  0.262   0.747     0.485"
+  },
+  {
+    "objectID": "slides/week-5.1.html#measure-of-spead-standard-deviation",
+    "href": "slides/week-5.1.html#measure-of-spead-standard-deviation",
+    "title": "Describing and Visualizing Variables",
+    "section": "Measure of Spead: Standard Deviation",
+    "text": "Measure of Spead: Standard Deviation\n\n\nStandard deviation\nCan think of this as something like the “average distance” of each data point from the mean"
+  },
+  {
+    "objectID": "slides/week-5.1.html#measure-of-spead-standard-deviation-1",
+    "href": "slides/week-5.1.html#measure-of-spead-standard-deviation-1",
+    "title": "Describing and Visualizing Variables",
+    "section": "Measure of Spead: Standard Deviation",
+    "text": "Measure of Spead: Standard Deviation\n\n\nCan think of this as something like the “average distance” of each data point from the mean\n\n\nvdem2022 %&gt;% \n  summarize(mean = mean(v2x_polyarchy),\n            stdDev = sd(v2x_polyarchy))\n\n   mean   stdDev\n1 0.497 0.259951"
+  },
+  {
+    "objectID": "slides/week-5.1.html#standard-deviation-simple-example",
+    "href": "slides/week-5.1.html#standard-deviation-simple-example",
+    "title": "Describing and Visualizing Variables",
+    "section": "Standard Deviation Simple Example",
+    "text": "Standard Deviation Simple Example\n\nx = c(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\nmean(x)\n\n[1] 5"
+  },
+  {
+    "objectID": "slides/week-5.1.html#standard-deviation-simple-example-1",
+    "href": "slides/week-5.1.html#standard-deviation-simple-example-1",
+    "title": "Describing and Visualizing Variables",
+    "section": "Standard Deviation Simple Example",
+    "text": "Standard Deviation Simple Example\n\n\n\nFirst, we calculate the variance:\nFor each point, we calculate the deviation from the mean: \\[e_i = X_i - mean(X)\\]\n\nFor the point where the value is 0, this is: 0-5 = -5\nFor the point where the value is 10, this is: 10-5 = 5\n\nThen we square all of the \\(e_i\\) –&gt; \\(e_i^2\\), and add them up\n\nWhy do we square them?"
+  },
+  {
+    "objectID": "slides/week-5.1.html#standard-deviation-simple-example-2",
+    "href": "slides/week-5.1.html#standard-deviation-simple-example-2",
+    "title": "Describing and Visualizing Variables",
+    "section": "Standard Deviation Simple Example",
+    "text": "Standard Deviation Simple Example\n\n\n\nThen we divide by \\(N-1\\), the number of observations, to get an average squared deviation from the mean\nFinally, to get standard deviation, then take the square root of the variance\n\nThis transforms the variance back into the units of the original variable (it basically undoes the squaring we did before)"
+  },
+  {
+    "objectID": "slides/week-5.1.html#standard-deviation-simple-example-3",
+    "href": "slides/week-5.1.html#standard-deviation-simple-example-3",
+    "title": "Describing and Visualizing Variables",
+    "section": "Standard Deviation Simple Example",
+    "text": "Standard Deviation Simple Example\n\nx = c(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\ne &lt;- x - mean(x)\ne\n\n [1] -5 -4 -3 -2 -1  0  1  2  3  4  5"
+  },
+  {
+    "objectID": "slides/week-5.1.html#standard-deviation-simple-example-4",
+    "href": "slides/week-5.1.html#standard-deviation-simple-example-4",
+    "title": "Describing and Visualizing Variables",
+    "section": "Standard Deviation Simple Example",
+    "text": "Standard Deviation Simple Example\n\nx = c(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\ne_squared &lt;- e^2\ne_squared\n\n [1] 25 16  9  4  1  0  1  4  9 16 25"
+  },
+  {
+    "objectID": "slides/week-5.1.html#standard-deviation-simple-example-5",
+    "href": "slides/week-5.1.html#standard-deviation-simple-example-5",
+    "title": "Describing and Visualizing Variables",
+    "section": "Standard Deviation Simple Example",
+    "text": "Standard Deviation Simple Example\n\nx = c(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\nsum_e_squared &lt;- sum(e_squared)\nsum_e_squared\n\n[1] 110"
+  },
+  {
+    "objectID": "slides/week-5.1.html#standard-deviation-simple-example-6",
+    "href": "slides/week-5.1.html#standard-deviation-simple-example-6",
+    "title": "Describing and Visualizing Variables",
+    "section": "Standard Deviation Simple Example",
+    "text": "Standard Deviation Simple Example\n\nvariance &lt;- sum_e_squared/(length(x)-1)\nvariance\n\n[1] 11"
+  },
+  {
+    "objectID": "slides/week-5.1.html#standard-deviation-simple-example-7",
+    "href": "slides/week-5.1.html#standard-deviation-simple-example-7",
+    "title": "Describing and Visualizing Variables",
+    "section": "Standard Deviation Simple Example",
+    "text": "Standard Deviation Simple Example\n\nstandard_dev &lt;- sqrt(variance)\nstandard_dev\n\n[1] 3.316625\n\nsd(x)\n\n[1] 3.316625"
+  },
+  {
+    "objectID": "slides/week-5.1.html#questions",
+    "href": "slides/week-5.1.html#questions",
+    "title": "Describing and Visualizing Variables",
+    "section": "Questions?",
+    "text": "Questions?"
+  },
+  {
+    "objectID": "slides/week-5.1.html#calculating-statistics-by-groups",
+    "href": "slides/week-5.1.html#calculating-statistics-by-groups",
+    "title": "Describing and Visualizing Variables",
+    "section": "Calculating Statistics by groups",
+    "text": "Calculating Statistics by groups\n\n\n\nWhat if we want to describe electoral democracy and see how it differs by some different variable? For example, by world region, or by year?\nThis brings us back to bar chart\nLast week, I made the data for you: with the code I’ve shown today, you could make it yourself straight from V-Dem"
+  },
+  {
+    "objectID": "slides/week-5.1.html#calculating-statistics-by-groups-1",
+    "href": "slides/week-5.1.html#calculating-statistics-by-groups-1",
+    "title": "Describing and Visualizing Variables",
+    "section": "Calculating Statistics by groups",
+    "text": "Calculating Statistics by groups\n\nLet’s calculate the mean and median of electoral democracy in each world region\nFor this, we add the group_by() to our previous code\n\n\nvdem2022 %&gt;% \n  group_by(region) %&gt;% \n  summarize(mean_dem = mean(v2x_polyarchy),\n            median_dem = median(v2x_polyarchy))\n\n# A tibble: 6 × 3\n  region         mean_dem median_dem\n  &lt;chr&gt;             &lt;dbl&gt;      &lt;dbl&gt;\n1 Africa            0.403      0.371\n2 Asia              0.424      0.428\n3 Eastern Europe    0.533      0.558\n4 Latin America     0.605      0.678\n5 Middle East       0.235      0.213\n6 The West          0.854      0.857"
+  },
+  {
+    "objectID": "slides/week-5.1.html#calculating-statistics-by-groups-2",
+    "href": "slides/week-5.1.html#calculating-statistics-by-groups-2",
+    "title": "Describing and Visualizing Variables",
+    "section": "Calculating Statistics by groups",
+    "text": "Calculating Statistics by groups\n\nLet’s store our statistics as a new data object, democracy_region\n\n\ndemocracy_region &lt;- vdem2022 %&gt;% \n  group_by(region) %&gt;% \n  summarize(mean_dem = mean(v2x_polyarchy),\n            median_dem = median(v2x_polyarchy))\n\ndemocracy_region\n\n# A tibble: 6 × 3\n  region         mean_dem median_dem\n  &lt;chr&gt;             &lt;dbl&gt;      &lt;dbl&gt;\n1 Africa            0.403      0.371\n2 Asia              0.424      0.428\n3 Eastern Europe    0.533      0.558\n4 Latin America     0.605      0.678\n5 Middle East       0.235      0.213\n6 The West          0.854      0.857"
+  },
+  {
+    "objectID": "slides/week-5.1.html#visualize-using-our-bar-chart-skills",
+    "href": "slides/week-5.1.html#visualize-using-our-bar-chart-skills",
+    "title": "Describing and Visualizing Variables",
+    "section": "Visualize using our Bar Chart Skills",
+    "text": "Visualize using our Bar Chart Skills\n\n\nCode\nggplot(democracy_region, aes(x = reorder(region, -mean_dem), y = mean_dem)) +\n  geom_col(fill = \"steelblue\") + \n  labs(\n    x = \"Region\", \n    y = \"Mean Polyarchy Score\", \n    title = \"Democracy by region, 1990 - present\", \n    caption = \"Source: V-Dem Institute\"\n    ) + theme_minimal()"
+  },
+  {
+    "objectID": "slides/week-5.1.html#v-dem-regimes-of-the-world-measure",
+    "href": "slides/week-5.1.html#v-dem-regimes-of-the-world-measure",
+    "title": "Categorical Data",
+    "section": "V-Dem Regimes of the World Measure",
+    "text": "V-Dem Regimes of the World Measure\n\n\nClosed Autocracy\nElectoral Autocracy\nElectoral Democracy\nLiberal Democracy"
+  },
+  {
+    "objectID": "slides/week-5.1.html#data-setup",
+    "href": "slides/week-5.1.html#data-setup",
+    "title": "Categorical Data",
+    "section": "Data Setup",
+    "text": "Data Setup\n\nlibrary(tidyverse)\nlibrary(vdemdata)\n\nvdem2022 &lt;- vdem |&gt;\n  filter(year == 2022) |&gt;\n  select(\n    country = country_name, \n    polyarchy = v2x_polyarchy,\n    regime = v2x_regime, \n    region = e_regionpol_6C\n    ) |&gt;\n  mutate(\n    region = case_match(region, # replace the values in region with country names\n                     1 ~ \"Eastern Europe\", \n                     2 ~ \"Latin America\",  \n                     3 ~ \"Middle East\",   \n                     4 ~ \"Africa\", \n                     5 ~ \"The West\", \n                     6 ~ \"Asia\")\n  ) |&gt;\n  mutate(regime = case_match(regime,\n                    0 ~ \"Closed Autocracy\",\n                    1 ~ \"Electoral Autocracy\",\n                    2 ~  \"Electoral Democracy\",\n                    3 ~  \"Liberal Democracy\")\n  )"
+  },
+  {
+    "objectID": "slides/week-5.1.html#describe-regimes-of-the-world-in-2022",
+    "href": "slides/week-5.1.html#describe-regimes-of-the-world-in-2022",
+    "title": "Categorical Data",
+    "section": "Describe regimes of the world in 2022",
+    "text": "Describe regimes of the world in 2022\nContingency Table\n\n\n\n\n\n\n\n\nregime\nn\n\n\n\n\nClosed Autocracy\n33\n\n\nElectoral Autocracy\n56\n\n\nElectoral Democracy\n58\n\n\nLiberal Democracy\n32"
+  },
+  {
+    "objectID": "slides/week-5.1.html#describe-regimes-of-the-world-in-2022-1",
+    "href": "slides/week-5.1.html#describe-regimes-of-the-world-in-2022-1",
+    "title": "Categorical Data",
+    "section": "Describe regimes of the world in 2022",
+    "text": "Describe regimes of the world in 2022\nContingency Table\n\n\n\n\n\n\n\n\nregime\nn\n\n\n\n\nClosed Autocracy\n33\n\n\nElectoral Autocracy\n56\n\n\nElectoral Democracy\n58\n\n\nLiberal Democracy\n32"
+  },
+  {
+    "objectID": "slides/week-5.1.html#bar-plot-is-usually-better",
+    "href": "slides/week-5.1.html#bar-plot-is-usually-better",
+    "title": "Categorical Data",
+    "section": "Bar Plot is Usually Better",
+    "text": "Bar Plot is Usually Better"
+  },
+  {
+    "objectID": "slides/week-5.1.html#summarizing-a-categorical-variable-by-a-goup",
+    "href": "slides/week-5.1.html#summarizing-a-categorical-variable-by-a-goup",
+    "title": "Describing and Visualizing Variables",
+    "section": "Summarizing a categorical variable by a goup",
+    "text": "Summarizing a categorical variable by a goup\nHow do Regimes Vary by Region?"
+  },
+  {
+    "objectID": "slides/week-5.1.html#how-do-regimes-vary-by-region",
+    "href": "slides/week-5.1.html#how-do-regimes-vary-by-region",
+    "title": "Categorical Data",
+    "section": "How do Regimes Vary by Region?",
+    "text": "How do Regimes Vary by Region?"
+  },
+  {
+    "objectID": "slides/week-5.1.html#how-could-we-improve-this-graph",
+    "href": "slides/week-5.1.html#how-could-we-improve-this-graph",
+    "title": "Categorical Data",
+    "section": "How could we improve this graph??",
+    "text": "How could we improve this graph??"
+  },
+  {
+    "objectID": "slides/week-5.1.html#colors-need-improving",
+    "href": "slides/week-5.1.html#colors-need-improving",
+    "title": "Categorical Data",
+    "section": "Colors need improving",
+    "text": "Colors need improving"
+  },
+  {
+    "objectID": "slides/week-5.1.html#region-size",
+    "href": "slides/week-5.1.html#region-size",
+    "title": "Categorical Data",
+    "section": "Region Size",
+    "text": "Region Size\nSome regions have more countries than others. Why does this create an issue for telling a story with our data here?"
+  },
+  {
+    "objectID": "slides/week-5.1.html#is-this-better",
+    "href": "slides/week-5.1.html#is-this-better",
+    "title": "Categorical Data",
+    "section": "Is this better?",
+    "text": "Is this better?"
+  },
+  {
+    "objectID": "slides/week-5.1.html#numerical-variable-by-group",
+    "href": "slides/week-5.1.html#numerical-variable-by-group",
+    "title": "Categorical Data",
+    "section": "Numerical Variable by Group",
+    "text": "Numerical Variable by Group\nHow should we interpret this plot?"
+  },
+  {
+    "objectID": "slides/zz_regression_tables.html#load-data",
+    "href": "slides/zz_regression_tables.html#load-data",
+    "title": "Regression Tables",
+    "section": "Load Data",
+    "text": "Load Data\n\nlibrary(peacesciencer)\nlibrary(dplyr)\n\nconflict_df &lt;- create_stateyears(system = 'gw') |&gt;\n  filter(year %in% c(1946:1999)) |&gt;\n  add_ucdp_acd(type=c(\"intrastate\"), only_wars = FALSE) |&gt;\n  add_democracy() |&gt;\n  add_creg_fractionalization() |&gt;\n  add_sdp_gdp() |&gt;\n  add_rugged_terrain()\n\nglimpse(conflict_df)\n\n\n\n\n−+\n05:00"
+  },
+  {
+    "objectID": "slides/zz_regression_tables.html#run-model",
+    "href": "slides/zz_regression_tables.html#run-model",
+    "title": "Regression Tables",
+    "section": "Run Model",
+    "text": "Run Model\n\n\nconflict_model &lt;- glm(ucdponset ~ ethfrac + relfrac + v2x_polyarchy + \n                        rugged + wbgdppc2011est + wbpopest,\n                  data= conflict_df,\n                  family = binomial(link=\"logit\"))\n\n\n\n\n−+\n03:00"
+  },
+  {
+    "objectID": "slides/zz_regression_tables.html#view-with-summary",
+    "href": "slides/zz_regression_tables.html#view-with-summary",
+    "title": "Regression Tables",
+    "section": "View with summary()",
+    "text": "View with summary()\n\nsummary(conflict_model)\n\n\nCall:\nglm(formula = ucdponset ~ ethfrac + relfrac + v2x_polyarchy + \n    rugged + wbgdppc2011est + wbpopest, family = binomial(link = \"logit\"), \n    data = conflict_df)\n\nCoefficients:\n               Estimate Std. Error z value Pr(&gt;|z|)    \n(Intercept)    -5.69260    1.40788  -4.043 5.27e-05 ***\nethfrac         0.80005    0.38072   2.101  0.03560 *  \nrelfrac        -0.39138    0.41673  -0.939  0.34764    \nv2x_polyarchy  -0.60161    0.50879  -1.182  0.23704    \nrugged          0.06413    0.07603   0.843  0.39897    \nwbgdppc2011est -0.37188    0.12059  -3.084  0.00204 ** \nwbpopest        0.29318    0.06735   4.353 1.34e-05 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n(Dispersion parameter for binomial family taken to be 1)\n\n    Null deviance: 1182.5  on 6150  degrees of freedom\nResidual deviance: 1126.7  on 6144  degrees of freedom\n  (885 observations deleted due to missingness)\nAIC: 1140.7\n\nNumber of Fisher Scoring iterations: 7\n\n\nNow call View() on conflict_model. What do you see?"
+  },
+  {
+    "objectID": "slides/zz_regression_tables.html#view-results-with-broom",
+    "href": "slides/zz_regression_tables.html#view-results-with-broom",
+    "title": "Regression Tables",
+    "section": "View results with broom",
+    "text": "View results with broom\nThe tidy() function takes the information in the list and transforms it into a tibble. Call View() on tidy_model to confirm…\n\n\n# A tibble: 7 × 7\n  term           estimate std.error statistic p.value conf.low conf.high\n  &lt;chr&gt;             &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;\n1 (Intercept)     -5.69      1.41      -4.04  0.00005  -8.44      -2.92 \n2 ethfrac          0.800     0.381      2.10  0.0356    0.0670     1.56 \n3 relfrac         -0.391     0.417     -0.939 0.348    -1.22       0.420\n4 v2x_polyarchy   -0.602     0.509     -1.18  0.237    -1.61       0.387\n5 rugged           0.0641    0.0760     0.843 0.399    -0.0923     0.207\n6 wbgdppc2011est  -0.372     0.121     -3.08  0.00204  -0.613     -0.140\n7 wbpopest         0.293     0.0673     4.35  0.00001   0.162      0.426\n\n\n\n\n\n−+\n03:00"
+  },
+  {
+    "objectID": "slides/zz_regression_tables.html#how-close-are-our-results-to-fl",
+    "href": "slides/zz_regression_tables.html#how-close-are-our-results-to-fl",
+    "title": "Regression Tables",
+    "section": "How close are our results to F&L?",
+    "text": "How close are our results to F&L?\n\nDiscuss with a neighbor…\n\n\n# A tibble: 7 × 7\n  term           estimate std.error statistic p.value conf.low conf.high\n  &lt;chr&gt;             &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;\n1 (Intercept)     -5.69      1.41      -4.04  0.00005  -8.44      -2.92 \n2 ethfrac          0.800     0.381      2.10  0.0356    0.0670     1.56 \n3 relfrac         -0.391     0.417     -0.939 0.348    -1.22       0.420\n4 v2x_polyarchy   -0.602     0.509     -1.18  0.237    -1.61       0.387\n5 rugged           0.0641    0.0760     0.843 0.399    -0.0923     0.207\n6 wbgdppc2011est  -0.372     0.121     -3.08  0.00204  -0.613     -0.140\n7 wbpopest         0.293     0.0673     4.35  0.00001   0.162      0.426\n\n\n\n\n\n−+\n12:00"
+  },
+  {
+    "objectID": "slides/zz_regression_tables.html#could-we-get-closer-to-fl",
+    "href": "slides/zz_regression_tables.html#could-we-get-closer-to-fl",
+    "title": "Regression Tables",
+    "section": "Could we get closer to F&L?",
+    "text": "Could we get closer to F&L?\n\n\nGot to the peacesciencer documentation\nHow close are our data to F&L’s?\nCould we change something to better approximate their results?\n\n\n\n\n−+\n12:00"
+  },
+  {
+    "objectID": "slides/zz_regression_tables.html#could-we-improve-the-model",
+    "href": "slides/zz_regression_tables.html#could-we-improve-the-model",
+    "title": "Regression Tables",
+    "section": "Could we improve the model?",
+    "text": "Could we improve the model?\n\n\nAre there predictors in the peacesciencer package that were not available to F&L?\nWould adding them improve the fit?\nAre there some predictors that should be removed?\n\n\n\n\n−+\n12:00"
+  },
+  {
+    "objectID": "slides/week-5.1.html#types-of-data",
+    "href": "slides/week-5.1.html#types-of-data",
+    "title": "Categorical Data",
+    "section": "Types of Data",
+    "text": "Types of Data\nWhat are some ways we can classify data? 😎 💭\n\n\n\nanecdotal vs. representative\ncensus vs. sample\nobservational vs. experimental\ncategorical vs. numerical\ndiscrete vs. continuous\ncross-sectional vs. time series\nlongitudinal vs. panel\nunstructured vs. structured"
+  },
+  {
+    "objectID": "slides/week-5.1.html#example-measure-democracy",
+    "href": "slides/week-5.1.html#example-measure-democracy",
+    "title": "Categorical Data",
+    "section": "Example: Measure Democracy",
+    "text": "Example: Measure Democracy"
+  },
+  {
+    "objectID": "slides/week-5.1.html#summarizing-a-categorical-variable-by-a-group",
+    "href": "slides/week-5.1.html#summarizing-a-categorical-variable-by-a-group",
+    "title": "Categorical Data",
+    "section": "Summarizing a categorical variable by a group",
+    "text": "Summarizing a categorical variable by a group\nHow do Regimes Vary by Region?"
+  },
+  {
+    "objectID": "slides/week-5.1.html#section",
+    "href": "slides/week-5.1.html#section",
+    "title": "Categorical Data",
+    "section": "",
+    "text": "What are some ways we can classify data? 😎 💭\n\n\n\nanecdotal vs. representative\ncensus vs. sample\nobservational vs. experimental\ncategorical vs. numerical\ndiscrete vs. continuous\ncross-sectional vs. time series\nlongitudinal vs. panel\nunstructured vs. structured"
+  },
+  {
+    "objectID": "slides/week-5.1.html#variable-types",
+    "href": "slides/week-5.1.html#variable-types",
+    "title": "Categorical Data",
+    "section": "Variable Types",
+    "text": "Variable Types\n\nCategorical\n\nBinary - two categories\nNominal - multiple unordered categories\nOrdinal - multiple ordered categories\n\nNumerical\n\nContinuous - fractional values (measurement data)\nDiscrete - non-negative whole numbers (count data)"
+  },
+  {
+    "objectID": "slides/week-5.1.html#section-1",
+    "href": "slides/week-5.1.html#section-1",
+    "title": "Categorical Data",
+    "section": "",
+    "text": "What are some ways we can classify data? 😎 💭\n\nanecdotal vs. representative\ncensus vs. sample\nobservational vs. experimental\ncategorical vs. numerical\ndiscrete vs. continuous\ncross-sectional vs. time series\nlongitudinal vs. panel\nunstructured vs. structured"
+  },
+  {
+    "objectID": "slides/week-5.1.html#section-2",
+    "href": "slides/week-5.1.html#section-2",
+    "title": "Categorical Data",
+    "section": "",
+    "text": "What types of variables are these? 🤔\n\n\nIs a country a democracy? (yes/no)\nPolity (-10 to 10 in 1 unit increments)\nV-Dem Polyarchy (0-1 in 0.01 increments)\nV-Dem Regimes of the World Measure\n\nclosed autocracy | electoral autocracy | electoral democracy | democracy\n\nNumber of protest events\nProtest types (sit in, march, strike, etc.)"
+  },
+  {
+    "objectID": "slides/week-5.1.html#section-3",
+    "href": "slides/week-5.1.html#section-3",
+    "title": "Categorical Data",
+    "section": "",
+    "text": "Let’s count the number of regimes by type…\n\n\nvdem2022 |&gt;\n  count(regime)\n\n               regime  n\n1    Closed Autocracy 33\n2 Electoral Autocracy 56\n3 Electoral Democracy 58\n4   Liberal Democracy 32"
+  },
+  {
+    "objectID": "slides/week-5.1.html#section-4",
+    "href": "slides/week-5.1.html#section-4",
+    "title": "Categorical Data",
+    "section": "",
+    "text": "Now let’s visualize the distribution of regimes with a bar plot…"
+  },
+  {
+    "objectID": "slides/week-5.1.html#section-5",
+    "href": "slides/week-5.1.html#section-5",
+    "title": "Categorical Data",
+    "section": "",
+    "text": "Now let’s visualize the distribution of regimes with a bar plot…\n\n\nvdem2022 |&gt;\n  ggplot(aes(x = regime)) +\n  geom_bar(fill = \"steelblue\") +\n  labs(\n    x = \"Regime\",\n    y = \"Frequency\",\n    title = \"Regimes of the World in 2022\",\n    caption = \"Source: V-Dem Institute\"\n  ) +\n  theme_minimal()"
+  },
+  {
+    "objectID": "slides/week-5.1.html#section-6",
+    "href": "slides/week-5.1.html#section-6",
+    "title": "Categorical Data",
+    "section": "",
+    "text": "Now let’s visualize the distribution of regimes with a bar plot…\n\n\nvdem2022 |&gt;\n  ggplot(aes(x = regime)) +\n  geom_bar(fill = \"steelblue\") +\n  labs(\n    x = \"Regime\",\n    y = \"Frequency\",\n    title = \"Regimes of the World in 2022\",\n    caption = \"Source: V-Dem Institute\"\n  ) +\n  theme_minimal()"
+  },
+  {
+    "objectID": "slides/week-5.1.html#more-about-geom_bar",
+    "href": "slides/week-5.1.html#more-about-geom_bar",
+    "title": "Categorical Data",
+    "section": "More about geom_bar()",
+    "text": "More about geom_bar()\n\n\ngeom_bar() is different from geom_col()\nUsed to create bar plots where the height of the bar represents counts or frequencies of categorical variable\nBy default, geom_bar() counts the number of occurrences of each category or group and plots it as the height of the bar\nLike geom_histogram(), geom_bar() only requires the x aesthetic (y is automatically calcualted for you)"
+  },
+  {
+    "objectID": "slides/week-5.1.html#how-do-regimes-vary-by-region-1",
+    "href": "slides/week-5.1.html#how-do-regimes-vary-by-region-1",
+    "title": "Categorical Data",
+    "section": "How do Regimes Vary by Region?",
+    "text": "How do Regimes Vary by Region?\n\n\nvdem2022 |&gt;\n  ggplot(aes(x = region, fill = regime)) +\n      geom_bar() +\n  theme_minimal() +\n  labs(\n    x = \"Region\",\n    y = \"Frequency\",\n    title = \"Regimes of the World by World Region in 2022\",\n    caption = \"Source: V-Dem Institute\",\n    fill = \"Regime\"\n  ) +\n  scale_fill_viridis_d(option = \"inferno\", end = .8)"
+  },
+  {
+    "objectID": "slides/week-5.1.html#how-do-regimes-vary-by-region-2",
+    "href": "slides/week-5.1.html#how-do-regimes-vary-by-region-2",
+    "title": "Categorical Data",
+    "section": "How do Regimes Vary by Region?",
+    "text": "How do Regimes Vary by Region?\n\n\nvdem2022 |&gt;\n  ggplot(aes(x = region, fill = regime)) +\n      geom_bar() +\n  theme_minimal() +\n  labs(\n    x = \"Region\",\n    y = \"Frequency\",\n    title = \"Regimes of the World by World Region in 2022\",\n    caption = \"Source: V-Dem Institute\",\n    fill = \"Regime\"\n  ) +\n  scale_fill_viridis_d(option = \"inferno\", end = .8)"
+  },
+  {
+    "objectID": "slides/week-5.1.html#what-did-we-just-do",
+    "href": "slides/week-5.1.html#what-did-we-just-do",
+    "title": "Categorical Data",
+    "section": "What Did We Just Do?",
+    "text": "What Did We Just Do?\n\n\n\nWe used geom_bar() to visualize the distribution of regimes by region\nEssentially, we used two categorical variables to create a bar plot\nRegime type is…\n\n…an ordered categorical variable\n\nRegion is…\n\n…a nominal categorical variable"
+  },
+  {
+    "objectID": "slides/week-5.1.html#show-proportions-instead",
+    "href": "slides/week-5.1.html#show-proportions-instead",
+    "title": "Categorical Data",
+    "section": "Show Proportions Instead",
+    "text": "Show Proportions Instead"
+  },
+  {
+    "objectID": "slides/week-5.1.html#section-7",
+    "href": "slides/week-5.1.html#section-7",
+    "title": "Categorical Data",
+    "section": "",
+    "text": "Some regions have more countries than others. Why does this create an issue for telling a story with our data here?"
+  },
+  {
+    "objectID": "slides/week-5.1.html#section-8",
+    "href": "slides/week-5.1.html#section-8",
+    "title": "Categorical Data",
+    "section": "",
+    "text": "We use position = \"fill\" to normalize the data and make the plot more interpretable…\n\n\nvdem2022 %&gt;%\n  ggplot(., aes(x = region, fill = regime)) +\n      geom_bar(position = \"fill\") +\n  theme_minimal() +\n  labs(\n    x = \"Region\",\n    y = \"Proportion\",\n    title = \"Regimes of the World by World Region in 2022\",\n    caption = \"Source: V-Dem Institute\",\n    fill = \"Regime\"\n  ) +\n  scale_fill_viridis_d(option = \"inferno\", end = .8)"
+  },
+  {
+    "objectID": "slides/week-5.1.html#your-turn",
+    "href": "slides/week-5.1.html#your-turn",
+    "title": "Categorical Data",
+    "section": "Your Turn!",
+    "text": "Your Turn!\n\nExpore the distribution of regimes for a different year\nPreprocess your data to include only the year you are interested in\nVisualize the distribution of regimes using geom_bar()\nUse the labs() function to change title\nWhat is different about the year that you chose relative to 2022?\n\n\n\n\n−+\n05:00"
+  },
+  {
+    "objectID": "slides/week-5.1.html#your-turn-1",
+    "href": "slides/week-5.1.html#your-turn-1",
+    "title": "Categorical Data",
+    "section": "Your Turn!",
+    "text": "Your Turn!\n\nExplore the distribution of regimes by region for a different year\nPreprocess your data to include only the year you are interested in\nVisualize the distribution of regimes using geom_bar() and position = \"fill\"\nUse the labs() function to change title\nWhat is different about the year that you chose relative to 2022?\n\n\n\n\n−+\n05:00"
   }
 ]

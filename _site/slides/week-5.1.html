@@ -11,8 +11,8 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.533">
 
-  <meta name="dcterms.date" content="2024-02-06">
-  <title>IAFF 6501–Spring 2024 Schedule - The World Bank API</title>
+  <meta name="dcterms.date" content="2024-02-13">
+  <title>IAFF 6501–Spring 2024 Schedule - Categorical Data</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -390,9 +390,9 @@
   </style>
   <link href="../site_libs/countdown-0.4.0/countdown.css" rel="stylesheet">
   <script src="../site_libs/countdown-0.4.0/countdown.js"></script>
-<meta property="og:title" content="IAFF 6501–Spring 2024 Schedule - The World Bank API">
+<meta property="og:title" content="IAFF 6501–Spring 2024 Schedule - Categorical Data">
 <meta property="og:site_name" content="IAFF 6501--Spring 2024 Schedule">
-<meta name="twitter:title" content="IAFF 6501–Spring 2024 Schedule - The World Bank API">
+<meta name="twitter:title" content="IAFF 6501–Spring 2024 Schedule - Categorical Data">
 <meta name="twitter:card" content="summary">
 </head>
 <body class="quarto-dark">
@@ -400,42 +400,203 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">The World Bank API</h1>
+  <h1 class="title">Categorical Data</h1>
 
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">February 6, 2024</p>
+  <p class="date">February 13, 2024</p>
 </section>
 <section>
-<section id="the-world-bank-api" class="title-slide slide level1 center">
-<h1>The World Bank API</h1>
+<section id="thinking-about-data" class="title-slide slide level1 center">
+<h1>Thinking About Data</h1>
 
 </section>
-<section id="searching-for-wb-indicators" class="slide level2">
-<h2>Searching for WB Indicators</h2>
+<section id="section" class="slide level2">
+<h2></h2>
+<p>What are some ways we can classify data? <span class="emoji" data-emoji="sunglasses">😎</span> <span class="emoji" data-emoji="thought_balloon">💭</span></p>
+<div class="fragment">
+<div>
+<ul>
+<li class="fragment">anecdotal vs.&nbsp;representative</li>
+<li class="fragment">census vs.&nbsp;sample</li>
+<li class="fragment">observational vs.&nbsp;experimental</li>
+<li class="fragment">categorical vs.&nbsp;numerical</li>
+<li class="fragment">discrete vs.&nbsp;continuous</li>
+<li class="fragment">cross-sectional vs.&nbsp;time series</li>
+<li class="fragment">longitudinal vs.&nbsp;panel</li>
+<li class="fragment">unstructured vs.&nbsp;structured</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<p>What are some ways we can classify data? <span class="emoji" data-emoji="sunglasses">😎</span> <span class="emoji" data-emoji="thought_balloon">💭</span></p>
+<ul>
+<li>anecdotal vs.&nbsp;representative</li>
+<li>census vs.&nbsp;sample</li>
+<li>observational vs.&nbsp;experimental</li>
+<li><strong>categorical vs.&nbsp;numerical</strong></li>
+<li><strong>discrete vs.&nbsp;continuous</strong></li>
+<li>cross-sectional vs.&nbsp;time series</li>
+<li>longitudinal vs.&nbsp;panel</li>
+<li>unstructured vs.&nbsp;structured</li>
+</ul>
+</section>
+<section id="variable-types" class="slide level2">
+<h2>Variable Types</h2>
+<ul>
+<li>Categorical
+<ul>
+<li>Binary - two categories</li>
+<li>Nominal - multiple unordered categories</li>
+<li>Ordinal - multiple ordered categories</li>
+</ul></li>
+<li>Numerical
+<ul>
+<li>Continuous - fractional values (measurement data)</li>
+<li>Discrete - non-negative whole numbers (count data)</li>
+</ul></li>
+</ul>
+</section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+<p>What types of variables are these? <span class="emoji" data-emoji="thinking">🤔</span></p>
+<div>
+<ul>
+<li class="fragment">Is a country a democracy? (yes/no)</li>
+<li class="fragment">Polity (-10 to 10 in 1 unit increments)</li>
+<li class="fragment">V-Dem Polyarchy (0-1 in 0.01 increments)</li>
+<li class="fragment">V-Dem Regimes of the World Measure
+<ul>
+<li class="fragment">closed autocracy | electoral autocracy | electoral democracy | democracy</li>
+</ul></li>
+<li class="fragment">Number of protest events</li>
+<li class="fragment">Protest types (sit in, march, strike, etc.)</li>
+</ul>
+</div>
+</section></section>
+<section>
+<section id="categorical-data" class="title-slide slide level1 center">
+<h1>Categorical Data</h1>
+
+</section>
+<section id="v-dem-regimes-of-the-world-measure" class="slide level2">
+<h2>V-Dem Regimes of the World Measure</h2>
+<p><br></p>
+<ul>
+<li>Closed Autocracy</li>
+<li>Electoral Autocracy</li>
+<li>Electoral Democracy</li>
+<li>Liberal Democracy</li>
+</ul>
+</section>
+<section id="data-setup" class="slide level2 smaller">
+<h2>Data Setup</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a></a><span class="fu">library</span>(vdemdata)</span>
+<span id="cb1-3"><a></a></span>
+<span id="cb1-4"><a></a>vdem2022 <span class="ot">&lt;-</span> vdem <span class="sc">|&gt;</span></span>
+<span id="cb1-5"><a></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2022</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-6"><a></a>  <span class="fu">select</span>(</span>
+<span id="cb1-7"><a></a>    <span class="at">country =</span> country_name, </span>
+<span id="cb1-8"><a></a>    <span class="at">polyarchy =</span> v2x_polyarchy,</span>
+<span id="cb1-9"><a></a>    <span class="at">regime =</span> v2x_regime, </span>
+<span id="cb1-10"><a></a>    <span class="at">region =</span> e_regionpol_6C</span>
+<span id="cb1-11"><a></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb1-12"><a></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-13"><a></a>    <span class="at">region =</span> <span class="fu">case_match</span>(region, <span class="co"># replace the values in region with country names</span></span>
+<span id="cb1-14"><a></a>                     <span class="dv">1</span> <span class="sc">~</span> <span class="st">"Eastern Europe"</span>, </span>
+<span id="cb1-15"><a></a>                     <span class="dv">2</span> <span class="sc">~</span> <span class="st">"Latin America"</span>,  </span>
+<span id="cb1-16"><a></a>                     <span class="dv">3</span> <span class="sc">~</span> <span class="st">"Middle East"</span>,   </span>
+<span id="cb1-17"><a></a>                     <span class="dv">4</span> <span class="sc">~</span> <span class="st">"Africa"</span>, </span>
+<span id="cb1-18"><a></a>                     <span class="dv">5</span> <span class="sc">~</span> <span class="st">"The West"</span>, </span>
+<span id="cb1-19"><a></a>                     <span class="dv">6</span> <span class="sc">~</span> <span class="st">"Asia"</span>)</span>
+<span id="cb1-20"><a></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb1-21"><a></a>  <span class="fu">mutate</span>(<span class="at">regime =</span> <span class="fu">case_match</span>(regime,</span>
+<span id="cb1-22"><a></a>                    <span class="dv">0</span> <span class="sc">~</span> <span class="st">"Closed Autocracy"</span>,</span>
+<span id="cb1-23"><a></a>                    <span class="dv">1</span> <span class="sc">~</span> <span class="st">"Electoral Autocracy"</span>,</span>
+<span id="cb1-24"><a></a>                    <span class="dv">2</span> <span class="sc">~</span>  <span class="st">"Electoral Democracy"</span>,</span>
+<span id="cb1-25"><a></a>                    <span class="dv">3</span> <span class="sc">~</span>  <span class="st">"Liberal Democracy"</span>)</span>
+<span id="cb1-26"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="section-3" class="slide level2">
+<h2></h2>
+<p><br></p>
+<p>Let’s count the number of regimes by type…</p>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># Load the wbstats package</span></span>
-<span id="cb1-2"><a></a><span class="fu">library</span>(wbstats)</span>
-<span id="cb1-3"><a></a></span>
-<span id="cb1-4"><a></a><span class="co"># store the list of indicators</span></span>
-<span id="cb1-5"><a></a>flfp_indicators <span class="ot">&lt;-</span> <span class="fu">wb_search</span>(<span class="st">"female labor force"</span>) </span>
-<span id="cb1-6"><a></a></span>
-<span id="cb1-7"><a></a><span class="co"># view the indicators</span></span>
-<span id="cb1-8"><a></a><span class="fu">print</span>(flfp_indicators,<span class="at">n =</span> <span class="dv">26</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>vdem2022 <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a></a>  <span class="fu">count</span>(regime)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>               regime  n
+1    Closed Autocracy 33
+2 Electoral Autocracy 56
+3 Electoral Democracy 58
+4   Liberal Democracy 32</code></pre>
 </div>
-<p><br></p>
-<p>Sometimes it is easier to search using the <a href="https://databank.worldbank.org/source/world-development-indicators#">WDI website</a>.</p>
+</div>
 </section>
-<section id="try-it-yourself" class="slide level2">
-<h2>Try it Yourself</h2>
+<section id="section-4" class="slide level2">
+<h2></h2>
+<p>Now let’s visualize the distribution of regimes with a bar plot…</p>
+
+<img data-src="week-5.1_files/figure-revealjs/regime-bar-1-1.png" width="960" class="r-stretch"></section>
+<section id="section-5" class="slide level2">
+<h2></h2>
+<p>Now let’s visualize the distribution of regimes with a bar plot…</p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>vdem2022 <span class="sc">|&gt;</span></span>
+<span id="cb4-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> regime)) <span class="sc">+</span></span>
+<span id="cb4-3"><a></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb4-4"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb4-5"><a></a>    <span class="at">x =</span> <span class="st">"Regime"</span>,</span>
+<span id="cb4-6"><a></a>    <span class="at">y =</span> <span class="st">"Frequency"</span>,</span>
+<span id="cb4-7"><a></a>    <span class="at">title =</span> <span class="st">"Regimes of the World in 2022"</span>,</span>
+<span id="cb4-8"><a></a>    <span class="at">caption =</span> <span class="st">"Source: V-Dem Institute"</span></span>
+<span id="cb4-9"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb4-10"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="section-6" class="slide level2">
+<h2></h2>
+<p>Now let’s visualize the distribution of regimes with a bar plot…</p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>vdem2022 <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> regime)) <span class="sc">+</span></span>
+<span id="cb5-3"><a></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb5-4"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb5-5"><a></a>    <span class="at">x =</span> <span class="st">"Regime"</span>,</span>
+<span id="cb5-6"><a></a>    <span class="at">y =</span> <span class="st">"Frequency"</span>,</span>
+<span id="cb5-7"><a></a>    <span class="at">title =</span> <span class="st">"Regimes of the World in 2022"</span>,</span>
+<span id="cb5-8"><a></a>    <span class="at">caption =</span> <span class="st">"Source: V-Dem Institute"</span></span>
+<span id="cb5-9"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb5-10"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="more-about-geom_bar" class="slide level2">
+<h2>More about <code>geom_bar()</code></h2>
+<p><br></p>
 <ul>
-<li>Start a new Quarto document</li>
-<li>Start a new code chunk</li>
-<li>Load the <code>wbstats</code> package</li>
-<li>Use <code>wb_search()</code> to find some indicators you are interested in</li>
-<li>Compare with a manual search on the <a href="https://databank.worldbank.org/source/world-development-indicators#">WDI website</a></li>
+<li><code>geom_bar()</code> is different from <code>geom_col()</code></li>
+<li>Used to create bar plots where the height of the bar represents counts or frequencies of categorical variable</li>
+<li>By default, geom_bar() counts the number of occurrences of each category or group and plots it as the height of the bar</li>
+<li>Like <code>geom_histogram()</code>, <code>geom_bar()</code> only requires the x aesthetic (y is automatically calcualted for you)</li>
+</ul>
+</section>
+<section id="your-turn" class="slide level2">
+<h2>Your Turn!</h2>
+<ul>
+<li>Expore the distribution of regimes for a different year</li>
+<li>Preprocess your data to include only the year you are interested in</li>
+<li>Visualize the distribution of regimes using <code>geom_bar()</code></li>
+<li>Use the <code>labs()</code> function to change title</li>
+<li>What is different about the year that you chose relative to 2022?</li>
 </ul>
 <div class="cell">
 <div class="cell-output-display">
@@ -446,121 +607,108 @@
 </div>
 </div>
 </section>
-<section id="the-wbdata-function" class="slide level2">
-<h2>The <code>wbdata()</code> Function</h2>
+<section id="how-do-regimes-vary-by-region" class="slide level2">
+<h2>How do Regimes Vary by Region?</h2>
 <p><br></p>
-<p>Store the list of indicators you want in an object and then use <code>wb_data()</code> to download the data:</p>
+
+<img data-src="week-5.1_files/figure-revealjs/regime-region-1-1.png" width="960" class="r-stretch"></section>
+<section id="how-do-regimes-vary-by-region-1" class="slide level2">
+<h2>How do Regimes Vary by Region?</h2>
+<p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># load dplyr </span></span>
-<span id="cb2-2"><a></a><span class="fu">library</span>(dplyr) </span>
-<span id="cb2-3"><a></a></span>
-<span id="cb2-4"><a></a><span class="co"># store the list of indicators in an object</span></span>
-<span id="cb2-5"><a></a>indicators <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"flfp"</span> <span class="ot">=</span> <span class="st">"SL.TLF.CACT.FE.ZS"</span>, <span class="st">"women_rep"</span> <span class="ot">=</span> <span class="st">"SG.GEN.PARL.ZS"</span>) </span>
-<span id="cb2-6"><a></a></span>
-<span id="cb2-7"><a></a><span class="co"># download the data </span></span>
-<span id="cb2-8"><a></a>women_emp <span class="ot">&lt;-</span> <span class="fu">wb_data</span>(indicators, <span class="at">mrv =</span> <span class="dv">50</span>) <span class="co"># download data for last 50 yrs</span></span>
-<span id="cb2-9"><a></a></span>
-<span id="cb2-10"><a></a><span class="co"># glimpse the data</span></span>
-<span id="cb2-11"><a></a><span class="fu">glimpse</span>(women_emp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>vdem2022 <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> region, <span class="at">fill =</span> regime)) <span class="sc">+</span></span>
+<span id="cb6-3"><a></a>      <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb6-4"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb6-5"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb6-6"><a></a>    <span class="at">x =</span> <span class="st">"Region"</span>,</span>
+<span id="cb6-7"><a></a>    <span class="at">y =</span> <span class="st">"Frequency"</span>,</span>
+<span id="cb6-8"><a></a>    <span class="at">title =</span> <span class="st">"Regimes of the World by World Region in 2022"</span>,</span>
+<span id="cb6-9"><a></a>    <span class="at">caption =</span> <span class="st">"Source: V-Dem Institute"</span>,</span>
+<span id="cb6-10"><a></a>    <span class="at">fill =</span> <span class="st">"Regime"</span></span>
+<span id="cb6-11"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb6-12"><a></a>  <span class="fu">scale_fill_viridis_d</span>(<span class="at">option =</span> <span class="st">"inferno"</span>, <span class="at">end =</span> .<span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="some-functions-for-wrangling-data" class="slide level2 smaller">
-<h2>Some Functions for Wrangling Data</h2>
+<section id="how-do-regimes-vary-by-region-2" class="slide level2">
+<h2>How do Regimes Vary by Region?</h2>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>vdem2022 <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> region, <span class="at">fill =</span> regime)) <span class="sc">+</span></span>
+<span id="cb7-3"><a></a>      <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb7-4"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb7-5"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb7-6"><a></a>    <span class="at">x =</span> <span class="st">"Region"</span>,</span>
+<span id="cb7-7"><a></a>    <span class="at">y =</span> <span class="st">"Frequency"</span>,</span>
+<span id="cb7-8"><a></a>    <span class="at">title =</span> <span class="st">"Regimes of the World by World Region in 2022"</span>,</span>
+<span id="cb7-9"><a></a>    <span class="at">caption =</span> <span class="st">"Source: V-Dem Institute"</span>,</span>
+<span id="cb7-10"><a></a>    <span class="at">fill =</span> <span class="st">"Regime"</span></span>
+<span id="cb7-11"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb7-12"><a></a>  <span class="fu">scale_fill_viridis_d</span>(<span class="at">option =</span> <span class="st">"inferno"</span>, <span class="at">end =</span> .<span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="what-did-we-just-do" class="slide level2">
+<h2>What Did We Just Do?</h2>
+<p><br></p>
+<div>
 <ul>
-<li>From <code>dplyr</code>
+<li class="fragment">We used <code>geom_bar()</code> to visualize the distribution of regimes by region</li>
+<li class="fragment">Essentially, we used two categorical variables to create a bar plot</li>
+<li class="fragment">Regime type is…
 <ul>
-<li><code>filter()</code> to filter observations (rows)</li>
-<li><code>select()</code> to select or drop variables (columns)</li>
-<li><code>mutate()</code> to create new variables or modify existing ones</li>
-<li><code>rename()</code> to rename variables</li>
-<li><code>case_match()</code> to recode variables</li>
+<li class="fragment">…an ordered categorical variable</li>
 </ul></li>
-<li>From the <code>janitor</code> package
+<li class="fragment">Region is…
 <ul>
-<li><code>clean_names()</code> (used earlier)</li>
-<li><code>round_to_fraction()</code> to round to nearest fraction</li>
+<li class="fragment">…a nominal categorical variable</li>
 </ul></li>
 </ul>
-</section>
-<section id="cleaning-the-wb-data" class="slide level2">
-<h2>Cleaning the WB Data</h2>
-<p><br></p>
-<p>Use <code>select()</code> to drop iso2c variable and <code>rename()</code> to rename date to year:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3" data-code-line-numbers="|6|7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># Load janitor</span></span>
-<span id="cb3-2"><a></a><span class="fu">library</span>(janitor) </span>
-<span id="cb3-3"><a></a></span>
-<span id="cb3-4"><a></a><span class="co"># Download the data  </span></span>
-<span id="cb3-5"><a></a>women_emp <span class="ot">&lt;-</span> women_emp <span class="sc">|&gt;</span> </span>
-<span id="cb3-6"><a></a>  <span class="fu">select</span>(<span class="sc">!</span>iso2c) <span class="sc">|&gt;</span> <span class="co"># drop the iso2c code which we won't be using</span></span>
-<span id="cb3-7"><a></a>  <span class="fu">rename</span>(<span class="at">year =</span> date) <span class="sc">|&gt;</span> <span class="co"># rename date to year </span></span>
-<span id="cb3-8"><a></a>  <span class="fu">mutate</span>(</span>
-<span id="cb3-9"><a></a>    <span class="at">flfp =</span> <span class="fu">round_to_fraction</span>(flfp, <span class="at">denominator =</span> <span class="dv">100</span>), <span class="co"># round to nearest 100th</span></span>
-<span id="cb3-10"><a></a>    <span class="at">women_rep =</span> <span class="fu">round_to_fraction</span>(women_rep, <span class="at">denominator =</span> <span class="dv">100</span>) </span>
-<span id="cb3-11"><a></a>  )</span>
-<span id="cb3-12"><a></a></span>
-<span id="cb3-13"><a></a><span class="co"># View the data</span></span>
-<span id="cb3-14"><a></a><span class="fu">glimpse</span>(women_emp) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="cleaning-the-wb-data-1" class="slide level2">
-<h2>Cleaning the WB Data</h2>
+<section id="section-7" class="slide level2">
+<h2></h2>
+<p>Some regions have more countries than others. Why does this create an issue for telling a story with our data here?</p>
+
+<img data-src="week-5.1_files/figure-revealjs/regime-region-4-1.png" width="960" class="r-stretch"></section>
+<section id="show-proportions-instead" class="slide level2">
+<h2>Show Proportions Instead</h2>
 <p><br></p>
-<p>Use <code>mutate()</code> and <code>round_to_fraction</code> to round the <code>flfp</code> and <code>women_rep</code> variables to the nearest 100th:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4" data-code-line-numbers="2,8-11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="co"># Load janitor</span></span>
-<span id="cb4-2"><a></a><span class="fu">library</span>(janitor) </span>
-<span id="cb4-3"><a></a></span>
-<span id="cb4-4"><a></a><span class="co"># Download the data  </span></span>
-<span id="cb4-5"><a></a>women_emp <span class="ot">&lt;-</span> women_emp <span class="sc">|&gt;</span> </span>
-<span id="cb4-6"><a></a>  <span class="fu">select</span>(<span class="sc">!</span>iso2c) <span class="sc">|&gt;</span> <span class="co"># drop the iso2c code which we won't be using</span></span>
-<span id="cb4-7"><a></a>  <span class="fu">rename</span>(<span class="at">year =</span> date) <span class="sc">|&gt;</span> <span class="co"># rename date to year </span></span>
-<span id="cb4-8"><a></a>  <span class="fu">mutate</span>(</span>
-<span id="cb4-9"><a></a>    <span class="at">flfp =</span> <span class="fu">round_to_fraction</span>(flfp, <span class="at">denominator =</span> <span class="dv">100</span>), <span class="co"># round to nearest 100th</span></span>
-<span id="cb4-10"><a></a>    <span class="at">women_rep =</span> <span class="fu">round_to_fraction</span>(women_rep, <span class="at">denominator =</span> <span class="dv">100</span>) </span>
-<span id="cb4-11"><a></a>  )</span>
-<span id="cb4-12"><a></a></span>
-<span id="cb4-13"><a></a><span class="co"># View the data</span></span>
-<span id="cb4-14"><a></a><span class="fu">glimpse</span>(women_emp) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="or-do-it-all-in-one-go" class="slide level2">
-<h2>Or Do it All in One Go</h2>
+
+<img data-src="week-5.1_files/figure-revealjs/regime-region-5-1.png" width="960" class="r-stretch"></section>
+<section id="section-8" class="slide level2">
+<h2></h2>
+<p>We use <code>position = "fill"</code> to normalize the data and make the plot more interpretable…</p>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5" data-code-line-numbers="|5-9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co"># load th4e packages</span></span>
-<span id="cb5-2"><a></a><span class="fu">library</span>(janitor)</span>
-<span id="cb5-3"><a></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb5-4"><a></a></span>
-<span id="cb5-5"><a></a><span class="co"># store the list of indicators in an object</span></span>
-<span id="cb5-6"><a></a>indicators <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"flfp"</span> <span class="ot">=</span> <span class="st">"SL.TLF.CACT.FE.ZS"</span>, <span class="st">"women_rep"</span> <span class="ot">=</span> <span class="st">"SG.GEN.PARL.ZS"</span>) </span>
-<span id="cb5-7"><a></a></span>
-<span id="cb5-8"><a></a><span class="co"># Download the data  </span></span>
-<span id="cb5-9"><a></a>women_emp <span class="ot">&lt;-</span> <span class="fu">wb_data</span>(indicators, <span class="at">mrv =</span> <span class="dv">50</span>) <span class="sc">|&gt;</span> <span class="co"># download data for last 50 yrs</span></span>
-<span id="cb5-10"><a></a>  <span class="fu">select</span>(<span class="sc">!</span>iso2c) <span class="sc">|&gt;</span> <span class="co"># drop the iso2c code which we won't be using</span></span>
-<span id="cb5-11"><a></a>  <span class="fu">rename</span>(<span class="at">year =</span> date) <span class="sc">|&gt;</span> <span class="co"># rename date to year </span></span>
-<span id="cb5-12"><a></a>  <span class="fu">mutate</span>(</span>
-<span id="cb5-13"><a></a>    <span class="at">flfp =</span> <span class="fu">round_to_fraction</span>(flfp, <span class="at">denominator =</span> <span class="dv">100</span>), <span class="co"># round to nearest 100th</span></span>
-<span id="cb5-14"><a></a>    <span class="at">women_rep =</span> <span class="fu">round_to_fraction</span>(women_rep, <span class="at">denominator =</span> <span class="dv">100</span>) </span>
-<span id="cb5-15"><a></a>  )</span>
-<span id="cb5-16"><a></a></span>
-<span id="cb5-17"><a></a><span class="co"># View the data</span></span>
-<span id="cb5-18"><a></a><span class="fu">glimpse</span>(women_emp) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>vdem2022 <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x =</span> region, <span class="at">fill =</span> regime)) <span class="sc">+</span></span>
+<span id="cb8-3"><a></a>      <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>) <span class="sc">+</span></span>
+<span id="cb8-4"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb8-5"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb8-6"><a></a>    <span class="at">x =</span> <span class="st">"Region"</span>,</span>
+<span id="cb8-7"><a></a>    <span class="at">y =</span> <span class="st">"Proportion"</span>,</span>
+<span id="cb8-8"><a></a>    <span class="at">title =</span> <span class="st">"Regimes of the World by World Region in 2022"</span>,</span>
+<span id="cb8-9"><a></a>    <span class="at">caption =</span> <span class="st">"Source: V-Dem Institute"</span>,</span>
+<span id="cb8-10"><a></a>    <span class="at">fill =</span> <span class="st">"Regime"</span></span>
+<span id="cb8-11"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb8-12"><a></a>  <span class="fu">scale_fill_viridis_d</span>(<span class="at">option =</span> <span class="st">"inferno"</span>, <span class="at">end =</span> .<span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="try-it-yourself-1" class="slide level2">
-<h2>Try it Yourself</h2>
-<p><br></p>
+<section id="your-turn-1" class="slide level2">
+<h2>Your Turn!</h2>
 <ul>
-<li>Using the variables you identified in your search, download the data</li>
-<li>Think about what elements of the code you need to change</li>
-<li>Hint: the indicators are going to change!</li>
+<li>Explore the distribution of regimes by region for a different year</li>
+<li>Preprocess your data to include only the year you are interested in</li>
+<li>Visualize the distribution of regimes using <code>geom_bar()</code> and <code>position = "fill"</code></li>
+<li>Use the <code>labs()</code> function to change title</li>
+<li>What is different about the year that you chose relative to 2022?</li>
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer2" data-update-every="1" tabindex="0" style="right:10%;bottom:10%;">
+<div class="countdown" id="timer2" data-update-every="1" tabindex="0" style="right:5%;bottom:0%;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 </div>
 </div>
@@ -784,6 +932,44 @@
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
