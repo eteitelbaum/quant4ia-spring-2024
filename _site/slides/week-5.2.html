@@ -757,13 +757,13 @@ $ region    &lt;chr&gt; "Latin America", "Latin America", "The West", "The West"
 <section id="calculating-deviation-from-the-mean" class="slide level2">
 <h2>Calculating Deviation from the Mean</h2>
 <ul>
-<li>First, calculate the mean (({X})) of the dataset.</li>
-<li>For each data point ((X_i)), calculate its deviation from the mean: <span class="math display">\[e_i = X_i - \bar{X}\]</span>
+<li>First, calculate the mean (<span class="math inline">\(\bar{X}\)</span>) of the dataset.</li>
+<li>For each data point (<span class="math inline">\(X_i\)</span>), calculate its deviation from the mean: <span class="math display">\[e_i = X_i - \bar{X}\]</span>
 <ul>
 <li>Example with a mean of 5:
 <ul>
-<li>For a data point where (X_i = 0): (0 - 5 = -5)</li>
-<li>For a data point where (X_i = 10): (10 - 5 = 5)</li>
+<li>For a data point where <span class="math inline">\((X_i = 0): (0 - 5 = -5)\)</span></li>
+<li>For a data point where <span class="math inline">\((X_i = 10): (10 - 5 = 5)\)</span></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -771,7 +771,7 @@ $ region    &lt;chr&gt; "Latin America", "Latin America", "The West", "The West"
 <section id="squaring-the-deviations" class="slide level2">
 <h2>Squaring the Deviations</h2>
 <ul>
-<li>Squaring each deviation ((e_i)) to eliminate negative values: <span class="math display">\[e_i^2 = (X_i - \bar{X})^2\]</span></li>
+<li>Squaring each deviation (<span class="math inline">\(e_i\)</span>) to eliminate negative values: <span class="math display">\[e_i^2 = (X_i - \bar{X})^2\]</span></li>
 <li>Summing up all squared deviations: <span class="math display">\[\sum_{i=1}^{n} (X_i - \bar{X})^2\]</span></li>
 <li>This sum represents the total squared deviation from the mean.</li>
 </ul>
@@ -779,8 +779,8 @@ $ region    &lt;chr&gt; "Latin America", "Latin America", "The West", "The West"
 <section id="calculating-the-variance" class="slide level2">
 <h2>Calculating the Variance</h2>
 <ul>
-<li>Divide the total squared deviation by (n-1) (to account for the sample variance): <span class="math display">\[\text{Variance} = \frac{1}{n-1} \sum_{i=1}^{n} (X_i - \bar{X})^2\]</span></li>
-<li>Using (n-1) ensures an unbiased estimate of the population variance when calculating from a sample.</li>
+<li>Divide the total squared deviation by <span class="math inline">\((n-1)\)</span> (to account for the sample variance): <span class="math display">\[\text{Variance} = \frac{1}{n-1} \sum_{i=1}^{n} (X_i - \bar{X})^2\]</span></li>
+<li>Using <span class="math inline">\((n-1)\)</span> ensures an unbiased estimate of the population variance when calculating from a sample.</li>
 </ul>
 </section>
 <section id="deriving-the-standard-deviation" class="slide level2">

@@ -2232,21 +2232,21 @@
     "href": "slides/week-5.2.html#calculating-deviation-from-the-mean",
     "title": "Numerical Data",
     "section": "Calculating Deviation from the Mean",
-    "text": "Calculating Deviation from the Mean\n\nFirst, calculate the mean (({X})) of the dataset.\nFor each data point ((X_i)), calculate its deviation from the mean: \\[e_i = X_i - \\bar{X}\\]\n\nExample with a mean of 5:\n\nFor a data point where (X_i = 0): (0 - 5 = -5)\nFor a data point where (X_i = 10): (10 - 5 = 5)"
+    "text": "Calculating Deviation from the Mean\n\nFirst, calculate the mean (\\(\\bar{X}\\)) of the dataset.\nFor each data point (\\(X_i\\)), calculate its deviation from the mean: \\[e_i = X_i - \\bar{X}\\]\n\nExample with a mean of 5:\n\nFor a data point where \\((X_i = 0): (0 - 5 = -5)\\)\nFor a data point where \\((X_i = 10): (10 - 5 = 5)\\)"
   },
   {
     "objectID": "slides/week-5.2.html#squaring-the-deviations",
     "href": "slides/week-5.2.html#squaring-the-deviations",
     "title": "Numerical Data",
     "section": "Squaring the Deviations",
-    "text": "Squaring the Deviations\n\nSquaring each deviation ((e_i)) to eliminate negative values: \\[e_i^2 = (X_i - \\bar{X})^2\\]\nSumming up all squared deviations: \\[\\sum_{i=1}^{n} (X_i - \\bar{X})^2\\]\nThis sum represents the total squared deviation from the mean."
+    "text": "Squaring the Deviations\n\nSquaring each deviation (\\(e_i\\)) to eliminate negative values: \\[e_i^2 = (X_i - \\bar{X})^2\\]\nSumming up all squared deviations: \\[\\sum_{i=1}^{n} (X_i - \\bar{X})^2\\]\nThis sum represents the total squared deviation from the mean."
   },
   {
     "objectID": "slides/week-5.2.html#calculating-the-variance",
     "href": "slides/week-5.2.html#calculating-the-variance",
     "title": "Numerical Data",
     "section": "Calculating the Variance",
-    "text": "Calculating the Variance\n\nDivide the total squared deviation by (n-1) (to account for the sample variance): \\[\\text{Variance} = \\frac{1}{n-1} \\sum_{i=1}^{n} (X_i - \\bar{X})^2\\]\nUsing (n-1) ensures an unbiased estimate of the population variance when calculating from a sample."
+    "text": "Calculating the Variance\n\nDivide the total squared deviation by \\((n-1)\\) (to account for the sample variance): \\[\\text{Variance} = \\frac{1}{n-1} \\sum_{i=1}^{n} (X_i - \\bar{X})^2\\]\nUsing \\((n-1)\\) ensures an unbiased estimate of the population variance when calculating from a sample."
   },
   {
     "objectID": "slides/week-5.2.html#deriving-the-standard-deviation",
