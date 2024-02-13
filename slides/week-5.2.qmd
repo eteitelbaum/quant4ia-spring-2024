@@ -2,8 +2,9 @@
 title: Numerical Data
 date: today
 date-format: long
-footer: "[IAFF 6501 Website](https://data4ia-spring24.netlify.app/)"
+footer: "[IAFF 6501 Website](https://quant4ia.rocks)"
 logo: images/iaff6501-logo.png
+from: markdown+emoji
 format:
   revealjs:
     theme: [simple, custom.scss]
@@ -12,109 +13,139 @@ format:
     #multiplex: true
     chalkboard: true
 execute:
-  echo: true
+  echo: false
   message: false
   warning: false
   freeze: auto
 ---
 
-##  Start with summarizing a numerical variable
-
-Let's Use the V-Dem Data Again
-
-```{r echo=FALSE}
-#| label: setup
-library(tidyverse)
-library(vdemdata)
-library(plotly)
-library(WDI)
-```
-
 ## Electoral Democracy Measure {.smaller}
 
 <br>
 
--   **To what extent is the ideal of electoral democracy in its fullest sense achieved?**
+-   To what extent is the ideal of electoral democracy in its fullest sense achieved?
+-   Measure runs from 0 (lowest) to 1 (highest) 
+-   0.5 is a cutoff for distinguishing electoral democracy from electoral autocracy
 
--   Measure runs from 0 (lowest) to 1 (highest) \[0.5 is a cutoff they use for determining electoral democracy from electoral autocracy\]
+> The electoral principle of democracy seeks to embody the core value of making rulers responsive to citizens, achieved through electoral competition for the electorate's approval under circumstances when suffrage is extensive; political and civil society organizations can operate freely; elections are clean and not marred by fraud or systematic irregularities; and elections affect the composition of the chief executive of the country. In between elections, there is freedom of expression and an independent media capable of presenting alternative views on matters of political relevance.  -- V-Dem Codebook
 
--   **Clarification:** The electoral principle of democracy seeks to embody the core value of making rulers responsive to citizens, achieved through electoral competition for the electorate's approval under circumstances when suffrage is extensive; political and civil society organizations can operate freely; elections are clean and not marred by fraud or systematic irregularities; and elections affect the composition of the chief executive of the country. In between elections, there is freedom of expression and an independent media capable of presenting alternative views on matters of political relevance.
+## Other High-Level V-Dem Measures
 
-## Other High Level V-Dem Democracy Measures
-
-(to be explored in your homework...)
+<br>
 
 -   Liberal Democracy
 -   Egalitarian Democracy
 -   Participatory Democracy
 -   Deliberative Democracy
 
-## Describe and Summarize
+All continuous measures, ranging from 0 to 1. Let's take a look at how to summarize data like this!
+
+## Data Setup {.smaller}
 
 <br>
 
-How can we use our data to describe or summarize the state of electoral democracy in the year 2022?
+```{r}
+#| label: setup
+#| echo: true
 
-## Create the data
-
-```{r echo=TRUE}
-# Create dataset for year 2022, with country name, year, and electoral dem
+# Load packages 
 library(vdemdata)
-vdem2022 <- vdem %>% 
-  mutate(region = e_regionpol_6C) %>% 
+library(tidyverse)
+
+# Create dataset for year 2022, with country name, year, and electoral dem
+vdem2022 <- vdem |>
+  filter(year == 2022)  |>
+  select(
+    country = country_name, 
+    year, 
+    polyarchy = v2x_polyarchy, 
+    region = e_regionpol_6C 
+    ) |>
   mutate(region = case_match(region, 
                         1 ~ "Eastern Europe", 
                         2 ~ "Latin America",  
                         3 ~ "Middle East",   
                         4 ~ "Africa", 
                         5 ~ "The West", 
-                        6 ~ "Asia")) %>%
-  filter(year == 2022)  %>% 
-  select(country_name, year, v2x_polyarchy, region, v2x_regime)
+                        6 ~ "Asia")) 
 ```
 
-## Examine the data
+## Examine the Data
 
-```{r echo=TRUE}
+<br>
+
+```{r}
+#| label: glimpse
+#| echo: true
+
 glimpse(vdem2022)
 ```
 
-## How can we summarize electoral democracy?
+## 
 
-## Measures of Centrality
+<br>
 
-We could calculate the **mean** (`mean`)
+How can we summarize measures of democracy? :thinking:
 
-```{r echo=TRUE}
-vdem2022 %>% 
-  summarize(mean_democracy = mean(v2x_polyarchy))
+<br>
+
+We could calculate the **mean**. 
+
+```{r}
+#| label: mean
+#| echo: true
+
+vdem2022 |>
+  summarize(mean_democracy = mean(polyarchy))
 ```
 
-## Measures of Centrality
+The mean is the average of the values. Common measure of central tendency but sensitive to outliers.
 
-We could calculate the **median** (`median`)
+## 
+
+<br>
+
+How can we summarize measures of democracy? :thinking:
+
+<br>
+
+We could calculate the **median**. 
 
 ```{r echo=TRUE}
-vdem2022 %>% 
-  summarize(median_democracy = median(v2x_polyarchy))
+vdem2022 |>
+  summarize(median_democracy = median(polyarchy))
 ```
 
-## Describe and visualize the distribution
+The median is the value that separates the higher half from the lower half of the data. 
 
-We can describe the shape of the distribution
+## 
 
--   symmetric
+<br> 
+
+We can also describe the shape of the distribution...
+
+-   symmetric (e.g. normal)
 -   right-skewed
 -   left-skewed
 -   unimodal (one peak)
 -   bimodal (multiple peaks)
 
-## Symmetric distributions
+## Histograms
 
-```{r echo=FALSE}
+-  Used to represent the distribution of a continuous variable
+-  The x-axis represents the range of values
+-  The y-axis represents the frequency of each value
+-  The bars represent the number of observations in each range or "bin"
+-  The shape of the histogram can tell us a lot about the distribution of the data
+
+## Symmetric Distributions
+
+```{r}
+#| label: symmetric-1
+
 x <- tibble(x = rnorm(1000, 10))
 ggplot(x, aes(x = x )) +
-  geom_histogram(binwidth = .5, fill = "lightsteelblue4") + theme_bw() +
+  geom_histogram(binwidth = .5, fill = "steelblue") + theme_bw() +
    labs(
     x = "A made up measure", 
     y = "Frequency", 
@@ -122,12 +153,14 @@ ggplot(x, aes(x = x )) +
   )
 ```
 
-## Symmetric distributions
+## Symmetric Distributions
 
-```{r echo=FALSE}
+```{r}
+#| label: symmetric-2
+
 x <- tibble(x = runif(100000, -10, 10))
 ggplot(x, aes(x = x )) +
-  geom_histogram(binwidth = 2, fill = "lightsteelblue4") + theme_bw() +
+  geom_histogram(binwidth = 2, fill = "steelblue") + theme_bw() +
    labs(
     x = "A made up measure", 
     y = "Frequency", 
@@ -137,10 +170,12 @@ ggplot(x, aes(x = x )) +
 
 ## Skewed Distributions
 
-```{r echo=FALSE}
-x <- tibble(x = rbeta(10000,100,2))
+```{r}
+#| label: left-skewed
+
+x <- tibble(x = rbeta(10000, 100, 2))
 ggplot(x, aes(x = x )) +
-  geom_histogram( fill = "lightsteelblue4") + theme_bw() +
+  geom_histogram( fill = "steelblue") + theme_bw() +
    labs(
     x = "A made up measure", 
     y = "Frequency", 
@@ -150,10 +185,12 @@ ggplot(x, aes(x = x )) +
 
 ## Skewed Distributions
 
-```{r echo=FALSE}
-x <- tibble(x = rbeta(10000,2, 100))
+```{r}
+#| label: right-skewed
+
+x <- tibble(x = rbeta(10000, 2, 100))
 ggplot(x, aes(x = x )) +
-  geom_histogram( fill = "lightsteelblue4") + theme_bw() +
+  geom_histogram( fill = "steelblue") + theme_bw() +
    labs(
     x = "A made up measure", 
     y = "Frequency", 
@@ -163,8 +200,11 @@ ggplot(x, aes(x = x )) +
 
 ## Bimodal Distribution
 
-```{r echo=FALSE}
+```{r}
+#| label: bimodal
+
 library(truncnorm)
+
 nn <- 1e4
 set.seed(1)
 sims <- c(rtruncnorm(nn/2, a=1, b=5, mean=2, sd=.5),
@@ -172,7 +212,7 @@ sims <- c(rtruncnorm(nn/2, a=1, b=5, mean=2, sd=.5),
 
 x <- tibble(x = sims)
 ggplot(x, aes(x = x )) +
-  geom_histogram( fill = "lightsteelblue4") + theme_bw() +
+  geom_histogram( fill = "steelblue") + theme_bw() +
    labs(
     x = "A made up measure", 
     y = "Frequency", 
@@ -180,13 +220,15 @@ ggplot(x, aes(x = x )) +
   )
 ```
 
-## When is the `mean` useful?
+## When is the Mean Useful?
 
-```{r echo=FALSE}
+```{r}
+#| label: normal-distribution
+
 x <- tibble(x = rnorm(1000, 10))
 mean <- summarize(x, mn = mean(x))
 ggplot(x, aes(x = x )) +
-  geom_histogram(binwidth = .5, fill = "dodgerblue") + theme_bw() +
+  geom_histogram(binwidth = .5, fill = "steelblue") + theme_bw() +
    labs(
     x = "A made up measure", 
     y = "Frequency", 
@@ -195,13 +237,15 @@ ggplot(x, aes(x = x )) +
   geom_vline(xintercept = 9.98, linewidth = 2, color = "darkorange")
 ```
 
-## When is the `mean` useful?
+## When is the Mean Useful?
 
-```{r echo=FALSE}
+```{r}
+#| label: mean-right-skew
+ 
 x <- tibble(x = rbeta(10000,2, 100))
 mean <- summarize(x, mn = mean(x))
 ggplot(x, aes(x = x )) +
-  geom_histogram( fill = "lightsteelblue4") + theme_bw() +
+  geom_histogram( fill = "steelblue") + theme_bw() +
    labs(
     x = "A made up measure", 
     y = "Frequency", 
@@ -210,10 +254,13 @@ ggplot(x, aes(x = x )) +
   geom_vline(xintercept = 0.0197, linewidth = 2, color = "darkorange")
 ```
 
-## When is the `mean` useful?
+## When is the Mean Useful?
 
-```{r echo=FALSE}
+```{r}
+#| label: mean-bimodal
+
 library(truncnorm)
+
 nn <- 1e4
 set.seed(1)
 sims <- c(rtruncnorm(nn/2, a=1, b=5, mean=2, sd=.5),
@@ -221,7 +268,7 @@ sims <- c(rtruncnorm(nn/2, a=1, b=5, mean=2, sd=.5),
 mn <- mean(sims)
 x <- tibble(x = sims)
 ggplot(x, aes(x = x )) +
-  geom_histogram( fill = "lightsteelblue4") + theme_bw() +
+  geom_histogram( fill = "steelblue") + theme_bw() +
    labs(
     x = "A made up measure", 
     y = "Frequency", 
@@ -235,19 +282,15 @@ ggplot(x, aes(x = x )) +
 
 <br>
 
--   the Mean works well as a summary statistic when the distribution is relatively symmetric
-
+-   The Mean works well as a summary statistic when the distribution is relatively symmetric
 -   Not as well when distributions are skewed or bimodal (or multi-modal)
-
-    -   With skewed distributions, the mean is sensitive to extreme values
-    
-- The median is more robust
+-   With skewed distributions, the mean is sensitive to extreme values
+-   The median is more robust
 
 ## Lesson
 
 ::: incremental
--   **Always look at your data**
-
+-   Always look at your data!!
 -   When reading or in a presentation, ask yourself:
     -   Does the mean make sense given the distribution of the measure?
     -   Could extreme values in a skewed distribution make the mean not as useful?
@@ -256,19 +299,100 @@ ggplot(x, aes(x = x )) +
 
 ## Visualize Our Measure
 
-```{r echo=FALSE}
-mn <- mean(vdem2022$v2x_polyarchy)
-med <- median(vdem2022$v2x_polyarchy)
-ggplot(vdem2022, aes(x = v2x_polyarchy )) +
-  geom_histogram(binwidth = .05, fill = "lightsteelblue4") + theme_bw() +
+<br>
+
+```{r}
+#| label: visualize-polyarchy 
+
+mn <- mean(vdem2022$polyarchy)
+med <- median(vdem2022$polyarchy)
+
+ggplot(vdem2022, aes(x = polyarchy )) +
+  geom_histogram(binwidth = .05, fill = "steelblue") + 
    labs(
     x = "Electoral Democracy", 
     y = "Frequency", 
     title = "Distribution of Electoral Democracy in 2022", 
     caption = "Source: V-Dem Institute"
   ) + 
-  geom_vline(xintercept = mn, linewidth = 1, color = "darkorange") #+
-#  geom_vline(xintercept = med, linewidth = 1, color = "darkblue", "dashed")
+  geom_vline(xintercept = mn, linewidth = 1, color = "darkorange") +
+  theme_minimal()
+```
+
+## Visualize Our Measure
+
+<br>
+
+```{r}
+#| label: visualize-polyarchy-2
+#| echo: true
+#| eval: false
+
+mn <- mean(vdem2022$polyarchy)
+med <- median(vdem2022$polyarchy)
+
+ggplot(vdem2022, aes(x = polyarchy )) +
+  geom_histogram(binwidth = .05, fill = "steelblue") +
+   labs(
+    x = "Electoral Democracy", 
+    y = "Frequency", 
+    title = "Distribution of Electoral Democracy in 2022", 
+    caption = "Source: V-Dem Institute"
+  ) + 
+  geom_vline(xintercept = mn, linewidth = 1, color = "darkorange") +
+  theme_minimal() 
+```
+
+## Visualize Our Measure
+
+<br>
+
+```{r}
+#| label: visualize-polyarchy-3
+#| echo: true
+#| eval: false
+#| code-line-numbers: "1-2|5|12" 
+
+mn <- mean(vdem2022$polyarchy)
+med <- median(vdem2022$polyarchy)
+
+ggplot(vdem2022, aes(x = polyarchy )) +
+  geom_histogram(binwidth = .05, fill = "steelblue") +
+   labs(
+    x = "Electoral Democracy", 
+    y = "Frequency", 
+    title = "Distribution of Electoral Democracy in 2022", 
+    caption = "Source: V-Dem Institute"
+  ) + 
+  geom_vline(xintercept = mn, linewidth = 1, color = "darkorange") +
+  theme_minimal() 
+```
+
+## Your Turn!
+
+- Look at the [V-Dem codebook](https://v-dem.net/documents/24/codebook_v13.pdf)
+- Select a different high-level measure of democracy
+- Preprocess your data to include tha measure in your data frame
+- Calculate the mean and median and store as a variable
+- Visualize the distribution of the measure
+- Include a vertical line for the mean
+- Now try the median
+
+```{r}
+#| label: time1
+
+library(countdown)
+
+countdown(minutes = 5, 
+          id = "timer1", 
+          bottom = "5%", 
+          right = "10%",
+          color_border = "#fff",
+          color_text = "#fff",
+          color_running_background = "#42affa",
+          color_running_text = "black",
+          color_finished_background = "#E5D19D",
+          color_finished_text = "#00264A")
 ```
 
 ## Recap
@@ -276,18 +400,18 @@ ggplot(vdem2022, aes(x = v2x_polyarchy )) +
 <br> 
 
 - We can use statistics like mean or median to describe the center of a variable
-
--   We can visualize the entire distribution to charachterize the distribution of the variable
-
--   We should also say something about the **spread** of the distribution 
+- We can visualize the entire distribution to charachterize the distribution of the variable
+- We should also say something about the **spread** of the distribution 
 
 ## Why Measure and Visualize Spread?
 
-```{r echo=FALSE}
+```{r}
+#| label: spread
+
 library(patchwork)
 x <- tibble(x = rnorm(1000, mean = 0, 2))
 a <- ggplot(x, aes(x = x )) +
-  geom_histogram(binwidth = .5, fill = "lightsteelblue4") + theme_bw() +
+  geom_histogram(binwidth = .5, fill = "steelblue") + theme_bw() +
    labs(
     x = "A made up measure", 
     y = "Frequency", 
@@ -295,7 +419,7 @@ a <- ggplot(x, aes(x = x )) +
   ) + xlim(-20, 20)
 x <- tibble(x = rnorm(1000,mean = 0, 10))
 b <- ggplot(x, aes(x = x )) +
-  geom_histogram(binwidth = .5, fill = "lightsteelblue4") + theme_bw() +
+  geom_histogram(binwidth = .5, fill = "steelblue") + theme_bw() +
    labs(
     x = "A made up measure", 
     y = "Frequency", 
@@ -304,27 +428,31 @@ b <- ggplot(x, aes(x = x )) +
 a + b
 ```
 
-## Measures of Spread
+## Measures of Spread: Range
+
+<br>
 
 -   Range (min and max values)
+-   Not ideal b/c does not tell us much about where most of the values are located
 
-    -   Not ideal b/c does not tell us much about where most of the values are located
+```{r}
+#| label: min-max
+#| echo: true
 
-```{r echo=TRUE}
-vdem2022 %>% 
-  summarize(min = min(v2x_polyarchy),
-            max = max(v2x_polyarchy))
+vdem2022 |>
+  summarize(min = min(polyarchy),
+            max = max(polyarchy))
 ```
 
-## Interquartile Range
+## Measure of Spread: Interquartile Range
 
 IQR: 25th percentile - 75th percentile
 
 ```{r echo=FALSE}
-low <- quantile(vdem2022$v2x_polyarchy, .25)
-high <- quantile(vdem2022$v2x_polyarchy, .75)
-ggplot(vdem2022, aes(x = v2x_polyarchy )) +
-  geom_histogram(binwidth = .05, fill = "lightsteelblue4") + theme_bw() +
+low <- quantile(vdem2022$polyarchy, .25)
+high <- quantile(vdem2022$polyarchy, .75)
+ggplot(vdem2022, aes(x = polyarchy )) +
+  geom_histogram(binwidth = .05, fill = "steelblue") + theme_bw() +
    labs(
     x = "Electoral Democracy", 
     y = "Frequency", 
@@ -337,15 +465,17 @@ ggplot(vdem2022, aes(x = v2x_polyarchy )) +
 
 ## Interquartile Range
 
-The middle 50 percent of the countries in the data lie between 0.262 and 0.747
+- The middle 50 percent of the countries in the data lie between 0.262 and 0.747
+- The range length of 0.485 tells us something about the spread of the distribution
 
-The range length of 0.485 tells us something about the spread of the distribution
+```{r}
+#| label: iqr
+#| echo: true
 
-```{r echo=TRUE}
 vdem2022 %>% 
-  summarize(IQRlow =  quantile(v2x_polyarchy, .25),
-            IQRhigh = quantile(v2x_polyarchy, .75),
-            IQRlength = IQR(v2x_polyarchy)
+  summarize(IQRlow =  quantile(polyarchy, .25),
+            IQRhigh = quantile(polyarchy, .75),
+            IQRlength = IQR(polyarchy)
           )
 ```
 
@@ -353,57 +483,61 @@ vdem2022 %>%
 
 <br>
 
--   **Standard deviation**
-
--   Can think of this as something like the "average distance" of each data point from the mean
-
-## Measure of Spead: Standard Deviation
-
-<br>
-
--   Can think of this as something like the "average distance" of each data point from the mean
+-   Can think of it as something like the "average distance" of each data point from the mean
 
 ```{r echo=TRUE}
-vdem2022 %>% 
-  summarize(mean = mean(v2x_polyarchy),
-            stdDev = sd(v2x_polyarchy))
+vdem2022 |>
+  summarize(mean = mean(polyarchy),
+            stdDev = sd(polyarchy))
 ```
 
-## Standard Deviation Simple Example
+## Standard Deviation
 
-```{r}
-x = c(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-mean(x)
-```
+<br>
+
+- A low standard deviation indicates that the values tend to be close to the mean
+- A high standard deviation indicates that the values are spread out over a wider range
+
+## Starting with Variance
+
+<br>
+
+- Variance is a step towards calculating the standard deviation.
+- It quantifies the average squared deviation of each number from the mean of the data set.
+
+## Calculating Deviation from the Mean
+
+- First, calculate the mean (\(\bar{X}\)) of the dataset.
+- For each data point (\(X_i\)), calculate its deviation from the mean: $$e_i = X_i - \bar{X}$$
+  - Example with a mean of 5:
+    - For a data point where \(X_i = 0\): \(0 - 5 = -5\)
+    - For a data point where \(X_i = 10\): \(10 - 5 = 5\)
+
+## Squaring the Deviations
+
+- Squaring each deviation (\(e_i\)) to eliminate negative values: $$e_i^2 = (X_i - \bar{X})^2$$
+- Summing up all squared deviations: $$\sum_{i=1}^{n} (X_i - \bar{X})^2$$
+- This sum represents the total squared deviation from the mean.
+
+## Calculating the Variance
+
+- Divide the total squared deviation by \(n-1\) (to account for the sample variance): $$\text{Variance} = \frac{1}{n-1} \sum_{i=1}^{n} (X_i - \bar{X})^2$$
+- Using \(n-1\) ensures an unbiased estimate of the population variance when calculating from a sample.
+
+## Deriving the Standard Deviation
+
+<br>
+
+- The standard deviation is the square root of the variance: $$s = \sqrt{\frac{1}{n-1} \sum_{i=1}^{n} (X_i - \bar{X})^2}$$
+- Taking the square root converts the variance back to the units of the original data.
 
 ## Standard Deviation Simple Example
 
 <br>
 
-::: incremental
--   First, we calculate the *variance*:
--   For each point, we calculate the deviation from the mean: $$e_i = X_i - mean(X)$$
-    -   For the point where the value is 0, this is: 0-5 = -5
-    -   For the point where the value is 10, this is: 10-5 = 5
--   Then we square all of the $e_i$ --\> $e_i^2$, and add them up
-    -   Why do we square them?
-:::
-
-## Standard Deviation Simple Example
-
-<br>
-
-::: incremental
--   Then we divide by $N-1$, the number of observations, to get an average squared deviation from the mean
-
--   Finally, to get standard deviation, then take the square root of the variance
-
-    -   This transforms the variance back into the units of the original variable (it basically undoes the squaring we did before)
-:::
-
-## Standard Deviation Simple Example
-
 ```{r}
+#| label: std-dev-1
+#| echo: true
 x = c(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 e <- x - mean(x)
 e
@@ -411,7 +545,11 @@ e
 
 ## Standard Deviation Simple Example
 
+<br>
+
 ```{r}
+#| label: std-dev-2
+#| echo: true
 x = c(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 e_squared <- e^2
 e_squared
@@ -419,7 +557,11 @@ e_squared
 
 ## Standard Deviation Simple Example
 
+<br>
+
 ```{r}
+#| label: std-dev-3
+#| echo: true
 x = c(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 sum_e_squared <- sum(e_squared)
 sum_e_squared
@@ -427,64 +569,89 @@ sum_e_squared
 
 ## Standard Deviation Simple Example
 
+<br>
+
 ```{r}
+#| label: std-dev-4
+#| echo: true
 variance <- sum_e_squared/(length(x)-1)
 variance
 ```
 
 ## Standard Deviation Simple Example
 
+<br>
+
 ```{r}
+#| label: std-dev-5
+#| echo: true
 standard_dev <- sqrt(variance)
 standard_dev
 sd(x)
 ```
 
-## Questions?
+## Your Turn!
+
+<br>
+
+- Calculate measures of spread for the `polyarchy` variable in the V-Dem data
+- How would you interpret these measures?
+- Try another variable in the V-Dem data
+- How does it compare to `polyarchy`?
+
+```{r}
+#| label: timer2
+
+countdown(minutes = 5, 
+          id = "timer2", 
+          bottom = "10%", 
+          right = "10%")
+```
 
 ## Calculating Statistics by groups
 
 <br>
 
-::: incremental
 -   What if we want to describe electoral democracy and see how it differs by some different variable? For example, by world region, or by year?
-
+-   In this case we want to combine numerical summaries with categorical variables
 -   This brings us back to bar chart
 
--   Last week, I made the data for you: with the code I've shown today, you could make it yourself straight from V-Dem
-:::
-
-## Calculating Statistics by groups
+## Calculating Statistics by Groups
 
 -   Let's calculate the mean and median of electoral democracy in each world region
-
 -   For this, we add the *group_by()* to our previous code
 
-```{r echo=TRUE}
+```{r}
+#| label: group-by-1
+#| echo: true
 #| code-line-numbers: "2"
-vdem2022 %>% 
-  group_by(region) %>% 
-  summarize(mean_dem = mean(v2x_polyarchy),
-            median_dem = median(v2x_polyarchy))
+vdem2022 |>
+  group_by(region) |>
+  summarize(mean_dem = mean(polyarchy),
+            median_dem = median(polyarchy))
 ```
 
-## Calculating Statistics by groups
+## Calculating Statistics by Groups
 
 -   Let's store our statistics as a new data object, *democracy_region*
 
-```{r echo=TRUE}
+```{r}
+#| label: group-by-2
+#| echo: true
 #| code-line-numbers: "1"
-democracy_region <- vdem2022 %>% 
-  group_by(region) %>% 
-  summarize(mean_dem = mean(v2x_polyarchy),
-            median_dem = median(v2x_polyarchy))
+democracy_region <- vdem2022 |> 
+  group_by(region) |>
+  summarize(mean_dem = mean(polyarchy),
+            median_dem = median(polyarchy))
 
 democracy_region
 ```
 
 ## Visualize using our Bar Chart Skills
 
-```{r echo=TRUE}
+```{r}
+#| label: group-by-3
+#| echo: true
 #| code-fold: true
 ggplot(democracy_region, aes(x = reorder(region, -mean_dem), y = mean_dem)) +
   geom_col(fill = "steelblue") + 
@@ -500,18 +667,35 @@ ggplot(democracy_region, aes(x = reorder(region, -mean_dem), y = mean_dem)) +
 
 How should we interpret this plot?
 ```{r}
+#| label: ridge-plot
+#| echo: true
 #| code-fold: true
 library(ggridges)
-library(forcats)
+#library(forcats)
   ggplot(vdem2022, aes(x = polyarchy, y = region, fill = region)) +
-           geom_density_ridges() +
-      labs(
+    geom_density_ridges() +
+  labs(
     x = "Electoral Democracy",
     y = "Region",
     title = "A Ridge Plot",
     caption = "Source: V-Dem Institute",
   ) +
   scale_fill_viridis_d() +
-    theme_bw()
+  theme_minimal()
 ```
 
+## Your Turn!
+
+<br>
+
+- Make a bar chart summarizing `polyarchy` or some other V-Dem variable
+- Now try your hand at a ridge plot
+
+```{r}
+#| label: timer3
+
+countdown(minutes = 5, 
+          id = "timer3", 
+          bottom = "10%", 
+          right = "10%")
+```

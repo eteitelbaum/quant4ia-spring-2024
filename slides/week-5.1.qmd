@@ -99,7 +99,6 @@ vdem2022 <- vdem |>
   filter(year == 2022) |>
   select(
     country = country_name, 
-    polyarchy = v2x_polyarchy,
     regime = v2x_regime, 
     region = e_regionpol_6C
     ) |>
@@ -118,6 +117,17 @@ vdem2022 <- vdem |>
                     2 ~  "Electoral Democracy",
                     3 ~  "Liberal Democracy")
   )
+```
+
+## Examine the Data
+
+<br>
+
+```{r}
+#| label: glimpse
+#| echo: true
+
+glimpse(vdem2022)
 ```
 
 ## 

@@ -12,7 +12,7 @@
   <meta name="generator" content="quarto-1.4.533">
 
   <meta name="dcterms.date" content="2024-02-13">
-  <title>IAFF 6501–Spring 2024 Schedule - Describing and Visualizing Variables</title>
+  <title>IAFF 6501–Spring 2024 Schedule - Numerical Data</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -388,9 +388,11 @@
       margin-right: 0; 
     }
   </style>
-<meta property="og:title" content="IAFF 6501–Spring 2024 Schedule - Describing and Visualizing Variables">
+  <link href="../site_libs/countdown-0.4.0/countdown.css" rel="stylesheet">
+  <script src="../site_libs/countdown-0.4.0/countdown.js"></script>
+<meta property="og:title" content="IAFF 6501–Spring 2024 Schedule - Numerical Data">
 <meta property="og:site_name" content="IAFF 6501--Spring 2024 Schedule">
-<meta name="twitter:title" content="IAFF 6501–Spring 2024 Schedule - Describing and Visualizing Variables">
+<meta name="twitter:title" content="IAFF 6501–Spring 2024 Schedule - Numerical Data">
 <meta name="twitter:card" content="summary">
 </head>
 <body class="quarto-dark">
@@ -398,185 +400,179 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Describing and Visualizing Variables</h1>
+  <h1 class="title">Numerical Data</h1>
 
 <div class="quarto-title-authors">
 </div>
 
   <p class="date">February 13, 2024</p>
 </section>
-<section>
-<section id="terminology-review" class="title-slide slide level1 center">
-<h1>Terminology Review</h1>
-<!-- ## Number of variables involved -->
-<!-- -   Univariate data analysis - distribution of single variable -->
-<!-- -   Bivariate data analysis - relationship between two variables -->
-<!-- -   Multivariate data analysis - relationship between many variables at once, usually focusing on the relationship between two while conditioning for others -->
-</section>
-<section id="types-of-variables" class="slide level2">
-<h2>Types of variables</h2>
-<ul>
-<li><p><strong>Numerical variables</strong></p>
-<ul>
-<li>Continuous - infinite values</li>
-<li>Discrete - non-negative whole numbers</li>
-</ul></li>
-<li><p><strong>Categorical</strong></p>
-<ul>
-<li>Ordinal – if there is a natural ordering</li>
-<li>World Region is categorical, but NOT ordinal</li>
-</ul></li>
-</ul>
-</section>
-<section id="start-with-summarizing-a-numerical-variable" class="slide level2">
-<h2>Start with summarizing a numerical variable</h2>
-<p>Let’s Use the V-Dem Data Again</p>
-</section>
 <section id="electoral-democracy-measure" class="slide level2 smaller">
 <h2>Electoral Democracy Measure</h2>
 <p><br></p>
 <ul>
-<li><p><strong>To what extent is the ideal of electoral democracy in its fullest sense achieved?</strong></p></li>
-<li><p>Measure runs from 0 (lowest) to 1 (highest) [0.5 is a cutoff they use for determining electoral democracy from electoral autocracy]</p></li>
-<li><p><strong>Clarification:</strong> The electoral principle of democracy seeks to embody the core value of making rulers responsive to citizens, achieved through electoral competition for the electorate’s approval under circumstances when suffrage is extensive; political and civil society organizations can operate freely; elections are clean and not marred by fraud or systematic irregularities; and elections affect the composition of the chief executive of the country. In between elections, there is freedom of expression and an independent media capable of presenting alternative views on matters of political relevance.</p></li>
+<li>To what extent is the ideal of electoral democracy in its fullest sense achieved?</li>
+<li>Measure runs from 0 (lowest) to 1 (highest)</li>
+<li>0.5 is a cutoff for distinguishing electoral democracy from electoral autocracy</li>
 </ul>
+<blockquote>
+<p>The electoral principle of democracy seeks to embody the core value of making rulers responsive to citizens, achieved through electoral competition for the electorate’s approval under circumstances when suffrage is extensive; political and civil society organizations can operate freely; elections are clean and not marred by fraud or systematic irregularities; and elections affect the composition of the chief executive of the country. In between elections, there is freedom of expression and an independent media capable of presenting alternative views on matters of political relevance. – V-Dem Codebook</p>
+</blockquote>
 </section>
-<section id="other-high-level-v-dem-democracy-measures" class="slide level2">
-<h2>Other High Level V-Dem Democracy Measures</h2>
-<p>(to be explored in your homework…)</p>
+<section id="other-high-level-v-dem-measures" class="slide level2">
+<h2>Other High-Level V-Dem Measures</h2>
+<p><br></p>
 <ul>
 <li>Liberal Democracy</li>
 <li>Egalitarian Democracy</li>
 <li>Participatory Democracy</li>
 <li>Deliberative Democracy</li>
 </ul>
+<p>All continuous measures, ranging from 0 to 1. Let’s take a look at how to summarize data like this!</p>
 </section>
-<section id="describe-and-summarize" class="slide level2">
-<h2>Describe and Summarize</h2>
+<section id="data-setup" class="slide level2 smaller">
+<h2>Data Setup</h2>
 <p><br></p>
-<p>How can we use our data to describe or summarize the state of electoral democracy in the year 2022?</p>
-</section>
-<section id="create-the-data" class="slide level2">
-<h2>Create the data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># Create dataset for year 2022, with country name, year, and electoral dem</span></span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># Load packages </span></span>
 <span id="cb1-2"><a></a><span class="fu">library</span>(vdemdata)</span>
-<span id="cb1-3"><a></a>vdem2022 <span class="ot">&lt;-</span> vdem <span class="sc">%&gt;%</span> </span>
-<span id="cb1-4"><a></a>  <span class="fu">mutate</span>(<span class="at">region =</span> e_regionpol_6C) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-5"><a></a>  <span class="fu">mutate</span>(<span class="at">region =</span> <span class="fu">case_match</span>(region, </span>
-<span id="cb1-6"><a></a>                        <span class="dv">1</span> <span class="sc">~</span> <span class="st">"Eastern Europe"</span>, </span>
-<span id="cb1-7"><a></a>                        <span class="dv">2</span> <span class="sc">~</span> <span class="st">"Latin America"</span>,  </span>
-<span id="cb1-8"><a></a>                        <span class="dv">3</span> <span class="sc">~</span> <span class="st">"Middle East"</span>,   </span>
-<span id="cb1-9"><a></a>                        <span class="dv">4</span> <span class="sc">~</span> <span class="st">"Africa"</span>, </span>
-<span id="cb1-10"><a></a>                        <span class="dv">5</span> <span class="sc">~</span> <span class="st">"The West"</span>, </span>
-<span id="cb1-11"><a></a>                        <span class="dv">6</span> <span class="sc">~</span> <span class="st">"Asia"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb1-12"><a></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2022</span>)  <span class="sc">%&gt;%</span> </span>
-<span id="cb1-13"><a></a>  <span class="fu">select</span>(country_name, year, v2x_polyarchy, region, v2x_regime)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-4"><a></a></span>
+<span id="cb1-5"><a></a><span class="co"># Create dataset for year 2022, with country name, year, and electoral dem</span></span>
+<span id="cb1-6"><a></a>vdem2022 <span class="ot">&lt;-</span> vdem <span class="sc">|&gt;</span></span>
+<span id="cb1-7"><a></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2022</span>)  <span class="sc">|&gt;</span></span>
+<span id="cb1-8"><a></a>  <span class="fu">select</span>(</span>
+<span id="cb1-9"><a></a>    <span class="at">country =</span> country_name, </span>
+<span id="cb1-10"><a></a>    year, </span>
+<span id="cb1-11"><a></a>    <span class="at">polyarchy =</span> v2x_polyarchy, </span>
+<span id="cb1-12"><a></a>    <span class="at">region =</span> e_regionpol_6C </span>
+<span id="cb1-13"><a></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb1-14"><a></a>  <span class="fu">mutate</span>(<span class="at">region =</span> <span class="fu">case_match</span>(region, </span>
+<span id="cb1-15"><a></a>                        <span class="dv">1</span> <span class="sc">~</span> <span class="st">"Eastern Europe"</span>, </span>
+<span id="cb1-16"><a></a>                        <span class="dv">2</span> <span class="sc">~</span> <span class="st">"Latin America"</span>,  </span>
+<span id="cb1-17"><a></a>                        <span class="dv">3</span> <span class="sc">~</span> <span class="st">"Middle East"</span>,   </span>
+<span id="cb1-18"><a></a>                        <span class="dv">4</span> <span class="sc">~</span> <span class="st">"Africa"</span>, </span>
+<span id="cb1-19"><a></a>                        <span class="dv">5</span> <span class="sc">~</span> <span class="st">"The West"</span>, </span>
+<span id="cb1-20"><a></a>                        <span class="dv">6</span> <span class="sc">~</span> <span class="st">"Asia"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="examine-the-data" class="slide level2">
-<h2>Examine the data</h2>
+<h2>Examine the Data</h2>
+<p><br></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">glimpse</span>(vdem2022)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 179
-Columns: 5
-$ country_name  &lt;chr&gt; "Mexico", "Suriname", "Sweden", "Switzerland", "Ghana", …
-$ year          &lt;dbl&gt; 2022, 2022, 2022, 2022, 2022, 2022, 2022, 2022, 2022, 20…
-$ v2x_polyarchy &lt;dbl&gt; 0.598, 0.770, 0.899, 0.898, 0.633, 0.692, 0.833, 0.093, …
-$ region        &lt;chr&gt; "Latin America", "Latin America", "The West", "The West"…
-$ v2x_regime    &lt;dbl&gt; 2, 2, 3, 3, 2, 2, 3, 0, 1, 1, 1, 0, 2, 2, 2, 3, 2, 1, 1,…</code></pre>
+Columns: 4
+$ country   &lt;chr&gt; "Mexico", "Suriname", "Sweden", "Switzerland", "Ghana", "Sou…
+$ year      &lt;dbl&gt; 2022, 2022, 2022, 2022, 2022, 2022, 2022, 2022, 2022, 2022, …
+$ polyarchy &lt;dbl&gt; 0.598, 0.770, 0.899, 0.898, 0.633, 0.692, 0.833, 0.093, 0.20…
+$ region    &lt;chr&gt; "Latin America", "Latin America", "The West", "The West", "A…</code></pre>
 </div>
 </div>
 </section>
-<section id="how-can-we-summarize-electoral-democracy" class="slide level2">
-<h2>How can we summarize electoral democracy?</h2>
-</section>
-<section id="measures-of-centrality" class="slide level2">
-<h2>Measures of Centrality</h2>
-<p>We could calculate the <strong>mean</strong> (<code>mean</code>)</p>
+<section id="section" class="slide level2">
+<h2></h2>
+<p><br></p>
+<p>How can we summarize measures of democracy? <span class="emoji" data-emoji="thinking">🤔</span></p>
+<p><br></p>
+<p>We could calculate the <strong>mean</strong>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>vdem2022 <span class="sc">%&gt;%</span> </span>
-<span id="cb4-2"><a></a>  <span class="fu">summarize</span>(<span class="at">mean_democracy =</span> <span class="fu">mean</span>(v2x_polyarchy))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>vdem2022 <span class="sc">|&gt;</span></span>
+<span id="cb4-2"><a></a>  <span class="fu">summarize</span>(<span class="at">mean_democracy =</span> <span class="fu">mean</span>(polyarchy))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  mean_democracy
 1          0.497</code></pre>
 </div>
 </div>
+<p>The mean is the average of the values. Common measure of central tendency but sensitive to outliers.</p>
 </section>
-<section id="measures-of-centrality-1" class="slide level2">
-<h2>Measures of Centrality</h2>
-<p>We could calculate the <strong>median</strong> (<code>median</code>)</p>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<p><br></p>
+<p>How can we summarize measures of democracy? <span class="emoji" data-emoji="thinking">🤔</span></p>
+<p><br></p>
+<p>We could calculate the <strong>median</strong>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>vdem2022 <span class="sc">%&gt;%</span> </span>
-<span id="cb6-2"><a></a>  <span class="fu">summarize</span>(<span class="at">median_democracy =</span> <span class="fu">median</span>(v2x_polyarchy))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>vdem2022 <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a></a>  <span class="fu">summarize</span>(<span class="at">median_democracy =</span> <span class="fu">median</span>(polyarchy))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  median_democracy
 1            0.501</code></pre>
 </div>
 </div>
+<p>The median is the value that separates the higher half from the lower half of the data.</p>
 </section>
-<section id="describe-and-visualize-the-distribution" class="slide level2">
-<h2>Describe and visualize the distribution</h2>
-<p>We can describe the shape of the distribution</p>
+<section id="section-2" class="slide level2">
+<h2></h2>
+<p><br></p>
+<p>We can also describe the shape of the distribution…</p>
 <ul>
-<li>symmetric</li>
+<li>symmetric (e.g.&nbsp;normal)</li>
 <li>right-skewed</li>
 <li>left-skewed</li>
 <li>unimodal (one peak)</li>
 <li>bimodal (multiple peaks)</li>
 </ul>
 </section>
+<section id="histograms" class="slide level2">
+<h2>Histograms</h2>
+<ul>
+<li>Used to represent the distribution of a continuous variable</li>
+<li>The x-axis represents the range of values</li>
+<li>The y-axis represents the frequency of each value</li>
+<li>The bars represent the number of observations in each range or “bin”</li>
+<li>The shape of the histogram can tell us a lot about the distribution of the data</li>
+</ul>
+</section>
 <section id="symmetric-distributions" class="slide level2">
-<h2>Symmetric distributions</h2>
+<h2>Symmetric Distributions</h2>
 
-<img data-src="week-5.2_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
+<img data-src="week-5.2_files/figure-revealjs/symmetric-1-1.png" width="960" class="r-stretch"></section>
 <section id="symmetric-distributions-1" class="slide level2">
-<h2>Symmetric distributions</h2>
+<h2>Symmetric Distributions</h2>
 
-<img data-src="week-5.2_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
+<img data-src="week-5.2_files/figure-revealjs/symmetric-2-1.png" width="960" class="r-stretch"></section>
 <section id="skewed-distributions" class="slide level2">
 <h2>Skewed Distributions</h2>
 
-<img data-src="week-5.2_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section>
+<img data-src="week-5.2_files/figure-revealjs/left-skewed-1.png" width="960" class="r-stretch"></section>
 <section id="skewed-distributions-1" class="slide level2">
 <h2>Skewed Distributions</h2>
 
-<img data-src="week-5.2_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"></section>
+<img data-src="week-5.2_files/figure-revealjs/right-skewed-1.png" width="960" class="r-stretch"></section>
 <section id="bimodal-distribution" class="slide level2">
 <h2>Bimodal Distribution</h2>
 
-<img data-src="week-5.2_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch"></section>
+<img data-src="week-5.2_files/figure-revealjs/bimodal-1.png" width="960" class="r-stretch"></section>
 <section id="when-is-the-mean-useful" class="slide level2">
-<h2>When is the <code>mean</code> useful?</h2>
+<h2>When is the Mean Useful?</h2>
 
-<img data-src="week-5.2_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch"></section>
+<img data-src="week-5.2_files/figure-revealjs/normal-distribution-1.png" width="960" class="r-stretch"></section>
 <section id="when-is-the-mean-useful-1" class="slide level2">
-<h2>When is the <code>mean</code> useful?</h2>
+<h2>When is the Mean Useful?</h2>
 
-<img data-src="week-5.2_files/figure-revealjs/unnamed-chunk-12-1.png" width="960" class="r-stretch"></section>
+<img data-src="week-5.2_files/figure-revealjs/mean-right-skew-1.png" width="960" class="r-stretch"></section>
 <section id="when-is-the-mean-useful-2" class="slide level2">
-<h2>When is the <code>mean</code> useful?</h2>
+<h2>When is the Mean Useful?</h2>
 
-<img data-src="week-5.2_files/figure-revealjs/unnamed-chunk-13-1.png" width="960" class="r-stretch"></section>
+<img data-src="week-5.2_files/figure-revealjs/mean-bimodal-1.png" width="960" class="r-stretch"></section>
 <section id="when-is-the-mean-useful-3" class="slide level2">
 <h2>When is the <code>mean</code> useful?</h2>
 <p><br></p>
 <ul>
-<li><p>the Mean works well as a summary statistic when the distribution is relatively symmetric</p></li>
-<li><p>Not as well when distributions are skewed or bimodal (or multi-modal)</p>
-<ul>
+<li>The Mean works well as a summary statistic when the distribution is relatively symmetric</li>
+<li>Not as well when distributions are skewed or bimodal (or multi-modal)</li>
 <li>With skewed distributions, the mean is sensitive to extreme values</li>
-</ul></li>
-<li><p>The median is more robust</p></li>
+<li>The median is more robust</li>
 </ul>
 </section>
 <section id="lesson" class="slide level2">
 <h2>Lesson</h2>
 <div>
 <ul>
-<li class="fragment"><p><strong>Always look at your data</strong></p></li>
-<li class="fragment"><p>When reading or in a presentation, ask yourself:</p>
+<li class="fragment">Always look at your data!!</li>
+<li class="fragment">When reading or in a presentation, ask yourself:
 <ul>
 <li class="fragment">Does the mean make sense given the distribution of the measure?</li>
 <li class="fragment">Could extreme values in a skewed distribution make the mean not as useful?</li>
@@ -587,54 +583,114 @@ $ v2x_regime    &lt;dbl&gt; 2, 2, 3, 3, 2, 2, 3, 0, 1, 1, 1, 0, 2, 2, 2, 3, 2, 1
 </section>
 <section id="visualize-our-measure" class="slide level2">
 <h2>Visualize Our Measure</h2>
+<p><br></p>
 
-<img data-src="week-5.2_files/figure-revealjs/unnamed-chunk-14-1.png" width="960" class="r-stretch"></section>
+<img data-src="week-5.2_files/figure-revealjs/visualize-polyarchy-1.png" width="960" class="r-stretch"></section>
+<section id="visualize-our-measure-1" class="slide level2">
+<h2>Visualize Our Measure</h2>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>mn <span class="ot">&lt;-</span> <span class="fu">mean</span>(vdem2022<span class="sc">$</span>polyarchy)</span>
+<span id="cb8-2"><a></a>med <span class="ot">&lt;-</span> <span class="fu">median</span>(vdem2022<span class="sc">$</span>polyarchy)</span>
+<span id="cb8-3"><a></a></span>
+<span id="cb8-4"><a></a><span class="fu">ggplot</span>(vdem2022, <span class="fu">aes</span>(<span class="at">x =</span> polyarchy )) <span class="sc">+</span></span>
+<span id="cb8-5"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> .<span class="dv">05</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb8-6"><a></a>   <span class="fu">labs</span>(</span>
+<span id="cb8-7"><a></a>    <span class="at">x =</span> <span class="st">"Electoral Democracy"</span>, </span>
+<span id="cb8-8"><a></a>    <span class="at">y =</span> <span class="st">"Frequency"</span>, </span>
+<span id="cb8-9"><a></a>    <span class="at">title =</span> <span class="st">"Distribution of Electoral Democracy in 2022"</span>, </span>
+<span id="cb8-10"><a></a>    <span class="at">caption =</span> <span class="st">"Source: V-Dem Institute"</span></span>
+<span id="cb8-11"><a></a>  ) <span class="sc">+</span> </span>
+<span id="cb8-12"><a></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> mn, <span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">"darkorange"</span>) <span class="sc">+</span></span>
+<span id="cb8-13"><a></a>  <span class="fu">theme_minimal</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="visualize-our-measure-2" class="slide level2">
+<h2>Visualize Our Measure</h2>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9" data-code-line-numbers="1-2|5|12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>mn <span class="ot">&lt;-</span> <span class="fu">mean</span>(vdem2022<span class="sc">$</span>polyarchy)</span>
+<span id="cb9-2"><a></a>med <span class="ot">&lt;-</span> <span class="fu">median</span>(vdem2022<span class="sc">$</span>polyarchy)</span>
+<span id="cb9-3"><a></a></span>
+<span id="cb9-4"><a></a><span class="fu">ggplot</span>(vdem2022, <span class="fu">aes</span>(<span class="at">x =</span> polyarchy )) <span class="sc">+</span></span>
+<span id="cb9-5"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> .<span class="dv">05</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb9-6"><a></a>   <span class="fu">labs</span>(</span>
+<span id="cb9-7"><a></a>    <span class="at">x =</span> <span class="st">"Electoral Democracy"</span>, </span>
+<span id="cb9-8"><a></a>    <span class="at">y =</span> <span class="st">"Frequency"</span>, </span>
+<span id="cb9-9"><a></a>    <span class="at">title =</span> <span class="st">"Distribution of Electoral Democracy in 2022"</span>, </span>
+<span id="cb9-10"><a></a>    <span class="at">caption =</span> <span class="st">"Source: V-Dem Institute"</span></span>
+<span id="cb9-11"><a></a>  ) <span class="sc">+</span> </span>
+<span id="cb9-12"><a></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> mn, <span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">"darkorange"</span>) <span class="sc">+</span></span>
+<span id="cb9-13"><a></a>  <span class="fu">theme_minimal</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="your-turn" class="slide level2">
+<h2>Your Turn!</h2>
+<ul>
+<li>Look at the <a href="https://v-dem.net/documents/24/codebook_v13.pdf">V-Dem codebook</a></li>
+<li>Select a different high-level measure of democracy</li>
+<li>Preprocess your data to include tha measure in your data frame</li>
+<li>Calculate the mean and median and store as a variable</li>
+<li>Visualize the distribution of the measure</li>
+<li>Include a vertical line for the mean</li>
+<li>Now try the median</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div class="countdown" id="timer1" data-update-every="1" tabindex="0" style="right:10%;bottom:5%;">
+<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+</div>
+</div>
+</section>
 <section id="recap" class="slide level2">
 <h2>Recap</h2>
 <p><br></p>
 <ul>
-<li><p>We can use statistics like mean or median to describe the center of a variable</p></li>
-<li><p>We can visualize the entire distribution to charachterize the distribution of the variable</p></li>
-<li><p>We should also say something about the <strong>spread</strong> of the distribution</p></li>
+<li>We can use statistics like mean or median to describe the center of a variable</li>
+<li>We can visualize the entire distribution to charachterize the distribution of the variable</li>
+<li>We should also say something about the <strong>spread</strong> of the distribution</li>
 </ul>
 </section>
 <section id="why-measure-and-visualize-spread" class="slide level2">
 <h2>Why Measure and Visualize Spread?</h2>
 
-<img data-src="week-5.2_files/figure-revealjs/unnamed-chunk-15-1.png" width="960" class="r-stretch"></section>
-<section id="measures-of-spread" class="slide level2">
-<h2>Measures of Spread</h2>
+<img data-src="week-5.2_files/figure-revealjs/spread-1.png" width="960" class="r-stretch"></section>
+<section id="measures-of-spread-range" class="slide level2">
+<h2>Measures of Spread: Range</h2>
+<p><br></p>
 <ul>
-<li><p>Range (min and max values)</p>
-<ul>
+<li>Range (min and max values)</li>
 <li>Not ideal b/c does not tell us much about where most of the values are located</li>
-</ul></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>vdem2022 <span class="sc">%&gt;%</span> </span>
-<span id="cb8-2"><a></a>  <span class="fu">summarize</span>(<span class="at">min =</span> <span class="fu">min</span>(v2x_polyarchy),</span>
-<span id="cb8-3"><a></a>            <span class="at">max =</span> <span class="fu">max</span>(v2x_polyarchy))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>vdem2022 <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a></a>  <span class="fu">summarize</span>(<span class="at">min =</span> <span class="fu">min</span>(polyarchy),</span>
+<span id="cb10-3"><a></a>            <span class="at">max =</span> <span class="fu">max</span>(polyarchy))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    min   max
 1 0.016 0.916</code></pre>
 </div>
 </div>
 </section>
-<section id="interquartile-range" class="slide level2">
-<h2>Interquartile Range</h2>
+<section id="measure-of-spread-interquartile-range" class="slide level2">
+<h2>Measure of Spread: Interquartile Range</h2>
 <p>IQR: 25th percentile - 75th percentile</p>
 
-<img data-src="week-5.2_files/figure-revealjs/unnamed-chunk-17-1.png" width="960" class="r-stretch"></section>
-<section id="interquartile-range-1" class="slide level2">
+<img data-src="week-5.2_files/figure-revealjs/unnamed-chunk-19-1.png" width="960" class="r-stretch"></section>
+<section id="interquartile-range" class="slide level2">
 <h2>Interquartile Range</h2>
-<p>The middle 50 percent of the countries in the data lie between 0.262 and 0.747</p>
-<p>The range length of 0.485 tells us something about the spread of the distribution</p>
+<ul>
+<li>The middle 50 percent of the countries in the data lie between 0.262 and 0.747</li>
+<li>The range length of 0.485 tells us something about the spread of the distribution</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>vdem2022 <span class="sc">%&gt;%</span> </span>
-<span id="cb10-2"><a></a>  <span class="fu">summarize</span>(<span class="at">IQRlow =</span>  <span class="fu">quantile</span>(v2x_polyarchy, .<span class="dv">25</span>),</span>
-<span id="cb10-3"><a></a>            <span class="at">IQRhigh =</span> <span class="fu">quantile</span>(v2x_polyarchy, .<span class="dv">75</span>),</span>
-<span id="cb10-4"><a></a>            <span class="at">IQRlength =</span> <span class="fu">IQR</span>(v2x_polyarchy)</span>
-<span id="cb10-5"><a></a>          )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>vdem2022 <span class="sc">%&gt;%</span> </span>
+<span id="cb12-2"><a></a>  <span class="fu">summarize</span>(<span class="at">IQRlow =</span>  <span class="fu">quantile</span>(polyarchy, .<span class="dv">25</span>),</span>
+<span id="cb12-3"><a></a>            <span class="at">IQRhigh =</span> <span class="fu">quantile</span>(polyarchy, .<span class="dv">75</span>),</span>
+<span id="cb12-4"><a></a>            <span class="at">IQRlength =</span> <span class="fu">IQR</span>(polyarchy)</span>
+<span id="cb12-5"><a></a>          )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  IQRlow IQRhigh IQRlength
 1  0.262   0.747     0.485</code></pre>
@@ -645,69 +701,74 @@ $ v2x_regime    &lt;dbl&gt; 2, 2, 3, 3, 2, 2, 3, 0, 1, 1, 1, 0, 2, 2, 2, 3, 2, 1
 <h2>Measure of Spead: Standard Deviation</h2>
 <p><br></p>
 <ul>
-<li><p><strong>Standard deviation</strong></p></li>
-<li><p>Can think of this as something like the “average distance” of each data point from the mean</p></li>
-</ul>
-</section>
-<section id="measure-of-spead-standard-deviation-1" class="slide level2">
-<h2>Measure of Spead: Standard Deviation</h2>
-<p><br></p>
-<ul>
-<li>Can think of this as something like the “average distance” of each data point from the mean</li>
+<li>Can think of it as something like the “average distance” of each data point from the mean</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>vdem2022 <span class="sc">%&gt;%</span> </span>
-<span id="cb12-2"><a></a>  <span class="fu">summarize</span>(<span class="at">mean =</span> <span class="fu">mean</span>(v2x_polyarchy),</span>
-<span id="cb12-3"><a></a>            <span class="at">stdDev =</span> <span class="fu">sd</span>(v2x_polyarchy))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>vdem2022 <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a></a>  <span class="fu">summarize</span>(<span class="at">mean =</span> <span class="fu">mean</span>(polyarchy),</span>
+<span id="cb14-3"><a></a>            <span class="at">stdDev =</span> <span class="fu">sd</span>(polyarchy))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   mean   stdDev
 1 0.497 0.259951</code></pre>
 </div>
 </div>
 </section>
+<section id="standard-deviation" class="slide level2">
+<h2>Standard Deviation</h2>
+<p><br></p>
+<ul>
+<li>A low standard deviation indicates that the values tend to be close to the mean</li>
+<li>A high standard deviation indicates that the values are spread out over a wider range</li>
+</ul>
+</section>
+<section id="starting-with-variance" class="slide level2">
+<h2>Starting with Variance</h2>
+<p><br></p>
+<ul>
+<li>Variance is a step towards calculating the standard deviation.</li>
+<li>It quantifies the average squared deviation of each number from the mean of the data set.</li>
+</ul>
+</section>
+<section id="calculating-deviation-from-the-mean" class="slide level2">
+<h2>Calculating Deviation from the Mean</h2>
+<ul>
+<li>First, calculate the mean (({X})) of the dataset.</li>
+<li>For each data point ((X_i)), calculate its deviation from the mean: <span class="math display">\[e_i = X_i - \bar{X}\]</span>
+<ul>
+<li>Example with a mean of 5:
+<ul>
+<li>For a data point where (X_i = 0): (0 - 5 = -5)</li>
+<li>For a data point where (X_i = 10): (10 - 5 = 5)</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="squaring-the-deviations" class="slide level2">
+<h2>Squaring the Deviations</h2>
+<ul>
+<li>Squaring each deviation ((e_i)) to eliminate negative values: <span class="math display">\[e_i^2 = (X_i - \bar{X})^2\]</span></li>
+<li>Summing up all squared deviations: <span class="math display">\[\sum_{i=1}^{n} (X_i - \bar{X})^2\]</span></li>
+<li>This sum represents the total squared deviation from the mean.</li>
+</ul>
+</section>
+<section id="calculating-the-variance" class="slide level2">
+<h2>Calculating the Variance</h2>
+<ul>
+<li>Divide the total squared deviation by (n-1) (to account for the sample variance): <span class="math display">\[\text{Variance} = \frac{1}{n-1} \sum_{i=1}^{n} (X_i - \bar{X})^2\]</span></li>
+<li>Using (n-1) ensures an unbiased estimate of the population variance when calculating from a sample.</li>
+</ul>
+</section>
+<section id="deriving-the-standard-deviation" class="slide level2">
+<h2>Deriving the Standard Deviation</h2>
+<p><br></p>
+<ul>
+<li>The standard deviation is the square root of the variance: <span class="math display">\[s = \sqrt{\frac{1}{n-1} \sum_{i=1}^{n} (X_i - \bar{X})^2}\]</span></li>
+<li>Taking the square root converts the variance back to the units of the original data.</li>
+</ul>
+</section>
 <section id="standard-deviation-simple-example" class="slide level2">
 <h2>Standard Deviation Simple Example</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>x <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>)</span>
-<span id="cb14-2"><a></a><span class="fu">mean</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 5</code></pre>
-</div>
-</div>
-</section>
-<section id="standard-deviation-simple-example-1" class="slide level2">
-<h2>Standard Deviation Simple Example</h2>
 <p><br></p>
-<div>
-<ul>
-<li class="fragment">First, we calculate the <em>variance</em>:</li>
-<li class="fragment">For each point, we calculate the deviation from the mean: <span class="math display">\[e_i = X_i - mean(X)\]</span>
-<ul>
-<li class="fragment">For the point where the value is 0, this is: 0-5 = -5</li>
-<li class="fragment">For the point where the value is 10, this is: 10-5 = 5</li>
-</ul></li>
-<li class="fragment">Then we square all of the <span class="math inline">\(e_i\)</span> –&gt; <span class="math inline">\(e_i^2\)</span>, and add them up
-<ul>
-<li class="fragment">Why do we square them?</li>
-</ul></li>
-</ul>
-</div>
-</section>
-<section id="standard-deviation-simple-example-2" class="slide level2">
-<h2>Standard Deviation Simple Example</h2>
-<p><br></p>
-<div>
-<ul>
-<li class="fragment"><p>Then we divide by <span class="math inline">\(N-1\)</span>, the number of observations, to get an average squared deviation from the mean</p></li>
-<li class="fragment"><p>Finally, to get standard deviation, then take the square root of the variance</p>
-<ul>
-<li class="fragment">This transforms the variance back into the units of the original variable (it basically undoes the squaring we did before)</li>
-</ul></li>
-</ul>
-</div>
-</section>
-<section id="standard-deviation-simple-example-3" class="slide level2">
-<h2>Standard Deviation Simple Example</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>x <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>)</span>
 <span id="cb16-2"><a></a>e <span class="ot">&lt;-</span> x <span class="sc">-</span> <span class="fu">mean</span>(x)</span>
@@ -717,8 +778,9 @@ $ v2x_regime    &lt;dbl&gt; 2, 2, 3, 3, 2, 2, 3, 0, 1, 1, 1, 0, 2, 2, 2, 3, 2, 1
 </div>
 </div>
 </section>
-<section id="standard-deviation-simple-example-4" class="slide level2">
+<section id="standard-deviation-simple-example-1" class="slide level2">
 <h2>Standard Deviation Simple Example</h2>
+<p><br></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>x <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>)</span>
 <span id="cb18-2"><a></a>e_squared <span class="ot">&lt;-</span> e<span class="sc">^</span><span class="dv">2</span></span>
@@ -728,8 +790,9 @@ $ v2x_regime    &lt;dbl&gt; 2, 2, 3, 3, 2, 2, 3, 0, 1, 1, 1, 0, 2, 2, 2, 3, 2, 1
 </div>
 </div>
 </section>
-<section id="standard-deviation-simple-example-5" class="slide level2">
+<section id="standard-deviation-simple-example-2" class="slide level2">
 <h2>Standard Deviation Simple Example</h2>
+<p><br></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>x <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>)</span>
 <span id="cb20-2"><a></a>sum_e_squared <span class="ot">&lt;-</span> <span class="fu">sum</span>(e_squared)</span>
@@ -739,8 +802,9 @@ $ v2x_regime    &lt;dbl&gt; 2, 2, 3, 3, 2, 2, 3, 0, 1, 1, 1, 0, 2, 2, 2, 3, 2, 1
 </div>
 </div>
 </section>
-<section id="standard-deviation-simple-example-6" class="slide level2">
+<section id="standard-deviation-simple-example-3" class="slide level2">
 <h2>Standard Deviation Simple Example</h2>
+<p><br></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>variance <span class="ot">&lt;-</span> sum_e_squared<span class="sc">/</span>(<span class="fu">length</span>(x)<span class="sc">-</span><span class="dv">1</span>)</span>
 <span id="cb22-2"><a></a>variance</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -749,8 +813,9 @@ $ v2x_regime    &lt;dbl&gt; 2, 2, 3, 3, 2, 2, 3, 0, 1, 1, 1, 0, 2, 2, 2, 3, 2, 1
 </div>
 </div>
 </section>
-<section id="standard-deviation-simple-example-7" class="slide level2">
+<section id="standard-deviation-simple-example-4" class="slide level2">
 <h2>Standard Deviation Simple Example</h2>
+<p><br></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>standard_dev <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(variance)</span>
 <span id="cb24-2"><a></a>standard_dev</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -763,31 +828,44 @@ $ v2x_regime    &lt;dbl&gt; 2, 2, 3, 3, 2, 2, 3, 0, 1, 1, 1, 0, 2, 2, 2, 3, 2, 1
 </div>
 </div>
 </section>
-<section id="questions" class="slide level2">
-<h2>Questions?</h2>
+<section id="your-turn-1" class="slide level2">
+<h2>Your Turn!</h2>
+<p><br></p>
+<ul>
+<li>Calculate measures of spread for the <code>polyarchy</code> variable in the V-Dem data</li>
+<li>How would you interpret these measures?</li>
+<li>Try another variable in the V-Dem data</li>
+<li>How does it compare to <code>polyarchy</code>?</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div class="countdown" id="timer2" data-update-every="1" tabindex="0" style="right:10%;bottom:10%;">
+<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+</div>
+</div>
 </section>
 <section id="calculating-statistics-by-groups" class="slide level2">
 <h2>Calculating Statistics by groups</h2>
 <p><br></p>
-<div>
 <ul>
-<li class="fragment"><p>What if we want to describe electoral democracy and see how it differs by some different variable? For example, by world region, or by year?</p></li>
-<li class="fragment"><p>This brings us back to bar chart</p></li>
-<li class="fragment"><p>Last week, I made the data for you: with the code I’ve shown today, you could make it yourself straight from V-Dem</p></li>
+<li>What if we want to describe electoral democracy and see how it differs by some different variable? For example, by world region, or by year?</li>
+<li>In this case we want to combine numerical summaries with categorical variables</li>
+<li>This brings us back to bar chart</li>
 </ul>
-</div>
 </section>
 <section id="calculating-statistics-by-groups-1" class="slide level2">
-<h2>Calculating Statistics by groups</h2>
+<h2>Calculating Statistics by Groups</h2>
 <ul>
-<li><p>Let’s calculate the mean and median of electoral democracy in each world region</p></li>
-<li><p>For this, we add the <em>group_by()</em> to our previous code</p></li>
+<li>Let’s calculate the mean and median of electoral democracy in each world region</li>
+<li>For this, we add the <em>group_by()</em> to our previous code</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>vdem2022 <span class="sc">%&gt;%</span> </span>
-<span id="cb28-2"><a></a>  <span class="fu">group_by</span>(region) <span class="sc">%&gt;%</span> </span>
-<span id="cb28-3"><a></a>  <span class="fu">summarize</span>(<span class="at">mean_dem =</span> <span class="fu">mean</span>(v2x_polyarchy),</span>
-<span id="cb28-4"><a></a>            <span class="at">median_dem =</span> <span class="fu">median</span>(v2x_polyarchy))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>vdem2022 <span class="sc">|&gt;</span></span>
+<span id="cb28-2"><a></a>  <span class="fu">group_by</span>(region) <span class="sc">|&gt;</span></span>
+<span id="cb28-3"><a></a>  <span class="fu">summarize</span>(<span class="at">mean_dem =</span> <span class="fu">mean</span>(polyarchy),</span>
+<span id="cb28-4"><a></a>            <span class="at">median_dem =</span> <span class="fu">median</span>(polyarchy))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 3
   region         mean_dem median_dem
@@ -802,15 +880,15 @@ $ v2x_regime    &lt;dbl&gt; 2, 2, 3, 3, 2, 2, 3, 0, 1, 1, 1, 0, 2, 2, 2, 3, 2, 1
 </div>
 </section>
 <section id="calculating-statistics-by-groups-2" class="slide level2">
-<h2>Calculating Statistics by groups</h2>
+<h2>Calculating Statistics by Groups</h2>
 <ul>
 <li>Let’s store our statistics as a new data object, <em>democracy_region</em></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>democracy_region <span class="ot">&lt;-</span> vdem2022 <span class="sc">%&gt;%</span> </span>
-<span id="cb30-2"><a></a>  <span class="fu">group_by</span>(region) <span class="sc">%&gt;%</span> </span>
-<span id="cb30-3"><a></a>  <span class="fu">summarize</span>(<span class="at">mean_dem =</span> <span class="fu">mean</span>(v2x_polyarchy),</span>
-<span id="cb30-4"><a></a>            <span class="at">median_dem =</span> <span class="fu">median</span>(v2x_polyarchy))</span>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>democracy_region <span class="ot">&lt;-</span> vdem2022 <span class="sc">|&gt;</span> </span>
+<span id="cb30-2"><a></a>  <span class="fu">group_by</span>(region) <span class="sc">|&gt;</span></span>
+<span id="cb30-3"><a></a>  <span class="fu">summarize</span>(<span class="at">mean_dem =</span> <span class="fu">mean</span>(polyarchy),</span>
+<span id="cb30-4"><a></a>            <span class="at">median_dem =</span> <span class="fu">median</span>(polyarchy))</span>
 <span id="cb30-5"><a></a></span>
 <span id="cb30-6"><a></a>democracy_region</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -842,653 +920,53 @@ $ v2x_regime    &lt;dbl&gt; 2, 2, 3, 3, 2, 2, 3, 0, 1, 1, 1, 0, 2, 2, 2, 3, 2, 1
 </details>
 
 </div>
-<img data-src="week-5.2_files/figure-revealjs/unnamed-chunk-28-1.png" width="960" class="r-stretch"></section></section>
-<section>
-<section id="categorical-data" class="title-slide slide level1 center">
-<h1>Categorical Data</h1>
-
-</section>
-<section id="v-dem-regimes-of-the-world-measure" class="slide level2">
-<h2>V-Dem Regimes of the World Measure</h2>
-<ul>
-<li>Closed Autocracy</li>
-<li>Electoral Autocracy</li>
-<li>Electoral Democracy</li>
-<li>Liberal Democracy</li>
-</ul>
-</section>
-<section id="data-setup" class="slide level2">
-<h2>Data Setup</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>vdem2022 <span class="ot">&lt;-</span> vdem2022 <span class="sc">%&gt;%</span> </span>
-<span id="cb33-2"><a></a>  <span class="fu">mutate</span>(<span class="at">regime =</span> <span class="fu">case_match</span>(v2x_regime,</span>
-<span id="cb33-3"><a></a>                    <span class="dv">0</span> <span class="sc">~</span> <span class="st">"Closed Autocracy"</span>,</span>
-<span id="cb33-4"><a></a>                    <span class="dv">1</span> <span class="sc">~</span> <span class="st">"Electoral Autocracy"</span>,</span>
-<span id="cb33-5"><a></a>                    <span class="dv">2</span> <span class="sc">~</span>  <span class="st">"Electoral Democracy"</span>,</span>
-<span id="cb33-6"><a></a>                    <span class="dv">3</span> <span class="sc">~</span>  <span class="st">"Liberal Democracy"</span>)</span>
-<span id="cb33-7"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="describe-regimes-of-the-world-in-2022" class="slide level2">
-<h2>Describe regimes of the world in 2022</h2>
-<p>We could count the number of each regime type</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a>vdem2022 <span class="sc">%&gt;%</span> </span>
-<span id="cb34-2"><a></a>  <span class="fu">count</span>(regime)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>               regime  n
-1    Closed Autocracy 33
-2 Electoral Autocracy 56
-3 Electoral Democracy 58
-4   Liberal Democracy 32</code></pre>
-</div>
-</div>
-</section>
-<section id="describe-regimes-of-the-world-in-2022-1" class="slide level2">
-<h2>Describe regimes of the world in 2022</h2>
-<p>Contingency Table</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a><span class="fu">library</span>(gt)</span>
-<span id="cb36-2"><a></a>count_regime <span class="ot">&lt;-</span>vdem2022 <span class="sc">%&gt;%</span> </span>
-<span id="cb36-3"><a></a>  <span class="fu">count</span>(regime)</span>
-<span id="cb36-4"><a></a><span class="fu">gt</span>(count_regime)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div id="noecanxvre" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#noecanxvre table {
-  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#noecanxvre thead, #noecanxvre tbody, #noecanxvre tfoot, #noecanxvre tr, #noecanxvre td, #noecanxvre th {
-  border-style: none;
-}
-
-#noecanxvre p {
-  margin: 0;
-  padding: 0;
-}
-
-#noecanxvre .gt_table {
-  display: table;
-  border-collapse: collapse;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#noecanxvre .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#noecanxvre .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#noecanxvre .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#noecanxvre .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#noecanxvre .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#noecanxvre .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#noecanxvre .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#noecanxvre .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#noecanxvre .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#noecanxvre .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#noecanxvre .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#noecanxvre .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-
-#noecanxvre .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-#noecanxvre .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#noecanxvre .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#noecanxvre .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#noecanxvre .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#noecanxvre .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#noecanxvre .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#noecanxvre .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#noecanxvre .gt_row_group_first th {
-  border-top-width: 2px;
-}
-
-#noecanxvre .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#noecanxvre .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#noecanxvre .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#noecanxvre .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#noecanxvre .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#noecanxvre .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#noecanxvre .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #D3D3D3;
-}
-
-#noecanxvre .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#noecanxvre .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#noecanxvre .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#noecanxvre .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#noecanxvre .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#noecanxvre .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#noecanxvre .gt_left {
-  text-align: left;
-}
-
-#noecanxvre .gt_center {
-  text-align: center;
-}
-
-#noecanxvre .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#noecanxvre .gt_font_normal {
-  font-weight: normal;
-}
-
-#noecanxvre .gt_font_bold {
-  font-weight: bold;
-}
-
-#noecanxvre .gt_font_italic {
-  font-style: italic;
-}
-
-#noecanxvre .gt_super {
-  font-size: 65%;
-}
-
-#noecanxvre .gt_footnote_marks {
-  font-size: 75%;
-  vertical-align: 0.4em;
-  position: initial;
-}
-
-#noecanxvre .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#noecanxvre .gt_indent_1 {
-  text-indent: 5px;
-}
-
-#noecanxvre .gt_indent_2 {
-  text-indent: 10px;
-}
-
-#noecanxvre .gt_indent_3 {
-  text-indent: 15px;
-}
-
-#noecanxvre .gt_indent_4 {
-  text-indent: 20px;
-}
-
-#noecanxvre .gt_indent_5 {
-  text-indent: 25px;
-}
-</style>
-
-<table class="gt_table" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-<thead>
-<tr class="header gt_col_headings">
-<th id="regime" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">regime</th>
-<th id="n" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">n</th>
-</tr>
-</thead>
-<tbody class="gt_table_body">
-<tr class="odd">
-<td class="gt_row gt_left" headers="regime">Closed Autocracy</td>
-<td class="gt_row gt_right" headers="n">33</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="regime">Electoral Autocracy</td>
-<td class="gt_row gt_right" headers="n">56</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="regime">Electoral Democracy</td>
-<td class="gt_row gt_right" headers="n">58</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="regime">Liberal Democracy</td>
-<td class="gt_row gt_right" headers="n">32</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-</section>
-<section id="bar-plot-is-usually-better" class="slide level2">
-<h2>Bar Plot is Usually Better</h2>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a>vdem2022 <span class="sc">%&gt;%</span></span>
-<span id="cb37-2"><a></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x =</span> regime)) <span class="sc">+</span></span>
-<span id="cb37-3"><a></a>      <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
-<span id="cb37-4"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb37-5"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb37-6"><a></a>    <span class="at">x =</span> <span class="st">"Regime"</span>,</span>
-<span id="cb37-7"><a></a>    <span class="at">y =</span> <span class="st">"Frequency"</span>,</span>
-<span id="cb37-8"><a></a>    <span class="at">title =</span> <span class="st">"Regimes of the World in 2022"</span>,</span>
-<span id="cb37-9"><a></a>    <span class="at">caption =</span> <span class="st">"Source: V-Dem Institute"</span></span>
-<span id="cb37-10"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-
-</div>
-<img data-src="week-5.2_files/figure-revealjs/unnamed-chunk-32-1.png" width="960" class="r-stretch"></section>
-<section id="summarizing-a-categorical-variable-by-a-goup" class="slide level2">
-<h2>Summarizing a categorical variable by a goup</h2>
-<p>How do Regimes Vary by Region?</p>
-</section>
-<section id="how-do-regimes-vary-by-region" class="slide level2">
-<h2>How do Regimes Vary by Region?</h2>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a>vdem2022 <span class="sc">%&gt;%</span></span>
-<span id="cb38-2"><a></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x =</span> region, <span class="at">fill =</span> regime)) <span class="sc">+</span></span>
-<span id="cb38-3"><a></a>      <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
-<span id="cb38-4"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb38-5"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb38-6"><a></a>    <span class="at">x =</span> <span class="st">"Region"</span>,</span>
-<span id="cb38-7"><a></a>    <span class="at">y =</span> <span class="st">"Frequency"</span>,</span>
-<span id="cb38-8"><a></a>    <span class="at">title =</span> <span class="st">"Regimes of the World by World Region in 2022"</span>,</span>
-<span id="cb38-9"><a></a>    <span class="at">caption =</span> <span class="st">"Source: V-Dem Institute"</span>,</span>
-<span id="cb38-10"><a></a>    <span class="at">fill =</span> <span class="st">"Regime"</span></span>
-<span id="cb38-11"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-
-</div>
-<img data-src="week-5.2_files/figure-revealjs/unnamed-chunk-33-1.png" width="960" class="r-stretch"></section>
-<section id="how-could-we-improve-this-graph" class="slide level2">
-<h2>How could we improve this graph??</h2>
-
-<img data-src="week-5.2_files/figure-revealjs/unnamed-chunk-34-1.png" width="960" class="r-stretch"></section>
-<section id="colors-need-improving" class="slide level2">
-<h2>Colors need improving</h2>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>vdem2022 <span class="sc">%&gt;%</span></span>
-<span id="cb39-2"><a></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x =</span> region, <span class="at">fill =</span> regime)) <span class="sc">+</span></span>
-<span id="cb39-3"><a></a>      <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
-<span id="cb39-4"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb39-5"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb39-6"><a></a>    <span class="at">x =</span> <span class="st">"Region"</span>,</span>
-<span id="cb39-7"><a></a>    <span class="at">y =</span> <span class="st">"Frequency"</span>,</span>
-<span id="cb39-8"><a></a>    <span class="at">title =</span> <span class="st">"Regimes of the World by World Region in 2022"</span>,</span>
-<span id="cb39-9"><a></a>    <span class="at">caption =</span> <span class="st">"Source: V-Dem Institute"</span>,</span>
-<span id="cb39-10"><a></a>    <span class="at">fill =</span> <span class="st">"Regime"</span></span>
-<span id="cb39-11"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb39-12"><a></a>  <span class="fu">scale_fill_viridis_d</span>(<span class="at">option =</span> <span class="st">"inferno"</span>, <span class="at">end =</span> .<span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-
-</div>
-<img data-src="week-5.2_files/figure-revealjs/unnamed-chunk-35-1.png" width="960" class="r-stretch"></section>
-<section id="region-size" class="slide level2">
-<h2>Region Size</h2>
-<p>Some regions have more countries than others. Why does this create an issue for telling a story with our data here?</p>
-
-<img data-src="week-5.2_files/figure-revealjs/unnamed-chunk-36-1.png" width="960" class="r-stretch"></section>
-<section id="is-this-better" class="slide level2">
-<h2>Is this better?</h2>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb40" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a>vdem2022 <span class="sc">%&gt;%</span></span>
-<span id="cb40-2"><a></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x =</span> region, <span class="at">fill =</span> regime)) <span class="sc">+</span></span>
-<span id="cb40-3"><a></a>      <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>) <span class="sc">+</span></span>
-<span id="cb40-4"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb40-5"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb40-6"><a></a>    <span class="at">x =</span> <span class="st">"Region"</span>,</span>
-<span id="cb40-7"><a></a>    <span class="at">y =</span> <span class="st">"Proportion"</span>,</span>
-<span id="cb40-8"><a></a>    <span class="at">title =</span> <span class="st">"Regimes of the World by World Region in 2022"</span>,</span>
-<span id="cb40-9"><a></a>    <span class="at">caption =</span> <span class="st">"Source: V-Dem Institute"</span>,</span>
-<span id="cb40-10"><a></a>    <span class="at">fill =</span> <span class="st">"Regime"</span></span>
-<span id="cb40-11"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb40-12"><a></a>  <span class="fu">scale_fill_viridis_d</span>(<span class="at">option =</span> <span class="st">"inferno"</span>, <span class="at">end =</span> .<span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-
-</div>
-<img data-src="week-5.2_files/figure-revealjs/unnamed-chunk-37-1.png" width="960" class="r-stretch"></section>
+<img data-src="week-5.2_files/figure-revealjs/group-by-3-1.png" width="960" class="r-stretch"></section>
 <section id="numerical-variable-by-group" class="slide level2">
 <h2>Numerical Variable by Group</h2>
 <p>How should we interpret this plot?</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a><span class="fu">library</span>(ggridges)</span>
-<span id="cb41-2"><a></a><span class="fu">library</span>(forcats)</span>
-<span id="cb41-3"><a></a>  <span class="fu">ggplot</span>(vdem2022, <span class="fu">aes</span>(<span class="at">x =</span> v2x_polyarchy, <span class="at">y =</span> region, <span class="at">fill =</span> region)) <span class="sc">+</span></span>
-<span id="cb41-4"><a></a>           <span class="fu">geom_density_ridges</span>() <span class="sc">+</span></span>
-<span id="cb41-5"><a></a>      <span class="fu">labs</span>(</span>
-<span id="cb41-6"><a></a>    <span class="at">x =</span> <span class="st">"Electoral Democracy"</span>,</span>
-<span id="cb41-7"><a></a>    <span class="at">y =</span> <span class="st">"Region"</span>,</span>
-<span id="cb41-8"><a></a>    <span class="at">title =</span> <span class="st">"A Ridge Plot"</span>,</span>
-<span id="cb41-9"><a></a>    <span class="at">caption =</span> <span class="st">"Source: V-Dem Institute"</span>,</span>
-<span id="cb41-10"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb41-11"><a></a>  <span class="fu">scale_fill_viridis_d</span>() <span class="sc">+</span></span>
-<span id="cb41-12"><a></a>    <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a><span class="fu">library</span>(ggridges)</span>
+<span id="cb33-2"><a></a><span class="co">#library(forcats)</span></span>
+<span id="cb33-3"><a></a>  <span class="fu">ggplot</span>(vdem2022, <span class="fu">aes</span>(<span class="at">x =</span> polyarchy, <span class="at">y =</span> region, <span class="at">fill =</span> region)) <span class="sc">+</span></span>
+<span id="cb33-4"><a></a>    <span class="fu">geom_density_ridges</span>() <span class="sc">+</span></span>
+<span id="cb33-5"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb33-6"><a></a>    <span class="at">x =</span> <span class="st">"Electoral Democracy"</span>,</span>
+<span id="cb33-7"><a></a>    <span class="at">y =</span> <span class="st">"Region"</span>,</span>
+<span id="cb33-8"><a></a>    <span class="at">title =</span> <span class="st">"A Ridge Plot"</span>,</span>
+<span id="cb33-9"><a></a>    <span class="at">caption =</span> <span class="st">"Source: V-Dem Institute"</span>,</span>
+<span id="cb33-10"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb33-11"><a></a>  <span class="fu">scale_fill_viridis_d</span>() <span class="sc">+</span></span>
+<span id="cb33-12"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 
 </div>
+<img data-src="week-5.2_files/figure-revealjs/ridge-plot-1.png" width="960" class="r-stretch"></section>
+<section id="your-turn-2" class="slide level2">
+<h2>Your Turn!</h2>
+<p><br></p>
+<ul>
+<li>Make a bar chart summarizing <code>polyarchy</code> or some other V-Dem variable</li>
+<li>Now try your hand at a ridge plot</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div class="countdown" id="timer3" data-update-every="1" tabindex="0" style="right:10%;bottom:10%;">
+<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+</div>
+</div>
 
 
-<img data-src="week-5.2_files/figure-revealjs/unnamed-chunk-38-1.png" width="960" class="r-stretch"></section><div class="quarto-auto-generated-content">
+</section>
+    <div class="quarto-auto-generated-content">
 <p><img src="images/iaff6501-logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
-<p><a href="https://data4ia-spring24.netlify.app/">IAFF 6501 Website</a></p>
+<p><a href="https://quant4ia.rocks">IAFF 6501 Website</a></p>
 </div>
-</div></section>
-    </div>
+</div></div>
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
