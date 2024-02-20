@@ -26,6 +26,8 @@ execute:
 - Why would you want to use a sample?
 :::
 
+Today's code is [HERE](https://www.dropbox.com/scl/fo/3u8lgap6nqtcp91gmclgd/h?rlkey=wm2ey4emths9w9585gnp9fygb&dl=0)
+
 # Sampling Activity
 
 ## What proportion of all milk chocolate M&Ms are blue?
