@@ -1,0 +1,179 @@
+---
+title: Sampling
+date: today
+date-format: long
+footer: "[IAFF 6501 Website](https://quant4ia.rocks/)"
+logo: images/iaff6501-logo.png
+format:
+  revealjs:
+    theme: [simple, custom.scss]
+    transition: fade
+    slide-number: true
+    #multiplex: true
+    chalkboard: true
+execute:
+  echo: false
+  message: false
+  warning: false
+  freeze: auto
+---
+
+## Sampling
+
+::: incremental
+- **Sampling** the act of selecting a subset of individuals, items, or data points from a larger population to estimate characteristics or metrics of the entire population
+- Versus a **census**, which involves gathering information on every individual in the population
+- Why would you want to use a sample?
+:::
+
+# Sampling Activity
+
+## What proportion of all milk chocolate M&Ms are blue?
+
+-   M&Ms has a precise distribution of colors that it produces in its factories
+-   M&Ms are sorted into bags in factories in a fairly random process
+-   Each bag represents a **sample** from the full **population** of M&Ms
+
+## Activity
+
+-   Get in groups of 2. Each group will have 4-5 bags of M&Ms.
+-   Keep the contents of each bag separate, and do not eat (yet!)
+-   Open up your first bag of M&Ms: calculate the proportion of the M&Ms that are blue. **Write this down.** What is your best guess (your **estimate**) for the proportion of all M&Ms that are blue?
+
+## Activity
+
+-   Do the same as above for the rest of your bags (you should have 4-5 **estimates** written down)
+-   Draw a histogram of your estimates (by hand)
+-   Add your estimates to this [Google Sheet](https://docs.google.com/spreadsheets/d/136wGKZOnwOdo3O-4bUfF_TWKBCAWQUCyiVKSY4HyYAw/edit?usp=sharing)
+-   Add your estimates to the class histogram on the whiteboard
+
+## Let's Analyze the Data
+
+<br>
+
+We will use the `googlesheets4` package to pull the data into R so be sure to install it.
+
+```{r}
+#| label: load_mm_data
+#| echo: true
+#| eval: false
+
+#install.packages("googlesheets4")
+
+library(tidyverse)
+library(googlesheets4)
+
+gs4_deauth() # to signify no authorization required
+
+mnm_data <- read_sheet("https://docs.google.com/spreadsheets/d/136wGKZOnwOdo3O-4bUfF_TWKBCAWQUCyiVKSY4HyYAw/edit#gid=0")
+
+glimpse(mnm_data)
+```
+
+
+## Calculate Some Summary Stats
+
+<br>
+
+```{r}
+#| label: summary_stats
+#| echo: true
+#| eval: false
+
+mnm_data |>
+  summarize(
+    mean_blue = mean(proportion_blue),
+    median_blue = median(proportion_blue),
+    sd_blue = sd(proportion_blue)
+  )
+```
+## Now Let's Make a Histogram 
+
+<br>
+
+```{r}
+#| label: histogram
+#| echo: true
+#| eval: false
+
+ggplot(mnm_data, aes(x = proportion_blue)) +
+  geom_histogram(fill = "steelblue") +
+  labs(
+    title = "Percentage of Blue M&Ms",
+    x = "Proportion Blue",
+    y = "Count"
+  )
+```
+
+## Discuss with Neighbor 
+
+-   What is the histogram/distribution showing?
+-   Based on the histogram on the board, what is your answer to the question of what proportion of all milk chocolate M&Ms are blue? Why do you give that answer?
+-   Why do some bag of M&Ms have proportions of blues that are higher and lower than the number you gave above?
+-   How do our estimates relate to the actual percentage of blue M&Ms manufactured (ask Google or ChatGPT)
+
+## What did we just do?
+
+::: incremental
+-   We wanted to say something about the **population** of M&Ms
+-   The **parameter** we care about is the proportion of M&Ms that are blue
+-   It would be impossible to conduct a **census** and to calculate the parameter
+-   We took a **sample** from the population and calculated a **sample statistic**
+-   **statistical inference:** act of making a guess about a **population** using information from a **sample**
+:::
+
+## What have we just done?
+
+::: incremental
+-   We completed this task many times
+-   This produced a **sampling distribution** of our **estimates**
+-   There is a distribution of estimates because of **sampling variability** 
+-   Due to random chance, one estimate from one sample can differ from another
+-   These are foundational ideas for statistical inference that we are going to keep building on
+:::
+
+# Zooming Out
+
+## Target Population
+
+In data analysis, we are usually interested in saying something about a **Target Population.**
+
+::: incremental
+-   What proportion of adult Russians support the war in Ukraine?
+    -   Target population: adult Russians (age 18+)
+-   How many US college students check social media during their classes?
+    -   Target population: US college students
+-   What percentage of M&Ms are blue?
+    -   Target population: all of the M&Ms
+:::
+
+## Sample
+
+<br>
+
+In many instances, we have a **Sample**
+
+-   We cannot talk to every Russian
+-   We cannot talk to all college students
+-   We cannot count all of the M&Ms
+
+## Parameters vs Statistics
+
+<br>
+
+::: incremental
+-   The **parameter** is the value of a calculation for the entire target population
+-   The **statistic** is what we calculate on our sample
+    -   We calculate a statistic in order to say something about the parameter
+:::
+
+## Inference
+
+<br>
+
+::: incremental
+-   **Inference**--The act of "making a guess" about some unknown
+-   **Statistical inference**--Making a good guess about a population from a sample
+-   **Causal inference**--Did X cause Y? [topic for later classes]
+:::
+

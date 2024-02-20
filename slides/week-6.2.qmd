@@ -1,0 +1,413 @@
+---
+title: Confidence Intervals
+date: today
+date-format: long
+footer: "[IAFF 6501 Website](https://quant4ia.rocks/)"
+logo: images/iaff6501-logo.png
+format:
+  revealjs:
+    theme: [simple, custom.scss]
+    transition: fade
+    slide-number: true
+    #multiplex: true
+    chalkboard: true
+execute:
+  echo: false
+  message: false
+  warning: false
+  freeze: auto
+---
+
+## {.smaller}
+
+On December 19, 2014, the front page of Spanish national newspaper El
+País read *"Catalan public opinion swings toward 'no' for independence, says survey"*.^[Alberto Cairo. [The truthful art: Data, charts, and maps for communication](http://www.thefunctionalart.com/p/the-truthful-art-book.html). New Riders, 2016.]
+
+```{r}
+library(tidyverse)
+library(lubridate)
+library(scales)
+catalan <- tibble(
+  response = c("No", "Yes", "No answer"),
+  rate     = c(45.3, 44.5, 10.2)
+) %>%
+  mutate(response = fct_relevel(response, "No", "Yes", "No answer"))
+```
+
+```{r}
+#| label: catalan-misleading
+ggplot(catalan, aes(y = fct_rev(response), x = rate, fill = response)) +
+  geom_col(width = .75) +
+  scale_fill_manual(values = c("#5C8AA9", "#9D303A", "gray")) +
+  scale_x_continuous(labels = label_percent(scale = 1)) +
+  theme_minimal(base_size = 16) +
+  labs(
+    title = "Do you want Catalonia\nto become an independent state?",
+    caption = "Margin of error: +/-2.95% at 95% confidence level",
+    x = NULL, y = NULL) +
+  theme(legend.position = "none")
+```
+
+## {.smaller}
+
+The probability of the tiny difference between the 'No' and 'Yes' being just due to random chance is very high.^[Alberto Cairo. ["Uncertainty and Graphicacy"](https://ec.europa.eu/eurostat/cros/powerfromstatistics/OR/PfS-OutlookReport-Cairo.pdf), 2017.]
+
+```{r}
+catalan <- catalan %>%
+  mutate(
+    low = rate - 2.95,
+    high = rate + 2.95
+  )
+ggplot(catalan, aes(y = fct_rev(response), x = rate, color = response, group = response)) +
+  geom_segment(aes(x = low, xend = high, 
+                   y = fct_rev(response), yend = fct_rev(response)),
+               linewidth = 0.8, color = "black") +
+  geom_point(size = 3) +
+  scale_color_manual(values = c("#5C8AA9", "#9D303A", "gray")) +
+  scale_x_continuous(labels = label_percent(scale = 1)) +
+  guides(color = "none") +
+  theme_minimal(base_size = 16) +
+  labs(
+    title = "Do you want Catalonia to become an independent state?",
+    x = NULL, y = NULL
+  )
+```
+
+## Characterizing Uncertainty
+
+<br>
+
+- We know from previous section that even unbiased procedures do not get the "right" answer every time
+- We also know that our estimates might vary from sample to sample due to random chance
+- Therefore we want to report on our estimate and our level of uncertainty
+
+
+## Characterizing Uncertainty
+
+<br>
+
+- With M&Ms, we knew the population parameter
+- In real life, we do not!
+- We want to generate an estimate *and* characterize our uncertainty with a *range* of possible estimates
+    
+## Solution: Create a Confidence Interval
+
+<br>
+
+- A plausible range of values for the population parameter is a confidence interval.
+
+. . .
+
+- 95 percent confidence interval is standard
+    - We are 95% confident that the parameter value falls within the range given by the confidence interval
+
+## Ways to Estimate
+
+<br>
+
+- Take advantage of Central Limit Theorem to estimate using math
+- Use simulation, bootstrapping 
+
+## With Math...
+
+$$CI = \bar{x} \pm Z \left( \frac{\sigma}{\sqrt{n}} \right)$$
+
+- $\bar{x}$ is the sample mean,
+- $Z$ is the Z-score corresponding to the desired level of confidence
+- $\sigma$ is the population standard deviation, and 
+- $n$ is the sample size
+
+## 
+
+<br>
+
+This part here represents the standard error: 
+
+$$\left( \frac{\sigma}{\sqrt{n}} \right)$$
+
+- Standard deviation of the sampling distribution
+- Characterizes the spread of the sampling distribution
+- The bigger this is the bigger the CIs are going to be
+
+## Central Limit Theorem
+
+$$CI = \bar{x} \pm Z \left( \frac{\sigma}{\sqrt{n}} \right)$$
+
+- This way of doing things depends on the Central Limit Theorem
+- As sample size gets bigger, the spread of the sampling distribution gets narrower
+- The shape of the sampling distributions becomes more normally distributed
+
+## 
+
+<br>
+
+$$CI = \bar{x} \pm Z \left( \frac{\sigma}{\sqrt{n}} \right)$$
+
+This is therefore a **parametric** method of calculating the CI. It depends on assumptions about the normality of the distribution.  
+
+## Bootstrapping
+
+<br>
+
+::: incremental
+- Pulling oneself up from their bootstraps ... 
+- Use the data we have to estimate the sampling distribution
+- We call this the *bootstrap* distribution
+- This is a **nonparametric** method
+- It does not depend on assumptions about normality
+:::
+
+## Bootstrap Process {.smaller}
+
+<br>
+
+1. Take a bootstrap sample - a random sample taken **with replacement** from the original sample, of the **same size** as the original sample
+
+. . .
+
+2. Calculate the bootstrap statistic - a statistic such as mean, median, proportion, slope, etc. computed on the bootstrap samples
+
+. . .
+
+3. Repeat steps (1) and (2) many times to create a bootstrap distribution - a distribution of bootstrap statistics
+
+. . .
+
+4. Calculate the bounds of the XX% confidence interval as the middle XX% 
+of the bootstrap distribution (usually 95 percent confidence interval)
+
+
+## Russia
+
+<br>
+
+What Proportion of Russians believe their country interfered in the 2016 presidential elections in the US?
+
+- Pew Research survey
+- 506 subjects
+- Data available in the `openintro` package
+
+## 
+
+<br>
+
+For this example, we will use data from the Open Intro package. Install that package before running this code chunk.
+
+<br>
+
+```{r}
+#| echo: true
+
+#install.packages("openintro")
+library(openintro)
+
+glimpse(russian_influence_on_us_election_2016)
+```
+
+
+## 
+
+<br>
+
+Let's use `mutate()` to recode the qualitative variable as a numeric one...
+
+<br>
+
+```{r}
+#| echo: true
+
+russiaData <- russian_influence_on_us_election_2016 |> 
+  mutate(try_influence = ifelse(influence_2016 == "Did try", 1, 0))
+```
+
+##
+
+<br>
+
+Now let's calculate the mean and standard deviation of the `try_influence` variable... 
+
+<br>
+
+```{r}
+#| echo: true
+
+russiaData |>
+  summarize( 
+          mean = mean(try_influence),
+          sd = sd(try_influence)
+  )
+```
+
+## 
+
+<br>
+
+And finally let's draw a bar plot...
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: false
+
+ggplot(russiaData, aes(x = try_influence)) +
+  geom_bar(fill = "steelblue", width = .75) +
+  labs(
+    title = "Did Russia try to influence the U.S. election?",
+    x = "0 = 'No', 1 = 'Yes'",
+    y = "Frequncy"
+  ) +
+  theme_minimal()
+```
+
+## 
+
+<br>
+
+```{r}
+ggplot(russiaData, aes(x = try_influence)) +
+  geom_bar(fill = "steelblue", width = .75) +
+  labs(
+    title = "Did Russia try to influence the U.S. election?",
+    x = "0 = 'No', 1 = 'Yes'",
+    y = "Frequncy"
+  ) +
+  theme_minimal()
+```
+
+## Bootstrap with `tidymodels`
+
+Install `tidymodels` before running this code chunk... 
+
+```{r}
+#| echo: true
+
+#install.packages("tidymodels")
+library(tidymodels)
+
+set.seed(66)
+boot_df <- russiaData |>
+  # specify the variable of interest
+  specify(response = try_influence) |>
+  # generate 15000 bootstrap samples
+  generate(reps = 15000, type = "bootstrap") |>
+  # calculate the mean of each bootstrap sample
+  calculate(stat = "mean")
+
+glimpse(boot_df)
+```
+
+## 
+
+<br>
+
+Calculate the confidence interval. A 95% confidence interval is bounded by the middle 95% of the bootstrap distribution.
+
+<br>
+
+```{r}
+#| echo: true 
+
+boot_df |>
+  summarize(lower = quantile(stat, 0.025),
+            upper = quantile(stat, 0.975))
+```
+
+## 
+
+<br>
+
+Create upper and lower bounds for visualization.
+
+<br>
+
+```{r}
+#| echo: true
+
+# for using these values later
+lower_bound <- boot_df |> summarize(lower_bound = quantile(stat, 0.025)) |> pull() 
+upper_bound <- boot_df |> summarize(upper_bound = quantile(stat, 0.975)) |> pull() 
+```
+
+##
+
+<br>
+
+Visualize with a histogram
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: false
+
+ggplot(data = boot_df, mapping = aes(x = stat)) +
+  geom_histogram(binwidth =.01, fill = "steelblue4") +
+  geom_vline(xintercept = c(lower_bound, upper_bound), color = "darkgrey", size = 1, linetype = "dashed") +
+  labs(title = "Bootstrap distribution of means",
+       subtitle = "and 95% confidence interval",
+       x = "Estimate",
+       y = "Frequency") +
+  theme_bw()
+```
+
+## 
+
+<br>
+
+```{r}
+ggplot(data = boot_df, mapping = aes(x = stat)) +
+  geom_histogram(binwidth =.01, fill = "steelblue4") +
+  geom_vline(xintercept = c(lower_bound, upper_bound), color = "darkgrey", size = 1, linetype = "dashed") +
+  labs(title = "Bootstrap distribution of means",
+       subtitle = "and 95% confidence interval",
+       x = "Estimate",
+       y = "Frequency") +
+  theme_bw()
+```
+
+## Interpret the confidence interval {.smaller}
+
+<br>
+
+The 95% confidence interval was calculated as (`lower_bound`, `upper_bound`). Which of the following is the correct interpretation of this interval?
+
+<br>
+
+**(a)** 95% of the time the percentage of Russian who believe that Russia interfered in the 2016 US elections is between `lower_bound` and `upper_bound`.
+
+**(b)** 95% of all Russians believe that the chance Russia interfered in the 2016 US elections is between `lower_bound` and `upper_bound`.
+
+**(c)** We are 95% confident that the proportion of Russians who believe that Russia interfered in the 2016 US election is between `lower_bound` and `upper_bound`.
+
+**(d)** We are 95% confident that the proportion of Russians who supported interfering in the 2016 US elections is between `lower_bound` and `upper_bound`.
+
+## Your Turn! {.smaller}
+
+<br>
+
+- Change the `reps` argument in the `generate()` function to 1000. What happens to the width of the confidence interval?
+- Change the `reps` argument in the `generate()` function to 5000. What happens to the width of the confidence interval?
+- Change the `reps` argument in the `generate()` function to 10000. What happens to the width of the confidence interval?
+- How does the width of the confidence interval change as the number of bootstrap samples increases?
+- How would you interpret this finding? 
+
+## Bias vs Precision
+
+- A procedure is *unbiased* if it generates the "right" answer, on average
+- Precision refers to variability: procedures with less sampling variability will be more precise
+    - all else equal, a greater sample size will increase precision
+- When we increase the sample size (number of reps), we increase precision
+- As a result our confidence interval will be narrower
+
+## Why did we do these simulations?
+
+<br>
+
+- They provide a foundation for statistical inference and for characterizing *uncertainty* in our estimates
+- The best **research designs** will try to maximize or achieve good balance on bias vs precision
+
+
+
+
+

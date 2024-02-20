@@ -3150,5 +3150,1034 @@
     "title": "Numerical Data",
     "section": "Box Plot",
     "text": "Box Plot\n\n\nCode\nggplot(vdem2022, aes(x = \"\", y = polyarchy)) +\n  geom_boxplot(fill = \"steelblue\") + \n   labs(\n    x = \"\", \n    y = \"Electoral Democracy\", \n    title = \"Distribution of Electoral Democracy in 2022\", \n    caption = \"Source: V-Dem Institute\"\n  ) +\n  theme_minimal()"
+  },
+  {
+    "objectID": "slides/week-6.1.html#what-proportion-of-all-milk-chocolate-mms-are-blue",
+    "href": "slides/week-6.1.html#what-proportion-of-all-milk-chocolate-mms-are-blue",
+    "title": "Sampling",
+    "section": "What proportion of all milk chocolate M&Ms are blue?",
+    "text": "What proportion of all milk chocolate M&Ms are blue?\n\nM&Ms has a precise distribution of colors that it produces in its factories\nM&Ms are sorted into bags in factories in a fairly random process\nEach bag represents a sample from the full population of M&Ms"
+  },
+  {
+    "objectID": "slides/week-6.1.html#activity-1",
+    "href": "slides/week-6.1.html#activity-1",
+    "title": "Sampling",
+    "section": "Activity",
+    "text": "Activity\n\nDo the same as above for the rest of your bags (you should have 4-5 estimates written down)\nDraw a histogram of your estimates (by hand)\nAdd your estimates to this Google Sheet\nAdd your estimates to the class histogram on the whiteboard"
+  },
+  {
+    "objectID": "slides/week-6.1.html#activity-2",
+    "href": "slides/week-6.1.html#activity-2",
+    "title": "Sampling",
+    "section": "Activity",
+    "text": "Activity\n\nDo the same as above for the rest of your bags (you should have 4-5 estimates written down)\nDraw a histogram of your estimates (by hand)\nAdd your estimates to this Google Sheet\nAdd your estimates to the class histogram on the whiteboard"
+  },
+  {
+    "objectID": "slides/week-6.1.html#discuss-with-partner",
+    "href": "slides/week-6.1.html#discuss-with-partner",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Discuss with Partner",
+    "text": "Discuss with Partner\n\nWhat is the histogram/distribution on the board showing?\nBased on the histogram on the board, what is your answer to the question of what proportion of all milk chocolate M&Ms are blue? Why do you give that answer?\nWhy do some bag of M&Ms have proportions of blues that are higher and lower than the number you gave above?"
+  },
+  {
+    "objectID": "slides/week-6.1.html#what-have-we-just-done",
+    "href": "slides/week-6.1.html#what-have-we-just-done",
+    "title": "Sampling",
+    "section": "What have we just done?",
+    "text": "What have we just done?\n\n\nWe completed this task many times\nThis produced a sampling distribution of our estimates\nThere is a distribution of estimates because of sampling variability\nDue to random chance, one estimate from one sample can differ from another\nThese are foundational ideas for statistical inference that we are going to keep building on"
+  },
+  {
+    "objectID": "slides/week-6.1.html#what-have-we-just-done-1",
+    "href": "slides/week-6.1.html#what-have-we-just-done-1",
+    "title": "Sampling",
+    "section": "What have we just done?",
+    "text": "What have we just done?\n\n\nWe completed this task many times\nThis produced a Sampling Distribution of our Estimates\nThere is a distribution of estimates because of Sampling Variability\n\ndue to random chance, one estimate from one sample can differ from the\n\nThese are foundational ideas for statistical inference that we are going to keep building on"
+  },
+  {
+    "objectID": "slides/week-6.1.html#inference",
+    "href": "slides/week-6.1.html#inference",
+    "title": "Sampling",
+    "section": "Inference",
+    "text": "Inference\n\n\n\nInference–The act of “making a guess” about some unknown\nStatistical inference–Making a good guess about a population from a sample\nCausal inference–Did X cause Y? [topic for later classes]"
+  },
+  {
+    "objectID": "slides/week-6.1.html#target-population",
+    "href": "slides/week-6.1.html#target-population",
+    "title": "Sampling",
+    "section": "Target Population",
+    "text": "Target Population\nIn data analysis, we are usually interested in saying something about a Target Population.\n\n\nWhat proportion of adult Russians support the war in Ukraine?\n\nTarget population: adult Russians (age 18+)\n\nHow many US college students check social media during their classes?\n\nTarget population: US college students\n\nWhat percentage of M&Ms are blue?\n\nTarget population: all of the M&Ms"
+  },
+  {
+    "objectID": "slides/week-6.1.html#sample",
+    "href": "slides/week-6.1.html#sample",
+    "title": "Sampling",
+    "section": "Sample",
+    "text": "Sample\n\nIn many instances, we have a Sample\n\nWe cannot talk to every Russian\nWe cannot talk to all college students\nWe cannot count all of the M&Ms"
+  },
+  {
+    "objectID": "slides/week-6.1.html#parameters-vs-statistics",
+    "href": "slides/week-6.1.html#parameters-vs-statistics",
+    "title": "Sampling",
+    "section": "Parameters vs Statistics",
+    "text": "Parameters vs Statistics\n\n\n\nThe parameter is the value of a calculation for the entire target population\nThe statistic is what we calculate on our sample\n\nWe calculate a statistic in order to say something about the parameter"
+  },
+  {
+    "objectID": "slides/week-6.1.html#inference-1",
+    "href": "slides/week-6.1.html#inference-1",
+    "title": "Sampling",
+    "section": "Inference",
+    "text": "Inference\n\n\n\nInference–the act of “making a guess” about some unknown\nStatistical inference–making a good guess about a population from a sample\nCausal inference–Did X cause Y? [topic for later classes]\n\n\n\n\n\nIAFF 6501 Website"
+  },
+  {
+    "objectID": "slides/week-6.1.html#lets-move-to-an-ia-example",
+    "href": "slides/week-6.1.html#lets-move-to-an-ia-example",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Let’s Move to an IA Example",
+    "text": "Let’s Move to an IA Example"
+  },
+  {
+    "objectID": "slides/week-6.1.html#hypothetical",
+    "href": "slides/week-6.1.html#hypothetical",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Hypothetical",
+    "text": "Hypothetical\n\nQuestion: What proportion of adult (18+) Russian citizens support the war in Ukraine?\nWhat is the Population of interest?\nWhat is the Parameter of interest?"
+  },
+  {
+    "objectID": "slides/week-6.1.html#russia-hypothetical",
+    "href": "slides/week-6.1.html#russia-hypothetical",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Russia Hypothetical",
+    "text": "Russia Hypothetical\n\nOur population has 4000 supporters, and 6000 non-supporters\nWhat is the population parameter?"
+  },
+  {
+    "objectID": "slides/week-6.1.html#russia-example",
+    "href": "slides/week-6.1.html#russia-example",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Russia Example",
+    "text": "Russia Example\nThis is the Population: in real research, we do not have this information!\n\npop &lt;- c(rep(1, 4000), rep(0, 6000))\npop &lt;- as_tibble(pop)\ntable(pop)\n\nvalue\n   0    1 \n6000 4000 \n\nmean(pop$value)\n\n[1] 0.4"
+  },
+  {
+    "objectID": "slides/week-6.1.html#lets-take-a-random-sample-of-20",
+    "href": "slides/week-6.1.html#lets-take-a-random-sample-of-20",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Let’s take a random sample of 20",
+    "text": "Let’s take a random sample of 20\n\ns1 &lt;- slice_sample(pop, n= 20)\nglimpse(s1)\n\nRows: 20\nColumns: 1\n$ value &lt;dbl&gt; 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0\n\nmean(s1$value)\n\n[1] 0.45"
+  },
+  {
+    "objectID": "slides/week-6.1.html#our-random-sample-of-20",
+    "href": "slides/week-6.1.html#our-random-sample-of-20",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Our random sample of 20",
+    "text": "Our random sample of 20\n\nWhat does it mean to say that this is a random sample?"
+  },
+  {
+    "objectID": "slides/week-6.1.html#our-random-sample-of-20-1",
+    "href": "slides/week-6.1.html#our-random-sample-of-20-1",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Our random sample of 20",
+    "text": "Our random sample of 20\n\nWhat does it mean to say that this is a random sample?\nAll units in the population have an equal Probability of being selected"
+  },
+  {
+    "objectID": "slides/week-6.1.html#our-random-sample-of-20-2",
+    "href": "slides/week-6.1.html#our-random-sample-of-20-2",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Our random sample of 20",
+    "text": "Our random sample of 20\n\nWhen I calculate the mean in the sample, what am I calculating?"
+  },
+  {
+    "objectID": "slides/week-6.1.html#our-random-sample-of-20-3",
+    "href": "slides/week-6.1.html#our-random-sample-of-20-3",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Our random sample of 20",
+    "text": "Our random sample of 20\n\nWhen I calculate the mean in the sample, what am I calculating?\nOur Estimate of the population parameter"
+  },
+  {
+    "objectID": "slides/week-6.1.html#lets-take-another-random-sample-of-20",
+    "href": "slides/week-6.1.html#lets-take-another-random-sample-of-20",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Let’s take another random sample of 20",
+    "text": "Let’s take another random sample of 20\n\ns2 &lt;- slice_sample(pop, n= 20)\nmean(s2$value)\n\n[1] 0.35"
+  },
+  {
+    "objectID": "slides/week-6.1.html#lets-take-another.",
+    "href": "slides/week-6.1.html#lets-take-another.",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Let’s take another….",
+    "text": "Let’s take another….\n\ns3 &lt;- slice_sample(pop, n= 20)\nmean(s3$value)\n\n[1] 0.35"
+  },
+  {
+    "objectID": "slides/week-6.1.html#lets-do-this-1000-more-times",
+    "href": "slides/week-6.1.html#lets-do-this-1000-more-times",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Let’s do this 1,000 more times",
+    "text": "Let’s do this 1,000 more times\n\n# Gather 1,000 estimates\nsims &lt;- 1000\n# Store the sample means in this object called \"ests\"\nests &lt;- rep(NA, sims)\n# For loops allow us to run the same procedure many times\nfor(i in 1:sims){\n  sample &lt;- slice_sample(pop, n= 20)\n    # store mean in our vector of estimates\n    ests[i] &lt;- mean(sample$value)\n}\nests &lt;- as_tibble(ests)"
+  },
+  {
+    "objectID": "slides/week-6.1.html#what-is-stored-in-this-vector",
+    "href": "slides/week-6.1.html#what-is-stored-in-this-vector",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "What is stored in this vector?",
+    "text": "What is stored in this vector?\n\nests\n\n# A tibble: 1,000 × 1\n   value\n   &lt;dbl&gt;\n 1  0.5 \n 2  0.4 \n 3  0.4 \n 4  0.2 \n 5  0.5 \n 6  0.4 \n 7  0.4 \n 8  0.25\n 9  0.35\n10  0.35\n# ℹ 990 more rows"
+  },
+  {
+    "objectID": "slides/week-6.1.html#where-should-the-distribution-of-this-set-of-estimates-be-centered",
+    "href": "slides/week-6.1.html#where-should-the-distribution-of-this-set-of-estimates-be-centered",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Where should the distribution of this set of estimates be centered?",
+    "text": "Where should the distribution of this set of estimates be centered?\n\nOr, what should the mean of ests be?"
+  },
+  {
+    "objectID": "slides/week-6.1.html#where-should-the-distribution-of-this-set-of-estimates-be-centered-1",
+    "href": "slides/week-6.1.html#where-should-the-distribution-of-this-set-of-estimates-be-centered-1",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Where should the distribution of this set of estimates be centered?",
+    "text": "Where should the distribution of this set of estimates be centered?\n\n\nmean &lt;- mean(ests$value)\nmean\n\n[1] 0.3994"
+  },
+  {
+    "objectID": "slides/week-6.1.html#distribution-of-estimates",
+    "href": "slides/week-6.1.html#distribution-of-estimates",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Distribution of estimates",
+    "text": "Distribution of estimates"
+  },
+  {
+    "objectID": "slides/week-6.1.html#bias",
+    "href": "slides/week-6.1.html#bias",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Bias",
+    "text": "Bias\n\nThe mean of ests is almost exactly the same as the population mean (which we know because we set it)\nThis means that our procedure (random sampling + taking the mean) for estimating the population mean is unbiased\n\non average, we get the “right” answer"
+  },
+  {
+    "objectID": "slides/week-6.1.html#bias-1",
+    "href": "slides/week-6.1.html#bias-1",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Bias",
+    "text": "Bias\n\nWill unbiased procedures get the “right” answer every time?"
+  },
+  {
+    "objectID": "slides/week-6.1.html#sampling-variability",
+    "href": "slides/week-6.1.html#sampling-variability",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Sampling Variability",
+    "text": "Sampling Variability\n\nAn unbiased procedure does not guarantee that we will get the “right” answer every time\nThis is due to random chance, or sampling variability"
+  },
+  {
+    "objectID": "slides/week-6.1.html#sampling-distribution-n-20",
+    "href": "slides/week-6.1.html#sampling-distribution-n-20",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Sampling Distribution (n = 20)",
+    "text": "Sampling Distribution (n = 20)"
+  },
+  {
+    "objectID": "slides/week-6.1.html#standard-error",
+    "href": "slides/week-6.1.html#standard-error",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Standard Error",
+    "text": "Standard Error\n\nStandard deviation of the sampling distribution\nCharacterizes the spread of the sampling distribution\n\n\nsd(ests$value)\n\n[1] 0.1124379"
+  },
+  {
+    "objectID": "slides/week-6.1.html#sample-size-and-sampling-variability",
+    "href": "slides/week-6.1.html#sample-size-and-sampling-variability",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Sample size and Sampling Variability",
+    "text": "Sample size and Sampling Variability\n\nRepeat the simulations conducted above:\n\nOnce with n = 5\nOnce with n = 20\nOnce with n = 200\n\nFor each: Are these biased or unbiased procedures?\nVisualize the sampling distributions using a histogram: how are they different?\nCalculate the standard errors: how are they different?\nDiscuss with partner: Why are the sampling distributions and standard errors different?"
+  },
+  {
+    "objectID": "slides/week-6.1.html#lets-try-n5",
+    "href": "slides/week-6.1.html#lets-try-n5",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Let’s try N=5",
+    "text": "Let’s try N=5\n\n# RUn 1000 simulations\nsims &lt;- 1000\n# Store the sample means in this\nests5 &lt;- rep(NA, sims)\n# For loops allow us to run the same procedure many times\nfor(i in 1:sims){\n  sample &lt;- slice_sample(pop, n = 5)\n    ests5[i] &lt;- mean(sample$value)\n  }    \nests5 &lt;- as_tibble(ests5)"
+  },
+  {
+    "objectID": "slides/week-6.1.html#lets-try-n200",
+    "href": "slides/week-6.1.html#lets-try-n200",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Let’s try N=200",
+    "text": "Let’s try N=200\n\nsims &lt;- 1000\n# Store the sample means in this\nests200 &lt;- rep(NA, sims)\n# For loops allow us to run the same procedure many times\nfor(i in 1:sims){\n  sample &lt;- slice_sample(pop, n= 200)\n    ests200[i] &lt;- mean(sample$value)\n}  \nests200 &lt;- as_tibble(ests200)"
+  },
+  {
+    "objectID": "slides/week-6.1.html#sampling-distribution-sample-size-5",
+    "href": "slides/week-6.1.html#sampling-distribution-sample-size-5",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Sampling Distribution, Sample Size = 5",
+    "text": "Sampling Distribution, Sample Size = 5"
+  },
+  {
+    "objectID": "slides/week-6.1.html#sampling-distribution-sample-size-20",
+    "href": "slides/week-6.1.html#sampling-distribution-sample-size-20",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Sampling Distribution, Sample Size = 20",
+    "text": "Sampling Distribution, Sample Size = 20"
+  },
+  {
+    "objectID": "slides/week-6.1.html#sampling-distribution-sample-size-200",
+    "href": "slides/week-6.1.html#sampling-distribution-sample-size-200",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Sampling Distribution, Sample Size = 200",
+    "text": "Sampling Distribution, Sample Size = 200"
+  },
+  {
+    "objectID": "slides/week-6.1.html#compare-standard-errors",
+    "href": "slides/week-6.1.html#compare-standard-errors",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Compare Standard errors",
+    "text": "Compare Standard errors\n\n# N= 3\nsd(ests5$value)\n\n[1] 0.2179595\n\n# N = 20\nsd(ests$value)\n\n[1] 0.1124379\n\n#N = 200\nsd(ests200$value)\n\n[1] 0.03386959"
+  },
+  {
+    "objectID": "slides/week-6.1.html#why-does-changing-sample-size-matter",
+    "href": "slides/week-6.1.html#why-does-changing-sample-size-matter",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Why does changing sample size matter?",
+    "text": "Why does changing sample size matter?"
+  },
+  {
+    "objectID": "slides/week-6.1.html#central-limit-theorem",
+    "href": "slides/week-6.1.html#central-limit-theorem",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Central Limit Theorem",
+    "text": "Central Limit Theorem\n\nAs sample size gets bigger –&gt;\nThe spread of the sampling distribution gets narrower\nThe shape of the sampling distributions becomes more normally distributed\n\nImportant for mathematical calculations in statistics (not big focus for us)"
+  },
+  {
+    "objectID": "slides/week-6.1.html#bias-vs-precision",
+    "href": "slides/week-6.1.html#bias-vs-precision",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Bias vs Precision",
+    "text": "Bias vs Precision\n\n\nA procedure is unbiased if it generates the “right” answer, on average\nPrecision refers to variability: procedures with less sampling variability will be more precise\n\nall else equal, a greater sample size will increase precision"
+  },
+  {
+    "objectID": "slides/week-6.1.html#why-did-we-do-these-simulations",
+    "href": "slides/week-6.1.html#why-did-we-do-these-simulations",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Why did we do these simulations?",
+    "text": "Why did we do these simulations?\n\n\nThey provide a foundation for statistical inference and for characterizing uncertainty in our estimates, our next topic\nThe best research designs will try to maximize or achieve good balance on bias vs precision"
+  },
+  {
+    "objectID": "slides/week-6.1.html#questions",
+    "href": "slides/week-6.1.html#questions",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Questions?",
+    "text": "Questions?"
+  },
+  {
+    "objectID": "slides/week-6.1.html#break",
+    "href": "slides/week-6.1.html#break",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Break",
+    "text": "Break"
+  },
+  {
+    "objectID": "slides/week-6.1.html#research-design-scenarios",
+    "href": "slides/week-6.1.html#research-design-scenarios",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Research Design Scenarios",
+    "text": "Research Design Scenarios\n\nDiscuss with partner"
+  },
+  {
+    "objectID": "slides/week-6.1.html#scenario-1",
+    "href": "slides/week-6.1.html#scenario-1",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Scenario 1",
+    "text": "Scenario 1\nA development organization is trying to build evidence demonstrating the impact of their programming on political participation. The program has hundreds of participants. Five program participants volunteered to provide information on their political participation and each reports that they participate much more after they were in the program. The development organization concludes that the program had the intended impact of increasing political participation.\n\nUsing language from earlier in class, critically assess this conclusion."
+  },
+  {
+    "objectID": "slides/week-6.1.html#scenario-1a",
+    "href": "slides/week-6.1.html#scenario-1a",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Scenario 1A",
+    "text": "Scenario 1A\nA development organization is trying to build evidence demonstrating the impact of their programming on political participation. The program has hundreds of participants. Five program participants were randomly selected to provide information on their political participation and each reports that they participate much more after they were in the program. The development organization concludes that the program had the intended impact of increasing political participation.\n\nUsing language from earlier in class, critically assess this research design and conclusion."
+  },
+  {
+    "objectID": "slides/week-6.1.html#scenario-2",
+    "href": "slides/week-6.1.html#scenario-2",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Scenario 2",
+    "text": "Scenario 2\nA polling firm is trying to estimate the proportion of likely voters that will vote for President Biden. They draw a random sample of 1000 adult Americans and ask them whether they intend to vote for Biden. From this, they calculate the proportion who intend to vote for Biden.\n\nWhat is the target population?\n\nWhat is the statistic (or estimate)?\nIs this estimate a good guess of the population parameter?"
+  },
+  {
+    "objectID": "slides/week-6.1.html#scenario-3",
+    "href": "slides/week-6.1.html#scenario-3",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Scenario 3",
+    "text": "Scenario 3\nIn 2016, polling firms using random sampling tried to estimate the proportion of adult Americans who would vote for Trump. In surveys in America, the response rate is very low (~10 percent) and people without a college education are less likely to respond to surveys than are other Americans.\n\nWhat is the target population?\nOne firm claims despite the low response rate their procedure is unbiased because of random sampling: based on the information above, do you agree?"
+  },
+  {
+    "objectID": "slides/week-6.1.html#scenario-4",
+    "href": "slides/week-6.1.html#scenario-4",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Scenario 4",
+    "text": "Scenario 4\nResearchers are interested in studying the political attitudes of ex-combatants in a civil war. They have a limited budget and are debating the best research design. In option A, they use random sampling, which is very expensive given the target population (they have to enumerate ex-combatants and then track them down, which is resource intensive). This would allow them to survey 20 ex-combatants given the budget. In option B, they use snowball sampling, where ex-combatants introuce the researchers to other ex-combatants that they know. This is much cheaper, and would result in a sample size of 250.\n\nWhat are the costs and benfits of option A?\nWhat are the costs and benefits of option B?\nImagine the researchers are able to make reasonably good guesses about how much bias would be generated by snowball sampling: when would option B be a better choice? when would option A be better?"
+  },
+  {
+    "objectID": "slides/week-6.1.html#bias-variance-tradeoff",
+    "href": "slides/week-6.1.html#bias-variance-tradeoff",
+    "title": "Inference, Sampling, and Study Design",
+    "section": "Bias-Variance Tradeoff",
+    "text": "Bias-Variance Tradeoff\n\nSometimes, a little bit of bias is OK, if it buys us a lot more precision [small bias + high precision]\nAn unbiased study with very low precision is not informative (as we will discover more in future classes)\nBut this depends on how much bias there is: high bias + high precision is not a good outcome.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIAFF 6501 Website"
+  },
+  {
+    "objectID": "slides/week-6.1.html#discuss-with-neighbor",
+    "href": "slides/week-6.1.html#discuss-with-neighbor",
+    "title": "Sampling",
+    "section": "Discuss with Neighbor",
+    "text": "Discuss with Neighbor\n\nWhat is the histogram/distribution showing?\nBased on the histogram on the board, what is your answer to the question of what proportion of all milk chocolate M&Ms are blue? Why do you give that answer?\nWhy do some bag of M&Ms have proportions of blues that are higher and lower than the number you gave above?\nHow do our estimates relate to the actual percentage of blue M&Ms manufactured (ask Google or ChatGPT)"
+  },
+  {
+    "objectID": "slides/week-6.2.html#what-is-wrong-with-this-graph",
+    "href": "slides/week-6.2.html#what-is-wrong-with-this-graph",
+    "title": "Confidence Intervals",
+    "section": "What is wrong with this graph?",
+    "text": "What is wrong with this graph?\nOn December 19, 2014, the front page of Spanish national newspaper El País read “Catalan public opinion swings toward ‘no’ for independence, says survey”.\n\nAlberto Cairo. The truthful art: Data, charts, and maps for communication. New Riders, 2016."
+  },
+  {
+    "objectID": "slides/week-6.2.html#section",
+    "href": "slides/week-6.2.html#section",
+    "title": "Confidence Intervals",
+    "section": "",
+    "text": "On December 19, 2014, the front page of Spanish national newspaper El País read “Catalan public opinion swings toward ‘no’ for independence, says survey”.1\n\n\n\n\n\n\n\n\n\nAlberto Cairo. The truthful art: Data, charts, and maps for communication. New Riders, 2016."
+  },
+  {
+    "objectID": "slides/week-6.2.html#characterizing-uncertainty",
+    "href": "slides/week-6.2.html#characterizing-uncertainty",
+    "title": "Confidence Intervals",
+    "section": "Characterizing Uncertainty",
+    "text": "Characterizing Uncertainty\n\n\nWe know from previous section that even unbiased procedures do not get the “right” answer every time\nWe also know that our estimates might vary from sample to sample due to random chance\nTherefore we want to report on our estimate and our level of uncertainty"
+  },
+  {
+    "objectID": "slides/week-6.2.html#characterizing-uncertainty-1",
+    "href": "slides/week-6.2.html#characterizing-uncertainty-1",
+    "title": "Confidence Intervals",
+    "section": "Characterizing Uncertainty",
+    "text": "Characterizing Uncertainty\n\n\nWith M&Ms, we knew the population parameter\nIn real life, we do not!\nWe want to generate an estimate and characterize our uncertainty with a range of possible estimates"
+  },
+  {
+    "objectID": "slides/week-6.2.html#solution-create-a-confidence-interval",
+    "href": "slides/week-6.2.html#solution-create-a-confidence-interval",
+    "title": "Confidence Intervals",
+    "section": "Solution: Create a Confidence Interval",
+    "text": "Solution: Create a Confidence Interval\n\n\nA plausible range of values for the population parameter is a confidence interval.\n\n\n\n95 percent confidence interval is standard\n\nWe are 95% confident that the parameter value falls within the range given by the confidence interval"
+  },
+  {
+    "objectID": "slides/week-6.2.html#challenge",
+    "href": "slides/week-6.2.html#challenge",
+    "title": "Confidence Intervals",
+    "section": "Challenge",
+    "text": "Challenge\n\nWe cannot run the process over and over as we did in the previous example\nThat is, we cannot generate the true sampling distribution"
+  },
+  {
+    "objectID": "slides/week-6.2.html#solutions",
+    "href": "slides/week-6.2.html#solutions",
+    "title": "Confidence Intervals",
+    "section": "Solutions",
+    "text": "Solutions\n\nTake advantage of Central Limit Theorem to estimate using math (stats class)\nUse simulation, bootstrapping (this class)"
+  },
+  {
+    "objectID": "slides/week-6.2.html#bootstrapping",
+    "href": "slides/week-6.2.html#bootstrapping",
+    "title": "Confidence Intervals",
+    "section": "Bootstrapping",
+    "text": "Bootstrapping\n\n\n\nPulling oneself up from their bootstraps …\nUse the data we have to estimate the sampling distribution\nWe call this the bootstrap distribution\nThis is a nonparametric method\nIt does not depend on assumptions about normality"
+  },
+  {
+    "objectID": "slides/week-6.2.html#bootstrapping-process",
+    "href": "slides/week-6.2.html#bootstrapping-process",
+    "title": "Confidence Intervals",
+    "section": "Bootstrapping Process",
+    "text": "Bootstrapping Process\n\nTake a bootstrap sample - a random sample taken with replacement from the original sample, of the same size as the original sample\n\nIn essence, random sampling from our sample, which is itself a representative sample from the population\nWhy with replacement?"
+  },
+  {
+    "objectID": "slides/week-6.2.html#bootstrap-process",
+    "href": "slides/week-6.2.html#bootstrap-process",
+    "title": "Confidence Intervals",
+    "section": "Bootstrap Process",
+    "text": "Bootstrap Process\n\n\nTake a bootstrap sample - a random sample taken with replacement from the original sample, of the same size as the original sample\n\n\n\nCalculate the bootstrap statistic - a statistic such as mean, median, proportion, slope, etc. computed on the bootstrap samples\n\n\n\n\nRepeat steps (1) and (2) many times to create a bootstrap distribution - a distribution of bootstrap statistics\n\n\n\n\nCalculate the bounds of the XX% confidence interval as the middle XX% of the bootstrap distribution (usually 95 percent confidence interval)"
+  },
+  {
+    "objectID": "slides/week-6.2.html#illustration",
+    "href": "slides/week-6.2.html#illustration",
+    "title": "Confidence Intervals",
+    "section": "Illustration",
+    "text": "Illustration\n\nLet’s return to the example where we have set the proportion of the population that supports Putin to 0.40 (the true value of our population parameter)\nWe want a point estimate of Putin support AND a confidence interval"
+  },
+  {
+    "objectID": "slides/week-6.2.html#create-data-and-install-needed-packages",
+    "href": "slides/week-6.2.html#create-data-and-install-needed-packages",
+    "title": "Confidence Intervals",
+    "section": "Create Data and Install Needed Packages",
+    "text": "Create Data and Install Needed Packages\nWe are going to use a new package called tidymodels to help us moving forward"
+  },
+  {
+    "objectID": "slides/week-6.2.html#take-our-sample",
+    "href": "slides/week-6.2.html#take-our-sample",
+    "title": "Confidence Intervals",
+    "section": "Take our Sample",
+    "text": "Take our Sample\n\nLet’s take a random sample of 100, and calculate our estimate\n\n\n\n[1] 0.35"
+  },
+  {
+    "objectID": "slides/week-6.2.html#next",
+    "href": "slides/week-6.2.html#next",
+    "title": "Confidence Intervals",
+    "section": "Next",
+    "text": "Next\n\nNow lets construct a confidence interval around the estimat\nA range of plausible estimates"
+  },
+  {
+    "objectID": "slides/week-6.2.html#bootstrap-sample-1",
+    "href": "slides/week-6.2.html#bootstrap-sample-1",
+    "title": "Confidence Intervals",
+    "section": "Bootstrap Sample 1",
+    "text": "Bootstrap Sample 1\n\nTake a bootstrap sample and calculate the mean\nThis means we take a sample (with replacement) from our sample, of the same sample size\nNotice I am NOT sampling from the Population: I AM sampling from the sample\n\n\n\n[1] 0.37"
+  },
+  {
+    "objectID": "slides/week-6.2.html#bootstrap-sample-2",
+    "href": "slides/week-6.2.html#bootstrap-sample-2",
+    "title": "Confidence Intervals",
+    "section": "Bootstrap Sample 2",
+    "text": "Bootstrap Sample 2\nTake another bootstrap sample\n\n\n[1] 0.4"
+  },
+  {
+    "objectID": "slides/week-6.2.html#and-another",
+    "href": "slides/week-6.2.html#and-another",
+    "title": "Confidence Intervals",
+    "section": "And another…",
+    "text": "And another…\n\n\n[1] 0.34"
+  },
+  {
+    "objectID": "slides/week-6.2.html#lets-do-it-10000-times",
+    "href": "slides/week-6.2.html#lets-do-it-10000-times",
+    "title": "Confidence Intervals",
+    "section": "Let’s do it 10000 times",
+    "text": "Let’s do it 10000 times"
+  },
+  {
+    "objectID": "slides/week-6.2.html#visualize-the-distribution",
+    "href": "slides/week-6.2.html#visualize-the-distribution",
+    "title": "Confidence Intervals",
+    "section": "Visualize the Distribution",
+    "text": "Visualize the Distribution"
+  },
+  {
+    "objectID": "slides/week-6.2.html#calculate-the-confidence-interval",
+    "href": "slides/week-6.2.html#calculate-the-confidence-interval",
+    "title": "Confidence Intervals",
+    "section": "Calculate the confidence interval",
+    "text": "Calculate the confidence interval\nA 95% confidence interval is bounded by the middle 95% of the bootstrap distribution.\n\nboot_df %&gt;%\n  summarize(lower = quantile(stat, 0.025),\n            upper = quantile(stat, 0.975))\n\n# A tibble: 1 × 2\n  lower upper\n  &lt;dbl&gt; &lt;dbl&gt;\n1 0.119 0.182"
+  },
+  {
+    "objectID": "slides/week-6.2.html#visualize-the-confidence-interval",
+    "href": "slides/week-6.2.html#visualize-the-confidence-interval",
+    "title": "Confidence Intervals",
+    "section": "Visualize the confidence interval",
+    "text": "Visualize the confidence interval\n\n\n\n\n\n\n\n\nIAFF 6501 Website"
+  },
+  {
+    "objectID": "slides/week-6.2.html#interpret-the-confidence-interval",
+    "href": "slides/week-6.2.html#interpret-the-confidence-interval",
+    "title": "Confidence Intervals",
+    "section": "Interpret the confidence interval",
+    "text": "Interpret the confidence interval\n\nThe 95% confidence interval was calculated as (lower_bound, upper_bound). Which of the following is the correct interpretation of this interval?\n\n(a) 95% of the time the percentage of Russian who believe that Russia interfered in the 2016 US elections is between lower_bound and upper_bound.\n(b) 95% of all Russians believe that the chance Russia interfered in the 2016 US elections is between lower_bound and upper_bound.\n(c) We are 95% confident that the proportion of Russians who believe that Russia interfered in the 2016 US election is between lower_bound and upper_bound.\n(d) We are 95% confident that the proportion of Russians who supported interfering in the 2016 US elections is between lower_bound and upper_bound."
+  },
+  {
+    "objectID": "slides/week-6.2.html#bootstrap-with-tidymodels-package",
+    "href": "slides/week-6.2.html#bootstrap-with-tidymodels-package",
+    "title": "Confidence Intervals",
+    "section": "Bootstrap with tidymodels package",
+    "text": "Bootstrap with tidymodels package\n\nReturn to the Putin example, let’s take 1 sample of 200 so we can see what happens to the confidence interval if we increase the sample size\n\n\n\n[1] 0.385"
+  },
+  {
+    "objectID": "slides/week-6.2.html#bootstrap-with-tidy-models",
+    "href": "slides/week-6.2.html#bootstrap-with-tidy-models",
+    "title": "Confidence Intervals",
+    "section": "Bootstrap with Tidy Models",
+    "text": "Bootstrap with Tidy Models\n\nlibrary(tidymodels)\n\nset.seed(12112021)\nboot_df &lt;- russiaData |&gt;\n  # specify the variable of interest\n  specify(response = try_influence) |&gt;\n  # generate 15000 bootstrap samples\n  generate(reps = 15000, type = \"bootstrap\") |&gt;\n  # calculate the mean of each bootstrap sample\n  calculate(stat = \"mean\")"
+  },
+  {
+    "objectID": "slides/week-6.2.html#the-bootstrap-sample",
+    "href": "slides/week-6.2.html#the-bootstrap-sample",
+    "title": "Confidence Intervals",
+    "section": "The bootstrap sample",
+    "text": "The bootstrap sample\n\nHow many observations are there in boot_df? What does each observation represent?\n\n\n\nResponse: value (numeric)\n# A tibble: 15,000 × 2\n   replicate  stat\n       &lt;int&gt; &lt;dbl&gt;\n 1         1 0.42 \n 2         2 0.415\n 3         3 0.355\n 4         4 0.365\n 5         5 0.365\n 6         6 0.37 \n 7         7 0.385\n 8         8 0.425\n 9         9 0.36 \n10        10 0.38 \n# ℹ 14,990 more rows"
+  },
+  {
+    "objectID": "slides/week-6.2.html#visualize-the-bootstrap-distribution",
+    "href": "slides/week-6.2.html#visualize-the-bootstrap-distribution",
+    "title": "Confidence Intervals",
+    "section": "Visualize the bootstrap distribution",
+    "text": "Visualize the bootstrap distribution"
+  },
+  {
+    "objectID": "slides/week-6.2.html#calculate-the-confidence-interval-1",
+    "href": "slides/week-6.2.html#calculate-the-confidence-interval-1",
+    "title": "Confidence Intervals",
+    "section": "Calculate the confidence interval",
+    "text": "Calculate the confidence interval\nA 95% confidence interval is bounded by the middle 95% of the bootstrap distribution.\n\n\n# A tibble: 1 × 2\n  lower upper\n  &lt;dbl&gt; &lt;dbl&gt;\n1  0.32 0.455"
+  },
+  {
+    "objectID": "slides/week-6.2.html#visualize-the-confidence-interval-1",
+    "href": "slides/week-6.2.html#visualize-the-confidence-interval-1",
+    "title": "Confidence Intervals",
+    "section": "Visualize the confidence interval",
+    "text": "Visualize the confidence interval"
+  },
+  {
+    "objectID": "slides/week-6.2.html#compare-to-calculated-number-using-math",
+    "href": "slides/week-6.2.html#compare-to-calculated-number-using-math",
+    "title": "Confidence Intervals",
+    "section": "Compare to calculated number using math",
+    "text": "Compare to calculated number using math\n\n\n# A tibble: 1 × 2\n  lower upper\n  &lt;dbl&gt; &lt;dbl&gt;\n1  0.32 0.455\n\n\n\n\n[1] 0.3173921\n\n\n[1] 0.4526079"
+  },
+  {
+    "objectID": "slides/week-6.2.html#compare-to-calculated-number-in-statistics",
+    "href": "slides/week-6.2.html#compare-to-calculated-number-in-statistics",
+    "title": "Confidence Intervals",
+    "section": "Compare to calculated number in statistics",
+    "text": "Compare to calculated number in statistics\nBootstrap estimate of standard error (and confidence interval) almost identical to the one generated using traditional statistics\n\nIf the sample size is big\nCalculated version using math relies on Central Limit Theorem, which assumes larger sample sizes.\nBootstrapping provides you with intuition about what the confidence interval means"
+  },
+  {
+    "objectID": "slides/week-6.2.html#ia-example-for-you",
+    "href": "slides/week-6.2.html#ia-example-for-you",
+    "title": "Confidence Intervals",
+    "section": "IA Example for you",
+    "text": "IA Example for you\nWhat Proportion of Russians believe their country interfered in the 2016 presidential elections in the US?\n\nPew Research survey\n506 subjects\ndata available in the openintro package"
+  },
+  {
+    "objectID": "slides/week-6.2.html#load-up-the-data",
+    "href": "slides/week-6.2.html#load-up-the-data",
+    "title": "Confidence Intervals",
+    "section": "Load up the data",
+    "text": "Load up the data\n\nlibrary(openintro)\n\nglimpse(russian_influence_on_us_election_2016)\n\nRows: 506\nColumns: 1\n$ influence_2016 &lt;chr&gt; \"Did not try\", \"Did not try\", \"Did not try\", \"Don't kno…"
+  },
+  {
+    "objectID": "slides/week-6.2.html#bootstrap-with-tidy-models-1",
+    "href": "slides/week-6.2.html#bootstrap-with-tidy-models-1",
+    "title": "Confidence Intervals",
+    "section": "Bootstrap with Tidy Models",
+    "text": "Bootstrap with Tidy Models"
+  },
+  {
+    "objectID": "slides/week-6.2.html#calculate-the-confidence-interval-2",
+    "href": "slides/week-6.2.html#calculate-the-confidence-interval-2",
+    "title": "Confidence Intervals",
+    "section": "Calculate the confidence interval",
+    "text": "Calculate the confidence interval\nA 95% confidence interval is bounded by the middle 95% of the bootstrap distribution.\n\n\n# A tibble: 1 × 2\n  lower upper\n  &lt;dbl&gt; &lt;dbl&gt;\n1 0.119 0.182"
+  },
+  {
+    "objectID": "slides/week-6.2.html#visualize-the-confidence-interval-2",
+    "href": "slides/week-6.2.html#visualize-the-confidence-interval-2",
+    "title": "Confidence Intervals",
+    "section": "Visualize the confidence interval",
+    "text": "Visualize the confidence interval"
+  },
+  {
+    "objectID": "slides/week-6.2.html#write-a-sentence-interpreting-the-confidence-interval",
+    "href": "slides/week-6.2.html#write-a-sentence-interpreting-the-confidence-interval",
+    "title": "Confidence Intervals",
+    "section": "Write a sentence interpreting the confidence interval",
+    "text": "Write a sentence interpreting the confidence interval\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIAFF 6501 Website"
+  },
+  {
+    "objectID": "slides/week-6.1.html#lets-pull-the-data-into-r",
+    "href": "slides/week-6.1.html#lets-pull-the-data-into-r",
+    "title": "Sampling",
+    "section": "Let’s Pull the Data into R",
+    "text": "Let’s Pull the Data into R\n\nWe will use the googlesheets4 package, so first let’s install that with install.packages(\"googlesheets4\").\n\n#install.packages(\"googlesheets4\")\n\nlibrary(tidyverse)\nlibrary(googlesheets4)\n\ngs4_deauth() # to signify no authorization required\n\nmnm_data &lt;- read_sheet(\"https://docs.google.com/spreadsheets/d/136wGKZOnwOdo3O-4bUfF_TWKBCAWQUCyiVKSY4HyYAw/edit#gid=0\")\n\nglimpse(mnm_data)"
+  },
+  {
+    "objectID": "slides/week-6.1.html#now-lets-calculate-some-summary-stats",
+    "href": "slides/week-6.1.html#now-lets-calculate-some-summary-stats",
+    "title": "Sampling",
+    "section": "Now Let’s Calculate Some Summary Stats",
+    "text": "Now Let’s Calculate Some Summary Stats\n\nmnm_data |&gt;\n  summarize(\n    mean_blue = mean(proportion_blue),\n    median_blue = median(proportion_blue),\n    sd_blue = sd(proportion_blue)\n  )"
+  },
+  {
+    "objectID": "slides/week-6.1.html#now-lets-make-a-histogram",
+    "href": "slides/week-6.1.html#now-lets-make-a-histogram",
+    "title": "Sampling",
+    "section": "Now Let’s Make a Histogram",
+    "text": "Now Let’s Make a Histogram\n\n\nggplot(mnm_data, aes(x = proportion_blue)) +\n  geom_histogram(fill = \"steelblue\") +\n  labs(\n    title = \"Percentage of Blue M&Ms\",\n    x = \"Proportion Blue\",\n    y = \"Count\"\n  )"
+  },
+  {
+    "objectID": "slides/week-6.1.html#lets-analyze-the-data",
+    "href": "slides/week-6.1.html#lets-analyze-the-data",
+    "title": "Sampling",
+    "section": "Let’s Analyze the Data",
+    "text": "Let’s Analyze the Data\n\nWe will use the googlesheets4 package to pull the data into R so be sure to install it.\n\n#install.packages(\"googlesheets4\")\n\nlibrary(tidyverse)\nlibrary(googlesheets4)\n\ngs4_deauth() # to signify no authorization required\n\nmnm_data &lt;- read_sheet(\"https://docs.google.com/spreadsheets/d/136wGKZOnwOdo3O-4bUfF_TWKBCAWQUCyiVKSY4HyYAw/edit#gid=0\")\n\nglimpse(mnm_data)"
+  },
+  {
+    "objectID": "slides/week-6.1.html#calculate-some-summary-stats",
+    "href": "slides/week-6.1.html#calculate-some-summary-stats",
+    "title": "Sampling",
+    "section": "Calculate Some Summary Stats",
+    "text": "Calculate Some Summary Stats\n\n\nmnm_data |&gt;\n  summarize(\n    mean_blue = mean(proportion_blue),\n    median_blue = median(proportion_blue),\n    sd_blue = sd(proportion_blue)\n  )"
+  },
+  {
+    "objectID": "slides/week-6.1.html#what-did-we-just-do",
+    "href": "slides/week-6.1.html#what-did-we-just-do",
+    "title": "Sampling",
+    "section": "What did we just do?",
+    "text": "What did we just do?\n\n\nWe wanted to say something about the population of M&Ms\nThe parameter we care about is the proportion of M&Ms that are blue\nIt would be impossible to conduct a census and to calculate the parameter\nWe took a sample from the population and calculated a sample statistic\nstatistical inference: act of making a guess about a population using information from a sample"
+  },
+  {
+    "objectID": "slides/week-6.1.html#sampling",
+    "href": "slides/week-6.1.html#sampling",
+    "title": "Sampling",
+    "section": "Sampling",
+    "text": "Sampling\n\n\nSampling the act of selecting a subset of individuals, items, or data points from a larger population to estimate characteristics or metrics of the entire population\nVersus a census, which involves gathering information on every individual in the population\nWhy would you want to use a sample?"
+  },
+  {
+    "objectID": "slides/week-6.1.html#activity",
+    "href": "slides/week-6.1.html#activity",
+    "title": "Sampling",
+    "section": "Activity",
+    "text": "Activity\n\nGet in groups of 2. Each group will have 4-5 bags of M&Ms.\nKeep the contents of each bag separate, and do not eat (yet!)\nOpen up your first bag of M&Ms: calculate the proportion of the M&Ms that are blue. Write this down. What is your best guess (your estimate) for the proportion of all M&Ms that are blue?"
+  },
+  {
+    "objectID": "slides/week-6.2.html#lets-move-to-an-ia-example",
+    "href": "slides/week-6.2.html#lets-move-to-an-ia-example",
+    "title": "Confidence Intervals",
+    "section": "Let’s Move to an IA Example",
+    "text": "Let’s Move to an IA Example"
+  },
+  {
+    "objectID": "slides/week-6.2.html#hypothetical",
+    "href": "slides/week-6.2.html#hypothetical",
+    "title": "Confidence Intervals",
+    "section": "Hypothetical",
+    "text": "Hypothetical\n\nQuestion: What proportion of adult (18+) Russian citizens support the war in Ukraine?\nWhat is the Population of interest?\nWhat is the Parameter of interest?"
+  },
+  {
+    "objectID": "slides/week-6.2.html#russia-hypothetical",
+    "href": "slides/week-6.2.html#russia-hypothetical",
+    "title": "Confidence Intervals",
+    "section": "Russia Hypothetical",
+    "text": "Russia Hypothetical\n\nOur population has 4000 supporters, and 6000 non-supporters\nWhat is the population parameter?"
+  },
+  {
+    "objectID": "slides/week-6.2.html#russia-example",
+    "href": "slides/week-6.2.html#russia-example",
+    "title": "Confidence Intervals",
+    "section": "Russia Example",
+    "text": "Russia Example\nThis is the Population: in real research, we do not have this information!\n\n\nvalue\n   0    1 \n6000 4000 \n\n\n[1] 0.4"
+  },
+  {
+    "objectID": "slides/week-6.2.html#lets-take-a-random-sample-of-20",
+    "href": "slides/week-6.2.html#lets-take-a-random-sample-of-20",
+    "title": "Confidence Intervals",
+    "section": "Let’s take a random sample of 20",
+    "text": "Let’s take a random sample of 20\n\n\nRows: 20\nColumns: 1\n$ value &lt;dbl&gt; 0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0\n\n\n[1] 0.3"
+  },
+  {
+    "objectID": "slides/week-6.2.html#our-random-sample-of-20",
+    "href": "slides/week-6.2.html#our-random-sample-of-20",
+    "title": "Confidence Intervals",
+    "section": "Our random sample of 20",
+    "text": "Our random sample of 20\n\nWhat does it mean to say that this is a random sample?"
+  },
+  {
+    "objectID": "slides/week-6.2.html#our-random-sample-of-20-1",
+    "href": "slides/week-6.2.html#our-random-sample-of-20-1",
+    "title": "Confidence Intervals",
+    "section": "Our random sample of 20",
+    "text": "Our random sample of 20\n\nWhat does it mean to say that this is a random sample?\nAll units in the population have an equal Probability of being selected"
+  },
+  {
+    "objectID": "slides/week-6.2.html#our-random-sample-of-20-2",
+    "href": "slides/week-6.2.html#our-random-sample-of-20-2",
+    "title": "Confidence Intervals",
+    "section": "Our random sample of 20",
+    "text": "Our random sample of 20\n\nWhen I calculate the mean in the sample, what am I calculating?"
+  },
+  {
+    "objectID": "slides/week-6.2.html#our-random-sample-of-20-3",
+    "href": "slides/week-6.2.html#our-random-sample-of-20-3",
+    "title": "Confidence Intervals",
+    "section": "Our random sample of 20",
+    "text": "Our random sample of 20\n\nWhen I calculate the mean in the sample, what am I calculating?\nOur Estimate of the population parameter"
+  },
+  {
+    "objectID": "slides/week-6.2.html#lets-take-another-random-sample-of-20",
+    "href": "slides/week-6.2.html#lets-take-another-random-sample-of-20",
+    "title": "Confidence Intervals",
+    "section": "Let’s take another random sample of 20",
+    "text": "Let’s take another random sample of 20\n\n\n[1] 0.3"
+  },
+  {
+    "objectID": "slides/week-6.2.html#lets-take-another.",
+    "href": "slides/week-6.2.html#lets-take-another.",
+    "title": "Confidence Intervals",
+    "section": "Let’s take another….",
+    "text": "Let’s take another….\n\n\n[1] 0.5"
+  },
+  {
+    "objectID": "slides/week-6.2.html#lets-do-this-1000-more-times",
+    "href": "slides/week-6.2.html#lets-do-this-1000-more-times",
+    "title": "Confidence Intervals",
+    "section": "Let’s do this 1,000 more times",
+    "text": "Let’s do this 1,000 more times"
+  },
+  {
+    "objectID": "slides/week-6.2.html#what-is-stored-in-this-vector",
+    "href": "slides/week-6.2.html#what-is-stored-in-this-vector",
+    "title": "Confidence Intervals",
+    "section": "What is stored in this vector?",
+    "text": "What is stored in this vector?\n\n\n# A tibble: 1,000 × 1\n   value\n   &lt;dbl&gt;\n 1  0.35\n 2  0.5 \n 3  0.15\n 4  0.55\n 5  0.6 \n 6  0.25\n 7  0.4 \n 8  0.15\n 9  0.55\n10  0.35\n# ℹ 990 more rows"
+  },
+  {
+    "objectID": "slides/week-6.2.html#where-should-the-distribution-of-this-set-of-estimates-be-centered",
+    "href": "slides/week-6.2.html#where-should-the-distribution-of-this-set-of-estimates-be-centered",
+    "title": "Confidence Intervals",
+    "section": "Where should the distribution of this set of estimates be centered?",
+    "text": "Where should the distribution of this set of estimates be centered?\n\nOr, what should the mean of ests be?"
+  },
+  {
+    "objectID": "slides/week-6.2.html#where-should-the-distribution-of-this-set-of-estimates-be-centered-1",
+    "href": "slides/week-6.2.html#where-should-the-distribution-of-this-set-of-estimates-be-centered-1",
+    "title": "Confidence Intervals",
+    "section": "Where should the distribution of this set of estimates be centered?",
+    "text": "Where should the distribution of this set of estimates be centered?\n\n\n\n[1] 0.39655"
+  },
+  {
+    "objectID": "slides/week-6.2.html#distribution-of-estimates",
+    "href": "slides/week-6.2.html#distribution-of-estimates",
+    "title": "Confidence Intervals",
+    "section": "Distribution of estimates",
+    "text": "Distribution of estimates"
+  },
+  {
+    "objectID": "slides/week-6.2.html#bias",
+    "href": "slides/week-6.2.html#bias",
+    "title": "Confidence Intervals",
+    "section": "Bias",
+    "text": "Bias\n\nThe mean of ests is almost exactly the same as the population mean (which we know because we set it)\nThis means that our procedure (random sampling + taking the mean) for estimating the population mean is unbiased\n\non average, we get the “right” answer"
+  },
+  {
+    "objectID": "slides/week-6.2.html#bias-1",
+    "href": "slides/week-6.2.html#bias-1",
+    "title": "Confidence Intervals",
+    "section": "Bias",
+    "text": "Bias\n\nWill unbiased procedures get the “right” answer every time?"
+  },
+  {
+    "objectID": "slides/week-6.2.html#sampling-variability",
+    "href": "slides/week-6.2.html#sampling-variability",
+    "title": "Confidence Intervals",
+    "section": "Sampling Variability",
+    "text": "Sampling Variability\n\nAn unbiased procedure does not guarantee that we will get the “right” answer every time\nThis is due to random chance, or sampling variability"
+  },
+  {
+    "objectID": "slides/week-6.2.html#sampling-distribution-n-20",
+    "href": "slides/week-6.2.html#sampling-distribution-n-20",
+    "title": "Confidence Intervals",
+    "section": "Sampling Distribution (n = 20)",
+    "text": "Sampling Distribution (n = 20)"
+  },
+  {
+    "objectID": "slides/week-6.2.html#standard-error",
+    "href": "slides/week-6.2.html#standard-error",
+    "title": "Confidence Intervals",
+    "section": "Standard Error",
+    "text": "Standard Error\n\nStandard deviation of the sampling distribution\nCharacterizes the spread of the sampling distribution\n\n\n\n[1] 0.1129307"
+  },
+  {
+    "objectID": "slides/week-6.2.html#sample-size-and-sampling-variability",
+    "href": "slides/week-6.2.html#sample-size-and-sampling-variability",
+    "title": "Confidence Intervals",
+    "section": "Sample size and Sampling Variability",
+    "text": "Sample size and Sampling Variability\n\nRepeat the simulations conducted above:\n\nOnce with n = 5\nOnce with n = 20\nOnce with n = 200\n\nFor each: Are these biased or unbiased procedures?\nVisualize the sampling distributions using a histogram: how are they different?\nCalculate the standard errors: how are they different?\nDiscuss with partner: Why are the sampling distributions and standard errors different?"
+  },
+  {
+    "objectID": "slides/week-6.2.html#lets-try-n5",
+    "href": "slides/week-6.2.html#lets-try-n5",
+    "title": "Confidence Intervals",
+    "section": "Let’s try N=5",
+    "text": "Let’s try N=5"
+  },
+  {
+    "objectID": "slides/week-6.2.html#lets-try-n200",
+    "href": "slides/week-6.2.html#lets-try-n200",
+    "title": "Confidence Intervals",
+    "section": "Let’s try N=200",
+    "text": "Let’s try N=200"
+  },
+  {
+    "objectID": "slides/week-6.2.html#sampling-distribution-sample-size-5",
+    "href": "slides/week-6.2.html#sampling-distribution-sample-size-5",
+    "title": "Confidence Intervals",
+    "section": "Sampling Distribution, Sample Size = 5",
+    "text": "Sampling Distribution, Sample Size = 5"
+  },
+  {
+    "objectID": "slides/week-6.2.html#sampling-distribution-sample-size-20",
+    "href": "slides/week-6.2.html#sampling-distribution-sample-size-20",
+    "title": "Confidence Intervals",
+    "section": "Sampling Distribution, Sample Size = 20",
+    "text": "Sampling Distribution, Sample Size = 20"
+  },
+  {
+    "objectID": "slides/week-6.2.html#sampling-distribution-sample-size-200",
+    "href": "slides/week-6.2.html#sampling-distribution-sample-size-200",
+    "title": "Confidence Intervals",
+    "section": "Sampling Distribution, Sample Size = 200",
+    "text": "Sampling Distribution, Sample Size = 200"
+  },
+  {
+    "objectID": "slides/week-6.2.html#compare-standard-errors",
+    "href": "slides/week-6.2.html#compare-standard-errors",
+    "title": "Confidence Intervals",
+    "section": "Compare Standard errors",
+    "text": "Compare Standard errors\n\n\n[1] 0.2186368\n\n\n[1] 0.1129307\n\n\n[1] 0.03518662"
+  },
+  {
+    "objectID": "slides/week-6.2.html#why-does-changing-sample-size-matter",
+    "href": "slides/week-6.2.html#why-does-changing-sample-size-matter",
+    "title": "Confidence Intervals",
+    "section": "Why does changing sample size matter?",
+    "text": "Why does changing sample size matter?"
+  },
+  {
+    "objectID": "slides/week-6.2.html#central-limit-theorem",
+    "href": "slides/week-6.2.html#central-limit-theorem",
+    "title": "Confidence Intervals",
+    "section": "Central Limit Theorem",
+    "text": "Central Limit Theorem\n\\[CI = \\bar{x} \\pm Z \\left( \\frac{\\sigma}{\\sqrt{n}} \\right)\\]\n\nThis way of doing things depends on the Central Limit Theorem\nAs sample size gets bigger, the spread of the sampling distribution gets narrower\nThe shape of the sampling distributions becomes more normally distributed"
+  },
+  {
+    "objectID": "slides/week-6.2.html#bias-vs-precision",
+    "href": "slides/week-6.2.html#bias-vs-precision",
+    "title": "Confidence Intervals",
+    "section": "Bias vs Precision",
+    "text": "Bias vs Precision\n\nA procedure is unbiased if it generates the “right” answer, on average\nPrecision refers to variability: procedures with less sampling variability will be more precise\n\nall else equal, a greater sample size will increase precision\n\nWhen we increase the sample size (number of reps), we increase precision\nAs a result our confidence interval will be narrower"
+  },
+  {
+    "objectID": "slides/week-6.2.html#why-did-we-do-these-simulations",
+    "href": "slides/week-6.2.html#why-did-we-do-these-simulations",
+    "title": "Confidence Intervals",
+    "section": "Why did we do these simulations?",
+    "text": "Why did we do these simulations?\n\n\nThey provide a foundation for statistical inference and for characterizing uncertainty in our estimates\nThe best research designs will try to maximize or achieve good balance on bias vs precision"
+  },
+  {
+    "objectID": "slides/week-6.2.html#anything-wrong-with-this-graph",
+    "href": "slides/week-6.2.html#anything-wrong-with-this-graph",
+    "title": "Confidence Intervals",
+    "section": "Anything wrong with this graph?",
+    "text": "Anything wrong with this graph?\nOn December 19, 2014, the front page of Spanish national newspaper El País read “Catalan public opinion swings toward ‘no’ for independence, says survey”.1\n\n\n\n\n\nAlberto Cairo. The truthful art: Data, charts, and maps for communication. New Riders, 2016."
+  },
+  {
+    "objectID": "slides/week-6.2.html#section-1",
+    "href": "slides/week-6.2.html#section-1",
+    "title": "Confidence Intervals",
+    "section": "",
+    "text": "The probability of the tiny difference between the ‘No’ and ‘Yes’ being just due to random chance is very high.1\n\n\n\n\n\n\n\n\n\nAlberto Cairo. “Uncertainty and Graphicacy”, 2017."
+  },
+  {
+    "objectID": "slides/week-6.2.html#ways-to-estimate",
+    "href": "slides/week-6.2.html#ways-to-estimate",
+    "title": "Confidence Intervals",
+    "section": "Ways to Estimate",
+    "text": "Ways to Estimate\n\n\nTake advantage of Central Limit Theorem to estimate using math\nUse simulation, bootstrapping"
+  },
+  {
+    "objectID": "slides/week-6.2.html#russia",
+    "href": "slides/week-6.2.html#russia",
+    "title": "Confidence Intervals",
+    "section": "Russia",
+    "text": "Russia\n\nWhat Proportion of Russians believe their country interfered in the 2016 presidential elections in the US?\n\nPew Research survey\n506 subjects\nData available in the openintro package"
+  },
+  {
+    "objectID": "slides/week-6.2.html#section-2",
+    "href": "slides/week-6.2.html#section-2",
+    "title": "Confidence Intervals",
+    "section": "",
+    "text": "This part here represents the standard error:\n\\[\\left( \\frac{\\sigma}{\\sqrt{n}} \\right)\\]\n\nStandard deviation of the sampling distribution\nCharacterizes the spread of the sampling distribution\nThe bigger this is the bigger the CIs are going to be"
+  },
+  {
+    "objectID": "slides/week-6.2.html#section-3",
+    "href": "slides/week-6.2.html#section-3",
+    "title": "Confidence Intervals",
+    "section": "",
+    "text": "\\[CI = \\bar{x} \\pm Z \\left( \\frac{\\sigma}{\\sqrt{n}} \\right)\\]\nThis is therefore a parametric method of calculating the CI. It depends on assumptions about the normality of the distribution."
+  },
+  {
+    "objectID": "slides/week-6.2.html#bootstrap-with-tidymodels",
+    "href": "slides/week-6.2.html#bootstrap-with-tidymodels",
+    "title": "Confidence Intervals",
+    "section": "Bootstrap with tidymodels",
+    "text": "Bootstrap with tidymodels\nInstall tidymodels before running this code chunk…\n\n#install.packages(\"tidymodels\")\nlibrary(tidymodels)\n\nset.seed(66)\nboot_df &lt;- russiaData |&gt;\n  # specify the variable of interest\n  specify(response = try_influence) |&gt;\n  # generate 15000 bootstrap samples\n  generate(reps = 15000, type = \"bootstrap\") |&gt;\n  # calculate the mean of each bootstrap sample\n  calculate(stat = \"mean\")\n\nglimpse(boot_df)\n\nRows: 15,000\nColumns: 2\n$ replicate &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 1…\n$ stat      &lt;dbl&gt; 0.1146245, 0.1442688, 0.1343874, 0.1877470, 0.1521739, 0.138…"
+  },
+  {
+    "objectID": "slides/week-6.2.html#section-4",
+    "href": "slides/week-6.2.html#section-4",
+    "title": "Confidence Intervals",
+    "section": "",
+    "text": "For this example, we will use data from the Open Intro package. Install that package before running this code chunk.\n\n\n#install.packages(\"openintro\")\nlibrary(openintro)\n\nglimpse(russian_influence_on_us_election_2016)\n\nRows: 506\nColumns: 1\n$ influence_2016 &lt;chr&gt; \"Did not try\", \"Did not try\", \"Did not try\", \"Don't kno…"
+  },
+  {
+    "objectID": "slides/week-6.2.html#create-upper-and-lower-bounds-for-visualization",
+    "href": "slides/week-6.2.html#create-upper-and-lower-bounds-for-visualization",
+    "title": "Confidence Intervals",
+    "section": "Create upper and lower bounds for visualization",
+    "text": "Create upper and lower bounds for visualization\n\n# for using these values later\nlower_bound &lt;- boot_df |&gt; summarize(lower_bound = quantile(stat, 0.025)) |&gt; pull() \nupper_bound &lt;- boot_df |&gt; summarize(upper_bound = quantile(stat, 0.975)) |&gt; pull()"
+  },
+  {
+    "objectID": "slides/week-6.2.html#section-5",
+    "href": "slides/week-6.2.html#section-5",
+    "title": "Confidence Intervals",
+    "section": "",
+    "text": "Let’s use mutate() to recode the qualitative variable as a numeric one…\n\n\nrussiaData &lt;- russian_influence_on_us_election_2016 |&gt; \n  mutate(try_influence = ifelse(influence_2016 == \"Did try\", 1, 0))"
+  },
+  {
+    "objectID": "slides/week-6.2.html#section-6",
+    "href": "slides/week-6.2.html#section-6",
+    "title": "Confidence Intervals",
+    "section": "",
+    "text": "Now let’s calculate the mean and standard deviation of the try_influence variable…\n\n\nrussiaData |&gt;\n  summarize( \n          mean = mean(try_influence),\n          sd = sd(try_influence)\n  )\n\n# A tibble: 1 × 2\n   mean    sd\n  &lt;dbl&gt; &lt;dbl&gt;\n1 0.150 0.358"
+  },
+  {
+    "objectID": "slides/week-6.2.html#with-math",
+    "href": "slides/week-6.2.html#with-math",
+    "title": "Confidence Intervals",
+    "section": "With Math…",
+    "text": "With Math…\n\\[CI = \\bar{x} \\pm Z \\left( \\frac{\\sigma}{\\sqrt{n}} \\right)\\]\n\n\\(\\bar{x}\\) is the sample mean,\n\\(Z\\) is the Z-score corresponding to the desired level of confidence\n\\(\\sigma\\) is the population standard deviation, and\n\\(n\\) is the sample size"
+  },
+  {
+    "objectID": "slides/week-6.2.html#section-7",
+    "href": "slides/week-6.2.html#section-7",
+    "title": "Confidence Intervals",
+    "section": "",
+    "text": "And finally let’s draw a bar plot…\n\n\nggplot(russiaData, aes(x = try_influence)) +\n  geom_bar(fill = \"steelblue\", width = .75) +\n  labs(\n    title = \"Did Russia try to influence the U.S. election?\",\n    x = \"0 = 'No', 1 = 'Yes'\",\n    y = \"Frequncy\"\n  ) +\n  theme_minimal()"
+  },
+  {
+    "objectID": "slides/week-6.2.html#section-8",
+    "href": "slides/week-6.2.html#section-8",
+    "title": "Confidence Intervals",
+    "section": "",
+    "text": "Calculate the confidence interval. A 95% confidence interval is bounded by the middle 95% of the bootstrap distribution.\n\nboot_df |&gt;\n  summarize(lower = quantile(stat, 0.025),\n            upper = quantile(stat, 0.975))\n\n# A tibble: 1 × 2\n  lower upper\n  &lt;dbl&gt; &lt;dbl&gt;\n1 0.119 0.182"
+  },
+  {
+    "objectID": "slides/week-6.2.html#section-9",
+    "href": "slides/week-6.2.html#section-9",
+    "title": "Confidence Intervals",
+    "section": "",
+    "text": "Calculate the confidence interval. A 95% confidence interval is bounded by the middle 95% of the bootstrap distribution.\n\n\nboot_df |&gt;\n  summarize(lower = quantile(stat, 0.025),\n            upper = quantile(stat, 0.975))\n\n# A tibble: 1 × 2\n  lower upper\n  &lt;dbl&gt; &lt;dbl&gt;\n1 0.119 0.182"
+  },
+  {
+    "objectID": "slides/week-6.2.html#section-10",
+    "href": "slides/week-6.2.html#section-10",
+    "title": "Confidence Intervals",
+    "section": "",
+    "text": "Create upper and lower bounds for visualization.\n\n\n# for using these values later\nlower_bound &lt;- boot_df |&gt; summarize(lower_bound = quantile(stat, 0.025)) |&gt; pull() \nupper_bound &lt;- boot_df |&gt; summarize(upper_bound = quantile(stat, 0.975)) |&gt; pull()"
+  },
+  {
+    "objectID": "slides/week-6.2.html#your-turn",
+    "href": "slides/week-6.2.html#your-turn",
+    "title": "Confidence Intervals",
+    "section": "Your Turn!",
+    "text": "Your Turn!\n\n\nChange the reps argument in the generate() function to 1000. What happens to the width of the confidence interval?\nChange the reps argument in the generate() function to 5000. What happens to the width of the confidence interval?\nChange the reps argument in the generate() function to 10000. What happens to the width of the confidence interval?\nHow does the width of the confidence interval change as the number of bootstrap samples increases?\nHow would you interpret this finding?"
+  },
+  {
+    "objectID": "slides/week-6.2.html#section-11",
+    "href": "slides/week-6.2.html#section-11",
+    "title": "Confidence Intervals",
+    "section": "",
+    "text": "Visualize with a histogram\n\n\nggplot(data = boot_df, mapping = aes(x = stat)) +\n  geom_histogram(binwidth =.01, fill = \"steelblue4\") +\n  geom_vline(xintercept = c(lower_bound, upper_bound), color = \"darkgrey\", size = 1, linetype = \"dashed\") +\n  labs(title = \"Bootstrap distribution of means\",\n       subtitle = \"and 95% confidence interval\",\n       x = \"Estimate\",\n       y = \"Frequency\") +\n  theme_bw()"
   }
 ]
