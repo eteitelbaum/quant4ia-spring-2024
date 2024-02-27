@@ -13,16 +13,12 @@
     <lastmod>2024-01-02T19:59:25.002Z</lastmod>
   </url>
   <url>
-    <loc>https://dataviz-gwu.rocks/modules/module-1.22.html</loc>
+    <loc>https://dataviz-gwu.rocks/modules/module-2.1.html</loc>
+    <lastmod>2024-01-23T05:49:20.109Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dataviz-gwu.rocks/modules/module-4.22.html</loc>
     <lastmod>2024-01-02T19:59:25.002Z</lastmod>
-  </url>
-  <url>
-    <loc>https://dataviz-gwu.rocks/modules/module-2.2.html</loc>
-    <lastmod>2024-01-23T05:51:48.331Z</lastmod>
-  </url>
-  <url>
-    <loc>https://dataviz-gwu.rocks/modules/module-1.11.html</loc>
-    <lastmod>2024-01-02T19:59:25.001Z</lastmod>
   </url>
   <url>
     <loc>https://dataviz-gwu.rocks/course-support.html</loc>
@@ -41,16 +37,24 @@
     <lastmod>2024-01-02T19:59:25.052Z</lastmod>
   </url>
   <url>
-    <loc>https://dataviz-gwu.rocks/slides/zz_tables.html</loc>
-    <lastmod>2024-01-02T19:59:25.056Z</lastmod>
+    <loc>https://dataviz-gwu.rocks/slides/week-4.2.html</loc>
+    <lastmod>2024-01-30T03:26:53.244Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dataviz-gwu.rocks/slides/week-6.2.html</loc>
+    <lastmod>2024-02-20T21:31:02.853Z</lastmod>
   </url>
   <url>
     <loc>https://dataviz-gwu.rocks/slides/week-2.2.html</loc>
     <lastmod>2024-02-07T12:22:49.533Z</lastmod>
   </url>
   <url>
-    <loc>https://dataviz-gwu.rocks/slides/week-5.1.html</loc>
-    <lastmod>2024-02-13T21:09:11.549Z</lastmod>
+    <loc>https://dataviz-gwu.rocks/slides/week-7.2.html</loc>
+    <lastmod>2024-02-27T19:55:27.713Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dataviz-gwu.rocks/slides/week-7.1.html</loc>
+    <lastmod>2024-02-27T20:17:42.778Z</lastmod>
   </url>
   <url>
     <loc>https://dataviz-gwu.rocks/slides/week-1.2.html</loc>
@@ -98,7 +102,7 @@
   </url>
   <url>
     <loc>https://dataviz-gwu.rocks/assignments/homework-2.html</loc>
-    <lastmod>2024-01-13T14:45:22.530Z</lastmod>
+    <lastmod>2024-02-27T21:15:53.401Z</lastmod>
   </url>
   <url>
     <loc>https://dataviz-gwu.rocks/weeks/week-6.html</loc>
@@ -118,7 +122,7 @@
   </url>
   <url>
     <loc>https://dataviz-gwu.rocks/index.html</loc>
-    <lastmod>2024-02-20T21:32:05.107Z</lastmod>
+    <lastmod>2024-02-27T20:06:20.535Z</lastmod>
   </url>
   <url>
     <loc>https://dataviz-gwu.rocks/slides/week-3.2.html</loc>
@@ -133,16 +137,24 @@
     <lastmod>2024-02-13T21:48:35.545Z</lastmod>
   </url>
   <url>
+    <loc>https://dataviz-gwu.rocks/slides/week-5.1.html</loc>
+    <lastmod>2024-02-13T21:09:11.549Z</lastmod>
+  </url>
+  <url>
     <loc>https://dataviz-gwu.rocks/slides/week-2.1.html</loc>
-    <lastmod>2024-01-23T06:02:15.622Z</lastmod>
+    <lastmod>2024-02-27T03:22:30.368Z</lastmod>
   </url>
   <url>
     <loc>https://dataviz-gwu.rocks/slides/week-4.1.html</loc>
     <lastmod>2024-02-06T21:35:46.792Z</lastmod>
   </url>
   <url>
-    <loc>https://dataviz-gwu.rocks/slides/week-4.2.html</loc>
-    <lastmod>2024-01-30T03:26:53.244Z</lastmod>
+    <loc>https://dataviz-gwu.rocks/slides/zz_tables.html</loc>
+    <lastmod>2024-01-02T19:59:25.056Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dataviz-gwu.rocks/slides/week-6.1.html</loc>
+    <lastmod>2024-02-20T22:27:00.824Z</lastmod>
   </url>
   <url>
     <loc>https://dataviz-gwu.rocks/slides/zz_wbdata.html</loc>
@@ -161,12 +173,8 @@
     <lastmod>2024-02-05T15:28:01.000Z</lastmod>
   </url>
   <url>
-    <loc>https://dataviz-gwu.rocks/modules/module-4.22.html</loc>
-    <lastmod>2024-01-02T19:59:25.002Z</lastmod>
-  </url>
-  <url>
-    <loc>https://dataviz-gwu.rocks/modules/module-2.1.html</loc>
-    <lastmod>2024-01-23T05:49:20.109Z</lastmod>
+    <loc>https://dataviz-gwu.rocks/modules/module-2.2.html</loc>
+    <lastmod>2024-01-23T05:51:48.331Z</lastmod>
   </url>
   <url>
     <loc>https://dataviz-gwu.rocks/modules/module-4.1.html</loc>
@@ -179,13 +187,5 @@
   <url>
     <loc>https://dataviz-gwu.rocks/modules/module-3.2.html</loc>
     <lastmod>2024-01-26T22:42:57.847Z</lastmod>
-  </url>
-  <url>
-    <loc>https://dataviz-gwu.rocks/slides/week-6.1.html</loc>
-    <lastmod>2024-02-20T22:27:00.824Z</lastmod>
-  </url>
-  <url>
-    <loc>https://dataviz-gwu.rocks/slides/week-6.2.html</loc>
-    <lastmod>2024-02-20T21:31:02.853Z</lastmod>
   </url>
 </urlset>

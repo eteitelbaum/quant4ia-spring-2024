@@ -480,6 +480,7 @@ dem_bar_chart + theme_bw()
 countdown::countdown(minutes = 10, id = "timer2")
 ```
 
+
 # Histograms
 
 ## Purpose of Histograms
@@ -695,4 +696,3 @@ ggplot(dem_women_2022, aes(after_stat(density), x = flfp)) +
 #| label: timer3
 countdown::countdown(minutes = 10, id = "timer3")
 ```
-

@@ -83,6 +83,8 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../project/project-description.html" rel="next">
+<link href="../assignments/homework-1.html" rel="prev">
 <link href="../images/iaff6501-logo.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -125,10 +127,10 @@ div.csl-indent {
 
 
 <meta property="og:title" content="IAFF 6501–Spring 2024 Schedule - Assignment 2">
-<meta property="og:description" content="Community Driven Development after Conflict">
+<meta property="og:description" content="The Impact of Community Driven Development after Conflict">
 <meta property="og:site_name" content="IAFF 6501--Spring 2024 Schedule">
 <meta name="twitter:title" content="IAFF 6501–Spring 2024 Schedule - Assignment 2">
-<meta name="twitter:description" content="Community Driven Development after Conflict">
+<meta name="twitter:description" content="The Impact of Community Driven Development after Conflict">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -141,7 +143,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Assignment 2</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../assignments/homework-1.html">Homework</a></li><li class="breadcrumb-item"><a href="../assignments/homework-2.html">Homework 2</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -255,17 +257,23 @@ div.csl-indent {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
  <span class="menu-text">Homework</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../assignments/homework-1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Homework 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignments/homework-2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Homework 2</span></a>
   </div>
 </li>
       </ul>
@@ -364,8 +372,13 @@ div.csl-indent {
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
   <li><a href="#the-gobifo-program-in-sierra-leone" id="toc-the-gobifo-program-in-sierra-leone" class="nav-link" data-scroll-target="#the-gobifo-program-in-sierra-leone">The GoBifo Program in Sierra Leone</a></li>
+  <li><a href="#load-data-and-packages" id="toc-load-data-and-packages" class="nav-link" data-scroll-target="#load-data-and-packages">Load Data and Packages</a></li>
   <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
-  <li><a href="#tasks" id="toc-tasks" class="nav-link" data-scroll-target="#tasks">Tasks</a></li>
+  <li><a href="#part-1-setup-and-load-data-10-points" id="toc-part-1-setup-and-load-data-10-points" class="nav-link" data-scroll-target="#part-1-setup-and-load-data-10-points">Part 1: Setup and Load Data (10 points)</a></li>
+  <li><a href="#part-2-generate-estimates-and-95-percent-confidence-intervals-30-points" id="toc-part-2-generate-estimates-and-95-percent-confidence-intervals-30-points" class="nav-link" data-scroll-target="#part-2-generate-estimates-and-95-percent-confidence-intervals-30-points">Part 2: Generate Estimates and 95 Percent Confidence Intervals (30 points)</a></li>
+  <li><a href="#part-3-graph-your-estimates-and-confidence-intervals-20-points" id="toc-part-3-graph-your-estimates-and-confidence-intervals-20-points" class="nav-link" data-scroll-target="#part-3-graph-your-estimates-and-confidence-intervals-20-points">Part 3: Graph your estimates and confidence intervals (20 points)</a></li>
+  <li><a href="#part-4-conduct-hypothesis-tests-30-points" id="toc-part-4-conduct-hypothesis-tests-30-points" class="nav-link" data-scroll-target="#part-4-conduct-hypothesis-tests-30-points">Part 4: Conduct Hypothesis Tests (30 points)</a></li>
+  <li><a href="#part-5-interpretation-and-conclusion-10-points" id="toc-part-5-interpretation-and-conclusion-10-points" class="nav-link" data-scroll-target="#part-5-interpretation-and-conclusion-10-points">Part 5: Interpretation and Conclusion (10 points)</a></li>
   <li><a href="#extra-credit" id="toc-extra-credit" class="nav-link" data-scroll-target="#extra-credit">Extra Credit</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/eteitelbaum/dataviz-summer-2023/edit/main/assignments/homework-2.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/eteitelbaum/dataviz-summer-2023/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -373,10 +386,10 @@ div.csl-indent {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../assignments/homework-1.html">Homework</a></li><li class="breadcrumb-item"><a href="../assignments/homework-2.html">Homework 2</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Assignment 2</h1>
-<p class="subtitle lead">Community Driven Development after Conflict</p>
+<p class="subtitle lead">The Impact of Community Driven Development after Conflict</p>
 </div>
 
 
@@ -393,26 +406,11 @@ div.csl-indent {
 </header>
 
 
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">"gbf_rep/gbf_analysis.dta"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#glimpse(dat)</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>mydata <span class="ot">&lt;-</span> dat <span class="sc">%&gt;%</span> </span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id_vill, t, vdc, f_latrine, f_psch, role_wmn, trust_own, no_conflict)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(mydata, <span class="st">"gobifo_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
 <p><a href="https://www.worldbank.org/en/topic/communitydrivendevelopment">Community Driven Development (CDD)</a> programs have become increasingly popular in international development over the past several decades. CDD programs directly involve impacted communities in the selection, design, and implementation of development projects. Usually, this also involves building upon or creating community level organizations (or committees) that are involved with the projects, with the goal of creating democratic and inclusive decision-making processes. See this <a href="http://3ieimpact.org/sites/default/files/2019-01/wp30-cdd_0.pdf">3ie working paper</a> for discussion of some common features of CDD.</p>
 <p>Given these design features, proponents of CDD argue that these programs should (a) improve the quality and impact of development projects (e.g., public goods) <em>AND</em> (b) improve social cohesion, inclusion, and local governance. For this reason, CDD has been implemented in a number of <a href="https://openknowledge.worldbank.org/entities/publication/3284f88b-62db-5138-8798-e7ab2674c1bf">post-conflict settings</a>, where the hope is that CDD can both improve development outcomes and contribute to rebuilding social cohesion and governance (which are often harmed by conflict).</p>
-<p>Does CDD improve development outcomes? Does it improve social cohesion after conflict? Your goal in this assignment is to write a policy brief that answers these questions, using data from an evaluation of a CDD program in post-conflict Sierra Leone.</p>
+<p>Does CDD improve development outcomes? Does it improve social cohesion after conflict? Your goal in this assignment is to answer these questions, using data from an evaluation of a CDD program in post-conflict Sierra Leone.</p>
 </section>
 <section id="the-gobifo-program-in-sierra-leone" class="level2">
 <h2 class="anchored" data-anchor-id="the-gobifo-program-in-sierra-leone">The GoBifo Program in Sierra Leone</h2>
@@ -424,56 +422,87 @@ div.csl-indent {
 </ul>
 <p>The GiBifo program also included an impact evaluation, conducted by economists Katherine Casey, Rachel Glennerster, and Edward Miguel. The academic paper generated from the project is in the References section <span class="citation" data-cites="casey2012">(<a href="#ref-casey2012" role="doc-biblioref">Casey, Glennerster, and Miguel 2012</a>)</span>.</p>
 <p><strong>Wait until after you complete your assignment to read the full paper.</strong></p>
-<p>Importantly, the impact evaluation included randomization: communities in the study were randomly assigned to receive the GoBifo program, or not. In this sense, the impact evaluation was similar to a clinical drug trial, where some subjects are randomly assigned to receive the medicine while others do not receive it. This aspect of the design makes it easier to assess the causal impact of this project: we can simply compare outcomes in the treatment (GoBifo program) and control groups, and test for whether any differences we observe are likely to be due to chance.</p>
+<p>Importantly, the impact evaluation included randomization: communities in the study were randomly assigned to receive the GoBifo program, or not. In this sense, the impact evaluation was similar to a clinical drug trial, where some subjects are randomly assigned to receive the medicine while others do not receive it. This aspect of the design makes it easier to assess the causal impact of this project: we can compare outcomes in the treatment (GoBifo program) and control groups, and test for whether any differences we observe are likely to be due to chance.</p>
+</section>
+<section id="load-data-and-packages" class="level2">
+<h2 class="anchored" data-anchor-id="load-data-and-packages">Load Data and Packages</h2>
+<p>You can use the code below to load the packages and data. Make sure the .csv file is saved in your RProj folder for this project.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>myData <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"gobifo_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="data" class="level2">
 <h2 class="anchored" data-anchor-id="data">Data</h2>
 <p>“gobifo_data.csv” provides a condensed version of the data collected by <span class="citation" data-cites="casey2012">Casey, Glennerster, and Miguel (<a href="#ref-casey2012" role="doc-biblioref">2012</a>)</span> for their evaluation of the project. The study team gathered literally hundreds of outcome variables, and the paper includes an interesting discussion of how they analyze the data and interpret the results given the large number of outcomes they measured.</p>
+<p>The unit of analysis (or row in the dataset) is the village.</p>
 <p>For our purposes, we will focus on a smaller set of variables, summarized below:</p>
 <ul>
 <li><p><strong>Treatment</strong> variable (named <em>t</em> in the data): this equals 1 if the community was randomly assigned to be in the program, and 0 if not.</p></li>
 <li><p><strong>Community Decision Making Infrastructure</strong>: Is there a village development committee in the community? (<em>vdc</em>)</p></li>
-<li><p><strong>Public Goods</strong></p>
-<ul>
-<li><p>Is there a functioning latrine in the community? (<em>f_latrine)</em></p></li>
-<li><p>Is there a functioning primary school in the community? (<em>f_psch</em>)</p></li>
-</ul></li>
+<li><p><strong>Public Goods:</strong> Is there a functioning primary school in the community? (<em>f_psch</em>)</p></li>
 <li><p>Inclusion, <strong>Gender equality</strong> in participatory decision making (<em>role_wmn</em>).</p>
 <ul>
-<li>[“Enumerator account of how actively women participated in the deliberation compared to men, ranging from 5 = no difference between women and men to 1 = women not active at all compared to men (field activity #1)”]</li>
+<li>“Enumerator account of how actively women participated in the deliberation compared to men, ranging from 5 = no difference between women and men to 1 = women not active at all compared to men”</li>
 </ul></li>
-<li><p><strong>Social Capital</strong></p>
-<ul>
-<li><p>Trust in other in the community (<em>trust_own</em>)</p></li>
-<li><p>Conflict, coded as percentage of respondents in the village that reported they had NO conflicts/disputes with others that required outside intervention (<em>no_conflict</em>)</p></li>
-</ul></li>
+<li><p><strong>Social Capital:</strong> Trust in other in the community (<em>trust_own</em>)</p></li>
+<li><p><strong>Conflict:</strong> Percentage of respondents in the village that reported they had NO conflicts/disputes with others that required outside intervention (<em>no_conflict</em>)</p></li>
 </ul>
 </section>
-<section id="tasks" class="level2">
-<h2 class="anchored" data-anchor-id="tasks">Tasks</h2>
+<section id="part-1-setup-and-load-data-10-points" class="level2">
+<h2 class="anchored" data-anchor-id="part-1-setup-and-load-data-10-points">Part 1: Setup and Load Data (10 points)</h2>
 <ul>
-<li><p>Create a folder and an RProj file for this assignment. Save “gobifo_data.csv” in that folder.</p></li>
-<li><p>Create a new Quarto document in your RProj folder: call it “gobifo_notebook.qmd” or something similar. Use this document to explore the data, work on putting together the code for your analysis, and to take notes as you go.</p></li>
-<li><p>Examine the data. How many units (villages) are there in the study? How many were in the treatment (<strong>t</strong>) group (in the program) and how many were in control? Examine the different outcome measures, calcuate some summary statistics (e.g., the mean), and make some graphs.</p></li>
-<li><p>For each outcome variable listed above, generate an estimate of the mean AND generate a 95 percent confidence interval, <em>separately</em> in treatment and control (where t==0 and t==1). Create a visualization (or multiple) that presents these means and 95 percent confidence intervals: the visualization should allow us to visibly examine the difference between treatment and control groups on these outcome measures.</p></li>
-<li><p>For each outcome, conduct hypothesis tests that assess whether the GoBifo program had an impact. Clearly state the null hypothesis and the alternative hypothesis for each test.</p></li>
-<li><p>Write a policy brief that (1) provides a very short background on the program and Sierra Leone case, (2) presents your results (including graphs), (3) accurately interprets the results, and (4) discusses the policy/program implications of the findings for CDD in post-conflict settings.</p>
-<ul>
-<li>Create a new Quarto document for your policy brief, which includes your write-up and any code needed to produce the final figures/tables in your memo. [not everything you produce in your notebook.qmd file will make it here, but that is still information that you need and might reference in the policy brief.]</li>
-</ul></li>
+<li>Create a folder and an RProj file for this assignment. Save “gobifo_data.csv” in that folder. Create a new Quarto document where you will complete the work for this assignment. Make sure to include a title, your name, and the date. (1 point)</li>
+<li>Create a code chunk that loads the packages you will need: <code>tidyverse</code> and <code>tidymodels</code> (1 point)</li>
+<li>Use read_csv() to read the “gobifo_data.csv” data in to RStudio. Save the dataset as an object called “myData” (3 points)</li>
+<li>Examine the data. How many observations (villages) are there in the study? You can use glimpse() to determine the number of rows. How many were in the treatment (<strong>t</strong>) group (in the program) and how many were in control? You can use summarize() for this calculation. (5 points)</li>
 </ul>
+</section>
+<section id="part-2-generate-estimates-and-95-percent-confidence-intervals-30-points" class="level2">
+<h2 class="anchored" data-anchor-id="part-2-generate-estimates-and-95-percent-confidence-intervals-30-points">Part 2: Generate Estimates and 95 Percent Confidence Intervals (30 points)</h2>
+<p>There are five response variables in the data. Each of these corresponds to a different outcome of interest: village decision making infrastructure (vdc), public goods (f_psch), inclusion/gender equality (role_wmn), social capital and trust (trust_own), and social conflict (no_conflict).</p>
+<ul>
+<li>For each of the outcomes: use group_by() and summarize() to calculate the mean of each response variable in both treatment and control villages. (5 points)</li>
+<li>Select TWO outcome variables of interest to you. For each, use <code>tidymodels</code> to generate 95 percent confidence intervals around these estimates. You should do this for villages in treatment and control separately. (10 points)</li>
+<li>Store your estimates and the upper and lower bounds of your confidence intervals as a tidy data object for future use. Label this object <code>estimates</code>. (5 points)</li>
+<li>Write a short paragraph that correctly interprets the confidence intervals in treatment and control groups for both outcomes you selected. Based on your confidence intervals, what is your initial conclusion about whether the program had an impact on the outcome variables you selected. (10 points)</li>
+</ul>
+</section>
+<section id="part-3-graph-your-estimates-and-confidence-intervals-20-points" class="level2">
+<h2 class="anchored" data-anchor-id="part-3-graph-your-estimates-and-confidence-intervals-20-points">Part 3: Graph your estimates and confidence intervals (20 points)</h2>
+<ul>
+<li>For both outcomes you chose, graph your estimate and 95 percent confidence interval in treatment and control groups. You can produce a bar plot or use geom_point, whichever you think best displays the information. This should generate 2 separate graphs, one for each outcome. For full credit, produce graphs that you could use professionally: that is, these graphs should use appropriate labels, colors, and a nice theme (15 points)
+<ul>
+<li>Bonus 2 points if you can figure out how to include all of this information on one graph!</li>
+</ul></li>
+<li>Write a short paragraph interpreting the graphs: what do they teach us about the impact of the program on the two outcomes in treatment vs control. (5 points)</li>
+</ul>
+</section>
+<section id="part-4-conduct-hypothesis-tests-30-points" class="level2">
+<h2 class="anchored" data-anchor-id="part-4-conduct-hypothesis-tests-30-points">Part 4: Conduct Hypothesis Tests (30 points)</h2>
+<p>In this section, you wil conduct hypothesis tests that assess whether the GoBifo program had an impact.</p>
+<ul>
+<li>For the two outcomes you selected: Clearly state the null hypothesis and the alternative hypothesis for each test. Write these out in a list. (5 points)</li>
+<li>For each outcome, calculate the treatment effect of the program: this is the mean in treatment minus the mean in control. What are the treatment effects? (5 points)</li>
+<li>For each outcome, use <code>tidymodels</code> to conduct a hypothesis test to assess whether the treatment effects you estimate are likely to be due to chance. For each, produce the p-value. (10 points)</li>
+<li>Select one outcome: make a histogram of the null distribution from your hypothesis test. Adjust the bar width as needed. Include a dotted vertical line with your estimate on the plot. Generally, what does this graph tell you about how likely your treatment effect is to be due to chance alone? (5 points)</li>
+<li>Interpret both p-values in language that people who know nothing about statistics might understand. For each outcome (response) variable, do you reject the null hypothesis? (5 points)</li>
+</ul>
+</section>
+<section id="part-5-interpretation-and-conclusion-10-points" class="level2">
+<h2 class="anchored" data-anchor-id="part-5-interpretation-and-conclusion-10-points">Part 5: Interpretation and Conclusion (10 points)</h2>
+<p>Write 2-3 paragraphs that summarize the results of your analysis and accurately interpret them. What is the big picture takeaway of your analysis? What does your analysis teach us about the impact of this CDD program? Are there policy or program implications of the findings for CDD in post-conflict settings?</p>
 </section>
 <section id="extra-credit" class="level2">
 <h2 class="anchored" data-anchor-id="extra-credit">Extra Credit</h2>
-<p>If you are in the mood for more of a challenge, try the following:</p>
 <ul>
-<li><p>Locate the replication data and code for the <span class="citation" data-cites="casey2012">Casey, Glennerster, and Miguel (<a href="#ref-casey2012" role="doc-biblioref">2012</a>)</span> paper online</p></li>
-<li><p>After reading the description of the data and variables, select an additional 2-3 variables to analyze.</p></li>
-<li><p>Input the full replication dataset and filter on the variables you would like to use</p>
-<ul>
-<li>The data will come in .dta format and so you will need to <em>read_dta()</em> function from the <em>haven</em> package.</li>
-</ul></li>
-<li><p>Follow the steps above.</p></li>
+<li>There are three outcome variables you did not select: create visualizions that display the means and 95% confidence intervals in treatment and control groups for these three outcomes. (2 points)</li>
+<li>Conduct hypothesis tests for each the three additional outcomes. What do you conclude from each test? (2 points)</li>
+<li>Write a paragraph updating your conclusion about the impact of the program and your interpretation of all of the evidence (2 points)</li>
+<li>Create a single visualization that could “tell the whole story” of the results from this study. (3 points)</li>
 </ul>
 
 
@@ -1029,6 +1058,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../assignments/homework-1.html" class="pagination-link  aria-label=" homework="" 1"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Homework 1</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../project/project-description.html" class="pagination-link" aria-label="Final Project">
+        <span class="nav-page-text">Final Project</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
