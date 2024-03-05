@@ -17,6 +17,8 @@ Given these design features, proponents of CDD argue that these programs should 
 
 Does CDD improve development outcomes? Does it improve social cohesion after conflict? Your goal in this assignment is to answer these questions, using data from an evaluation of a CDD program in post-conflict Sierra Leone.
 
+The relevant files for this assignment are available in the [classwork folder](https://www.dropbox.com/scl/fo/g4tdpdwcij78nyydvr4bp/h?rlkey=hctskhle6222csnwre5ir9gz3&dl=0) in the `homework-2` file.
+
 ## The GoBifo Program in Sierra Leone
 
 Sierra Leone was devastated by a [civil war](http://web.undp.org/evaluation/documents/thematic/conflict/SierraLeone.pdf) lasting from 1991 to 2002. In the post-conflict context, the Ministry of Local Government and Community Development implemented the GoBifo ("forge ahead") CDD project in Sierra Leone from 2005-2009 (with support from the World Bank and other international donors). See this [report](https://thedocs.worldbank.org/en/doc/6f445967d38ba97805febe703b2482ef-0060052022/original/Sierra-Leone-GoBifo-Strengthening-Social-Capital-through-Capacity-Development.pdf) for a detailed summary of the program.
