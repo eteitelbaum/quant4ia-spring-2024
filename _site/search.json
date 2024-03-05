@@ -3792,5 +3792,19 @@
     "title": "Hypothesis Testing 1",
     "section": "Today’s Code",
     "text": "Today’s Code\nhttps://www.dropbox.com/scl/fo/g4tdpdwcij78nyydvr4bp/h?rlkey=hctskhle6222csnwre5ir9gz3&dl=0"
+  },
+  {
+    "objectID": "modules/module-7.1.html",
+    "href": "modules/module-7.1.html",
+    "title": "Module 7.1",
+    "section": "",
+    "text": "This week class will meet in Lindner Commons (6th floor of the Elliott School) from 3:10 - 5:00 p.m. on Wednesday for a guest presentation by members of USAID’s team.\nYou can find the link to their slides here\nPlease have a look at the slides and also do the following:\n\nInstall usethis if you do not already have it (install.packages(\"usethis\"))\nThen run the following code to download the project folder the team will use for their walkthrough: usethis::use_course(\"tinyurl.com/gwu-dataviz\")"
+  },
+  {
+    "objectID": "modules/module-7.1.html#guest-usip-presentation",
+    "href": "modules/module-7.1.html#guest-usip-presentation",
+    "title": "Module 7.1",
+    "section": "",
+    "text": "This week class will meet in Lindner Commons (6th floor of the Elliott School) from 3:10 - 5:00 p.m. on Wednesday for a guest presentation by members of USAID’s team.\nYou can find the link to their slides here\nPlease have a look at the slides and also do the following:\n\nInstall usethis if you do not already have it (install.packages(\"usethis\"))\nThen run the following code to download the project folder the team will use for their walkthrough: usethis::use_course(\"tinyurl.com/gwu-dataviz\")"
   }
 ]

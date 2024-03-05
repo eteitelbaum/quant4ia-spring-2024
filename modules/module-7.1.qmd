@@ -1,0 +1,22 @@
+---
+title: "Module 7.1"
+subtitle: "USAID Guest Presentation"
+format: 
+  html:
+    code-link: true
+highlight-style: atom-one
+execute:
+  echo: true
+  message: false
+  warning: false
+---
+
+## Guest USIP Presentation
+
+- This week class will meet in Lindner Commons (6th floor of the Elliott School) from 3:10 - 5:00 p.m. on Wednesday for a guest presentation by members of USAID's team.
+- You can find the link to their slides [here](https://docs.google.com/presentation/d/1Z0s6m23MP6XC1AUwzei0mr4nYN1D-iPv2K2cMFK2Aoc/edit#slide=id.g29106db19fe_1_101)
+- Please have a look at the slides and also do the following:
+  - Install `usethis` if you do not already have it (`install.packages("usethis")`)
+  - Then run the following code to download the project folder the team will use for their walkthrough: `usethis::use_course("tinyurl.com/gwu-dataviz")`
+
+
