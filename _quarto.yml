@@ -103,6 +103,8 @@ website:
           #   text: "Module 6.1"
           # - href: modules/module-6.2.qmd
           #   text: "Module 6.2"
+          - href: modules/module-7.1.qmd
+            text: "Module 7.1"
 format:
   html:
     theme:
