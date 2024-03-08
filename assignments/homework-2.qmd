@@ -56,7 +56,7 @@ The unit of analysis (or row in the dataset) is the village.
 
 For our purposes, we will focus on a smaller set of variables, summarized below:
 
--   **Treatment** variable (named *t* in the data): this equals 1 if the community was randomly assigned to be in the program, and 0 if not.
+-   **Treatment** variable (named *t* in the data): this equals `treatment` if the community was randomly assigned to be in the program, and `control` if not. As a character variable, `tidymodels` will automatically recognize it as a factor. But be sure to use quotation marks when working with the two categories, e.g. `filter(t == "treatment")`.
 
 -   **Community Decision Making Infrastructure**: Is there a village development committee in the community? (*vdc*)
 
