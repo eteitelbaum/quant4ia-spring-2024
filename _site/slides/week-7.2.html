@@ -9,9 +9,9 @@
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.533">
+  <meta name="generator" content="quarto-1.3.361">
 
-  <meta name="dcterms.date" content="2024-03-05">
+  <meta name="dcterms.date" content="2024-03-19">
   <title>IAFF 6501–Spring 2024 Schedule - Hypothesis Testing 2</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -32,7 +32,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -224,8 +224,7 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    padding-bottom: 0.5rem;
-    margin-bottom: 0;
+    margin-bottom: 0.5rem;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -390,7 +389,7 @@
   </style>
 <meta property="og:title" content="IAFF 6501–Spring 2024 Schedule - Hypothesis Testing 2">
 <meta property="og:description" content="Associations between Variables">
-<meta property="og:site_name" content="IAFF 6501--Spring 2024 Schedule">
+<meta property="og:site-name" content="IAFF 6501--Spring 2024 Schedule">
 <meta name="twitter:title" content="IAFF 6501–Spring 2024 Schedule - Hypothesis Testing 2">
 <meta name="twitter:description" content="Associations between Variables">
 <meta name="twitter:card" content="summary">
@@ -406,7 +405,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">March 5, 2024</p>
+  <p class="date">March 19, 2024</p>
 </section>
 <section id="hypotheses" class="slide level2">
 <h2>Hypotheses</h2>
@@ -444,8 +443,8 @@
 <h2>Résumé Experiment Example</h2>
 <p>Bertrand and Mullainathan studied racial discrimination in responses to job applications in Chicago and Boston. They sent 4,870 résumés, randomly assigning names associated with different racial groups. - Data are in <code>openintro</code> package as an object called <code>resume</code> - I will save as <code>myDat</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(openintro)</span>
-<span id="cb1-2"><a></a>myDat <span class="ot">&lt;-</span> resume </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(openintro)</span>
+<span id="cb1-2"><a href="#cb1-2"></a>myDat <span class="ot">&lt;-</span> resume </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="callbacks-by-race" class="slide level2">
@@ -453,12 +452,12 @@
 <p><br></p>
 <p>Remember, race of applicant is randomly assigned.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb2-2"><a></a></span>
-<span id="cb2-3"><a></a>mns <span class="ot">&lt;-</span> myDat <span class="sc">|&gt;</span></span>
-<span id="cb2-4"><a></a>  <span class="fu">group_by</span>(race) <span class="sc">|&gt;</span> </span>
-<span id="cb2-5"><a></a>  <span class="fu">summarize</span>(<span class="at">calls =</span> <span class="fu">mean</span>(received_callback))</span>
-<span id="cb2-6"><a></a>mns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a>mns <span class="ot">&lt;-</span> myDat <span class="sc">|&gt;</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>  <span class="fu">group_by</span>(race) <span class="sc">|&gt;</span> </span>
+<span id="cb2-5"><a href="#cb2-5"></a>  <span class="fu">summarize</span>(<span class="at">calls =</span> <span class="fu">mean</span>(received_callback))</span>
+<span id="cb2-6"><a href="#cb2-6"></a>mns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   race   calls
@@ -474,8 +473,8 @@
 <p>Let’s save the means for white and black applicants.</p>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>mean_white <span class="ot">=</span> mns<span class="sc">$</span>calls[<span class="dv">2</span>]</span>
-<span id="cb4-2"><a></a>mean_black <span class="ot">=</span> mns<span class="sc">$</span>calls[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>mean_white <span class="ot">=</span> mns<span class="sc">$</span>calls[<span class="dv">2</span>]</span>
+<span id="cb4-2"><a href="#cb4-2"></a>mean_black <span class="ot">=</span> mns<span class="sc">$</span>calls[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-1" class="slide level2">
@@ -484,8 +483,8 @@
 <p>And calculate the treatment effect. The treatment effect is the difference in means.</p>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>teffect <span class="ot">&lt;-</span> mean_white <span class="sc">-</span> mean_black</span>
-<span id="cb5-2"><a></a>teffect</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>teffect <span class="ot">&lt;-</span> mean_white <span class="sc">-</span> mean_black</span>
+<span id="cb5-2"><a href="#cb5-2"></a>teffect</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.03203285</code></pre>
 </div>
@@ -501,14 +500,14 @@
 <p>First, let’s make the CIs for the white applicants.</p>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb7-2"><a></a>boot_df_white <span class="ot">&lt;-</span> myDat <span class="sc">|&gt;</span></span>
-<span id="cb7-3"><a></a>  <span class="fu">filter</span>(race <span class="sc">==</span> <span class="st">"white"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb7-4"><a></a>  <span class="fu">specify</span>(<span class="at">response =</span> received_callback) <span class="sc">|&gt;</span>  </span>
-<span id="cb7-5"><a></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">15000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb7-6"><a></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)</span>
-<span id="cb7-7"><a></a>lower_bound_white <span class="ot">&lt;-</span> boot_df_white <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">lower_bound_white =</span> <span class="fu">quantile</span>(stat, <span class="fl">0.025</span>)) <span class="sc">|&gt;</span> <span class="fu">pull</span>() </span>
-<span id="cb7-8"><a></a>upper_bound_white <span class="ot">&lt;-</span> boot_df_white <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">upper_bound_white =</span> <span class="fu">quantile</span>(stat, <span class="fl">0.975</span>)) <span class="sc">|&gt;</span> <span class="fu">pull</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb7-2"><a href="#cb7-2"></a>boot_df_white <span class="ot">&lt;-</span> myDat <span class="sc">|&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a>  <span class="fu">filter</span>(race <span class="sc">==</span> <span class="st">"white"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb7-4"><a href="#cb7-4"></a>  <span class="fu">specify</span>(<span class="at">response =</span> received_callback) <span class="sc">|&gt;</span>  </span>
+<span id="cb7-5"><a href="#cb7-5"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">15000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb7-6"><a href="#cb7-6"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)</span>
+<span id="cb7-7"><a href="#cb7-7"></a>lower_bound_white <span class="ot">&lt;-</span> boot_df_white <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">lower_bound_white =</span> <span class="fu">quantile</span>(stat, <span class="fl">0.025</span>)) <span class="sc">|&gt;</span> <span class="fu">pull</span>() </span>
+<span id="cb7-8"><a href="#cb7-8"></a>upper_bound_white <span class="ot">&lt;-</span> boot_df_white <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">upper_bound_white =</span> <span class="fu">quantile</span>(stat, <span class="fl">0.975</span>)) <span class="sc">|&gt;</span> <span class="fu">pull</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-4" class="slide level2">
@@ -517,13 +516,13 @@
 <p>Now, let’s create the CIs for black applicants.</p>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>boot_df_black <span class="ot">&lt;-</span> myDat <span class="sc">|&gt;</span></span>
-<span id="cb8-2"><a></a>  <span class="fu">filter</span>(race <span class="sc">==</span> <span class="st">"black"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb8-3"><a></a>  <span class="fu">specify</span>(<span class="at">response =</span> received_callback) <span class="sc">|&gt;</span>  </span>
-<span id="cb8-4"><a></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">15000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb8-5"><a></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)</span>
-<span id="cb8-6"><a></a>lower_bound_black <span class="ot">&lt;-</span> boot_df_black <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">lower_bound_black =</span> <span class="fu">quantile</span>(stat, <span class="fl">0.025</span>)) <span class="sc">|&gt;</span> <span class="fu">pull</span>() </span>
-<span id="cb8-7"><a></a>upper_bound_black <span class="ot">&lt;-</span> boot_df_black <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">upper_bound_black =</span> <span class="fu">quantile</span>(stat, <span class="fl">0.975</span>)) <span class="sc">|&gt;</span> <span class="fu">pull</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>boot_df_black <span class="ot">&lt;-</span> myDat <span class="sc">|&gt;</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">filter</span>(race <span class="sc">==</span> <span class="st">"black"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb8-3"><a href="#cb8-3"></a>  <span class="fu">specify</span>(<span class="at">response =</span> received_callback) <span class="sc">|&gt;</span>  </span>
+<span id="cb8-4"><a href="#cb8-4"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">15000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb8-5"><a href="#cb8-5"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)</span>
+<span id="cb8-6"><a href="#cb8-6"></a>lower_bound_black <span class="ot">&lt;-</span> boot_df_black <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">lower_bound_black =</span> <span class="fu">quantile</span>(stat, <span class="fl">0.025</span>)) <span class="sc">|&gt;</span> <span class="fu">pull</span>() </span>
+<span id="cb8-7"><a href="#cb8-7"></a>upper_bound_black <span class="ot">&lt;-</span> boot_df_black <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">upper_bound_black =</span> <span class="fu">quantile</span>(stat, <span class="fl">0.975</span>)) <span class="sc">|&gt;</span> <span class="fu">pull</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-5" class="slide level2">
@@ -532,13 +531,13 @@
 <p>Now, let’s tidy the data for plotting.</p>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>plotData <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb9-2"><a></a>  <span class="at">race =</span> <span class="fu">c</span>(<span class="st">"Black"</span>, <span class="st">"White"</span>),</span>
-<span id="cb9-3"><a></a>  <span class="at">meanCalls =</span> <span class="fu">c</span>(mean_black, mean_white),</span>
-<span id="cb9-4"><a></a>  <span class="at">lower95 =</span> <span class="fu">c</span>(lower_bound_black, lower_bound_white),</span>
-<span id="cb9-5"><a></a>  <span class="at">upper95 =</span> <span class="fu">c</span>(upper_bound_black, upper_bound_white)</span>
-<span id="cb9-6"><a></a>)</span>
-<span id="cb9-7"><a></a>plotData</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>plotData <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb9-2"><a href="#cb9-2"></a>  <span class="at">race =</span> <span class="fu">c</span>(<span class="st">"Black"</span>, <span class="st">"White"</span>),</span>
+<span id="cb9-3"><a href="#cb9-3"></a>  <span class="at">meanCalls =</span> <span class="fu">c</span>(mean_black, mean_white),</span>
+<span id="cb9-4"><a href="#cb9-4"></a>  <span class="at">lower95 =</span> <span class="fu">c</span>(lower_bound_black, lower_bound_white),</span>
+<span id="cb9-5"><a href="#cb9-5"></a>  <span class="at">upper95 =</span> <span class="fu">c</span>(upper_bound_black, upper_bound_white)</span>
+<span id="cb9-6"><a href="#cb9-6"></a>)</span>
+<span id="cb9-7"><a href="#cb9-7"></a>plotData</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 4
   race  meanCalls lower95 upper95
@@ -556,13 +555,13 @@
 <h2>Plot</h2>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">ggplot</span>(plotData, <span class="fu">aes</span>(<span class="at">y =</span> meanCalls, <span class="at">x =</span> race, <span class="at">ymin =</span> lower95, <span class="at">ymax =</span> upper95)) <span class="sc">+</span></span>
-<span id="cb11-2"><a></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue4"</span>) <span class="sc">+</span></span>
-<span id="cb11-3"><a></a>  <span class="fu">geom_errorbar</span>(<span class="at">width =</span> .<span class="dv">05</span>) <span class="sc">+</span></span>
-<span id="cb11-4"><a></a>  <span class="fu">theme_bw</span>()  <span class="sc">+</span></span>
-<span id="cb11-5"><a></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, .<span class="dv">15</span>) <span class="sc">+</span></span>
-<span id="cb11-6"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Race of Applicant"</span>,</span>
-<span id="cb11-7"><a></a>       <span class="at">y =</span> <span class="st">"Call Back Rate"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">ggplot</span>(plotData, <span class="fu">aes</span>(<span class="at">y =</span> meanCalls, <span class="at">x =</span> race, <span class="at">ymin =</span> lower95, <span class="at">ymax =</span> upper95)) <span class="sc">+</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue4"</span>) <span class="sc">+</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a>  <span class="fu">geom_errorbar</span>(<span class="at">width =</span> .<span class="dv">05</span>) <span class="sc">+</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a>  <span class="fu">theme_bw</span>()  <span class="sc">+</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, .<span class="dv">15</span>) <span class="sc">+</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Race of Applicant"</span>,</span>
+<span id="cb11-7"><a href="#cb11-7"></a>       <span class="at">y =</span> <span class="st">"Call Back Rate"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="is-this-evidence-of-racial-discrimination" class="slide level2">
@@ -721,12 +720,12 @@
 <p><br></p>
 <p>In real life we are going to use the <code>tidymodels</code> package to do the simulation for us.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>null_dist <span class="ot">&lt;-</span> myDat <span class="sc">|&gt;</span></span>
-<span id="cb12-2"><a></a>  <span class="fu">specify</span>(<span class="at">response =</span> received_callback, <span class="at">explanatory =</span> race) <span class="sc">|&gt;</span></span>
-<span id="cb12-3"><a></a>  <span class="fu">hypothesize</span>(<span class="at">null =</span> <span class="st">"independence"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb12-4"><a></a>  <span class="fu">generate</span>(<span class="dv">5000</span>, <span class="at">type =</span> <span class="st">"permute"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb12-5"><a></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"diff in means"</span>, </span>
-<span id="cb12-6"><a></a>            <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"white"</span>, <span class="st">"black"</span>)) <span class="co"># </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>null_dist <span class="ot">&lt;-</span> myDat <span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">specify</span>(<span class="at">response =</span> received_callback, <span class="at">explanatory =</span> race) <span class="sc">|&gt;</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a>  <span class="fu">hypothesize</span>(<span class="at">null =</span> <span class="st">"independence"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a>  <span class="fu">generate</span>(<span class="dv">5000</span>, <span class="at">type =</span> <span class="st">"permute"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb12-5"><a href="#cb12-5"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"diff in means"</span>, </span>
+<span id="cb12-6"><a href="#cb12-6"></a>            <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"white"</span>, <span class="st">"black"</span>)) <span class="co"># </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="visualize" class="slide level2">
@@ -737,21 +736,21 @@
 <h2>Visualize</h2>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> null_dist, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> stat)) <span class="sc">+</span></span>
-<span id="cb13-2"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.01</span>, <span class="at">fill =</span> <span class="st">"steelblue4"</span>) <span class="sc">+</span></span>
-<span id="cb13-3"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Null distribution + Estimate"</span>,</span>
-<span id="cb13-4"><a></a>       <span class="at">x =</span> <span class="st">"Estimated Difference under the Null"</span>) <span class="sc">+</span>     </span>
-<span id="cb13-5"><a></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> teffect, <span class="at">linetype=</span><span class="st">"dotted"</span>, </span>
-<span id="cb13-6"><a></a>                <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size=</span><span class="dv">1</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> null_dist, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> stat)) <span class="sc">+</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.01</span>, <span class="at">fill =</span> <span class="st">"steelblue4"</span>) <span class="sc">+</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Null distribution + Estimate"</span>,</span>
+<span id="cb13-4"><a href="#cb13-4"></a>       <span class="at">x =</span> <span class="st">"Estimated Difference under the Null"</span>) <span class="sc">+</span>     </span>
+<span id="cb13-5"><a href="#cb13-5"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> teffect, <span class="at">linetype=</span><span class="st">"dotted"</span>, </span>
+<span id="cb13-6"><a href="#cb13-6"></a>                <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size=</span><span class="dv">1</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="calculate-the-p-value" class="slide level2">
 <h2>Calculate the p-value</h2>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>null_dist <span class="sc">|&gt;</span></span>
-<span id="cb14-2"><a></a>  <span class="fu">filter</span>(stat <span class="sc">&gt;</span> teffect) <span class="sc">|&gt;</span></span>
-<span id="cb14-3"><a></a>  <span class="fu">summarise</span>(<span class="at">p_value =</span> <span class="fu">n</span>()<span class="sc">/</span><span class="fu">nrow</span>(null_dist)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>null_dist <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">filter</span>(stat <span class="sc">&gt;</span> teffect) <span class="sc">|&gt;</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a>  <span class="fu">summarise</span>(<span class="at">p_value =</span> <span class="fu">n</span>()<span class="sc">/</span><span class="fu">nrow</span>(null_dist)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
   p_value
@@ -785,13 +784,11 @@
 </ul>
 
 
-</section>
-    <div class="quarto-auto-generated-content">
-<p><img src="images/iaff6501-logo.png" class="slide-logo"></p>
-<div class="footer footer-default">
-<p><a href="https://data4ia-spring24.netlify.app/">IAFF 6501 Website</a></p>
+<img src="images/iaff6501-logo.png" class="slide-logo r-stretch"><div class="footer footer-default">
+<p><a href="https://quant4ia.rocks/">IAFF 6501 Website</a></p>
 </div>
-</div></div>
+</section>
+    </div>
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
@@ -818,6 +815,7 @@
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
+'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -1117,9 +1115,10 @@
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      function tippyHover(el, contentFn) {
         const config = {
           allowHTML: true,
+          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -1129,17 +1128,8 @@
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start',
+          placement: 'bottom-start'
         };
-        if (contentFn) {
-          config.content = contentFn;
-        }
-        if (onTriggerFn) {
-          config.onTrigger = onTriggerFn;
-        }
-        if (onUntriggerFn) {
-          config.onUntrigger = onUntriggerFn;
-        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 

@@ -1,0 +1,648 @@
+---
+title: Linear Regression 1
+subtitle: Estimation
+date: today
+date-format: long
+footer: "[IAFF 6501 Website](https://data4ia-spring24.netlify.app/)"
+logo: images/iaff6501-logo.png
+format:
+  revealjs:
+    theme: [simple, custom.scss]
+    transition: fade
+    slide-number: true
+    #multiplex: true
+    chalkboard: true
+execute:
+  echo: true
+  message: false
+  warning: false
+  freeze: auto
+---
+
+
+```{r packages, echo = FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(tidymodels)
+library(patchwork)
+#library(DT)
+library(vdemdata)
+
+set.seed(1234)
+```
+
+
+## Linear Model with Single Predictor
+
+<br>
+
+Goal: Estimate Democracy score ($\hat{Y_{i}}$) of a country given level of GDP per capita ($X_{i}$).
+
+<br>
+
+Or: Estimate relationship between GDP per capita and democracy.
+
+## Linear Model with Single Predictor
+
+```{r, echo=FALSE}
+modelData <- vdem |> 
+  filter(year == 2019) |> 
+  select(
+    country = country_name, 
+    lib_dem = v2x_libdem, 
+    wealth = e_gdppc, 
+    corruption = v2x_corr, 
+    judicial_review = v2jureview_ord, 
+    region = e_regionpol_6C, 
+    regime = v2x_regime) |>
+  mutate(log_wealth = log(wealth)) |>
+  mutate(region = factor(
+    region,
+    labels=c("Eastern Europe", 
+             "Latin America", 
+             "MENA", 
+             "SSAfrica", 
+             "Western Europe and North America", 
+             "Asia and Pacific"))
+    )
+  
+
+ggplot(modelData, aes(x = log_wealth, y = lib_dem)) +
+  geom_point() +
+  geom_smooth(method = "lm", color = "#E48957", se = FALSE) +
+  labs(x = "GPD per capita", y = "Liberal Democracy Index") +
+  theme_bw()
+```
+
+# Estimate Model using Tidymodels
+
+## 
+
+<br>
+
+Step 1: Specify model
+
+<br>
+
+```{r}
+linear_reg()
+```
+
+## 
+
+<br>
+
+Step 2: Set model fitting *engine*
+
+<br>
+
+```{r}
+linear_reg() |>
+  set_engine("lm") # lm: linear model
+```
+
+## 
+
+<br>
+
+Step 3: Fit model & estimate parameters
+
+<bt>
+
+... using **formula syntax**
+
+```{r fit-model}
+linear_reg() |>
+  set_engine("lm") |>
+  fit(lib_dem ~ log_wealth, data = modelData) 
+```
+
+## 
+
+<br>
+
+Step 4: Tidy things up...
+
+<br>
+
+$$\widehat{Democracy}_{i} = 0.13 + 0.12 * {loggdppc}_{i}$$
+
+```{r fit-model-tidy}
+linear_reg() |>
+  set_engine("lm") |>
+  fit(lib_dem ~ log_wealth, data = modelData) |>
+  tidy()
+```
+
+
+## Interpretation?
+
+<br>
+
+$$\widehat{Democracy}_{i} = 0.13 + 0.12 * {loggdppc}_{i}$$
+
+## Question
+
+<br>
+
+How do we get the "best" values for the slope and intercept?
+
+
+## How would you draw the "best" line?
+
+```{r, echo=FALSE}
+ggplot(modelData, aes(x = log_wealth, y = lib_dem)) +
+  geom_point() +
+ # geom_smooth(method = "lm", color = "#E48957", se = FALSE) +
+  labs(x = "GPD per capita", y = "Liberal Democracy Index") +
+  theme_bw()
+```
+
+
+## How would you draw the "best" line?
+
+```{r, echo=FALSE}
+ggplot(modelData, aes(x = log_wealth, y = lib_dem)) +
+  geom_point() +
+  geom_smooth(method = "lm", color = "#E48957", se = FALSE) +
+  labs(x = "GPD per capita", y = "Liberal Democracy Index") +
+  theme_bw()
+```
+
+## Least squares regression
+
+<br>
+
+- Remember the residual is the difference between the actual value and the predicted value
+
+. . .
+
+- The regression line minimizes the sum of squared residuals.
+
+## Least squares regression
+
+<br>
+
+- Residual for each point is:  $e_i = y_i - \hat{y}_i$
+
+- Least squares regression line minimizes $\sum_{i = 1}^n e_i^2$.
+
+. . .
+
+- Why do we square the residual?
+
+. . .
+
+- Why not take absolute value?
+
+    - Principle: larger penalty for residuals further away
+    - Math: makes the math easier and some nice properties (not our concern here...)
+
+## Least squares regression
+
+
+```{r , echo = FALSE, warning = FALSE, out.width = "60%"}
+
+mod_fit <- linear_reg() %>%
+  set_engine("lm") %>%
+  fit(lib_dem ~ log_wealth, data = modelData)
+
+fit_tidy <- tidy(mod_fit$fit) 
+fit_aug  <- augment(mod_fit$fit) %>%
+  mutate(res_cat = ifelse(.resid > 0, TRUE, FALSE))
+
+a <- round(fit_tidy$estimate[1], 2)
+b <- round(fit_tidy$estimate[2], 2)
+
+ggplot(data = fit_aug) +
+  geom_point(aes(x = log_wealth, y = lib_dem, color = res_cat)) +
+  geom_line(aes(x = log_wealth, y = .fitted), size = 0.75, color = "#8E2C90") + 
+  labs(
+    title = "GDP per Capita and Democracy",
+    x = "GDP per Capita",
+    y = "Libearl Democracy Index"
+  ) +
+  guides(color = "none") +
+  scale_color_manual(values = c("#260b27", "darkorange")) +
+  theme_bw()
+#+
+#  geom_text(aes(x = 0, y = 150), label = "Positive residual", color = "#e6b0e7", hjust = 0, size = 8) +
+ # geom_text(aes(x = 150, y = 25), label = "Negative residual", color = "#260b27", hjust = 0, size = 8)
+
+```
+
+## Very Simple Example
+
+What should the slope and intercept be?
+
+```{r, echo=FALSE}
+# create data
+dat <- tibble(
+    x = c(1, 2, 3),
+    y = c(1, 2, 3)
+)
+
+ggplot(dat, aes(y=y, x=x)) +
+  geom_point(size=3, color="darkblue") +
+  xlim(0, 4) + ylim(0,4) +
+  theme_bw()
+```
+
+
+## Example
+
+$\hat{Y} = 0 + 1*X$
+
+```{r, echo=FALSE}
+# create data
+ggplot(dat, aes(y=y, x=x)) +
+  geom_point(size=3, color="darkblue") +
+  xlim(0, 4) + ylim(0,4) +
+  geom_segment(x=0, y=0, xend=4, yend=4, color="darkorange") +
+  theme_bw()
+```
+
+## Example
+
+What is the sum of squared residuals?
+
+```{r, echo=FALSE}
+# create data
+ggplot(dat, aes(y=y, x=x)) +
+  geom_point(size=3, color="darkblue") +
+  xlim(0, 4) + ylim(0,4) +
+  geom_segment(x=0, y=0, xend=4, yend=4, color="darkorange") +
+  theme_bw()
+```
+
+## Example
+
+What is sum of squared residuals for $y = 0 + 0*X$?
+
+```{r, echo=FALSE}
+# create data
+ ggplot(dat, aes(y=y, x=x)) +
+  geom_point(size=3, color="darkblue") +
+  xlim(0, 4) + ylim(0,4) +
+  geom_segment(x=0, y=0, xend=4, yend=0, color="black") +
+  theme_bw()
+```
+
+
+## Example
+
+What is sum of squared residuals for $y = 0 + 0*X$?
+
+```{r, echo=FALSE}
+# create data
+ ggplot(dat, aes(y=y, x=x)) +
+  geom_point(size=3, color="darkblue") +
+  xlim(0, 4) + ylim(0,4) +
+  geom_segment(x=0, y=0, xend=4, yend=0, color="black") +
+  theme_bw()
+```
+
+
+```{r}
+(1-0)^2 + (2-0)^2 + (3-0)^2
+```
+
+
+
+## Example
+
+What is sum of squared residuals for $y = 0 + 2*X$?
+
+```{r, echo=FALSE}
+# create data
+ ggplot(dat, aes(y=y, x=x)) +
+  geom_point(size=3, color="darkblue") +
+  xlim(0, 4) + ylim(0,8) +
+  geom_segment(x=0, y=0, xend=4, yend=8, color="black") +
+  theme_bw()
+```
+
+## Example
+
+What is sum of squared residuals for $y = 0 + 2*X$?
+
+```{r, echo=FALSE}
+# create data
+ ggplot(dat, aes(y=y, x=x)) +
+  geom_point(size=3, color="darkblue") +
+  xlim(0, 4) + ylim(0,8) +
+  geom_segment(x=0, y=0, xend=4, yend=8, color="black") +
+  theme_bw()
+```
+
+
+```{r}
+(1-2)^2 + (2-4)^2 + (3-6)^2
+```
+
+
+## One more...
+
+What is sum of squared residuals for $y = 0 + -1*X$?
+
+```{r, echo=FALSE}
+# create data
+ ggplot(dat, aes(y=y, x=x)) +
+  geom_point(size=3, color="darkblue") +
+  xlim(0, 4) + ylim(-4,4) +
+  geom_segment(x=0, y=0, xend=4, yend=-4, color="black") +
+  theme_bw()
+```
+
+## One more...
+
+
+What is sum of squared residuals for $y = 0 + -1*X$?
+
+```{r, echo=FALSE}
+# create data
+ ggplot(dat, aes(y=y, x=x)) +
+  geom_point(size=3, color="darkblue") +
+  xlim(0, 4) + ylim(-4,4) +
+  geom_segment(x=0, y=0, xend=4, yend=-4, color="black") +
+  theme_bw()
+```
+
+
+```{r}
+(1+1)^2 + (2+2)^2 + (3+3)^2
+```
+
+
+
+## Cost Function
+
+Sum of Squared Residuals as function of possible values of $b$
+
+
+```{r echo=FALSE}
+sse <- tibble(
+          b=c(-2, -1, 0, 1, 2, 3, 4), 
+          c=c(81, 56, 14, 0, 14, 56, 81)
+          )
+
+ggplot(sse, aes(y=c, x=b)) +
+    geom_point(size=3, color="darkred") +
+    labs(
+    x = "Slope (b)",
+    y = "Sum of Squared Residuals"
+  ) +
+  theme_bw()
+```
+
+
+## Least Squares Regression
+
+<br>
+
+- When we estimate a least squares regression, it is looking for the line that minimizes sum of squared residuals
+
+- In the simple example, I set $a=0$ to make it easier.  More complicated when searching for combination of $a$ and $b$ that minimize, but same basic idea
+
+## Least Squares Regression
+
+<br>
+
+- There is a way to solve for this analytically for linear regression (i.e., by doing math...)
+
+    -- They made us do this in grad school...
+
+. . .
+
+- In machine learning, people also use gradient descent algorithm in which the computer searches over possible combinations of $a$ and $b$ until it settles on the lowest point.    
+
+
+## Least Squares Regression
+
+```{r echo=FALSE}
+sse <- tibble(
+          b=c(-2, -1, 0, 1, 2, 3, 4), 
+          c=c(81, 56, 14, 0, 14, 56, 81)
+          )
+
+ggplot(sse, aes(y=c, x=b)) +
+    geom_point(size=3, color="darkred") +
+  #  geom_line(color = "darkred") +
+    labs(
+    x = "Slope (b)",
+    y = "Sum of Squared Residuals"
+  ) +
+  theme_bw()
+```
+
+## Least Squares Regression
+
+```{r, echo=FALSE}
+ggplot(modelData, aes(x = log_wealth, y = lib_dem)) +
+  geom_point() +
+  geom_smooth(method = "lm", color = "#E48957", se = FALSE) +
+  labs(x = "GPD per capita", y = "Liberal Democracy Index") +
+  theme(
+    axis.text  = element_blank(),
+    axis.ticks = element_blank()
+    ) +
+  theme_bw()
+```
+
+## Your Turn {.smaller}
+
+<br>
+
+Are democracies less corrupt?
+
+<br>
+
+- V-Dem includes a Political Corruption Index, which aggregates corruption in a number of spheres (see codebook for details).  
+
+- The variable name is: *v2x_corr* : lower values mean less corruption
+
+
+## Your Turn {.smaller}
+
+<br>
+
+**Are democracies less corrupt?**
+
+<br>
+
+::: {.smaller}
+- Filter the V-Dem data to only include the year 2019
+- Make a scatterplot to visualize the relationship between democracy (X) and corruption (Y) (use the *v2x_libdem* variable for democracy)
+- Fit a linear model
+- Interpret results for the slope and intercept
+- For a country with the average (mean) level of democracy, what is the predicted level of corruption?
+:::
+
+# Models with Categorical Explanatory Variables
+
+## Judicial Review and Democracy
+
+<br>
+
+**Judicial Review:**
+
+- Do high courts (Supreme Court, Constitutional Court, etc) have the power to rule on whether laws or policies are constitutional/legal? (Yes or No)
+- Dimension of Judicial Independence
+
+## Judicial Review and Democracy
+
+```{r echo=FALSE}
+ggplot(modelData, aes(x = log_wealth, y = lib_dem, color=factor(judicial_review))) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(x = "GPD per capita", y = "Liberal Democracy Index") +
+  theme_bw() +
+    scale_color_manual(name = "Judicial Review", values = c("steelblue3", "coral"), labels = c("No", "Yes")) 
+
+```
+
+## Judicial Review and Democracy
+
+<br>
+
+```{r}
+linear_reg() %>%
+  set_engine("lm") %>%
+  fit(lib_dem ~ factor(judicial_review), data = modelData) %>%
+  tidy()
+```
+
+## Judicial Review and Democracy
+
+
+$$\widehat{Democracy_{i}} = 0.22 - 0.20*JudicialReview(yes)$$
+
+- **Slope:** Countries with judicial review are expected, on average, to be 0.20 units more democratic on the liberal democracy index
+  - Compares baseline level (Judicial Review = 0) to the other level (Judicial Review = 1)
+- **Intercept:** Countries without judicial review are, on average, a 0.22 on liberal democracy scale 
+
+
+## Dummy Variables
+
+<br>
+
+- When the categorical explanatory variable has many levels, they're encoded to **dummy variables** 
+- We always leave one category out of the model, as the omitted reference category
+- Each coefficient describes is the expected difference between level of the factor **and the baseline level**
+- Everything is relative to the omitted reference category
+
+## Democracy and World Region
+
+<br>
+
+Does region predict levels of democracy?
+
+Since Eastern Europe is the first category, default in R is to use that as the omitted category in models.
+
+```{r}
+levels(modelData$region)
+```
+
+## Democracy and World Region
+
+<br>
+
+How should we interpret intercept?  How about the coefficient on Latin America?
+
+```{r}
+linear_reg() %>%
+  set_engine("lm") %>%
+  fit(lib_dem ~ region, data = modelData) %>%
+  tidy()
+```
+
+## Democracy and World Region
+
+What if you want a different baseline category? How do we interpret now?
+
+
+```{r}
+# make SS Africa the reference category
+modelData <- modelData %>% 
+mutate(newReg = relevel(region, ref=4)) 
+
+linear_reg() %>%
+      set_engine("lm") %>%
+      fit(lib_dem ~ newReg, data = modelData) %>%
+      tidy()
+```
+
+
+
+## Your Turn
+
+<br>
+
+**Which types of regime have more corruption?**
+
+<br>
+ 
+V-Dem also includes a categorial regime variable: Closed autocracy (0), Electoral Autocracy (1), Electoral Democracy (2), Liberal Democracy (3)
+
+## Your Turn
+
+<br>
+
+**Which types of regime have more corruption?**
+
+<br>
+
+ 
+First, let's make this an easier factor variable to work with
+
+```{r}
+# Make nicer regime factor variable
+modelData <- modelData %>% 
+  mutate(regime = factor(regime,
+                         labels = c("Closed autocracy",
+                                   "Electoral Autocracy",
+                                  "Electoral Democracy",
+                                  "Liberal Democracy")))
+levels(modelData$regime)
+```
+
+## Your Turn {.smaller}
+
+<br>
+
+**Which types of regime have more corruption?**
+
+<br>
+
+- Filter data to include only the year 2019 (or run the code to use modelData)
+- Make a plot to visualize the relationship between regime type and level of corruption.  Which kind of plot is best in this situation?
+- Fit a linear model
+- Interpret the intercept and coefficients
+
+
+## Visualization
+
+```{r}
+modelData %>% 
+  group_by(regime) %>% 
+  summarize(corr = mean(corruption)) %>% 
+  ggplot(., aes(y=corr, x = regime)) +
+    geom_col(fill="steelblue") +
+  theme_bw()
+```
+
+## Model
+
+<br>
+
+```{r}
+linear_reg() %>%
+      set_engine("lm") %>%
+      fit(corruption ~ regime, data = modelData) %>%
+      tidy()
+```
+
+# Questions?
+
+      

@@ -9,9 +9,9 @@
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.533">
+  <meta name="generator" content="quarto-1.3.361">
 
-  <meta name="dcterms.date" content="2024-03-05">
+  <meta name="dcterms.date" content="2024-03-19">
   <title>IAFF 6501–Spring 2024 Schedule - Bar Charts and Histograms</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -32,7 +32,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -224,8 +224,7 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    padding-bottom: 0.5rem;
-    margin-bottom: 0;
+    margin-bottom: 0.5rem;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -391,7 +390,7 @@
   <link href="../site_libs/countdown-0.4.0/countdown.css" rel="stylesheet">
   <script src="../site_libs/countdown-0.4.0/countdown.js"></script>
 <meta property="og:title" content="IAFF 6501–Spring 2024 Schedule - Bar Charts and Histograms">
-<meta property="og:site_name" content="IAFF 6501--Spring 2024 Schedule">
+<meta property="og:site-name" content="IAFF 6501--Spring 2024 Schedule">
 <meta name="twitter:title" content="IAFF 6501–Spring 2024 Schedule - Bar Charts and Histograms">
 <meta name="twitter:card" content="summary">
 </head>
@@ -405,7 +404,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">March 5, 2024</p>
+  <p class="date">March 19, 2024</p>
 </section>
 <section>
 <section id="reading-data-into-r" class="title-slide slide level1 center">
@@ -435,7 +434,7 @@
 <section id="example" class="slide level2">
 <h2>Example</h2>
 
-<img data-src="images/tidy_data.jpg" class="quarto-figure quarto-figure-center r-stretch"></section>
+<img data-src="images/tidy_data.jpg" class="r-stretch quarto-figure-center"></section>
 <section id="some-basic-r-code" class="slide level2 smaller">
 <h2>Some Basic R Code</h2>
 <p><br></p>
@@ -462,11 +461,11 @@
 <h2>Read Data into R</h2>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1" data-code-line-numbers="|1|2-3|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># load libraries</span></span>
-<span id="cb1-2"><a></a><span class="fu">library</span>(readr)</span>
-<span id="cb1-3"><a></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-4"><a></a></span>
-<span id="cb1-5"><a></a>dem_summary <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/dem_summary.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1" data-code-line-numbers="|1|2-3|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># load libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-4"><a href="#cb1-4"></a></span>
+<span id="cb1-5"><a href="#cb1-5"></a>dem_summary <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/dem_summary.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="viewing-the-data-in-r" class="slide level2">
@@ -474,13 +473,13 @@
 <p><br></p>
 <p>Use <code>glimpse()</code> to see the columns and data types:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2" data-code-line-numbers="7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># load libraries</span></span>
-<span id="cb2-2"><a></a><span class="fu">library</span>(readr)</span>
-<span id="cb2-3"><a></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb2-4"><a></a></span>
-<span id="cb2-5"><a></a>dem_summary <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/dem_summary.csv"</span>)</span>
-<span id="cb2-6"><a></a></span>
-<span id="cb2-7"><a></a><span class="fu">glimpse</span>(dem_summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2" data-code-line-numbers="7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># load libraries</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">library</span>(readr)</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-4"><a href="#cb2-4"></a></span>
+<span id="cb2-5"><a href="#cb2-5"></a>dem_summary <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/dem_summary.csv"</span>)</span>
+<span id="cb2-6"><a href="#cb2-6"></a></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="fu">glimpse</span>(dem_summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 6
 Columns: 5
@@ -497,7 +496,7 @@ $ women_rep &lt;dbl&gt; 28.12921, 21.32548, 17.99728, 14.45225, 17.44296, 10.215
 <h1></h1>
 <p>Or use <code>View()</code> or click on the name of the object in your Environment tab to see the data in a spreadsheet:</p>
 
-<img data-src="images/view_df.gif" class="quarto-figure quarto-figure-center r-stretch"></section>
+<img data-src="images/view_df.gif" class="r-stretch quarto-figure-center"></section>
 <section id="try-it-yourself" class="slide level2">
 <h2>Try It Yourself!</h2>
 <ul>
@@ -505,13 +504,13 @@ $ women_rep &lt;dbl&gt; 28.12921, 21.32548, 17.99728, 14.45225, 17.44296, 10.215
 <li>Then use this code to read it into R and view it</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="co"># load libraries</span></span>
-<span id="cb4-2"><a></a><span class="fu">library</span>(readr)</span>
-<span id="cb4-3"><a></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb4-4"><a></a></span>
-<span id="cb4-5"><a></a>dem_summary <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/dem_summary.csv"</span>)</span>
-<span id="cb4-6"><a></a></span>
-<span id="cb4-7"><a></a><span class="fu">glimpse</span>(dem_summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># load libraries</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="fu">library</span>(readr)</span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb4-4"><a href="#cb4-4"></a></span>
+<span id="cb4-5"><a href="#cb4-5"></a>dem_summary <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/dem_summary.csv"</span>)</span>
+<span id="cb4-6"><a href="#cb4-6"></a></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="fu">glimpse</span>(dem_summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -550,12 +549,12 @@ $ women_rep &lt;dbl&gt; 28.12921, 21.32548, 17.99728, 14.45225, 17.44296, 10.215
 <p>Let’s start with the first two, the data and the aesthetic…</p>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5" data-code-line-numbers="6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">library</span>(readr)</span>
-<span id="cb5-2"><a></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb5-3"><a></a></span>
-<span id="cb5-4"><a></a>dem_summary <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/dem_summary.csv"</span>)</span>
-<span id="cb5-5"><a></a></span>
-<span id="cb5-6"><a></a><span class="fu">ggplot</span>(dem_summary, <span class="fu">aes</span>(<span class="at">x =</span> region, <span class="at">y =</span> polyarchy)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5" data-code-line-numbers="6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-3"><a href="#cb5-3"></a></span>
+<span id="cb5-4"><a href="#cb5-4"></a>dem_summary <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/dem_summary.csv"</span>)</span>
+<span id="cb5-5"><a href="#cb5-5"></a></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="fu">ggplot</span>(dem_summary, <span class="fu">aes</span>(<span class="at">x =</span> region, <span class="at">y =</span> polyarchy)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-2" class="slide level2">
@@ -569,8 +568,8 @@ $ women_rep &lt;dbl&gt; 28.12921, 21.32548, 17.99728, 14.45225, 17.44296, 10.215
 <p>Now let’s add a geom. In this case we want a bar chart so we <em>add</em> <code>geom_col()</code>.</p>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">ggplot</span>(dem_summary, <span class="fu">aes</span>(<span class="at">x =</span> region, <span class="at">y =</span> polyarchy)) <span class="sc">+</span> </span>
-<span id="cb6-2"><a></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">ggplot</span>(dem_summary, <span class="fu">aes</span>(<span class="at">x =</span> region, <span class="at">y =</span> polyarchy)) <span class="sc">+</span> </span>
+<span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-4" class="slide level2">
@@ -584,8 +583,8 @@ $ women_rep &lt;dbl&gt; 28.12921, 21.32548, 17.99728, 14.45225, 17.44296, 10.215
 <p>…let’s change the color of the bars by specifying <code>fill = "steelblue"</code>.</p>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">ggplot</span>(dem_summary, <span class="fu">aes</span>(<span class="at">x =</span> region, <span class="at">y =</span> polyarchy)) <span class="sc">+</span> </span>
-<span id="cb7-2"><a></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">ggplot</span>(dem_summary, <span class="fu">aes</span>(<span class="at">x =</span> region, <span class="at">y =</span> polyarchy)) <span class="sc">+</span> </span>
+<span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-6" class="slide level2">
@@ -599,14 +598,14 @@ $ women_rep &lt;dbl&gt; 28.12921, 21.32548, 17.99728, 14.45225, 17.44296, 10.215
 <p>Now let’s <em>add</em> some labels with the <code>labs()</code> function:</p>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8" data-code-line-numbers="3-8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">ggplot</span>(dem_summary, <span class="fu">aes</span>(<span class="at">x =</span> region, <span class="at">y =</span> polyarchy)) <span class="sc">+</span> </span>
-<span id="cb8-2"><a></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
-<span id="cb8-3"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb8-4"><a></a>    <span class="at">x =</span> <span class="st">"Region"</span>, </span>
-<span id="cb8-5"><a></a>    <span class="at">y =</span> <span class="st">"Avg. Polyarchy Score"</span>, </span>
-<span id="cb8-6"><a></a>    <span class="at">title =</span> <span class="st">"Democracy by region, 1990 - present"</span>, </span>
-<span id="cb8-7"><a></a>    <span class="at">caption =</span> <span class="st">"Source: V-Dem Institute"</span></span>
-<span id="cb8-8"><a></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8" data-code-line-numbers="3-8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">ggplot</span>(dem_summary, <span class="fu">aes</span>(<span class="at">x =</span> region, <span class="at">y =</span> polyarchy)) <span class="sc">+</span> </span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a>  <span class="fu">labs</span>(</span>
+<span id="cb8-4"><a href="#cb8-4"></a>    <span class="at">x =</span> <span class="st">"Region"</span>, </span>
+<span id="cb8-5"><a href="#cb8-5"></a>    <span class="at">y =</span> <span class="st">"Avg. Polyarchy Score"</span>, </span>
+<span id="cb8-6"><a href="#cb8-6"></a>    <span class="at">title =</span> <span class="st">"Democracy by region, 1990 - present"</span>, </span>
+<span id="cb8-7"><a href="#cb8-7"></a>    <span class="at">caption =</span> <span class="st">"Source: V-Dem Institute"</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-8" class="slide level2">
@@ -619,16 +618,16 @@ $ women_rep &lt;dbl&gt; 28.12921, 21.32548, 17.99728, 14.45225, 17.44296, 10.215
 <p>Next, we reorder the bars with <code>fct_reorder()</code> from the <code>forcats</code> package.</p>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">library</span>(forcats)</span>
-<span id="cb9-2"><a></a></span>
-<span id="cb9-3"><a></a><span class="fu">ggplot</span>(dem_summary, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_reorder</span>(region, <span class="sc">-</span>polyarchy), <span class="at">y =</span> polyarchy)) <span class="sc">+</span></span>
-<span id="cb9-4"><a></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span> </span>
-<span id="cb9-5"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb9-6"><a></a>    <span class="at">x =</span> <span class="st">"Region"</span>, </span>
-<span id="cb9-7"><a></a>    <span class="at">y =</span> <span class="st">"Avg. Polyarchy Score"</span>, </span>
-<span id="cb9-8"><a></a>    <span class="at">title =</span> <span class="st">"Democracy by region, 1990 - present"</span>, </span>
-<span id="cb9-9"><a></a>    <span class="at">caption =</span> <span class="st">"Source: V-Dem Institute"</span></span>
-<span id="cb9-10"><a></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9" data-code-line-numbers="1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">library</span>(forcats)</span>
+<span id="cb9-2"><a href="#cb9-2"></a></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="fu">ggplot</span>(dem_summary, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_reorder</span>(region, <span class="sc">-</span>polyarchy), <span class="at">y =</span> polyarchy)) <span class="sc">+</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span> </span>
+<span id="cb9-5"><a href="#cb9-5"></a>  <span class="fu">labs</span>(</span>
+<span id="cb9-6"><a href="#cb9-6"></a>    <span class="at">x =</span> <span class="st">"Region"</span>, </span>
+<span id="cb9-7"><a href="#cb9-7"></a>    <span class="at">y =</span> <span class="st">"Avg. Polyarchy Score"</span>, </span>
+<span id="cb9-8"><a href="#cb9-8"></a>    <span class="at">title =</span> <span class="st">"Democracy by region, 1990 - present"</span>, </span>
+<span id="cb9-9"><a href="#cb9-9"></a>    <span class="at">caption =</span> <span class="st">"Source: V-Dem Institute"</span></span>
+<span id="cb9-10"><a href="#cb9-10"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <p>Note that we could also use the base R <code>reorder()</code> function here.</p>
@@ -644,14 +643,14 @@ $ women_rep &lt;dbl&gt; 28.12921, 21.32548, 17.99728, 14.45225, 17.44296, 10.215
 <p>Now let’s change the theme to <code>theme_minimal()</code>.</p>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10" data-code-line-numbers="8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">ggplot</span>(dem_summary, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(region, <span class="sc">-</span>polyarchy), <span class="at">y =</span> polyarchy)) <span class="sc">+</span></span>
-<span id="cb10-2"><a></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span> </span>
-<span id="cb10-3"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb10-4"><a></a>    <span class="at">x =</span> <span class="st">"Region"</span>, </span>
-<span id="cb10-5"><a></a>    <span class="at">y =</span> <span class="st">"Avg. Polyarchy Score"</span>, </span>
-<span id="cb10-6"><a></a>    <span class="at">title =</span> <span class="st">"Democracy by region, 1990 - present"</span>, </span>
-<span id="cb10-7"><a></a>    <span class="at">caption =</span> <span class="st">"Source: V-Dem Institute"</span></span>
-<span id="cb10-8"><a></a>    ) <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10" data-code-line-numbers="8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">ggplot</span>(dem_summary, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(region, <span class="sc">-</span>polyarchy), <span class="at">y =</span> polyarchy)) <span class="sc">+</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span> </span>
+<span id="cb10-3"><a href="#cb10-3"></a>  <span class="fu">labs</span>(</span>
+<span id="cb10-4"><a href="#cb10-4"></a>    <span class="at">x =</span> <span class="st">"Region"</span>, </span>
+<span id="cb10-5"><a href="#cb10-5"></a>    <span class="at">y =</span> <span class="st">"Avg. Polyarchy Score"</span>, </span>
+<span id="cb10-6"><a href="#cb10-6"></a>    <span class="at">title =</span> <span class="st">"Democracy by region, 1990 - present"</span>, </span>
+<span id="cb10-7"><a href="#cb10-7"></a>    <span class="at">caption =</span> <span class="st">"Source: V-Dem Institute"</span></span>
+<span id="cb10-8"><a href="#cb10-8"></a>    ) <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-12" class="slide level2">
@@ -665,15 +664,15 @@ $ women_rep &lt;dbl&gt; 28.12921, 21.32548, 17.99728, 14.45225, 17.44296, 10.215
 <p>Note that you can also save your plot as an object to modify later.</p>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>dem_bar_chart <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(dem_summary, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(region, <span class="sc">-</span>polyarchy), <span class="at">y =</span> polyarchy)) <span class="sc">+</span></span>
-<span id="cb11-2"><a></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>dem_bar_chart <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(dem_summary, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(region, <span class="sc">-</span>polyarchy), <span class="at">y =</span> polyarchy)) <span class="sc">+</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-14" class="slide level2">
 <h2></h2>
 <p>Which gives us…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>dem_bar_chart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>dem_bar_chart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="week-2.1_files/figure-revealjs/barchart14-1.png" width="960" class="r-stretch"></section>
@@ -683,20 +682,20 @@ $ women_rep &lt;dbl&gt; 28.12921, 21.32548, 17.99728, 14.45225, 17.44296, 10.215
 <p>Now let’s add back our labels…</p>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>dem_bar_chart <span class="ot">&lt;-</span> dem_bar_chart <span class="sc">+</span></span>
-<span id="cb13-2"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb13-3"><a></a>    <span class="at">x =</span> <span class="st">"Region"</span>, </span>
-<span id="cb13-4"><a></a>    <span class="at">y =</span> <span class="st">"Avg. Polyarchy Score"</span>, </span>
-<span id="cb13-5"><a></a>    <span class="at">title =</span> <span class="st">"Democracy by region, 1990 - present"</span>, </span>
-<span id="cb13-6"><a></a>    <span class="at">caption =</span> <span class="st">"Source: V-Dem Institute"</span></span>
-<span id="cb13-7"><a></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>dem_bar_chart <span class="ot">&lt;-</span> dem_bar_chart <span class="sc">+</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">labs</span>(</span>
+<span id="cb13-3"><a href="#cb13-3"></a>    <span class="at">x =</span> <span class="st">"Region"</span>, </span>
+<span id="cb13-4"><a href="#cb13-4"></a>    <span class="at">y =</span> <span class="st">"Avg. Polyarchy Score"</span>, </span>
+<span id="cb13-5"><a href="#cb13-5"></a>    <span class="at">title =</span> <span class="st">"Democracy by region, 1990 - present"</span>, </span>
+<span id="cb13-6"><a href="#cb13-6"></a>    <span class="at">caption =</span> <span class="st">"Source: V-Dem Institute"</span></span>
+<span id="cb13-7"><a href="#cb13-7"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-16" class="slide level2">
 <h2></h2>
 <p>So now we have…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>dem_bar_chart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>dem_bar_chart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="week-2.1_files/figure-revealjs/barchart16-1.png" width="960" class="r-stretch"></section>
@@ -706,14 +705,14 @@ $ women_rep &lt;dbl&gt; 28.12921, 21.32548, 17.99728, 14.45225, 17.44296, 10.215
 <p>And now we’ll add back our theme…</p>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>dem_bar_chart <span class="ot">&lt;-</span> dem_bar_chart <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>dem_bar_chart <span class="ot">&lt;-</span> dem_bar_chart <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-18" class="slide level2">
 <h2></h2>
 <p>Voila!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>dem_bar_chart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>dem_bar_chart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="week-2.1_files/figure-revealjs/barchart18-1.png" width="960" class="r-stretch"></section>
@@ -721,7 +720,7 @@ $ women_rep &lt;dbl&gt; 28.12921, 21.32548, 17.99728, 14.45225, 17.44296, 10.215
 <h2></h2>
 <p>Change the theme. There are many <a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">themes</a> to choose from.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>dem_bar_chart <span class="sc">+</span> <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>dem_bar_chart <span class="sc">+</span> <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="week-2.1_files/figure-revealjs/barchart19-1.png" width="960" class="r-stretch"></section>
@@ -771,22 +770,22 @@ $ women_rep &lt;dbl&gt; 28.12921, 21.32548, 17.99728, 14.45225, 17.44296, 10.215
 <h2>Histogram Code</h2>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18" data-code-line-numbers="|1-2|4-6|8-10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="co"># load data</span></span>
-<span id="cb18-2"><a></a>dem_women <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/dem_women.csv"</span>)</span>
-<span id="cb18-3"><a></a></span>
-<span id="cb18-4"><a></a><span class="co"># filter to 2022</span></span>
-<span id="cb18-5"><a></a>dem_women_2022 <span class="ot">&lt;-</span> dem_women <span class="sc">|&gt;</span></span>
-<span id="cb18-6"><a></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2022</span>) </span>
-<span id="cb18-7"><a></a></span>
-<span id="cb18-8"><a></a><span class="co"># create histogram</span></span>
-<span id="cb18-9"><a></a><span class="fu">ggplot</span>(dem_women_2022, <span class="fu">aes</span>(<span class="at">x =</span> flfp)) <span class="sc">+</span></span>
-<span id="cb18-10"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span> </span>
-<span id="cb18-11"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb18-12"><a></a>    <span class="at">x =</span> <span class="st">"Percentage of Working Aged Women in Labor Force"</span>,</span>
-<span id="cb18-13"><a></a>    <span class="at">y =</span> <span class="st">"Number of Countries"</span>,</span>
-<span id="cb18-14"><a></a>    <span class="at">title =</span> <span class="st">"Female labor force participation rates, 2022"</span>,</span>
-<span id="cb18-15"><a></a>    <span class="at">caption =</span> <span class="st">"Source: World Bank"</span></span>
-<span id="cb18-16"><a></a>    ) <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18" data-code-line-numbers="|1-2|4-6|8-10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># load data</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a>dem_women <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/dem_women.csv"</span>)</span>
+<span id="cb18-3"><a href="#cb18-3"></a></span>
+<span id="cb18-4"><a href="#cb18-4"></a><span class="co"># filter to 2022</span></span>
+<span id="cb18-5"><a href="#cb18-5"></a>dem_women_2022 <span class="ot">&lt;-</span> dem_women <span class="sc">|&gt;</span></span>
+<span id="cb18-6"><a href="#cb18-6"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2022</span>) </span>
+<span id="cb18-7"><a href="#cb18-7"></a></span>
+<span id="cb18-8"><a href="#cb18-8"></a><span class="co"># create histogram</span></span>
+<span id="cb18-9"><a href="#cb18-9"></a><span class="fu">ggplot</span>(dem_women_2022, <span class="fu">aes</span>(<span class="at">x =</span> flfp)) <span class="sc">+</span></span>
+<span id="cb18-10"><a href="#cb18-10"></a>  <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span> </span>
+<span id="cb18-11"><a href="#cb18-11"></a>  <span class="fu">labs</span>(</span>
+<span id="cb18-12"><a href="#cb18-12"></a>    <span class="at">x =</span> <span class="st">"Percentage of Working Aged Women in Labor Force"</span>,</span>
+<span id="cb18-13"><a href="#cb18-13"></a>    <span class="at">y =</span> <span class="st">"Number of Countries"</span>,</span>
+<span id="cb18-14"><a href="#cb18-14"></a>    <span class="at">title =</span> <span class="st">"Female labor force participation rates, 2022"</span>,</span>
+<span id="cb18-15"><a href="#cb18-15"></a>    <span class="at">caption =</span> <span class="st">"Source: World Bank"</span></span>
+<span id="cb18-16"><a href="#cb18-16"></a>    ) <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="change-number-of-bins" class="slide level2">
@@ -795,14 +794,14 @@ $ women_rep &lt;dbl&gt; 28.12921, 21.32548, 17.99728, 14.45225, 17.44296, 10.215
 <p>Change number of bins (bars) using <code>bins</code> or <code>binwidth</code> arguments (default number of bins = 30):</p>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">ggplot</span>(dem_women_2022, <span class="fu">aes</span>(<span class="at">x =</span> flfp)) <span class="sc">+</span></span>
-<span id="cb19-2"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">50</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span> </span>
-<span id="cb19-3"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb19-4"><a></a>    <span class="at">x =</span> <span class="st">"Percentage of Working Aged Women in Labor Force"</span>,</span>
-<span id="cb19-5"><a></a>    <span class="at">y =</span> <span class="st">"Number of Countries"</span>,</span>
-<span id="cb19-6"><a></a>    <span class="at">title =</span> <span class="st">"Female labor force participation rates, 2022"</span>,</span>
-<span id="cb19-7"><a></a>    <span class="at">caption =</span> <span class="st">"Source: World Bank"</span></span>
-<span id="cb19-8"><a></a>    ) <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">ggplot</span>(dem_women_2022, <span class="fu">aes</span>(<span class="at">x =</span> flfp)) <span class="sc">+</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">50</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span> </span>
+<span id="cb19-3"><a href="#cb19-3"></a>  <span class="fu">labs</span>(</span>
+<span id="cb19-4"><a href="#cb19-4"></a>    <span class="at">x =</span> <span class="st">"Percentage of Working Aged Women in Labor Force"</span>,</span>
+<span id="cb19-5"><a href="#cb19-5"></a>    <span class="at">y =</span> <span class="st">"Number of Countries"</span>,</span>
+<span id="cb19-6"><a href="#cb19-6"></a>    <span class="at">title =</span> <span class="st">"Female labor force participation rates, 2022"</span>,</span>
+<span id="cb19-7"><a href="#cb19-7"></a>    <span class="at">caption =</span> <span class="st">"Source: World Bank"</span></span>
+<span id="cb19-8"><a href="#cb19-8"></a>    ) <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-20" class="slide level2">
@@ -821,14 +820,14 @@ $ women_rep &lt;dbl&gt; 28.12921, 21.32548, 17.99728, 14.45225, 17.44296, 10.215
 <p>Using <code>binwidth</code> instead of <code>bins</code>…</p>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">ggplot</span>(dem_women_2022, <span class="fu">aes</span>(<span class="at">x =</span> flfp)) <span class="sc">+</span></span>
-<span id="cb20-2"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">2</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span> </span>
-<span id="cb20-3"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb20-4"><a></a>    <span class="at">x =</span> <span class="st">"Percentage of Working Aged Women in Labor Force"</span>,</span>
-<span id="cb20-5"><a></a>    <span class="at">y =</span> <span class="st">"Number of Countries"</span>,</span>
-<span id="cb20-6"><a></a>    <span class="at">title =</span> <span class="st">"Female labor force participation rates, 2022"</span>,</span>
-<span id="cb20-7"><a></a>    <span class="at">caption =</span> <span class="st">"Source: World Bank"</span></span>
-<span id="cb20-8"><a></a>    ) <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">ggplot</span>(dem_women_2022, <span class="fu">aes</span>(<span class="at">x =</span> flfp)) <span class="sc">+</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">2</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span> </span>
+<span id="cb20-3"><a href="#cb20-3"></a>  <span class="fu">labs</span>(</span>
+<span id="cb20-4"><a href="#cb20-4"></a>    <span class="at">x =</span> <span class="st">"Percentage of Working Aged Women in Labor Force"</span>,</span>
+<span id="cb20-5"><a href="#cb20-5"></a>    <span class="at">y =</span> <span class="st">"Number of Countries"</span>,</span>
+<span id="cb20-6"><a href="#cb20-6"></a>    <span class="at">title =</span> <span class="st">"Female labor force participation rates, 2022"</span>,</span>
+<span id="cb20-7"><a href="#cb20-7"></a>    <span class="at">caption =</span> <span class="st">"Source: World Bank"</span></span>
+<span id="cb20-8"><a href="#cb20-8"></a>    ) <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-23" class="slide level2">
@@ -840,14 +839,14 @@ $ women_rep &lt;dbl&gt; 28.12921, 21.32548, 17.99728, 14.45225, 17.44296, 10.215
 <h2>Change from Count to Density</h2>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21" data-code-line-numbers="1,5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">ggplot</span>(dem_women_2022, <span class="fu">aes</span>(<span class="fu">after_stat</span>(density), <span class="at">x =</span> flfp)) <span class="sc">+</span></span>
-<span id="cb21-2"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span> </span>
-<span id="cb21-3"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb21-4"><a></a>    <span class="at">x =</span> <span class="st">"Percentage of Working Aged Women in Labor Force"</span>,</span>
-<span id="cb21-5"><a></a>    <span class="at">y =</span> <span class="st">"Density"</span>,</span>
-<span id="cb21-6"><a></a>    <span class="at">title =</span> <span class="st">"Female labor force participation rates, 2022"</span>,</span>
-<span id="cb21-7"><a></a>    <span class="at">caption =</span> <span class="st">"Source: World Bank"</span></span>
-<span id="cb21-8"><a></a>    ) <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21" data-code-line-numbers="1,5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">ggplot</span>(dem_women_2022, <span class="fu">aes</span>(<span class="fu">after_stat</span>(density), <span class="at">x =</span> flfp)) <span class="sc">+</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a>  <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span> </span>
+<span id="cb21-3"><a href="#cb21-3"></a>  <span class="fu">labs</span>(</span>
+<span id="cb21-4"><a href="#cb21-4"></a>    <span class="at">x =</span> <span class="st">"Percentage of Working Aged Women in Labor Force"</span>,</span>
+<span id="cb21-5"><a href="#cb21-5"></a>    <span class="at">y =</span> <span class="st">"Density"</span>,</span>
+<span id="cb21-6"><a href="#cb21-6"></a>    <span class="at">title =</span> <span class="st">"Female labor force participation rates, 2022"</span>,</span>
+<span id="cb21-7"><a href="#cb21-7"></a>    <span class="at">caption =</span> <span class="st">"Source: World Bank"</span></span>
+<span id="cb21-8"><a href="#cb21-8"></a>    ) <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-24" class="slide level2">
@@ -879,12 +878,10 @@ $ women_rep &lt;dbl&gt; 28.12921, 21.32548, 17.99728, 14.45225, 17.44296, 10.215
 </div>
 
 
-</section><div class="quarto-auto-generated-content">
-<p><img src="images/iaff6501-logo.png" class="slide-logo"></p>
-<div class="footer footer-default">
+<img src="images/iaff6501-logo.png" class="slide-logo r-stretch"><div class="footer footer-default">
 <p><a href="https://quant4ia.rocks">IAFF 6501 Website</a></p>
 </div>
-</div></section>
+</section></section>
     </div>
   </div>
 
@@ -912,6 +909,7 @@ $ women_rep &lt;dbl&gt; 28.12921, 21.32548, 17.99728, 14.45225, 17.44296, 10.215
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
+'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -1211,9 +1209,10 @@ $ women_rep &lt;dbl&gt; 28.12921, 21.32548, 17.99728, 14.45225, 17.44296, 10.215
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      function tippyHover(el, contentFn) {
         const config = {
           allowHTML: true,
+          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -1223,17 +1222,8 @@ $ women_rep &lt;dbl&gt; 28.12921, 21.32548, 17.99728, 14.45225, 17.44296, 10.215
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start',
+          placement: 'bottom-start'
         };
-        if (contentFn) {
-          config.content = contentFn;
-        }
-        if (onTriggerFn) {
-          config.onTrigger = onTriggerFn;
-        }
-        if (onUntriggerFn) {
-          config.onUntrigger = onUntriggerFn;
-        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 

@@ -9,9 +9,9 @@
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.533">
+  <meta name="generator" content="quarto-1.3.361">
 
-  <meta name="dcterms.date" content="2024-03-05">
+  <meta name="dcterms.date" content="2024-03-19">
   <title>IAFF 6501–Spring 2024 Schedule - Exercise 1</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -159,8 +159,7 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    padding-bottom: 0.5rem;
-    margin-bottom: 0;
+    margin-bottom: 0.5rem;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -324,7 +323,7 @@
     }
   </style>
 <meta property="og:title" content="IAFF 6501–Spring 2024 Schedule - Exercise 1">
-<meta property="og:site_name" content="IAFF 6501--Spring 2024 Schedule">
+<meta property="og:site-name" content="IAFF 6501--Spring 2024 Schedule">
 <meta name="twitter:title" content="IAFF 6501–Spring 2024 Schedule - Exercise 1">
 <meta name="twitter:card" content="summary">
 </head>
@@ -338,7 +337,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">March 5, 2024</p>
+  <p class="date">March 19, 2024</p>
 </section>
 <section id="publish-html-to-quarto-pub" class="slide level2">
 <h2>Publish HTML to Quarto Pub</h2>
@@ -362,13 +361,11 @@
 </ul>
 
 
-</section>
-    <div class="quarto-auto-generated-content">
-<p><img src="images/iaff6501-logo.png" class="slide-logo"></p>
-<div class="footer footer-default">
+<img src="images/iaff6501-logo.png" class="slide-logo r-stretch"><div class="footer footer-default">
 <p><a href="https://quant4ia.rocks">IAFF 6501 Website</a></p>
 </div>
-</div></div>
+</section>
+    </div>
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
@@ -395,6 +392,7 @@
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
+'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -656,9 +654,10 @@
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      function tippyHover(el, contentFn) {
         const config = {
           allowHTML: true,
+          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -668,17 +667,8 @@
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start',
+          placement: 'bottom-start'
         };
-        if (contentFn) {
-          config.content = contentFn;
-        }
-        if (onTriggerFn) {
-          config.onTrigger = onTriggerFn;
-        }
-        if (onUntriggerFn) {
-          config.onUntrigger = onUntriggerFn;
-        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 

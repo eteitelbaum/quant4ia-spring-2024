@@ -82,7 +82,7 @@ There are five response variables in the data. Each of these corresponds to a di
 
 -   For each of the outcomes: use group_by() and summarize() to calculate the mean of each response variable in both treatment and control villages. (5 points)
 -   Select TWO outcome variables of interest to you. For each, use `tidymodels` to generate 95 percent confidence intervals around these estimates. You should do this for villages in treatment and control separately. (10 points)
--   Store your estimates and the upper and lower bounds of your confidence intervals as a tidy data object for future use. Label this object `estimates`. (5 points)
+-   Store your estimates and the upper and lower bounds of your confidence intervals for future use. Label this object `estimates`. (5 points)
 -   Write a short paragraph that correctly interprets the confidence intervals in treatment and control groups for both outcomes you selected. Based on your confidence intervals, what is your initial conclusion about whether the program had an impact on the outcome variables you selected. (10 points)
 
 
