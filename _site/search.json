@@ -2972,7 +2972,7 @@
     "href": "slides/week-9.1.html#plot-the-relationship-2",
     "title": "Modeling",
     "section": "Plot the Relationship",
-    "text": "Plot the Relationship\n\n\nggplot(modelData, aes(x = wealth, y = lib_dem)) +\n  geom_point() +\n  geom_smooth(method = \"lm\", color = \"#E48957\", se = FALSE) +\n  labs(x = \"GPD per capita\", y = \"Liberal Democracy Index\") +\n  theme(\n    axis.text  = element_blank(),\n    axis.ticks = element_blank()\n    ) +\n  theme_bw()"
+    "text": "Plot the Relationship\n\n\nggplot(modelData, aes(x = wealth, y = lib_dem)) +\n  geom_point() +\n  geom_smooth(method = \"lm\", color = \"#E48957\", se = FALSE) +\n  labs(x = \"GPD per capita\", y = \"Liberal Democracy Index\") +\n  theme_bw()"
   },
   {
     "objectID": "slides/week-9.1.html#using-the-scales-package",
@@ -3028,21 +3028,21 @@
     "href": "slides/week-9.1.html#linear-model",
     "title": "Modeling",
     "section": "Linear Model",
-    "text": "Linear Model\n\\(\\hat{Y} = a + b \\times X\\)\n\\(\\hat{Y} = 0.13 + 0.12 \\times X\\)"
+    "text": "Linear Model\n\\(\\hat{Y} = a  + b \\times X\\)\n\\(\\hat{Y} = 0.13  + 0.12 \\times X\\)"
   },
   {
     "objectID": "slides/week-9.1.html#linear-model-interpretation",
     "href": "slides/week-9.1.html#linear-model-interpretation",
     "title": "Modeling",
     "section": "Linear Model: Interpretation",
-    "text": "Linear Model: Interpretation\n\n\\(\\hat{Y} = a + b \\times X\\)\n\\(\\hat{Y} = 0.13 + 0.12 \\times X\\)\nWhat is the interpretation of our estimate of \\(a\\)?\n\n\n\\(\\hat{Y} = 0.13 + 0.12 \\times 0\\)\n\\(\\hat{Y} = 0.13\\)\n\\(a\\) is our predicted level of democracy when GDP per capita is 0."
+    "text": "Linear Model: Interpretation\n\n\\(\\hat{Y} = a  + b \\times X\\)\n\\(\\hat{Y} = 0.13  + 0.12 \\times X\\)\nWhat is the interpretation of our estimate of \\(a\\)?\n\n\n\\(\\hat{Y} = 0.13  + 0.12 \\times 0\\)\n\\(\\hat{Y} = 0.13\\)\n\\(a\\) is our predicted level of democracy when GDP per capita is 0."
   },
   {
     "objectID": "slides/week-9.1.html#linear-model-interpretation-1",
     "href": "slides/week-9.1.html#linear-model-interpretation-1",
     "title": "Modeling",
     "section": "Linear Model: Interpretation",
-    "text": "Linear Model: Interpretation\n\n\\(\\hat{Y} = a + b \\times X\\)\n\\(\\hat{Y} = 0.13 + 0.12 \\times X\\)\nWhat is interpretation of our estimate of \\(b\\)?\n\n\n\\(\\hat{Y} = a + \\frac{Rise}{Run} \\times X\\)\n\\(\\hat{Y} = a + \\frac{Change Y}{Change X} \\times X\\)"
+    "text": "Linear Model: Interpretation\n\n\\(\\hat{Y} = a  + b \\times X\\)\n\\(\\hat{Y} = 0.13  + 0.12 \\times X\\)\nWhat is interpretation of our estimate of \\(b\\)?\n\n\n\\(\\hat{Y} = a  + \\frac{Rise}{Run} \\times X\\)\n\\(\\hat{Y} = a  + \\frac{Change Y}{Change X} \\times X\\)"
   },
   {
     "objectID": "slides/week-9.1.html#linear-model-interpretation-2",
@@ -3091,7 +3091,7 @@
     "href": "slides/week-9.1.html#next-step",
     "title": "Modeling",
     "section": "Next step",
-    "text": "Next step\n\n\nLinear model with one predictor: \\(Y = a + bX\\)\nFor any given data…\nHow do we figure out what the best values are for \\(a\\) and \\(b\\)??\n\n\n\n\nIAFF 6501 Website"
+    "text": "Next step\n\n\nLinear model with one predictor: \\(Y = a + bX\\)\nFor any given data…\nHow do we figure out what the best values are for \\(a\\) and \\(b\\)??"
   },
   {
     "objectID": "slides/week-9.2.html#linear-model-with-single-predictor",

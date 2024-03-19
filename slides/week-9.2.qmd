@@ -3,7 +3,7 @@ title: Linear Regression 1
 subtitle: Estimation
 date: today
 date-format: long
-footer: "[IAFF 6501 Website](https://data4ia-spring24.netlify.app/)"
+footer: "[IAFF 6501 Website](https://quant4ia.rocks/)"
 logo: images/iaff6501-logo.png
 format:
   revealjs:
