@@ -3287,7 +3287,7 @@
     "href": "slides/week-9.2.html#your-turn",
     "title": "Linear Regression 1",
     "section": "Your Turn",
-    "text": "Your Turn\n\nAre democracies less corrupt?\n\n\nV-Dem includes a Political Corruption Index, which aggregates corruption in a number of spheres (see codebook for details).\nThe variable name is: v2x_corr : lower values mean less corruption"
+    "text": "Your Turn\n\nAre democracies less corrupt?\n\n\nV-Dem includes a Political Corruption Index, which aggregates corruption in a number of spheres (see codebook for details).\nThe variable name is: v2x_corr : lower values mean less corruption\nSee started code HERE"
   },
   {
     "objectID": "slides/week-9.2.html#your-turn-1",

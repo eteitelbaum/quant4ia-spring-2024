@@ -462,6 +462,8 @@ Are democracies less corrupt?
 
 - The variable name is: *v2x_corr* : lower values mean less corruption
 
+- See started code [HERE](https://www.dropbox.com/scl/fo/iwmhtr6dz8u3b14ctjrkw/h?rlkey=izxf8b2xftwtb0ewfij4psxh7&dl=0)
+
 
 ## Your Turn {.smaller}
 
