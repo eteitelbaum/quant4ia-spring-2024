@@ -112,3 +112,22 @@ Write 2-3 paragraphs that summarize the results of your analysis and accurately 
 - Conduct hypothesis tests for each the three additional outcomes.  What do you conclude from each test? (2 points)
 - Write a paragraph updating your conclusion about the impact of the program and your interpretation of all of the evidence (2 points)
 - Create a single visualization that could "tell the whole story" of the results from this study. (3 points)
+
+## Submission Instructions
+
+::: {.callout-important}
+## Submission Instructions
+
+Head over to Blackboard and go to the Homework 2 assignment. There you will find a link that you can use to upload your **project folder**. 
+
+If you worked with a partner, only one of you should submit the **project folder** but both of you should still make a submission to Blackboard so that we have a submission to grade. If you have worked with someoone but still have a substantially different project, you can submit separately. 
+
+The person submitting the project folder should take a screen shot of the confirmation message ("Finished Uploading") and share it with the other group members. This screen shot will be what you submit in Blackboard.
+
+Next, click "Create Submission" and write a statement stating whether you worked on the project independently or whether you are submitting jointly with someone else. Also note whether you used a large language model (LLM) like ChatGPT to help you with the work and which parts of the assignment you used the LLM for. It is fine to use an LLM to help with your code but you must acknowledge the use of it in your submission.
+
+Then, upload the screenshot you saved in the first step. Now submit the assignment.  
+
+Please remember to upload your entire **project folder** and not just the Quarto document.
+:::
+
