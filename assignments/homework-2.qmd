@@ -113,8 +113,6 @@ Write 2-3 paragraphs that summarize the results of your analysis and accurately 
 - Write a paragraph updating your conclusion about the impact of the program and your interpretation of all of the evidence (2 points)
 - Create a single visualization that could "tell the whole story" of the results from this study. (3 points)
 
-## Submission Instructions
-
 ::: {.callout-important}
 ## Submission Instructions
 
