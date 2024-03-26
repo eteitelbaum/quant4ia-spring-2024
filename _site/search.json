@@ -862,7 +862,7 @@
     "href": "slides/week-10.2.html#load-packages",
     "title": "Multiple Regression",
     "section": "Load packages",
-    "text": "Load packages\n\n\nlibrary(tidyverse)\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(tidymodels)\nlibrary(patchwork)\n#library(DT)\nlibrary(vdemdata)"
+    "text": "Load packages\n\n\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(vdemdata)"
   },
   {
     "objectID": "slides/week-10.2.html#load-vdem-data",
@@ -925,21 +925,21 @@
     "href": "slides/week-10.2.html#model-with-two-predictors-3",
     "title": "Multiple Regression",
     "section": "Model with Two Predictors",
-    "text": "Model with Two Predictors\n\n\\[\\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc\\]\n\nOLS is searching for combination of \\(a\\), \\(b_1\\), and \\(b_2\\) that minimize sum of squared residuals\nSame logic as model with one predictor, just more complicated"
+    "text": "Model with Two Predictors\n\n\\[\\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc\\]\n\\[\\hat{Y_i} = 0.18 + -0.05*Polarization + 0.10*GDPpc\\]\n\n\\(b_1\\) is the impact of a 1-unit change in polarization on the predicted level of Y, holding GDP per capita fixed (all else equal)\nThe relationship between polarization and democracy, controlling for wealth"
   },
   {
     "objectID": "slides/week-10.2.html#model-with-two-predictors-4",
     "href": "slides/week-10.2.html#model-with-two-predictors-4",
     "title": "Multiple Regression",
     "section": "Model with Two Predictors",
-    "text": "Model with Two Predictors\n\n\\[\\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc\\]\n\\[\\hat{Y_i} = 0.18 + -0.05*Polarization + 0.10*GDPpc\\]\n\n\\(b_1\\) is the impact of a 1-unit change in polarization on the predicted level of Y, holding GDP per capita fixed (all else equal)\nThe relationship between polarization and democracy, controlling for GDP per capita"
+    "text": "Model with Two Predictors\n\\[\\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc\\]\n\\[\\hat{Y_i} = 0.18 + -0.05*Polarization + 0.10*GDPpc\\]\n\n\\(b_2\\) is the impact of a 1-unit change in GDP per capita on the predicted level of Y, holding polarization fixed (all else equal)\nThe relationship between wealth and democracy, controlling for polarization"
   },
   {
     "objectID": "slides/week-10.2.html#model-with-two-predictors-5",
     "href": "slides/week-10.2.html#model-with-two-predictors-5",
     "title": "Multiple Regression",
     "section": "Model with Two Predictors",
-    "text": "Model with Two Predictors\n\\[\\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc\\]\n\\[\\hat{Y_i} = 0.18 + -0.05*Polarization + 0.10*GDPpc\\]\n\n\\(b_2\\) is the impact of a 1-unit change in GDP per capita on the predicted level of Y, holding polarization fixed (all else equal)"
+    "text": "Model with Two Predictors\n\n\\[\\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc\\]\n\nOLS is searching for combination of \\(a\\), \\(b_1\\), and \\(b_2\\) that minimize sum of squared residuals\nSame logic as model with one predictor, just more complicated"
   },
   {
     "objectID": "slides/week-10.2.html#your-turn-polarization-democracy-and-corruption",
@@ -4622,7 +4622,7 @@
     "href": "slides/week-10.2.html#your-turn",
     "title": "Multiple Regression",
     "section": "Your Turn!",
-    "text": "Your Turn!\n\n\nIn the last session, you examined levels of democracy and corruption\nNow, let’s fit a multiple regression model predicting corruption with two predictors: democracy (libdem) and polarization (polarization)\nThen, interpret the coefficients\nEstimate a second multiple regression model that adds in GDP per capita (lg_gdppc)\nInterpret the coefficients\nWhat happens to the coefficients on democracy when we add GDP per capita to the model?\n\nWhy does this happen?\n\nTry adding in additional predictors if there is time\n\n\n\n\n−+\n10:00"
+    "text": "Your Turn!\n\n\nIn the last session, you examined levels of democracy and corruption\nNow, let’s fit a multiple regression model predicting corruption with two predictors: democracy (libdem) and polarization (polarization)\nThen, interpret the coefficients\nEstimate a second multiple regression model that adds in GDP per capita (lg_gdppc)\nInterpret the coefficients\nWhat happens to the coefficients of the other variables when we add GDP per capita to the model?\n\nWhy do you think this happens?\n\nTry adding in additional predictors if there is time\n\n\n\n\n−+\n10:00"
   },
   {
     "objectID": "slides/week-10.2.html#model-2---adding-gdp-per-capita",
@@ -4650,7 +4650,7 @@
     "href": "slides/week-10.2.html#judicial-review-and-democracy-2",
     "title": "Multiple Regression",
     "section": "Judicial Review and Democracy",
-    "text": "Judicial Review and Democracy\n\n\n\n# A tibble: 2 × 5\n  term                     estimate std.error statistic     p.value\n  &lt;chr&gt;                       &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;\n1 (Intercept)                 0.176    0.0480      3.67 0.000323   \n2 factor(judicial_review)1    0.275    0.0521      5.27 0.000000390"
+    "text": "Judicial Review and Democracy\n\n\nlinear_reg() |&gt;\n  set_engine(\"lm\") |&gt;\n  fit(libdem ~ factor(judicial_review), data = modelData) |&gt;\n  tidy()\n\n# A tibble: 2 × 5\n  term                     estimate std.error statistic     p.value\n  &lt;chr&gt;                       &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;\n1 (Intercept)                 0.176    0.0480      3.67 0.000323   \n2 factor(judicial_review)1    0.275    0.0521      5.27 0.000000390"
   },
   {
     "objectID": "slides/week-10.2.html#judicial-review-and-democracy-3",
@@ -4706,21 +4706,21 @@
     "href": "slides/week-10.2.html#your-turn-3",
     "title": "Multiple Regression",
     "section": "Your Turn",
-    "text": "Your Turn\n\nWhich types of regime have more corruption?\n\n\nFilter data to include only the year 2019 (or run the code to use modelData)\nMake a plot to visualize the relationship between regime type and level of corruption. Which kind of plot is best in this situation?\nFit a linear model\nInterpret the intercept and coefficients\n\n\n\n\n−+\n10:00"
+    "text": "Your Turn\n\nWhich types of regime have more corruption?\n\n\nFilter data to include only the year 2019 (or run the code to use modelData)\nMake a plot to visualize the relationship between regime type and level of corruption. - Which kind of plot is best in this situation?\nFit a linear model\nInterpret the intercept and coefficients\n\n\n\n\n−+\n10:00"
   },
   {
     "objectID": "slides/week-10.2.html#visualization",
     "href": "slides/week-10.2.html#visualization",
     "title": "Multiple Regression",
     "section": "Visualization",
-    "text": "Visualization\n\nmodelData |&gt; \n  group_by(regime) |&gt; \n  summarize(corr = mean(corruption)) |&gt; \n  ggplot(aes(y=corr, x = regime)) +\n    geom_col(fill=\"steelblue\") +\n  theme_bw()"
+    "text": "Visualization"
   },
   {
     "objectID": "slides/week-10.2.html#model",
     "href": "slides/week-10.2.html#model",
     "title": "Multiple Regression",
     "section": "Model",
-    "text": "Model\n\n\nlinear_reg() |&gt;\n      set_engine(\"lm\") |&gt;\n      fit(corruption ~ regime, data = modelData) |&gt;\n      tidy()\n\n# A tibble: 4 × 5\n  term                      estimate std.error statistic  p.value\n  &lt;chr&gt;                        &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)                 0.597     0.0395     15.1  1.93e-33\n2 regimeElectoral Autocracy   0.148     0.0470      3.14 1.99e- 3\n3 regimeElectoral Democracy  -0.0580    0.0486     -1.19 2.35e- 1\n4 regimeLiberal Democracy    -0.459     0.0497     -9.23 9.63e-17"
+    "text": "Model\n\n\n\n# A tibble: 4 × 5\n  term                      estimate std.error statistic  p.value\n  &lt;chr&gt;                        &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)                 0.597     0.0395     15.1  1.93e-33\n2 regimeElectoral Autocracy   0.148     0.0470      3.14 1.99e- 3\n3 regimeElectoral Democracy  -0.0580    0.0486     -1.19 2.35e- 1\n4 regimeLiberal Democracy    -0.459     0.0497     -9.23 9.63e-17"
   },
   {
     "objectID": "slides/week-10.2.html#create-your-own-model",

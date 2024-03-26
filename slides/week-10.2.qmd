@@ -27,11 +27,7 @@ execute:
 #| echo: true
 
 library(tidyverse)
-library(dplyr)
-library(ggplot2)
 library(tidymodels)
-library(patchwork)
-#library(DT)
 library(vdemdata)
 ```
 
@@ -150,6 +146,26 @@ $$\hat{Y_i} = 0.18 + -0.05*Polarization + 0.10*GDPpc$$
 
 $a$ is the predicted level of Y when BOTH GDP per capita and polarization are equal to 0
 
+## Model with Two Predictors 
+
+<br>
+
+$$\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc$$ 
+
+$$\hat{Y_i} = 0.18 + -0.05*Polarization + 0.10*GDPpc$$ 
+
+- $b_1$ is the impact of a 1-unit change in polarization on the predicted level of Y, **holding GDP per capita fixed** (all else equal)
+- The relationship between polarization and democracy, controlling for wealth
+
+## Model with Two Predictors 
+
+$$\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc$$ 
+
+$$\hat{Y_i} = 0.18 + -0.05*Polarization + 0.10*GDPpc$$ 
+
+- $b_2$ is the impact of a 1-unit change in GDP per capita on the predicted level of Y, **holding polarization fixed** (all else equal)
+- The relationship between wealth and democracy, controlling for polarization
+
 ## Model with Two Predictors
 
 <br>
@@ -159,25 +175,6 @@ $$\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc$$
 
 - OLS is searching for combination of $a$, $b_1$, and $b_2$ that minimize sum of squared residuals
 - Same logic as model with one predictor, just more complicated
-
-## Model with Two Predictors 
-
-<br>
-
-$$\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc$$ 
-
-$$\hat{Y_i} = 0.18 + -0.05*Polarization + 0.10*GDPpc$$ 
-
-- $b_1$ is the impact of a 1-unit change in polarization on the predicted level of Y, *holding GDP per capita fixed* (all else equal)
-- The relationship between polarization and democracy, controlling for GDP per capita
-
-## Model with Two Predictors 
-
-$$\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc$$ 
-
-$$\hat{Y_i} = 0.18 + -0.05*Polarization + 0.10*GDPpc$$ 
-
-- $b_2$ is the impact of a 1-unit change in GDP per capita on the predicted level of Y, **holding polarization fixed** (all else equal)
 
 ## Model with Three Predictors 
 
@@ -219,8 +216,8 @@ $$\hat{Y_i} = a + -.05*Polarization + .13*GDPpc + .00004*OilRents$$
 - Then, interpret the coefficients
 - Estimate a second multiple regression model that adds in GDP per capita (lg_gdppc)
 - Interpret the coefficients
-- What happens to the coefficients on democracy when we add GDP per capita to the model?
-    - Why does this happen?
+- What happens to the coefficients of the other variables when we add GDP per capita to the model?
+    - Why do you think this happens?
 - Try adding in additional predictors if there is time
 
 ```{r}
@@ -295,6 +292,7 @@ ggplot(modelData, aes(x = log_wealth, y = libdem, color=factor(judicial_review))
 
 ```{r}
 #| label: judicial_review_model
+#| echo: true
 
 linear_reg() |>
   set_engine("lm") |>
@@ -421,7 +419,7 @@ levels(modelData$regime)
 <br>
 
 - Filter data to include only the year 2019 (or run the code to use modelData)
-- Make a plot to visualize the relationship between regime type and level of corruption.  Which kind of plot is best in this situation?
+- Make a plot to visualize the relationship between regime type and level of corruption.          - Which kind of plot is best in this situation?
 - Fit a linear model
 - Interpret the intercept and coefficients
 
@@ -442,7 +440,6 @@ countdown(minutes = 10,
 
 ```{r}
 #| label: corruption_plot
-#| echo: true
 
 modelData |> 
   group_by(regime) |> 
@@ -458,7 +455,6 @@ modelData |>
 
 ```{r}
 #| label: corruption_model
-#| echo: true
 
 linear_reg() |>
       set_engine("lm") |>

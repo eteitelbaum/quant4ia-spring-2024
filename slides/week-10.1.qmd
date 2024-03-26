@@ -19,18 +19,13 @@ execute:
 ---
 
 
-```{r packages, echo = FALSE, message=FALSE, warning=FALSE}
+```{r}
+#| label: setup
+
 library(tidyverse)
-library(dplyr)
-library(ggplot2)
 library(tidymodels)
-library(patchwork)
-#library(DT)
 library(vdemdata)
-
-set.seed(1234)
 ```
-
 
 ## Linear Model with Single Predictor
 
@@ -45,6 +40,8 @@ Or: Estimate relationship between GDP per capita and democracy.
 ## Linear Model with Single Predictor
 
 ```{r}
+#| label: model-data
+
 modelData <- vdem |> 
   filter(year == 2019) |> 
   select(
@@ -59,7 +56,7 @@ modelData <- vdem |>
 ggplot(modelData, aes(x = log_wealth, y = lib_dem)) +
   geom_point() +
   geom_smooth(method = "lm", color = "#E48957", se = FALSE) +
-  labs(x = "GPD per capita", y = "Liberal Democracy Index") +
+  labs(x = "GDP per capita", y = "Liberal Democracy Index") +
   theme_bw()
 ```
 
@@ -159,7 +156,7 @@ How do we get the "best" values for the slope and intercept?
 ggplot(modelData, aes(x = log_wealth, y = lib_dem)) +
   geom_point() +
  # geom_smooth(method = "lm", color = "#E48957", se = FALSE) +
-  labs(x = "GPD per capita", y = "Liberal Democracy Index") +
+  labs(x = "GDP per capita", y = "Liberal Democracy Index") +
   theme_bw()
 ```
 
@@ -172,7 +169,7 @@ ggplot(modelData, aes(x = log_wealth, y = lib_dem)) +
 ggplot(modelData, aes(x = log_wealth, y = lib_dem)) +
   geom_point() +
   geom_smooth(method = "lm", color = "#E48957", se = FALSE) +
-  labs(x = "GPD per capita", y = "Liberal Democracy Index") +
+  labs(x = "GDP per capita", y = "Liberal Democracy Index") +
   theme_bw()
 ```
 
@@ -475,7 +472,7 @@ ggplot(sse, aes(y=c, x=b)) +
 ggplot(modelData, aes(x = log_wealth, y = lib_dem)) +
   geom_point() +
   geom_smooth(method = "lm", color = "#E48957", se = FALSE) +
-  labs(x = "GPD per capita", y = "Liberal Democracy Index") +
+  labs(x = "GDP per capita", y = "Liberal Democracy Index") +
   theme(
     axis.text  = element_blank(),
     axis.ticks = element_blank()
@@ -495,7 +492,7 @@ Are democracies less corrupt?
 
 - The variable name is: *v2x_corr* : lower values mean less corruption
 
-- See started code [HERE](https://www.dropbox.com/scl/fo/iwmhtr6dz8u3b14ctjrkw/h?rlkey=izxf8b2xftwtb0ewfij4psxh7&dl=0)
+- See started code [HERE](https://www.dropbox.com/scl/fo/8xpsrz27m0on1mc2pf5ya/h?rlkey=716y4lvy6uisq0gortq1as0sp&dl=0)
 
 
 ## Your Turn {.smaller}

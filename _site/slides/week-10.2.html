@@ -412,12 +412,8 @@
 <p><br></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-3"><a></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-4"><a></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb1-5"><a></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb1-6"><a></a><span class="co">#library(DT)</span></span>
-<span id="cb1-7"><a></a><span class="fu">library</span>(vdemdata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb1-3"><a></a><span class="fu">library</span>(vdemdata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="load-vdem-data" class="slide level2 smaller">
@@ -534,27 +530,28 @@ Significance?</div>
 <h2>Model with Two Predictors</h2>
 <p><br></p>
 <p><span class="math display">\[\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc\]</span></p>
+<p><span class="math display">\[\hat{Y_i} = 0.18 + -0.05*Polarization + 0.10*GDPpc\]</span></p>
 <ul>
-<li>OLS is searching for combination of <span class="math inline">\(a\)</span>, <span class="math inline">\(b_1\)</span>, and <span class="math inline">\(b_2\)</span> that minimize sum of squared residuals</li>
-<li>Same logic as model with one predictor, just more complicated</li>
+<li><span class="math inline">\(b_1\)</span> is the impact of a 1-unit change in polarization on the predicted level of Y, <strong>holding GDP per capita fixed</strong> (all else equal)</li>
+<li>The relationship between polarization and democracy, controlling for wealth</li>
 </ul>
 </section>
 <section id="model-with-two-predictors-4" class="slide level2">
-<h2>Model with Two Predictors</h2>
-<p><br></p>
-<p><span class="math display">\[\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc\]</span></p>
-<p><span class="math display">\[\hat{Y_i} = 0.18 + -0.05*Polarization + 0.10*GDPpc\]</span></p>
-<ul>
-<li><span class="math inline">\(b_1\)</span> is the impact of a 1-unit change in polarization on the predicted level of Y, <em>holding GDP per capita fixed</em> (all else equal)</li>
-<li>The relationship between polarization and democracy, controlling for GDP per capita</li>
-</ul>
-</section>
-<section id="model-with-two-predictors-5" class="slide level2">
 <h2>Model with Two Predictors</h2>
 <p><span class="math display">\[\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc\]</span></p>
 <p><span class="math display">\[\hat{Y_i} = 0.18 + -0.05*Polarization + 0.10*GDPpc\]</span></p>
 <ul>
 <li><span class="math inline">\(b_2\)</span> is the impact of a 1-unit change in GDP per capita on the predicted level of Y, <strong>holding polarization fixed</strong> (all else equal)</li>
+<li>The relationship between wealth and democracy, controlling for polarization</li>
+</ul>
+</section>
+<section id="model-with-two-predictors-5" class="slide level2">
+<h2>Model with Two Predictors</h2>
+<p><br></p>
+<p><span class="math display">\[\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc\]</span></p>
+<ul>
+<li>OLS is searching for combination of <span class="math inline">\(a\)</span>, <span class="math inline">\(b_1\)</span>, and <span class="math inline">\(b_2\)</span> that minimize sum of squared residuals</li>
+<li>Same logic as model with one predictor, just more complicated</li>
 </ul>
 </section>
 <section id="model-with-three-predictors" class="slide level2">
@@ -597,9 +594,9 @@ Significance?</div>
 <li>Then, interpret the coefficients</li>
 <li>Estimate a second multiple regression model that adds in GDP per capita (lg_gdppc)</li>
 <li>Interpret the coefficients</li>
-<li>What happens to the coefficients on democracy when we add GDP per capita to the model?
+<li>What happens to the coefficients of the other variables when we add GDP per capita to the model?
 <ul>
-<li>Why does this happen?</li>
+<li>Why do you think this happens?</li>
 </ul></li>
 <li>Try adding in additional predictors if there is time</li>
 </ul>
@@ -663,6 +660,10 @@ Significance?</div>
 <h2>Judicial Review and Democracy</h2>
 <p><br></p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb12-3"><a></a>  <span class="fu">fit</span>(libdem <span class="sc">~</span> <span class="fu">factor</span>(judicial_review), <span class="at">data =</span> modelData) <span class="sc">|&gt;</span></span>
+<span id="cb12-4"><a></a>  <span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 5
   term                     estimate std.error statistic     p.value
@@ -703,7 +704,7 @@ Significance?</div>
 <li>Since Eastern Europe is the first category, default in R is to use that as the omitted category in models.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">levels</span>(modelData<span class="sc">$</span>region)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">levels</span>(modelData<span class="sc">$</span>region)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Eastern Europe"                   "Latin America"                   
 [3] "MENA"                             "SSAfrica"                        
@@ -717,10 +718,10 @@ Significance?</div>
 <p>How should we interpret intercept? How about the coefficient on Latin America?</p>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
-<span id="cb15-2"><a></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb15-3"><a></a>  <span class="fu">fit</span>(libdem <span class="sc">~</span> region, <span class="at">data =</span> modelData) <span class="sc">|&gt;</span></span>
-<span id="cb15-4"><a></a>  <span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb16-2"><a></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb16-3"><a></a>  <span class="fu">fit</span>(libdem <span class="sc">~</span> region, <span class="at">data =</span> modelData) <span class="sc">|&gt;</span></span>
+<span id="cb16-4"><a></a>  <span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 5
   term                                   estimate std.error statistic  p.value
@@ -740,14 +741,14 @@ Significance?</div>
 <p>What if you want a different baseline category? How do we interpret now?</p>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="co"># make SS Africa the reference category</span></span>
-<span id="cb17-2"><a></a>modelData <span class="ot">&lt;-</span> modelData <span class="sc">|&gt;</span> </span>
-<span id="cb17-3"><a></a><span class="fu">mutate</span>(<span class="at">newReg =</span> <span class="fu">relevel</span>(region, <span class="at">ref=</span><span class="dv">4</span>)) </span>
-<span id="cb17-4"><a></a></span>
-<span id="cb17-5"><a></a><span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
-<span id="cb17-6"><a></a>      <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb17-7"><a></a>      <span class="fu">fit</span>(libdem <span class="sc">~</span> newReg, <span class="at">data =</span> modelData) <span class="sc">|&gt;</span></span>
-<span id="cb17-8"><a></a>      <span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="co"># make SS Africa the reference category</span></span>
+<span id="cb18-2"><a></a>modelData <span class="ot">&lt;-</span> modelData <span class="sc">|&gt;</span> </span>
+<span id="cb18-3"><a></a><span class="fu">mutate</span>(<span class="at">newReg =</span> <span class="fu">relevel</span>(region, <span class="at">ref=</span><span class="dv">4</span>)) </span>
+<span id="cb18-4"><a></a></span>
+<span id="cb18-5"><a></a><span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb18-6"><a></a>      <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb18-7"><a></a>      <span class="fu">fit</span>(libdem <span class="sc">~</span> newReg, <span class="at">data =</span> modelData) <span class="sc">|&gt;</span></span>
+<span id="cb18-8"><a></a>      <span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 5
   term                                   estimate std.error statistic  p.value
@@ -775,14 +776,14 @@ Significance?</div>
 <p><br></p>
 <p>First, let’s make this an easier factor variable to work with.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="co"># Make nicer regime factor variable</span></span>
-<span id="cb19-2"><a></a>modelData <span class="ot">&lt;-</span> modelData <span class="sc">|&gt;</span> </span>
-<span id="cb19-3"><a></a>  <span class="fu">mutate</span>(<span class="at">regime =</span> <span class="fu">factor</span>(regime,</span>
-<span id="cb19-4"><a></a>                         <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Closed Autocracy"</span>,</span>
-<span id="cb19-5"><a></a>                                   <span class="st">"Electoral Autocracy"</span>,</span>
-<span id="cb19-6"><a></a>                                  <span class="st">"Electoral Democracy"</span>,</span>
-<span id="cb19-7"><a></a>                                  <span class="st">"Liberal Democracy"</span>)))</span>
-<span id="cb19-8"><a></a><span class="fu">levels</span>(modelData<span class="sc">$</span>regime)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="co"># Make nicer regime factor variable</span></span>
+<span id="cb20-2"><a></a>modelData <span class="ot">&lt;-</span> modelData <span class="sc">|&gt;</span> </span>
+<span id="cb20-3"><a></a>  <span class="fu">mutate</span>(<span class="at">regime =</span> <span class="fu">factor</span>(regime,</span>
+<span id="cb20-4"><a></a>                         <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Closed Autocracy"</span>,</span>
+<span id="cb20-5"><a></a>                                   <span class="st">"Electoral Autocracy"</span>,</span>
+<span id="cb20-6"><a></a>                                  <span class="st">"Electoral Democracy"</span>,</span>
+<span id="cb20-7"><a></a>                                  <span class="st">"Liberal Democracy"</span>)))</span>
+<span id="cb20-8"><a></a><span class="fu">levels</span>(modelData<span class="sc">$</span>regime)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Closed Autocracy"    "Electoral Autocracy" "Electoral Democracy"
 [4] "Liberal Democracy"  </code></pre>
@@ -796,7 +797,7 @@ Significance?</div>
 <p><br></p>
 <ul>
 <li>Filter data to include only the year 2019 (or run the code to use modelData)</li>
-<li>Make a plot to visualize the relationship between regime type and level of corruption. Which kind of plot is best in this situation?</li>
+<li>Make a plot to visualize the relationship between regime type and level of corruption. - Which kind of plot is best in this situation?</li>
 <li>Fit a linear model</li>
 <li>Interpret the intercept and coefficients</li>
 </ul>
@@ -811,24 +812,12 @@ Significance?</div>
 </section>
 <section id="visualization" class="slide level2">
 <h2>Visualization</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>modelData <span class="sc">|&gt;</span> </span>
-<span id="cb21-2"><a></a>  <span class="fu">group_by</span>(regime) <span class="sc">|&gt;</span> </span>
-<span id="cb21-3"><a></a>  <span class="fu">summarize</span>(<span class="at">corr =</span> <span class="fu">mean</span>(corruption)) <span class="sc">|&gt;</span> </span>
-<span id="cb21-4"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y=</span>corr, <span class="at">x =</span> regime)) <span class="sc">+</span></span>
-<span id="cb21-5"><a></a>    <span class="fu">geom_col</span>(<span class="at">fill=</span><span class="st">"steelblue"</span>) <span class="sc">+</span></span>
-<span id="cb21-6"><a></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
-</div>
 <img data-src="week-10.2_files/figure-revealjs/corruption_plot-1.png" width="960" class="r-stretch"></section>
 <section id="model" class="slide level2">
 <h2>Model</h2>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
-<span id="cb22-2"><a></a>      <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb22-3"><a></a>      <span class="fu">fit</span>(corruption <span class="sc">~</span> regime, <span class="at">data =</span> modelData) <span class="sc">|&gt;</span></span>
-<span id="cb22-4"><a></a>      <span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 5
   term                      estimate std.error statistic  p.value
