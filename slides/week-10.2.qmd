@@ -1,0 +1,426 @@
+---
+title: "Modeling"
+subtitle: "Part 3: Multiple Regression"
+date: today
+date-format: long
+footer: "[IAFF 6501 Website](https://data4ia-spring24.netlify.app/)"
+logo: images/iaff6501-logo.png
+format:
+  revealjs:
+    theme: [simple, custom.scss]
+    transition: fade
+    slide-number: true
+    #multiplex: true
+    chalkboard: true
+execute:
+  echo: true
+  message: false
+  warning: false
+  freeze: auto
+---
+
+
+## Load packages 
+
+```{r packages, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(tidymodels)
+library(patchwork)
+library(DT)
+library(vdemdata)
+```
+
+
+## Load VDEM Data
+
+```{r echo=FALSE}
+modelData <- vdem %>% 
+  filter(year == 2019) %>% 
+  select(country_name, v2x_libdem, e_gdppc, v2cacamps, e_total_oil_income_pc, v2x_corr) %>% 
+  mutate(lg_gdppc = log(e_gdppc))
+```
+
+
+## Linear Model with Multiple Predictors
+
+- Previously, we were interested in GDP per capita as a predictor of democracy.
+
+- Now, let's consider another predictor: polarization (also measured by V-Dem)
+
+
+## Polarization Measure in the USA
+
+
+```{r echo=FALSE}
+usa <- vdem %>% 
+  filter(country_name == "United States of America") %>% 
+  filter(year > 1900) %>% 
+  ggplot(., aes(y= v2cacamps, x = year)) +
+  geom_line(color = "dodgerblue") +
+  labs(y = "Polarization", x = "Year") + ggtitle("Polarization in the USA") 
+usa
+```
+
+
+
+## Polarization and Democracy in 2019
+
+```{r echo=FALSE}
+ggplot(modelData, aes(x = v2cacamps, y = v2x_libdem)) +
+  geom_point() +
+  geom_smooth(method = "lm", color = "#E48957", se = FALSE) +
+  labs(x = "Polarization", y = "Liberal Democracy Index") 
+```
+
+## Model with Polarization as the only Predictor
+
+How do we interpret the intercept and the slope estimate?
+
+```{r}
+linear_reg() %>%
+  set_engine("lm") %>%
+  fit(v2x_libdem ~ v2cacamps, data = modelData) %>% 
+  tidy()
+```
+
+
+## Model with Two Predictors
+
+<br>
+
+$$\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc$$ 
+<br>
+
+- OLS is searching for combination of $a$, $b_1$, and $b_2$ that minimize sum of squared residuals 
+
+    - same logic as model with one predictor, just more complicated
+
+
+## Model with Two Predictors
+
+```{r}
+linear_reg() %>%
+  set_engine("lm") %>%
+  fit(v2x_libdem ~ v2cacamps + lg_gdppc, data = modelData) %>% 
+  tidy()
+```
+
+## Model with Two Predictors
+
+$$\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc$$ 
+
+$$\hat{Y_i} = 0.18 + -0.05*Polarization + 0.10*GDPpc$$ 
+
+
+## Model with Two Predictors 
+
+$$\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc$$ 
+
+$$\hat{Y_i} = 0.18 + -0.05*Polarization + 0.10*GDPpc$$ 
+
+- $a$ is the predicted level of Y when BOTH GDP per capita and polarization are equal to 0
+
+
+## Model with Two Predictors 
+
+$$\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc$$ 
+
+$$\hat{Y_i} = 0.18 + -0.05*Polarization + 0.10*GDPpc$$ 
+
+- $b_1$ is the impact of a 1-unit change in polarization on the predicted level of Y, **holding GDP per capita fixed** (all else equal)
+
+    - The relationship between polarization and democracy, controlling for GDP per capita.
+
+
+## Model with Two Predictors 
+
+$$\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc$$ 
+
+$$\hat{Y_i} = 0.18 + -0.05*Polarization + 0.10*GDPpc$$ 
+
+- $b_2$ is the impact of a 1-unit change in GDP per capita on the predicted level of Y, **holding polarization fixed** (all else equal)
+
+
+## Your Turn: Polarization, Democracy, and Corruption
+
+- Last week, you examined levels of democracy and corruption
+
+- Today, first fit a multiple regression model predicting corruption with two predictors: democracy (v2x_libdem) and polarization (v2cacamps)
+
+- Interpret the coefficients
+
+- Estimate a second multiple regression model that adds in GDP per capita (lg_gdppc)
+
+- Interpret the coefficients
+
+- What happens to the coefficients on democracy when we add GDP per capita to the model?
+
+    - Why does this happen?
+
+
+
+## Model 1
+
+```{r}
+mod1 <- linear_reg() %>%
+      set_engine("lm") %>%
+      fit(v2x_corr ~ v2x_libdem + v2cacamps , data = modelData) %>%
+      tidy() %>% 
+      mutate(model = "Model 1: No GDP per capita")
+mod1
+```
+
+## Model 2 adding GDP per capita
+
+```{r}
+mod2 <- linear_reg() %>%
+      set_engine("lm") %>%
+      fit(v2x_corr ~ v2x_libdem + v2cacamps + lg_gdppc, data = modelData) %>%
+      tidy() %>% 
+      mutate(model = "Model 2: GDP per capita")
+mod2
+```
+
+<!-- ## Compare -->
+
+<!-- ```{r echo=FALSE} -->
+<!-- ms <- rbind(mod1, mod2) -->
+<!-- ms %>%  -->
+<!--   filter(term !="(Intercept)") %>%  -->
+<!--   ggplot(., aes(x = estimate, y = term, color=model)) +  -->
+<!--   geom_point(size=2, position=position_dodge(width = -.4)) + -->
+<!--     scale_color_manual(name=NULL,  -->
+<!--                       values = c("#E99840", "#0C1956")) -->
+<!-- ``` -->
+
+
+# Multiple Predictors: Interaction Models
+
+## Oil Wealth and Democracy
+
+Political Resource Curse
+
+
+## Set up data: Use the year 2005
+
+```{r}
+oilData <- vdem %>% 
+  filter(year == 2005) %>% 
+  select(country_name, v2x_libdem, e_gdppc, v2cacamps, e_total_oil_income_pc, v2x_corr, v2pepwrgen, v2clgencl) %>% 
+  mutate(lg_gdppc = log(e_gdppc))
+```
+
+## Distribution of Oil Wealth per Capita
+
+```{r echo=FALSE}
+oilData %>% 
+  ggplot(., aes(x = e_total_oil_income_pc)) +
+  geom_histogram(color="lightgrey")
+```
+
+## Create a Dummy Variable for High Oil Wealth
+
+```{r}
+oilData <- oilData %>% 
+  mutate(
+        oil = ifelse(e_total_oil_income_pc > 152, 1, 0),
+         oil = factor(oil, labels=c("No Oil Wealth", "Oil Wealth"))
+        ) %>% 
+  filter(oil == "No Oil Wealth" | oil == "Oil Wealth")
+table(oilData$oil)
+
+```
+
+## Democracy, GDP per Capita, and Oil Wealth
+
+How should we interpret this graph?
+
+```{r echo=FALSE}
+ggplot(oilData, aes(x = lg_gdppc, y = v2x_libdem, color = oil)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(x = "GDP per Capita (log)", y = "Liberal Democracy Index")  +
+  scale_color_manual(name=NULL, 
+                      values = c("#E99840", "#0C1956"))
+```
+
+
+## Model with Oil and GDP per Capita, No Interaction
+
+What is correct interpretation?
+
+```{r}
+linear_reg() %>%
+  set_engine("lm") %>%
+  fit(v2x_libdem ~ lg_gdppc + oil, data = oilData) %>% 
+  tidy()
+```
+
+
+## Interaction Model
+
+- Does GDP per capita have a different relationship to democracy in Oil rich versus non-Oil rich countries?
+
+
+## Interaction Model
+
+
+- $Y_i = a + b_1 * GDPpc + b_2 * Oil + b_3 * GDPpc * Oil$
+
+. . .
+
+
+- $b_3 * GDPpc * OilWealth$ captures the interaction
+
+
+## Interaction Model: Interpretation
+
+
+- How should we interpret $a$?
+
+
+- $Y_i = a + b_1 * GDPpc + b_2 * Oil + b_3 * GDPpc * Oil$
+
+. . .
+
+
+- $a$ is predicted level of democracy where GDPpc = 0 and Oil Wealth = 0
+
+
+
+## Interaction Model: Interpretation
+
+- What happens if we set Oil Wealth to 0?
+
+- $Y_i = a + b_1 * GDPpc + b_2 * Oil + b_3 * GDPpc * Oil$
+
+- $Y_i = a + b_1 * GDPpc + b_2 * 0 + b_3 * GDPpc * 0$
+
+- $Y_i = a + b_1 * GDPpc$
+
+
+. . .
+
+
+- $b_1$ is the association between GDP per capita and democracy, **when oil wealth = 0**
+
+
+## Interaction Model: Interpretation
+
+- What happens if we set GDPpc to 0?
+
+- $Y_i = a + b_1 * GDPpc + b_2 * Oil + b_3 * GDPpc * Oil$
+
+- $Y_i = a + b_1 * 0 + b_2 * Oil + b_3 * Oil * 0$
+
+- $Y_i = a + b_2 * Oil$
+
+- $b_2$ is the association between oil and democracy, **when GDP per capita = 0**
+
+
+## Interaction Model: Interpretation
+
+- What happens if we set Oil Wealth to 1?
+
+- $Y_i = a + b_1 * GDPpc + b_2 * 1 + b_3 * GDPpc * 1$
+
+- Rearrange: $Y_i = a + (b_1 + b_3) * GDPpc + b_2 * 1$
+
+
+. . .
+
+- $b_1 + b_3$ is the association between GDP per capita and democracy, **when oil wealth = 1**
+
+
+## Run the Interaction Model
+
+What is correct interpretation of each coefficient?
+
+```{r}
+linear_reg() %>%
+  set_engine("lm") %>%
+  fit(v2x_libdem ~ lg_gdppc*oil, data = oilData) %>% 
+  tidy()
+```
+
+## Interpretation
+
+
+$\hat{Y_i}$ = .138 + .164 * $GDPpc_i$ + (-0.085) * $Oil_i$ 
++ (-0.0607) * $GDPpc_i$ * $Oil_i$
+
+. . .
+
+- Relationship without oil: $0.164$
+
+- Relationship with oil: $0.164 + (-0.0607) = 0.164 -0.0607 = 0.1033$
+ 
+## Is this difference due to chance?
+
+- Does GDP have a lower relationship to democracy in oil rich countries?
+
+- Is 0.164 without oil different from 0.1033 with oil?
+
+. . .
+
+- What is the null hypothesis?  What is the alternative?
+
+## Is this difference due to chance?
+
+```{r}
+linear_reg() %>%
+  set_engine("lm") %>%
+  fit(v2x_libdem ~ lg_gdppc*oil, data = oilData) %>% 
+  tidy(conf.int=TRUE) %>% 
+  filter(term == "lg_gdppc:oilOil Wealth") %>% 
+  select(term, estimate, std.error, p.value, conf.low, conf.high) %>%   
+  mutate(across(where(is.numeric), round, 3))
+```
+
+## Is this difference due to chance?
+
+
+- 95% Confidence Interval: [-0.131, 0.009]: mostly negative
+
+- p-value of interaction term: 0.089
+
+    - this is higher that 0.05, but close and remember that the cutoff is arbitrary
+
+
+## Your Turn: Oil Wealth and Women's Civil Liberties
+
+- V-Dem has a variable capturing respect for women's civil liberties -v2clgencl
+
+- How do GDP per capita and oil wealth relate to women's civil liberties?
+
+- First, use oilData to create a scatterplot that visualizes this relationship.
+
+- Second, fit an interaction model (oil X GDP per capita) predicting women's civil liberties
+
+- Interpret each of the coefficients and the intercept
+
+- What is your overall conclusion(s) from this model?
+
+
+## Your Turn: Oil Wealth and Women's Civil Liberties
+
+```{r echo=FALSE}
+ggplot(oilData, aes(x = lg_gdppc, y =  v2clgencl, color = oil)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(x = "GDP per Capita", y = "Corruption Index")  +
+  scale_color_manual(name=NULL, 
+                      values = c("#E99840", "#0C1956"))
+```
+
+## Your Turn: Oil Wealth and Women's Civil Liberties
+
+
+```{r}
+linear_reg() %>%
+  set_engine("lm") %>%
+  fit(v2clgencl ~ lg_gdppc*oil, data = oilData) %>% 
+  tidy()
+```

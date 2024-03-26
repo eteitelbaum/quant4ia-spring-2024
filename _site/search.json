@@ -396,466 +396,172 @@
     ]
   },
   {
-    "objectID": "slides/week-9.2.html#linear-model-with-single-predictor",
-    "href": "slides/week-9.2.html#linear-model-with-single-predictor",
-    "title": "Linear Regression 1",
-    "section": "Linear Model with Single Predictor",
-    "text": "Linear Model with Single Predictor\n\nGoal: Estimate Democracy score (\\(\\hat{Y_{i}}\\)) of a country given level of GDP per capita (\\(X_{i}\\)).\n\nOr: Estimate relationship between GDP per capita and democracy."
+    "objectID": "slides/zz_tables2.html#lets-make-a-gt-table",
+    "href": "slides/zz_tables2.html#lets-make-a-gt-table",
+    "title": "gt Tables",
+    "section": "Let’s make a gt table",
+    "text": "Let’s make a gt table\nCreate states data frame…\n\n# lowest \nstate_min &lt;- quintiles |&gt; \n  slice_min(q1) \n\n# highest\nstate_max &lt;- quintiles |&gt; \n  slice_max(top5) \n\n# randomly select five more\nfive_more &lt;- quintiles |&gt;\n   slice_sample(n = 5) \n\nstates &lt;- bind_rows(state_min, state_max, five_more) |&gt;\n  arrange(desc(top5))\n\n\n\n\n−+\n10:00"
   },
   {
-    "objectID": "slides/week-9.2.html#linear-model-with-single-predictor-1",
-    "href": "slides/week-9.2.html#linear-model-with-single-predictor-1",
-    "title": "Linear Regression 1",
-    "section": "Linear Model with Single Predictor",
-    "text": "Linear Model with Single Predictor"
+    "objectID": "slides/zz_tables2.html#lets-make-a-gt-table-1",
+    "href": "slides/zz_tables2.html#lets-make-a-gt-table-1",
+    "title": "gt Tables",
+    "section": "Let’s make a gt table",
+    "text": "Let’s make a gt table\n\n\nlibrary(gt)\ngt(states)\n\n\n\n\n\n\n\nname\nq1\nq2\nq3\nq4\nq5\ntop5\n\n\n\n\nDistrict of Columbia\n12971\n51060\n94478\n157803\n375792\n670768\n\n\nWashington\n19367\n50803\n82817\n127003\n277165\n487950\n\n\nRhode Island\n15069\n42774\n74564\n115030\n242103\n424473\n\n\nNevada\n15024\n40468\n66247\n101591\n224480\n410161\n\n\nNebraska\n16506\n41590\n66977\n100910\n213091\n378679\n\n\nMaine\n14836\n38190\n63621\n97559\n205365\n359776\n\n\nPuerto Rico\n2906\n12144\n22163\n38397\n99043\n187234"
   },
   {
-    "objectID": "slides/week-9.2.html#section",
-    "href": "slides/week-9.2.html#section",
-    "title": "Linear Regression 1",
-    "section": "",
-    "text": "Step 1: Specify model\n\n\nlinear_reg()\n\nLinear Regression Model Specification (regression)\n\nComputational engine: lm"
+    "objectID": "slides/zz_tables2.html#lets-make-a-good-gt-table",
+    "href": "slides/zz_tables2.html#lets-make-a-good-gt-table",
+    "title": "gt Tables",
+    "section": "Let’s make a good gt table",
+    "text": "Let’s make a good gt table\n\n\n\n\n\n\n\n\n\nMean Household Income of Quintiles, 2021\n\n\nSeven Representative U.S. States\n\n\n\nlowest\nsecond\nthird\nfourth\nhighest\ntop 5%\n\n\n\n\nDistrict of Columbia\n$12,971\n$51,060\n$94,478\n$157,803\n$375,792\n$670,768\n\n\nWashington\n$19,367\n$50,803\n$82,817\n$127,003\n$277,165\n$487,950\n\n\nRhode Island\n$15,069\n$42,774\n$74,564\n$115,030\n$242,103\n$424,473\n\n\nNevada\n$15,024\n$40,468\n$66,247\n$101,591\n$224,480\n$410,161\n\n\nNebraska\n$16,506\n$41,590\n$66,977\n$100,910\n$213,091\n$378,679\n\n\nMaine\n$14,836\n$38,190\n$63,621\n$97,559\n$205,365\n$359,776\n\n\nPuerto Rico\n$2,906\n$12,144\n$22,163\n$38,397\n$99,043\n$187,234\n\n\n\nSource: US Census Bureau, American Community Survey"
   },
   {
-    "objectID": "slides/week-9.2.html#section-1",
-    "href": "slides/week-9.2.html#section-1",
-    "title": "Linear Regression 1",
-    "section": "",
-    "text": "Step 2: Set model fitting engine\n\n\nlinear_reg() |&gt;\n  set_engine(\"lm\") # lm: linear model\n\nLinear Regression Model Specification (regression)\n\nComputational engine: lm"
+    "objectID": "slides/zz_tables2.html#lets-make-a-good-gt-table-1",
+    "href": "slides/zz_tables2.html#lets-make-a-good-gt-table-1",
+    "title": "gt Tables",
+    "section": "Let’s make a good gt table",
+    "text": "Let’s make a good gt table\n\ngoodtable &lt;- gt(states) |&gt; \n  tab_header(\n    title = \"Mean Household Income of Quintiles, 2021\",\n    subtitle = \"Seven Representative U.S. States\"\n  ) |&gt; \n  cols_label(\n    name = \"\",\n    q1 = \"lowest\",\n    q2 = \"second\",\n    q3 = \"third\",\n    q4 = \"fourth\",\n    q5 = \"highest\",\n    top5 = \"top 5%\"\n  ) |&gt; \n  fmt_currency(\n    columns = c(q1:top5),\n    currency = \"USD\", \n    use_subunits = FALSE\n  ) |&gt;\n  # note that you can use markdown (md) to format the source note for html documents\n  tab_source_note(source_note = md(\"**Source**: US Census Bureau, American Community Survey\"))\n\ngoodtable\n\n\n\n\n−+\n10:00"
   },
   {
-    "objectID": "slides/week-9.2.html#section-2",
-    "href": "slides/week-9.2.html#section-2",
-    "title": "Linear Regression 1",
-    "section": "",
-    "text": "Step 3: Fit model & estimate parameters\n\n… using formula syntax\n\nlinear_reg() |&gt;\n  set_engine(\"lm\") |&gt;\n  fit(lib_dem ~ log_wealth, data = modelData) \n\nparsnip model object\n\n\nCall:\nstats::lm(formula = lib_dem ~ log_wealth, data = data)\n\nCoefficients:\n(Intercept)   log_wealth  \n     0.1327       0.1197"
+    "objectID": "slides/zz_tables2.html#change-colum-width",
+    "href": "slides/zz_tables2.html#change-colum-width",
+    "title": "gt Tables",
+    "section": "Change Colum Width",
+    "text": "Change Colum Width\n\n\n\n\n\n\n\n\n\nMean Household Income of Quintiles, 2021\n\n\nSeven Representative U.S. States\n\n\n\nlowest\nsecond\nthird\nfourth\nhighest\ntop 5%\n\n\n\n\nDistrict of Columbia\n$12,971\n$51,060\n$94,478\n$157,803\n$375,792\n$670,768\n\n\nWashington\n$19,367\n$50,803\n$82,817\n$127,003\n$277,165\n$487,950\n\n\nRhode Island\n$15,069\n$42,774\n$74,564\n$115,030\n$242,103\n$424,473\n\n\nNevada\n$15,024\n$40,468\n$66,247\n$101,591\n$224,480\n$410,161\n\n\nNebraska\n$16,506\n$41,590\n$66,977\n$100,910\n$213,091\n$378,679\n\n\nMaine\n$14,836\n$38,190\n$63,621\n$97,559\n$205,365\n$359,776\n\n\nPuerto Rico\n$2,906\n$12,144\n$22,163\n$38,397\n$99,043\n$187,234\n\n\n\nSource: US Census Bureau, American Community Survey"
   },
   {
-    "objectID": "slides/week-9.2.html#section-3",
-    "href": "slides/week-9.2.html#section-3",
-    "title": "Linear Regression 1",
-    "section": "",
-    "text": "Step 4: Tidy things up…\n\n\\[\\widehat{Democracy}_{i} = 0.13 + 0.12 * {loggdppc}_{i}\\]\n\nlinear_reg() |&gt;\n  set_engine(\"lm\") |&gt;\n  fit(lib_dem ~ log_wealth, data = modelData) |&gt;\n  tidy()\n\n# A tibble: 2 × 5\n  term        estimate std.error statistic  p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)    0.133    0.0380      3.49 6.04e- 4\n2 log_wealth     0.120    0.0147      8.16 6.97e-14"
+    "objectID": "slides/zz_tables2.html#change-colum-width-1",
+    "href": "slides/zz_tables2.html#change-colum-width-1",
+    "title": "gt Tables",
+    "section": "Change Colum Width",
+    "text": "Change Colum Width\n\n\nvgoodtable &lt;- goodtable |&gt;\n  cols_width(c(q1:top5) ~ px(90))\n\nvgoodtable"
   },
   {
-    "objectID": "slides/week-9.2.html#interpretation",
-    "href": "slides/week-9.2.html#interpretation",
-    "title": "Linear Regression 1",
-    "section": "Interpretation?",
-    "text": "Interpretation?\n\n\\[\\widehat{Democracy}_{i} = 0.13 + 0.12 * {loggdppc}_{i}\\]"
+    "objectID": "slides/zz_tables2.html#change-font",
+    "href": "slides/zz_tables2.html#change-font",
+    "title": "gt Tables",
+    "section": "Change Font",
+    "text": "Change Font\n\n\n\n\n\n\n\n\n\nMean Household Income of Quintiles, 2021\n\n\nSeven Representative U.S. States\n\n\n\nlowest\nsecond\nthird\nfourth\nhighest\ntop 5%\n\n\n\n\nDistrict of Columbia\n$12,971\n$51,060\n$94,478\n$157,803\n$375,792\n$670,768\n\n\nWashington\n$19,367\n$50,803\n$82,817\n$127,003\n$277,165\n$487,950\n\n\nRhode Island\n$15,069\n$42,774\n$74,564\n$115,030\n$242,103\n$424,473\n\n\nNevada\n$15,024\n$40,468\n$66,247\n$101,591\n$224,480\n$410,161\n\n\nNebraska\n$16,506\n$41,590\n$66,977\n$100,910\n$213,091\n$378,679\n\n\nMaine\n$14,836\n$38,190\n$63,621\n$97,559\n$205,365\n$359,776\n\n\nPuerto Rico\n$2,906\n$12,144\n$22,163\n$38,397\n$99,043\n$187,234\n\n\n\nSource: US Census Bureau, American Community Survey"
   },
   {
-    "objectID": "slides/week-9.2.html#question",
-    "href": "slides/week-9.2.html#question",
-    "title": "Linear Regression 1",
-    "section": "Question",
-    "text": "Question\n\nHow do we get the “best” values for the slope and intercept?"
+    "objectID": "slides/zz_tables2.html#change-font-1",
+    "href": "slides/zz_tables2.html#change-font-1",
+    "title": "gt Tables",
+    "section": "Change Font",
+    "text": "Change Font\n\n\ngreattable &lt;- vgoodtable |&gt;\n  opt_table_font(font = \"verdana\")\n\ngreattable"
   },
   {
-    "objectID": "slides/week-9.2.html#how-would-you-draw-the-best-line",
-    "href": "slides/week-9.2.html#how-would-you-draw-the-best-line",
-    "title": "Linear Regression 1",
-    "section": "How would you draw the “best” line?",
-    "text": "How would you draw the “best” line?"
+    "objectID": "slides/zz_tables2.html#center",
+    "href": "slides/zz_tables2.html#center",
+    "title": "gt Tables",
+    "section": "Center",
+    "text": "Center\n\n\n\n\n\n\n\n\n\nMean Household Income of Quintiles, 2021\n\n\nSeven Representative U.S. States\n\n\n\nlowest\nsecond\nthird\nfourth\nhighest\ntop 5%\n\n\n\n\nDistrict of Columbia\n$12,971\n$51,060\n$94,478\n$157,803\n$375,792\n$670,768\n\n\nWashington\n$19,367\n$50,803\n$82,817\n$127,003\n$277,165\n$487,950\n\n\nRhode Island\n$15,069\n$42,774\n$74,564\n$115,030\n$242,103\n$424,473\n\n\nNevada\n$15,024\n$40,468\n$66,247\n$101,591\n$224,480\n$410,161\n\n\nNebraska\n$16,506\n$41,590\n$66,977\n$100,910\n$213,091\n$378,679\n\n\nMaine\n$14,836\n$38,190\n$63,621\n$97,559\n$205,365\n$359,776\n\n\nPuerto Rico\n$2,906\n$12,144\n$22,163\n$38,397\n$99,043\n$187,234\n\n\n\nSource: US Census Bureau, American Community Survey"
   },
   {
-    "objectID": "slides/week-9.2.html#how-would-you-draw-the-best-line-1",
-    "href": "slides/week-9.2.html#how-would-you-draw-the-best-line-1",
-    "title": "Linear Regression 1",
-    "section": "How would you draw the “best” line?",
-    "text": "How would you draw the “best” line?"
+    "objectID": "slides/zz_tables2.html#center-1",
+    "href": "slides/zz_tables2.html#center-1",
+    "title": "gt Tables",
+    "section": "Center",
+    "text": "Center\n\n\nvgreattable &lt;- greattable |&gt;\n  cols_align(\n  align = \"center\",\n  columns = q1:top5\n)\n\nvgreattable"
   },
   {
-    "objectID": "slides/week-9.2.html#least-squares-regression",
-    "href": "slides/week-9.2.html#least-squares-regression",
-    "title": "Linear Regression 1",
-    "section": "Least squares regression",
-    "text": "Least squares regression\n\n\nRemember the residual is the difference between the actual value and the predicted value\n\n\n\nThe regression line minimizes the sum of squared residuals."
+    "objectID": "slides/zz_tables2.html#add-borders-and-lines",
+    "href": "slides/zz_tables2.html#add-borders-and-lines",
+    "title": "gt Tables",
+    "section": "Add Borders and Lines",
+    "text": "Add Borders and Lines\n\n\n\n\n\n\n\n\n\nMean Household Income of Quintiles, 2021\n\n\nSeven Representative U.S. States\n\n\n\nlowest\nsecond\nthird\nfourth\nhighest\ntop 5%\n\n\n\n\nDistrict of Columbia\n$12,971\n$51,060\n$94,478\n$157,803\n$375,792\n$670,768\n\n\nWashington\n$19,367\n$50,803\n$82,817\n$127,003\n$277,165\n$487,950\n\n\nRhode Island\n$15,069\n$42,774\n$74,564\n$115,030\n$242,103\n$424,473\n\n\nNevada\n$15,024\n$40,468\n$66,247\n$101,591\n$224,480\n$410,161\n\n\nNebraska\n$16,506\n$41,590\n$66,977\n$100,910\n$213,091\n$378,679\n\n\nMaine\n$14,836\n$38,190\n$63,621\n$97,559\n$205,365\n$359,776\n\n\nPuerto Rico\n$2,906\n$12,144\n$22,163\n$38,397\n$99,043\n$187,234\n\n\n\nSource: US Census Bureau, American Community Survey"
   },
   {
-    "objectID": "slides/week-9.2.html#least-squares-regression-1",
-    "href": "slides/week-9.2.html#least-squares-regression-1",
-    "title": "Linear Regression 1",
-    "section": "Least squares regression",
-    "text": "Least squares regression\n\n\nResidual for each point is: \\(e_i = y_i - \\hat{y}_i\\)\nLeast squares regression line minimizes \\(\\sum_{i = 1}^n e_i^2\\).\n\n\n\nWhy do we square the residual?\n\n\n\n\nWhy not take absolute value?\n\nPrinciple: larger penalty for residuals further away\nMath: makes the math easier and some nice properties (not our concern here…)"
+    "objectID": "slides/zz_tables2.html#export-table",
+    "href": "slides/zz_tables2.html#export-table",
+    "title": "gt Tables",
+    "section": "Export Table",
+    "text": "Export Table\n\n\ngtsave(awesometable, \"awesometable.png\")"
   },
   {
-    "objectID": "slides/week-9.2.html#least-squares-regression-2",
-    "href": "slides/week-9.2.html#least-squares-regression-2",
-    "title": "Linear Regression 1",
-    "section": "Least squares regression",
-    "text": "Least squares regression"
+    "objectID": "slides/zz_tables2.html#not-a-good-table",
+    "href": "slides/zz_tables2.html#not-a-good-table",
+    "title": "gt Tables",
+    "section": "Not a Good Table",
+    "text": "Not a Good Table\n\n\n\n\n\nname\nestimate\nlower_90\nupper_90\n\n\n\n\nBarnstable\n40442\n39554\n41330\n\n\nBerkshire\n33040\n32074\n34006\n\n\nBristol\n36910\n36347\n37473\n\n\nDukes\n40119\n34791\n45447\n\n\nEssex\n39756\n39174\n40338\n\n\nFranklin\n34775\n33712\n35838\n\n\nHampden\n32262\n31707\n32817\n\n\nHampshire\n30795\n29868\n31722\n\n\nMiddlesex\n51808\n51337\n52279\n\n\nNantucket\n45717\n38260\n53174\n\n\nNorfolk\n52591\n51991\n53191\n\n\nPlymouth\n43684\n43014\n44354\n\n\nSuffolk\n39200\n38624\n39776\n\n\nWorcester\n39009\n38454\n39564"
   },
   {
-    "objectID": "slides/week-9.2.html#very-simple-example",
-    "href": "slides/week-9.2.html#very-simple-example",
-    "title": "Linear Regression 1",
-    "section": "Very Simple Example",
-    "text": "Very Simple Example\nWhat should the slope and intercept be?"
+    "objectID": "slides/zz_tables2.html#use-confidence-intervals-instead",
+    "href": "slides/zz_tables2.html#use-confidence-intervals-instead",
+    "title": "gt Tables",
+    "section": "Use Confidence Intervals Instead",
+    "text": "Use Confidence Intervals Instead"
   },
   {
-    "objectID": "slides/week-9.2.html#example",
-    "href": "slides/week-9.2.html#example",
-    "title": "Linear Regression 1",
-    "section": "Example",
-    "text": "Example\n\\(\\hat{Y} = 0 + 1*X\\)"
+    "objectID": "slides/zz_tables2.html#use-confidence-intervals-instead-1",
+    "href": "slides/zz_tables2.html#use-confidence-intervals-instead-1",
+    "title": "gt Tables",
+    "section": "Use Confidence Intervals Instead",
+    "text": "Use Confidence Intervals Instead\n\nlibrary(ggplot2)\n\nmass_med_inc |&gt;\n  ggplot(aes(x = estimate, y = reorder(name, estimate))) +\n  geom_errorbar(aes(xmin = lower_90, xmax = upper_90)) +\n  geom_point(color = \"red\", size = 2) +\n  labs(title = \"Household income by county in Massachusetts\",\n       subtitle = \"2017-2021 American Community Survey\",\n       y = \"\",\n       x = \"Median Income\", \n       caption = \"ACS estimate (bars represent 90% confidence intervals)\") +\n  theme_minimal()"
   },
   {
-    "objectID": "slides/week-9.2.html#example-1",
-    "href": "slides/week-9.2.html#example-1",
-    "title": "Linear Regression 1",
-    "section": "Example",
-    "text": "Example\nWhat is the sum of squared residuals?"
+    "objectID": "slides/zz_wbdata.html#searching-for-wb-indicators",
+    "href": "slides/zz_wbdata.html#searching-for-wb-indicators",
+    "title": "World Bank Data",
+    "section": "Searching for WB Indicators",
+    "text": "Searching for WB Indicators\n\n\n# Load the wbstats package\nlibrary(wbstats)\n\n# store the list of indicators\nflfp_indicators &lt;- wb_search(\"female labor force\") \n\n# view the indicators\nprint(flfp_indicators,n = 26)"
   },
   {
-    "objectID": "slides/week-9.2.html#example-2",
-    "href": "slides/week-9.2.html#example-2",
-    "title": "Linear Regression 1",
-    "section": "Example",
-    "text": "Example\nWhat is sum of squared residuals for \\(y = 0 + 0*X\\)?"
+    "objectID": "slides/zz_wbdata.html#searching-for-wb-indicators-1",
+    "href": "slides/zz_wbdata.html#searching-for-wb-indicators-1",
+    "title": "World Bank Data",
+    "section": "Searching for WB Indicators",
+    "text": "Searching for WB Indicators\n\nSometimes it is easier to search using the WDI website."
   },
   {
-    "objectID": "slides/week-9.2.html#example-3",
-    "href": "slides/week-9.2.html#example-3",
-    "title": "Linear Regression 1",
-    "section": "Example",
-    "text": "Example\nWhat is sum of squared residuals for \\(y = 0 + 0*X\\)?\n\n\n(1-0)^2 + (2-0)^2 + (3-0)^2\n\n[1] 14"
+    "objectID": "slides/zz_wbdata.html#try-it-yourself",
+    "href": "slides/zz_wbdata.html#try-it-yourself",
+    "title": "World Bank Data",
+    "section": "Try it Yourself",
+    "text": "Try it Yourself\n\nStart a new Quarto document\nStart a new code chunk\nLoad the wbstats package\nUse wb_search() to find some indicators you are interested in\nCompare with a manual search on the WDI website\n\n\n\n\n−+\n05:00"
   },
   {
-    "objectID": "slides/week-9.2.html#example-4",
-    "href": "slides/week-9.2.html#example-4",
-    "title": "Linear Regression 1",
-    "section": "Example",
-    "text": "Example\nWhat is sum of squared residuals for \\(y = 0 + 2*X\\)?"
+    "objectID": "slides/zz_wbdata.html#the-wbdata-function",
+    "href": "slides/zz_wbdata.html#the-wbdata-function",
+    "title": "World Bank Data",
+    "section": "The wbdata() Function",
+    "text": "The wbdata() Function\n\nStore the list of indicators you want in an object and then use wb_data() to download the data:\n\n# load dplyr \nlibrary(dplyr) \n\n# store the list of indicators in an object\nindicators &lt;- c(\"flfp\" = \"SL.TLF.CACT.FE.ZS\", \"women_rep\" = \"SG.GEN.PARL.ZS\") \n\n# download the data \nwomen_emp &lt;- wb_data(indicators, mrv = 50) # download data for last 50 yrs\n\n# glimpse the data\nglimpse(women_emp)"
   },
   {
-    "objectID": "slides/week-9.2.html#example-5",
-    "href": "slides/week-9.2.html#example-5",
-    "title": "Linear Regression 1",
-    "section": "Example",
-    "text": "Example\nWhat is sum of squared residuals for \\(y = 0 + 2*X\\)?\n\n\n(1-2)^2 + (2-4)^2 + (3-6)^2\n\n[1] 14"
+    "objectID": "slides/zz_wbdata.html#some-functions-for-wrangling-data",
+    "href": "slides/zz_wbdata.html#some-functions-for-wrangling-data",
+    "title": "World Bank Data",
+    "section": "Some Functions for Wrangling Data",
+    "text": "Some Functions for Wrangling Data\n\nFrom dplyr\n\nfilter() to filter observations (rows)\nselect() to select or drop variables (columns)\nmutate() to create new variables or modify existing ones\nrename() to rename variables\ncase_match() to recode variables\n\nFrom the janitor package\n\nclean_names() (used earlier)\nround_to_fraction() to round to nearest fraction"
   },
   {
-    "objectID": "slides/week-9.2.html#one-more",
-    "href": "slides/week-9.2.html#one-more",
-    "title": "Linear Regression 1",
-    "section": "One more…",
-    "text": "One more…\nWhat is sum of squared residuals for \\(y = 0 + -1*X\\)?"
+    "objectID": "slides/zz_wbdata.html#cleaning-the-wb-data",
+    "href": "slides/zz_wbdata.html#cleaning-the-wb-data",
+    "title": "World Bank Data",
+    "section": "Cleaning the WB Data",
+    "text": "Cleaning the WB Data\n\nUse select() to drop iso2c variable and rename() to rename date to year:\n\n# Load janitor\nlibrary(janitor) \n\n# Download the data  \nwomen_emp &lt;- women_emp |&gt; \n  select(!iso2c) |&gt; # drop the iso2c code which we won't be using\n  rename(year = date) |&gt; # rename date to year \n  mutate(\n    flfp = round_to_fraction(flfp, denominator = 100), # round to nearest 100th\n    women_rep = round_to_fraction(women_rep, denominator = 100) \n  )\n\n# View the data\nglimpse(women_emp)"
   },
   {
-    "objectID": "slides/week-9.2.html#one-more-1",
-    "href": "slides/week-9.2.html#one-more-1",
-    "title": "Linear Regression 1",
-    "section": "One more…",
-    "text": "One more…\nWhat is sum of squared residuals for \\(y = 0 + -1*X\\)?\n\n\n(1+1)^2 + (2+2)^2 + (3+3)^2\n\n[1] 56"
+    "objectID": "slides/zz_wbdata.html#cleaning-the-wb-data-1",
+    "href": "slides/zz_wbdata.html#cleaning-the-wb-data-1",
+    "title": "World Bank Data",
+    "section": "Cleaning the WB Data",
+    "text": "Cleaning the WB Data\n\nUse mutate() and round_to_fraction to round the flfp and women_rep variables to the nearest 100th:\n\n# Load janitor\nlibrary(janitor) \n\n# Download the data  \nwomen_emp &lt;- women_emp |&gt; \n  select(!iso2c) |&gt; # drop the iso2c code which we won't be using\n  rename(year = date) |&gt; # rename date to year \n  mutate(\n    flfp = round_to_fraction(flfp, denominator = 100), # round to nearest 100th\n    women_rep = round_to_fraction(women_rep, denominator = 100) \n  )\n\n# View the data\nglimpse(women_emp)"
   },
   {
-    "objectID": "slides/week-9.2.html#cost-function",
-    "href": "slides/week-9.2.html#cost-function",
-    "title": "Linear Regression 1",
-    "section": "Cost Function",
-    "text": "Cost Function\nSum of Squared Residuals as function of possible values of \\(b\\)"
+    "objectID": "slides/zz_wbdata.html#or-do-it-all-in-one-go",
+    "href": "slides/zz_wbdata.html#or-do-it-all-in-one-go",
+    "title": "World Bank Data",
+    "section": "Or Do it All in One Go",
+    "text": "Or Do it All in One Go\n\n\n# load th4e packages\nlibrary(janitor)\nlibrary(dplyr)\n\n# store the list of indicators in an object\nindicators &lt;- c(\"flfp\" = \"SL.TLF.CACT.FE.ZS\", \"women_rep\" = \"SG.GEN.PARL.ZS\") \n\n# Download the data  \nwomen_emp &lt;- wb_data(indicators, mrv = 50) |&gt; # download data for last 50 yrs\n  select(!iso2c) |&gt; # drop the iso2c code which we won't be using\n  rename(year = date) |&gt; # rename date to year \n  mutate(\n    flfp = round_to_fraction(flfp, denominator = 100), # round to nearest 100th\n    women_rep = round_to_fraction(women_rep, denominator = 100) \n  )\n\n# View the data\nglimpse(women_emp)"
   },
   {
-    "objectID": "slides/week-9.2.html#least-squares-regression-3",
-    "href": "slides/week-9.2.html#least-squares-regression-3",
-    "title": "Linear Regression 1",
-    "section": "Least Squares Regression",
-    "text": "Least Squares Regression\n\n\nWhen we estimate a least squares regression, it is looking for the line that minimizes sum of squared residuals\nIn the simple example, I set \\(a=0\\) to make it easier. More complicated when searching for combination of \\(a\\) and \\(b\\) that minimize, but same basic idea"
-  },
-  {
-    "objectID": "slides/week-9.2.html#least-squares-regression-4",
-    "href": "slides/week-9.2.html#least-squares-regression-4",
-    "title": "Linear Regression 1",
-    "section": "Least Squares Regression",
-    "text": "Least Squares Regression\n\n\nThere is a way to solve for this analytically for linear regression (i.e., by doing math…)\n– They made us do this in grad school…\n\n\n\nIn machine learning, people also use gradient descent algorithm in which the computer searches over possible combinations of \\(a\\) and \\(b\\) until it settles on the lowest point."
-  },
-  {
-    "objectID": "slides/week-9.2.html#least-squares-regression-5",
-    "href": "slides/week-9.2.html#least-squares-regression-5",
-    "title": "Linear Regression 1",
-    "section": "Least Squares Regression",
-    "text": "Least Squares Regression"
-  },
-  {
-    "objectID": "slides/week-9.2.html#least-squares-regression-6",
-    "href": "slides/week-9.2.html#least-squares-regression-6",
-    "title": "Linear Regression 1",
-    "section": "Least Squares Regression",
-    "text": "Least Squares Regression"
-  },
-  {
-    "objectID": "slides/week-9.2.html#your-turn",
-    "href": "slides/week-9.2.html#your-turn",
-    "title": "Linear Regression 1",
-    "section": "Your Turn",
-    "text": "Your Turn\n\nAre democracies less corrupt?\n\n\nV-Dem includes a Political Corruption Index, which aggregates corruption in a number of spheres (see codebook for details).\nThe variable name is: v2x_corr : lower values mean less corruption\nSee started code HERE"
-  },
-  {
-    "objectID": "slides/week-9.2.html#your-turn-1",
-    "href": "slides/week-9.2.html#your-turn-1",
-    "title": "Linear Regression 1",
-    "section": "Your Turn",
-    "text": "Your Turn\n\nAre democracies less corrupt?\n\n\n\nFilter the V-Dem data to only include the year 2019\nMake a scatterplot to visualize the relationship between democracy (X) and corruption (Y) (use the v2x_libdem variable for democracy)\nFit a linear model\nInterpret results for the slope and intercept\nFor a country with the average (mean) level of democracy, what is the predicted level of corruption?"
-  },
-  {
-    "objectID": "slides/week-9.2.html#judicial-review-and-democracy",
-    "href": "slides/week-9.2.html#judicial-review-and-democracy",
-    "title": "Linear Regression 1",
-    "section": "Judicial Review and Democracy",
-    "text": "Judicial Review and Democracy\n\nJudicial Review:\n\nDo high courts (Supreme Court, Constitutional Court, etc) have the power to rule on whether laws or policies are constitutional/legal? (Yes or No)\nDimension of Judicial Independence"
-  },
-  {
-    "objectID": "slides/week-9.2.html#judicial-review-and-democracy-1",
-    "href": "slides/week-9.2.html#judicial-review-and-democracy-1",
-    "title": "Linear Regression 1",
-    "section": "Judicial Review and Democracy",
-    "text": "Judicial Review and Democracy"
-  },
-  {
-    "objectID": "slides/week-9.2.html#judicial-review-and-democracy-2",
-    "href": "slides/week-9.2.html#judicial-review-and-democracy-2",
-    "title": "Linear Regression 1",
-    "section": "Judicial Review and Democracy",
-    "text": "Judicial Review and Democracy\n\n\nlinear_reg() %&gt;%\n  set_engine(\"lm\") %&gt;%\n  fit(lib_dem ~ factor(judicial_review), data = modelData) %&gt;%\n  tidy()\n\n# A tibble: 2 × 5\n  term                     estimate std.error statistic  p.value\n  &lt;chr&gt;                       &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)                 0.223    0.0566      3.94 0.000119\n2 factor(judicial_review)1    0.205    0.0600      3.41 0.000812"
-  },
-  {
-    "objectID": "slides/week-9.2.html#judicial-review-and-democracy-3",
-    "href": "slides/week-9.2.html#judicial-review-and-democracy-3",
-    "title": "Linear Regression 1",
-    "section": "Judicial Review and Democracy",
-    "text": "Judicial Review and Democracy\n\\[\\widehat{Democracy_{i}} = 0.22 - 0.20*JudicialReview(yes)\\]\n\nSlope: Countries with judicial review are expected, on average, to be 0.20 units more democratic on the liberal democracy index\n\nCompares baseline level (Judicial Review = 0) to the other level (Judicial Review = 1)\n\nIntercept: Countries without judicial review are, on average, a 0.22 on liberal democracy scale"
-  },
-  {
-    "objectID": "slides/week-9.2.html#dummy-variables",
-    "href": "slides/week-9.2.html#dummy-variables",
-    "title": "Linear Regression 1",
-    "section": "Dummy Variables",
-    "text": "Dummy Variables\n\n\nWhen the categorical explanatory variable has many levels, they’re encoded to dummy variables\nWe always leave one category out of the model, as the omitted reference category\nEach coefficient describes is the expected difference between level of the factor and the baseline level\nEverything is relative to the omitted reference category"
-  },
-  {
-    "objectID": "slides/week-9.2.html#democracy-and-world-region",
-    "href": "slides/week-9.2.html#democracy-and-world-region",
-    "title": "Linear Regression 1",
-    "section": "Democracy and World Region",
-    "text": "Democracy and World Region\n\nDoes region predict levels of democracy?\nSince Eastern Europe is the first category, default in R is to use that as the omitted category in models.\n\nlevels(modelData$region)\n\n[1] \"Eastern Europe\"                   \"Latin America\"                   \n[3] \"MENA\"                             \"SSAfrica\"                        \n[5] \"Western Europe and North America\" \"Asia and Pacific\""
-  },
-  {
-    "objectID": "slides/week-9.2.html#democracy-and-world-region-1",
-    "href": "slides/week-9.2.html#democracy-and-world-region-1",
-    "title": "Linear Regression 1",
-    "section": "Democracy and World Region",
-    "text": "Democracy and World Region\n\nHow should we interpret intercept? How about the coefficient on Latin America?\n\nlinear_reg() %&gt;%\n  set_engine(\"lm\") %&gt;%\n  fit(lib_dem ~ region, data = modelData) %&gt;%\n  tidy()\n\n# A tibble: 6 × 5\n  term                                   estimate std.error statistic  p.value\n  &lt;chr&gt;                                     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)                              0.425     0.0355    12.0   2.12e-24\n2 regionLatin America                      0.0433    0.0527     0.822 4.12e- 1\n3 regionMENA                              -0.235     0.0554    -4.24  3.63e- 5\n4 regionSSAfrica                          -0.129     0.0448    -2.88  4.42e- 3\n5 regionWestern Europe and North America   0.374     0.0533     7.01  5.04e-11\n6 regionAsia and Pacific                  -0.0797    0.0512    -1.56  1.21e- 1"
-  },
-  {
-    "objectID": "slides/week-9.2.html#democracy-and-world-region-2",
-    "href": "slides/week-9.2.html#democracy-and-world-region-2",
-    "title": "Linear Regression 1",
-    "section": "Democracy and World Region",
-    "text": "Democracy and World Region\nWhat if you want a different baseline category? How do we interpret now?\n\n# make SS Africa the reference category\nmodelData &lt;- modelData %&gt;% \nmutate(newReg = relevel(region, ref=4)) \n\nlinear_reg() %&gt;%\n      set_engine(\"lm\") %&gt;%\n      fit(lib_dem ~ newReg, data = modelData) %&gt;%\n      tidy()\n\n# A tibble: 6 × 5\n  term                                   estimate std.error statistic  p.value\n  &lt;chr&gt;                                     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)                              0.296     0.0273     10.8  3.02e-21\n2 newRegEastern Europe                     0.129     0.0448      2.88 4.42e- 3\n3 newRegLatin America                      0.173     0.0475      3.63 3.73e- 4\n4 newRegMENA                              -0.106     0.0505     -2.09 3.78e- 2\n5 newRegWestern Europe and North America   0.503     0.0482     10.4  4.27e-20\n6 newRegAsia and Pacific                   0.0495    0.0458      1.08 2.81e- 1"
-  },
-  {
-    "objectID": "slides/week-9.2.html#your-turn-2",
-    "href": "slides/week-9.2.html#your-turn-2",
-    "title": "Linear Regression 1",
-    "section": "Your Turn",
-    "text": "Your Turn\n\nWhich types of regime have more corruption?\n\nV-Dem also includes a categorial regime variable: Closed autocracy (0), Electoral Autocracy (1), Electoral Democracy (2), Liberal Democracy (3)"
-  },
-  {
-    "objectID": "slides/week-9.2.html#your-turn-3",
-    "href": "slides/week-9.2.html#your-turn-3",
-    "title": "Linear Regression 1",
-    "section": "Your Turn",
-    "text": "Your Turn\n\nWhich types of regime have more corruption?\n\nFirst, let’s make this an easier factor variable to work with\n\n# Make nicer regime factor variable\nmodelData &lt;- modelData %&gt;% \n  mutate(regime = factor(regime,\n                         labels = c(\"Closed autocracy\",\n                                   \"Electoral Autocracy\",\n                                  \"Electoral Democracy\",\n                                  \"Liberal Democracy\")))\nlevels(modelData$regime)\n\n[1] \"Closed autocracy\"    \"Electoral Autocracy\" \"Electoral Democracy\"\n[4] \"Liberal Democracy\""
-  },
-  {
-    "objectID": "slides/week-9.2.html#your-turn-4",
-    "href": "slides/week-9.2.html#your-turn-4",
-    "title": "Linear Regression 1",
-    "section": "Your Turn",
-    "text": "Your Turn\n\nWhich types of regime have more corruption?\n\n\nFilter data to include only the year 2019 (or run the code to use modelData)\nMake a plot to visualize the relationship between regime type and level of corruption. Which kind of plot is best in this situation?\nFit a linear model\nInterpret the intercept and coefficients"
-  },
-  {
-    "objectID": "slides/week-9.2.html#visualization",
-    "href": "slides/week-9.2.html#visualization",
-    "title": "Linear Regression 1",
-    "section": "Visualization",
-    "text": "Visualization\n\nmodelData %&gt;% \n  group_by(regime) %&gt;% \n  summarize(corr = mean(corruption)) %&gt;% \n  ggplot(., aes(y=corr, x = regime)) +\n    geom_col(fill=\"steelblue\") +\n  theme_bw()"
-  },
-  {
-    "objectID": "slides/week-9.2.html#model",
-    "href": "slides/week-9.2.html#model",
-    "title": "Linear Regression 1",
-    "section": "Model",
-    "text": "Model\n\n\nlinear_reg() %&gt;%\n      set_engine(\"lm\") %&gt;%\n      fit(corruption ~ regime, data = modelData) %&gt;%\n      tidy()\n\n# A tibble: 4 × 5\n  term                      estimate std.error statistic  p.value\n  &lt;chr&gt;                        &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)                 0.575     0.0420     13.7  1.80e-29\n2 regimeElectoral Autocracy   0.124     0.0490      2.54 1.19e- 2\n3 regimeElectoral Democracy  -0.0854    0.0503     -1.70 9.11e- 2\n4 regimeLiberal Democracy    -0.469     0.0529     -8.87 8.43e-16"
-  },
-  {
-    "objectID": "slides/week-9.1.html#modeling",
-    "href": "slides/week-9.1.html#modeling",
-    "title": "Modeling",
-    "section": "Modeling",
-    "text": "Modeling\n\n\nUse models to explain the relationship between variables and to make predictions\nExplaining relationships [usually interested in causal relationships, but not always]\n\nDoes oil wealth impact regime type?\n\nPredictive modeling\n\nWhere is violence most likely to happen in [country X] during their next election?\nIs this email spam?"
-  },
-  {
-    "objectID": "slides/week-9.1.html#modeling-1",
-    "href": "slides/week-9.1.html#modeling-1",
-    "title": "Modeling",
-    "section": "Modeling",
-    "text": "Modeling"
-  },
-  {
-    "objectID": "slides/week-9.1.html#modeling-2",
-    "href": "slides/week-9.1.html#modeling-2",
-    "title": "Modeling",
-    "section": "Modeling",
-    "text": "Modeling"
-  },
-  {
-    "objectID": "slides/week-9.1.html#pull-in-the-vdem-data",
-    "href": "slides/week-9.1.html#pull-in-the-vdem-data",
-    "title": "Modeling",
-    "section": "Pull in the VDEM Data",
-    "text": "Pull in the VDEM Data\n\nWhat is this code doing?\n\nlibrary(vdemdata)\n\nmodelData &lt;- vdem |&gt;\n  filter(year == 2019) |&gt; \n  select(\n    country = country_name, \n    lib_dem = v2x_libdem, \n    wealth = e_gdppc) |&gt;\n  mutate(log_wealth = log(wealth))\n\nglimpse(modelData)\n\nRows: 179\nColumns: 4\n$ country    &lt;chr&gt; \"Mexico\", \"Suriname\", \"Sweden\", \"Switzerland\", \"Ghana\", \"So…\n$ lib_dem    &lt;dbl&gt; 0.433, 0.593, 0.875, 0.870, 0.614, 0.601, 0.754, 0.267, 0.1…\n$ wealth     &lt;dbl&gt; 16.814, 11.752, 48.804, 56.110, 5.608, 11.345, 39.061, 5.69…\n$ log_wealth &lt;dbl&gt; 2.8222119, 2.4640234, 3.8878123, 4.0273140, 1.7241941, 2.42…"
-  },
-  {
-    "objectID": "slides/week-9.1.html#plot-the-relationship",
-    "href": "slides/week-9.1.html#plot-the-relationship",
-    "title": "Modeling",
-    "section": "Plot the Relationship",
-    "text": "Plot the Relationship"
-  },
-  {
-    "objectID": "slides/week-9.1.html#plot-the-relationship-1",
-    "href": "slides/week-9.1.html#plot-the-relationship-1",
-    "title": "Modeling",
-    "section": "Plot the Relationship",
-    "text": "Plot the Relationship"
-  },
-  {
-    "objectID": "slides/week-9.1.html#plot-the-relationship-2",
-    "href": "slides/week-9.1.html#plot-the-relationship-2",
-    "title": "Modeling",
-    "section": "Plot the Relationship",
-    "text": "Plot the Relationship\n\n\nggplot(modelData, aes(x = wealth, y = lib_dem)) +\n  geom_point() +\n  geom_smooth(method = \"lm\", color = \"#E48957\", se = FALSE) +\n  labs(x = \"GPD per capita\", y = \"Liberal Democracy Index\") +\n  theme_bw()"
-  },
-  {
-    "objectID": "slides/week-9.1.html#using-the-scales-package",
-    "href": "slides/week-9.1.html#using-the-scales-package",
-    "title": "Modeling",
-    "section": "Using the Scales Package",
-    "text": "Using the Scales Package"
-  },
-  {
-    "objectID": "slides/week-9.1.html#using-the-scales-package-1",
-    "href": "slides/week-9.1.html#using-the-scales-package-1",
-    "title": "Modeling",
-    "section": "Using the Scales Package",
-    "text": "Using the Scales Package\n\n\nggplot(modelData, aes(x = wealth, y = lib_dem)) +\n  geom_point() +\n  geom_smooth(method = \"lm\", color = \"#E48957\", se = FALSE) +\n  scale_x_log10(label = scales::label_dollar(suffix = \"k\")) +\n  labs(\n    title = \"Wealth and Democracy, 2019\",\n    x = \"GPD per capita\", \n    y = \"Liberal Democracy Index\") +\n  theme_bw()"
-  },
-  {
-    "objectID": "slides/week-9.1.html#models-as-functions",
-    "href": "slides/week-9.1.html#models-as-functions",
-    "title": "Modeling",
-    "section": "Models as Functions",
-    "text": "Models as Functions\n\n\nWe can represent relationships between variables using functions\nA function is a mathematical concept: the relationship between an output and one or more inputs\n\nPlug in the inputs and receive back the output\n\nExample: The formula \\(y = 3x + 7\\) is a function with input \\(x\\) and output \\(y\\).\n\nIf \\(x\\) is \\(5\\), \\(y\\) is \\(22\\),\n\\(y = 3 \\times 5 + 7 = 22\\)"
-  },
-  {
-    "objectID": "slides/week-9.1.html#quant-lingo",
-    "href": "slides/week-9.1.html#quant-lingo",
-    "title": "Modeling",
-    "section": "Quant Lingo",
-    "text": "Quant Lingo\n\n\n\nResponse variable: Variable whose behavior or variation you are trying to understand, on the y-axis in the plot\n\nDependent variable\nOutcome variable\nY variable\n\nExplanatory variables: Other variables that you want to use to explain the variation in the response, on the x-axis in the plot\n\nIndependent variables\nPredictors"
-  },
-  {
-    "objectID": "slides/week-9.1.html#section",
-    "href": "slides/week-9.1.html#section",
-    "title": "Modeling",
-    "section": "",
-    "text": "Linear model with one explanatory variable…\n\n\n\\(Y = a + bX\\)\n\\(Y\\) is the outcome variable\n\\(X\\) is the explanatory variable\n\\(a\\) is the intercept: the predicted value of \\(Y\\) when \\(X\\) is equal to 0\n\\(b\\) is the slope of the line [remember rise over run!]"
-  },
-  {
-    "objectID": "slides/week-9.1.html#quant-lingo-1",
-    "href": "slides/week-9.1.html#quant-lingo-1",
-    "title": "Modeling",
-    "section": "Quant Lingo",
-    "text": "Quant Lingo\n\n\n\nPredicted value: Output of the model function\n\nThe model function gives the typical (expected) value of the response variable conditioning on the explanatory variables\nWe often call this \\(\\hat{Y}\\) to differentiate the predicted value from an observed value of Y in the data\n\nResiduals: A measure of how far each case is from its predicted value (based on a particular model)\n\nResidual = Observed value (\\(Y\\)) - Predicted value (\\(\\hat{Y}\\))\nHow far above/below the expected value each case is"
-  },
-  {
-    "objectID": "slides/week-9.1.html#residuals",
-    "href": "slides/week-9.1.html#residuals",
-    "title": "Modeling",
-    "section": "Residuals",
-    "text": "Residuals"
-  },
-  {
-    "objectID": "slides/week-9.1.html#linear-model",
-    "href": "slides/week-9.1.html#linear-model",
-    "title": "Modeling",
-    "section": "Linear Model",
-    "text": "Linear Model\n\\(\\hat{Y} = a  + b \\times X\\)\n\\(\\hat{Y} = 0.13  + 0.12 \\times X\\)"
-  },
-  {
-    "objectID": "slides/week-9.1.html#linear-model-interpretation",
-    "href": "slides/week-9.1.html#linear-model-interpretation",
-    "title": "Modeling",
-    "section": "Linear Model: Interpretation",
-    "text": "Linear Model: Interpretation\n\n\\(\\hat{Y} = a  + b \\times X\\)\n\\(\\hat{Y} = 0.13  + 0.12 \\times X\\)\nWhat is the interpretation of our estimate of \\(a\\)?\n\n\n\\(\\hat{Y} = 0.13  + 0.12 \\times 0\\)\n\\(\\hat{Y} = 0.13\\)\n\\(a\\) is our predicted level of democracy when GDP per capita is 0."
-  },
-  {
-    "objectID": "slides/week-9.1.html#linear-model-interpretation-1",
-    "href": "slides/week-9.1.html#linear-model-interpretation-1",
-    "title": "Modeling",
-    "section": "Linear Model: Interpretation",
-    "text": "Linear Model: Interpretation\n\n\\(\\hat{Y} = a  + b \\times X\\)\n\\(\\hat{Y} = 0.13  + 0.12 \\times X\\)\nWhat is interpretation of our estimate of \\(b\\)?\n\n\n\\(\\hat{Y} = a  + \\frac{Rise}{Run} \\times X\\)\n\\(\\hat{Y} = a  + \\frac{Change Y}{Change X} \\times X\\)"
-  },
-  {
-    "objectID": "slides/week-9.1.html#linear-model-interpretation-2",
-    "href": "slides/week-9.1.html#linear-model-interpretation-2",
-    "title": "Modeling",
-    "section": "Linear Model: Interpretation",
-    "text": "Linear Model: Interpretation\n\n\\(b = \\frac{Change Y}{Change X}\\)\n\\(0.12 = \\frac{Change Y}{Change X}\\)\n\\({Change Y} = 0.12 * {ChangeX}\\)\n\n\nWhen \\(ChangeX = 1\\):\n\\({Change Y = 0.12}\\)\n\n\n\n\\(b\\) is the predicted change in \\(Y\\) associated with a ONE unit change in X."
-  },
-  {
-    "objectID": "slides/week-9.1.html#linear-model-interpretation-3",
-    "href": "slides/week-9.1.html#linear-model-interpretation-3",
-    "title": "Modeling",
-    "section": "Linear Model: Interpretation",
-    "text": "Linear Model: Interpretation"
-  },
-  {
-    "objectID": "slides/week-9.1.html#linear-model-interpretation-4",
-    "href": "slides/week-9.1.html#linear-model-interpretation-4",
-    "title": "Modeling",
-    "section": "Linear Model: Interpretation",
-    "text": "Linear Model: Interpretation"
-  },
-  {
-    "objectID": "slides/week-9.1.html#linear-model-interpretation-5",
-    "href": "slides/week-9.1.html#linear-model-interpretation-5",
-    "title": "Modeling",
-    "section": "Linear Model: Interpretation",
-    "text": "Linear Model: Interpretation"
-  },
-  {
-    "objectID": "slides/week-9.1.html#linear-model-interpretation-6",
-    "href": "slides/week-9.1.html#linear-model-interpretation-6",
-    "title": "Modeling",
-    "section": "Linear Model: Interpretation",
-    "text": "Linear Model: Interpretation\n\nIs this the causal effect of GDP per capita on liberal democracy?\n\n\nNo! It is only the association…\n\n\n\nTo identify causality we need other methods (beyond the scope of this course)."
-  },
-  {
-    "objectID": "slides/week-9.1.html#your-task",
-    "href": "slides/week-9.1.html#your-task",
-    "title": "Modeling",
-    "section": "Your Task",
-    "text": "Your Task\n\nAn economist is interested in the relationship between years of education and hourly wages. They estimate a linear model with estimates of \\(a\\) and \\(b\\) as follows:\n\n\\(\\hat{Y} = 9 + 1.60*{YrsEdu}\\)\n\n1. Interpret \\(a\\) and \\(b\\)\n2. What is the predicted hourly wage for those with 10 years of education?"
-  },
-  {
-    "objectID": "slides/week-9.1.html#next-step",
-    "href": "slides/week-9.1.html#next-step",
-    "title": "Modeling",
-    "section": "Next step",
-    "text": "Next step\n\n\nLinear model with one predictor: \\(Y = a + bX\\)\nFor any given data…\nHow do we figure out what the best values are for \\(a\\) and \\(b\\)??"
+    "objectID": "slides/zz_wbdata.html#try-it-yourself-1",
+    "href": "slides/zz_wbdata.html#try-it-yourself-1",
+    "title": "World Bank Data",
+    "section": "Try it Yourself",
+    "text": "Try it Yourself\n\n\nUsing the variables you identified in your search, download the data\nThink about what elements of the code you need to change\nHint: the indicators are going to change!\n\n\n\n\n−+\n10:00\n\n\n\nexecute: echo: false message: false warning: false freeze: auto"
   },
   {
     "objectID": "slides/week-6.1.html#sampling",
@@ -1152,270 +858,459 @@
     "text": "Homework 1\n\n\nFind Homework 1 on the course website\nGet started today!"
   },
   {
-    "objectID": "slides/week-2.1.html#getting-started-with-data",
-    "href": "slides/week-2.1.html#getting-started-with-data",
-    "title": "Bar Charts and Histograms",
-    "section": "Getting Started with Data",
-    "text": "Getting Started with Data\n\n\n\nTabular data is data that is organized into rows and columns\n\na.k.a. rectangular data\n\nA data frame is a special kind of tabular data used in data science\nA variable is something you can measure\nAn observation is a single unit or case in your data set\nThe unit of analysis is the level at which you are measuring\n\nIn a cross-section: country, state, county, city, individual, etc.\nIn a time-series: year, month, day, etc."
+    "objectID": "slides/week-10.2.html#load-packages",
+    "href": "slides/week-10.2.html#load-packages",
+    "title": "Modeling",
+    "section": "Load packages",
+    "text": "Load packages\n\nlibrary(tidyverse)\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(tidymodels)\nlibrary(patchwork)\nlibrary(DT)\nlibrary(vdemdata)"
   },
   {
-    "objectID": "slides/week-2.1.html#example",
-    "href": "slides/week-2.1.html#example",
-    "title": "Bar Charts and Histograms",
+    "objectID": "slides/week-10.2.html#load-vdem-data",
+    "href": "slides/week-10.2.html#load-vdem-data",
+    "title": "Modeling",
+    "section": "Load VDEM Data",
+    "text": "Load VDEM Data"
+  },
+  {
+    "objectID": "slides/week-10.2.html#linear-model-with-multiple-predictors",
+    "href": "slides/week-10.2.html#linear-model-with-multiple-predictors",
+    "title": "Modeling",
+    "section": "Linear Model with Multiple Predictors",
+    "text": "Linear Model with Multiple Predictors\n\nPreviously, we were interested in GDP per capita as a predictor of democracy.\nNow, let’s consider another predictor: polarization (also measured by V-Dem)"
+  },
+  {
+    "objectID": "slides/week-10.2.html#polarization-measure-in-the-usa",
+    "href": "slides/week-10.2.html#polarization-measure-in-the-usa",
+    "title": "Modeling",
+    "section": "Polarization Measure in the USA",
+    "text": "Polarization Measure in the USA"
+  },
+  {
+    "objectID": "slides/week-10.2.html#polarization-and-democracy-in-2019",
+    "href": "slides/week-10.2.html#polarization-and-democracy-in-2019",
+    "title": "Modeling",
+    "section": "Polarization and Democracy in 2019",
+    "text": "Polarization and Democracy in 2019"
+  },
+  {
+    "objectID": "slides/week-10.2.html#model-with-polarization-as-the-only-predictor",
+    "href": "slides/week-10.2.html#model-with-polarization-as-the-only-predictor",
+    "title": "Modeling",
+    "section": "Model with Polarization as the only Predictor",
+    "text": "Model with Polarization as the only Predictor\nHow do we interpret the intercept and the slope estimate?\n\nlinear_reg() %&gt;%\n  set_engine(\"lm\") %&gt;%\n  fit(v2x_libdem ~ v2cacamps, data = modelData) %&gt;% \n  tidy()\n\n# A tibble: 2 × 5\n  term        estimate std.error statistic  p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)   0.414     0.0178     23.2  1.26e-55\n2 v2cacamps    -0.0767    0.0127     -6.06 7.91e- 9"
+  },
+  {
+    "objectID": "slides/week-10.2.html#model-with-two-predictors",
+    "href": "slides/week-10.2.html#model-with-two-predictors",
+    "title": "Modeling",
+    "section": "Model with Two Predictors",
+    "text": "Model with Two Predictors\n\n\\[\\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc\\] \n\nOLS is searching for combination of \\(a\\), \\(b_1\\), and \\(b_2\\) that minimize sum of squared residuals\n\nsame logic as model with one predictor, just more complicated"
+  },
+  {
+    "objectID": "slides/week-10.2.html#model-with-two-predictors-1",
+    "href": "slides/week-10.2.html#model-with-two-predictors-1",
+    "title": "Modeling",
+    "section": "Model with Two Predictors",
+    "text": "Model with Two Predictors\n\nlinear_reg() %&gt;%\n  set_engine(\"lm\") %&gt;%\n  fit(v2x_libdem ~ v2cacamps + lg_gdppc, data = modelData) %&gt;% \n  tidy()\n\n# A tibble: 3 × 5\n  term        estimate std.error statistic  p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)   0.182     0.0378      4.82 3.11e- 6\n2 v2cacamps    -0.0527    0.0120     -4.40 1.86e- 5\n3 lg_gdppc      0.101     0.0146      6.90 9.53e-11"
+  },
+  {
+    "objectID": "slides/week-10.2.html#model-with-two-predictors-2",
+    "href": "slides/week-10.2.html#model-with-two-predictors-2",
+    "title": "Modeling",
+    "section": "Model with Two Predictors",
+    "text": "Model with Two Predictors\n\\[\\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc\\]\n\\[\\hat{Y_i} = 0.18 + -0.05*Polarization + 0.10*GDPpc\\]"
+  },
+  {
+    "objectID": "slides/week-10.2.html#model-with-two-predictors-3",
+    "href": "slides/week-10.2.html#model-with-two-predictors-3",
+    "title": "Modeling",
+    "section": "Model with Two Predictors",
+    "text": "Model with Two Predictors\n\\[\\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc\\]\n\\[\\hat{Y_i} = 0.18 + -0.05*Polarization + 0.10*GDPpc\\]\n\n\\(a\\) is the predicted level of Y when BOTH GDP per capita and polarization are equal to 0"
+  },
+  {
+    "objectID": "slides/week-10.2.html#model-with-two-predictors-4",
+    "href": "slides/week-10.2.html#model-with-two-predictors-4",
+    "title": "Modeling",
+    "section": "Model with Two Predictors",
+    "text": "Model with Two Predictors\n\\[\\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc\\]\n\\[\\hat{Y_i} = 0.18 + -0.05*Polarization + 0.10*GDPpc\\]\n\n\\(b_1\\) is the impact of a 1-unit change in polarization on the predicted level of Y, holding GDP per capita fixed (all else equal)\n\nThe relationship between polarization and democracy, controlling for GDP per capita."
+  },
+  {
+    "objectID": "slides/week-10.2.html#model-with-two-predictors-5",
+    "href": "slides/week-10.2.html#model-with-two-predictors-5",
+    "title": "Modeling",
+    "section": "Model with Two Predictors",
+    "text": "Model with Two Predictors\n\\[\\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc\\]\n\\[\\hat{Y_i} = 0.18 + -0.05*Polarization + 0.10*GDPpc\\]\n\n\\(b_2\\) is the impact of a 1-unit change in GDP per capita on the predicted level of Y, holding polarization fixed (all else equal)"
+  },
+  {
+    "objectID": "slides/week-10.2.html#your-turn-polarization-democracy-and-corruption",
+    "href": "slides/week-10.2.html#your-turn-polarization-democracy-and-corruption",
+    "title": "Modeling",
+    "section": "Your Turn: Polarization, Democracy, and Corruption",
+    "text": "Your Turn: Polarization, Democracy, and Corruption\n\nLast week, you examined levels of democracy and corruption\nToday, first fit a multiple regression model predicting corruption with two predictors: democracy (v2x_libdem) and polarization (v2cacamps)\nInterpret the coefficients\nEstimate a second multiple regression model that adds in GDP per capita (lg_gdppc)\nInterpret the coefficients\nWhat happens to the coefficients on democracy when we add GDP per capita to the model?\n\nWhy does this happen?"
+  },
+  {
+    "objectID": "slides/week-10.2.html#model-1",
+    "href": "slides/week-10.2.html#model-1",
+    "title": "Modeling",
+    "section": "Model 1",
+    "text": "Model 1\n\nmod1 &lt;- linear_reg() %&gt;%\n      set_engine(\"lm\") %&gt;%\n      fit(v2x_corr ~ v2x_libdem + v2cacamps , data = modelData) %&gt;%\n      tidy() %&gt;% \n      mutate(model = \"Model 1: No GDP per capita\")\nmod1\n\n# A tibble: 3 × 6\n  term        estimate std.error statistic  p.value model                     \n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;                     \n1 (Intercept)   0.814     0.0280     29.1  3.64e-69 Model 1: No GDP per capita\n2 v2x_libdem   -0.807     0.0585    -13.8  8.61e-30 Model 1: No GDP per capita\n3 v2cacamps     0.0347    0.0108      3.21 1.59e- 3 Model 1: No GDP per capita"
+  },
+  {
+    "objectID": "slides/week-10.2.html#model-2-adding-gdp-per-capita",
+    "href": "slides/week-10.2.html#model-2-adding-gdp-per-capita",
+    "title": "Modeling",
+    "section": "Model 2 adding GDP per capita",
+    "text": "Model 2 adding GDP per capita\n\nmod2 &lt;- linear_reg() %&gt;%\n      set_engine(\"lm\") %&gt;%\n      fit(v2x_corr ~ v2x_libdem + v2cacamps + lg_gdppc, data = modelData) %&gt;%\n      tidy() %&gt;% \n      mutate(model = \"Model 2: GDP per capita\")\nmod2\n\n# A tibble: 4 × 6\n  term        estimate std.error statistic  p.value model                  \n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;                  \n1 (Intercept)   0.945    0.0303      31.2  2.84e-72 Model 2: GDP per capita\n2 v2x_libdem   -0.638    0.0574     -11.1  6.65e-22 Model 2: GDP per capita\n3 v2cacamps     0.0329   0.00949      3.46 6.72e- 4 Model 2: GDP per capita\n4 lg_gdppc     -0.0835   0.0124      -6.74 2.37e-10 Model 2: GDP per capita"
+  },
+  {
+    "objectID": "slides/week-10.2.html#oil-wealth-and-democracy",
+    "href": "slides/week-10.2.html#oil-wealth-and-democracy",
+    "title": "Modeling",
+    "section": "Oil Wealth and Democracy",
+    "text": "Oil Wealth and Democracy\nPolitical Resource Curse"
+  },
+  {
+    "objectID": "slides/week-10.2.html#set-up-data-use-the-year-2005",
+    "href": "slides/week-10.2.html#set-up-data-use-the-year-2005",
+    "title": "Modeling",
+    "section": "Set up data: Use the year 2005",
+    "text": "Set up data: Use the year 2005\n\noilData &lt;- vdem %&gt;% \n  filter(year == 2005) %&gt;% \n  select(country_name, v2x_libdem, e_gdppc, v2cacamps, e_total_oil_income_pc, v2x_corr, v2pepwrgen, v2clgencl) %&gt;% \n  mutate(lg_gdppc = log(e_gdppc))"
+  },
+  {
+    "objectID": "slides/week-10.2.html#distribution-of-oil-wealth-per-capita",
+    "href": "slides/week-10.2.html#distribution-of-oil-wealth-per-capita",
+    "title": "Modeling",
+    "section": "Distribution of Oil Wealth per Capita",
+    "text": "Distribution of Oil Wealth per Capita"
+  },
+  {
+    "objectID": "slides/week-10.2.html#create-a-dummy-variable-for-high-oil-wealth",
+    "href": "slides/week-10.2.html#create-a-dummy-variable-for-high-oil-wealth",
+    "title": "Modeling",
+    "section": "Create a Dummy Variable for High Oil Wealth",
+    "text": "Create a Dummy Variable for High Oil Wealth\n\noilData &lt;- oilData %&gt;% \n  mutate(\n        oil = ifelse(e_total_oil_income_pc &gt; 152, 1, 0),\n         oil = factor(oil, labels=c(\"No Oil Wealth\", \"Oil Wealth\"))\n        ) %&gt;% \n  filter(oil == \"No Oil Wealth\" | oil == \"Oil Wealth\")\ntable(oilData$oil)\n\n\nNo Oil Wealth    Oil Wealth \n          122            41"
+  },
+  {
+    "objectID": "slides/week-10.2.html#democracy-gdp-per-capita-and-oil-wealth",
+    "href": "slides/week-10.2.html#democracy-gdp-per-capita-and-oil-wealth",
+    "title": "Modeling",
+    "section": "Democracy, GDP per Capita, and Oil Wealth",
+    "text": "Democracy, GDP per Capita, and Oil Wealth\nHow should we interpret this graph?"
+  },
+  {
+    "objectID": "slides/week-10.2.html#model-with-oil-and-gdp-per-capita-no-interaction",
+    "href": "slides/week-10.2.html#model-with-oil-and-gdp-per-capita-no-interaction",
+    "title": "Modeling",
+    "section": "Model with Oil and GDP per Capita, No Interaction",
+    "text": "Model with Oil and GDP per Capita, No Interaction\nWhat is correct interpretation?\n\nlinear_reg() %&gt;%\n  set_engine(\"lm\") %&gt;%\n  fit(v2x_libdem ~ lg_gdppc + oil, data = oilData) %&gt;% \n  tidy()\n\n# A tibble: 3 × 5\n  term          estimate std.error statistic  p.value\n  &lt;chr&gt;            &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)      0.160    0.0318      5.02 1.36e- 6\n2 lg_gdppc         0.152    0.0144     10.5  4.53e-20\n3 oilOil Wealth   -0.233    0.0395     -5.90 2.08e- 8"
+  },
+  {
+    "objectID": "slides/week-10.2.html#interaction-model",
+    "href": "slides/week-10.2.html#interaction-model",
+    "title": "Modeling",
+    "section": "Interaction Model",
+    "text": "Interaction Model\n\nDoes GDP per capita have a different relationship to democracy in Oil rich versus non-Oil rich countries?"
+  },
+  {
+    "objectID": "slides/week-10.2.html#interaction-model-1",
+    "href": "slides/week-10.2.html#interaction-model-1",
+    "title": "Modeling",
+    "section": "Interaction Model",
+    "text": "Interaction Model\n\n\\(Y_i = a + b_1 * GDPpc + b_2 * Oil + b_3 * GDPpc * Oil\\)\n\n\n\n\\(b_3 * GDPpc * OilWealth\\) captures the interaction"
+  },
+  {
+    "objectID": "slides/week-10.2.html#interaction-model-interpretation",
+    "href": "slides/week-10.2.html#interaction-model-interpretation",
+    "title": "Modeling",
+    "section": "Interaction Model: Interpretation",
+    "text": "Interaction Model: Interpretation\n\nHow should we interpret \\(a\\)?\n\\(Y_i = a + b_1 * GDPpc + b_2 * Oil + b_3 * GDPpc * Oil\\)\n\n\n\n\\(a\\) is predicted level of democracy where GDPpc = 0 and Oil Wealth = 0"
+  },
+  {
+    "objectID": "slides/week-10.2.html#interaction-model-interpretation-1",
+    "href": "slides/week-10.2.html#interaction-model-interpretation-1",
+    "title": "Modeling",
+    "section": "Interaction Model: Interpretation",
+    "text": "Interaction Model: Interpretation\n\nWhat happens if we set Oil Wealth to 0?\n\\(Y_i = a + b_1 * GDPpc + b_2 * Oil + b_3 * GDPpc * Oil\\)\n\\(Y_i = a + b_1 * GDPpc + b_2 * 0 + b_3 * GDPpc * 0\\)\n\\(Y_i = a + b_1 * GDPpc\\)\n\n\n\n\\(b_1\\) is the association between GDP per capita and democracy, when oil wealth = 0"
+  },
+  {
+    "objectID": "slides/week-10.2.html#interaction-model-interpretation-2",
+    "href": "slides/week-10.2.html#interaction-model-interpretation-2",
+    "title": "Modeling",
+    "section": "Interaction Model: Interpretation",
+    "text": "Interaction Model: Interpretation\n\nWhat happens if we set GDPpc to 0?\n\\(Y_i = a + b_1 * GDPpc + b_2 * Oil + b_3 * GDPpc * Oil\\)\n\\(Y_i = a + b_1 * 0 + b_2 * Oil + b_3 * Oil * 0\\)\n\\(Y_i = a + b_2 * Oil\\)\n\\(b_2\\) is the association between oil and democracy, when GDP per capita = 0"
+  },
+  {
+    "objectID": "slides/week-10.2.html#interaction-model-interpretation-3",
+    "href": "slides/week-10.2.html#interaction-model-interpretation-3",
+    "title": "Modeling",
+    "section": "Interaction Model: Interpretation",
+    "text": "Interaction Model: Interpretation\n\nWhat happens if we set Oil Wealth to 1?\n\\(Y_i = a + b_1 * GDPpc + b_2 * 1 + b_3 * GDPpc * 1\\)\nRearrange: \\(Y_i = a + (b_1 + b_3) * GDPpc + b_2 * 1\\)\n\n\n\n\\(b_1 + b_3\\) is the association between GDP per capita and democracy, when oil wealth = 1"
+  },
+  {
+    "objectID": "slides/week-10.2.html#run-the-interaction-model",
+    "href": "slides/week-10.2.html#run-the-interaction-model",
+    "title": "Modeling",
+    "section": "Run the Interaction Model",
+    "text": "Run the Interaction Model\nWhat is correct interpretation of each coefficient?\n\nlinear_reg() %&gt;%\n  set_engine(\"lm\") %&gt;%\n  fit(v2x_libdem ~ lg_gdppc*oil, data = oilData) %&gt;% \n  tidy()\n\n# A tibble: 4 × 5\n  term                   estimate std.error statistic  p.value\n  &lt;chr&gt;                     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)              0.138     0.0342     4.03  8.51e- 5\n2 lg_gdppc                 0.164     0.0160    10.2   3.25e-19\n3 oilOil Wealth           -0.0850    0.0951    -0.893 3.73e- 1\n4 lg_gdppc:oilOil Wealth  -0.0607    0.0355    -1.71  8.88e- 2"
+  },
+  {
+    "objectID": "slides/week-10.2.html#interpretation",
+    "href": "slides/week-10.2.html#interpretation",
+    "title": "Modeling",
+    "section": "Interpretation",
+    "text": "Interpretation\n\\(\\hat{Y_i}\\) = .138 + .164 * \\(GDPpc_i\\) + (-0.085) * \\(Oil_i\\) + (-0.0607) * \\(GDPpc_i\\) * \\(Oil_i\\)\n\n\nRelationship without oil: \\(0.164\\)\nRelationship with oil: \\(0.164 + (-0.0607) = 0.164 -0.0607 = 0.1033\\)"
+  },
+  {
+    "objectID": "slides/week-10.2.html#is-this-difference-due-to-chance",
+    "href": "slides/week-10.2.html#is-this-difference-due-to-chance",
+    "title": "Modeling",
+    "section": "Is this difference due to chance?",
+    "text": "Is this difference due to chance?\n\nDoes GDP have a lower relationship to democracy in oil rich countries?\nIs 0.164 without oil different from 0.1033 with oil?\n\n\n\nWhat is the null hypothesis? What is the alternative?"
+  },
+  {
+    "objectID": "slides/week-10.2.html#is-this-difference-due-to-chance-1",
+    "href": "slides/week-10.2.html#is-this-difference-due-to-chance-1",
+    "title": "Modeling",
+    "section": "Is this difference due to chance?",
+    "text": "Is this difference due to chance?\n\nlinear_reg() %&gt;%\n  set_engine(\"lm\") %&gt;%\n  fit(v2x_libdem ~ lg_gdppc*oil, data = oilData) %&gt;% \n  tidy(conf.int=TRUE) %&gt;% \n  filter(term == \"lg_gdppc:oilOil Wealth\") %&gt;% \n  select(term, estimate, std.error, p.value, conf.low, conf.high) %&gt;%   \n  mutate(across(where(is.numeric), round, 3))\n\n# A tibble: 1 × 6\n  term                   estimate std.error p.value conf.low conf.high\n  &lt;chr&gt;                     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;\n1 lg_gdppc:oilOil Wealth   -0.061     0.035   0.089   -0.131     0.009"
+  },
+  {
+    "objectID": "slides/week-10.2.html#is-this-difference-due-to-chance-2",
+    "href": "slides/week-10.2.html#is-this-difference-due-to-chance-2",
+    "title": "Modeling",
+    "section": "Is this difference due to chance?",
+    "text": "Is this difference due to chance?\n\n95% Confidence Interval: [-0.131, 0.009]: mostly negative\np-value of interaction term: 0.089\n\nthis is higher that 0.05, but close and remember that the cutoff is arbitrary"
+  },
+  {
+    "objectID": "slides/week-10.2.html#your-turn-oil-wealth-and-womens-civil-liberties",
+    "href": "slides/week-10.2.html#your-turn-oil-wealth-and-womens-civil-liberties",
+    "title": "Modeling",
+    "section": "Your Turn: Oil Wealth and Women’s Civil Liberties",
+    "text": "Your Turn: Oil Wealth and Women’s Civil Liberties\n\nV-Dem has a variable capturing respect for women’s civil liberties -v2clgencl\nHow do GDP per capita and oil wealth relate to women’s civil liberties?\nFirst, use oilData to create a scatterplot that visualizes this relationship.\nSecond, fit an interaction model (oil X GDP per capita) predicting women’s civil liberties\nInterpret each of the coefficients and the intercept\nWhat is your overall conclusion(s) from this model?"
+  },
+  {
+    "objectID": "slides/week-10.2.html#your-turn-oil-wealth-and-womens-civil-liberties-1",
+    "href": "slides/week-10.2.html#your-turn-oil-wealth-and-womens-civil-liberties-1",
+    "title": "Modeling",
+    "section": "Your Turn: Oil Wealth and Women’s Civil Liberties",
+    "text": "Your Turn: Oil Wealth and Women’s Civil Liberties"
+  },
+  {
+    "objectID": "slides/week-10.2.html#your-turn-oil-wealth-and-womens-civil-liberties-2",
+    "href": "slides/week-10.2.html#your-turn-oil-wealth-and-womens-civil-liberties-2",
+    "title": "Modeling",
+    "section": "Your Turn: Oil Wealth and Women’s Civil Liberties",
+    "text": "Your Turn: Oil Wealth and Women’s Civil Liberties\n\nlinear_reg() %&gt;%\n  set_engine(\"lm\") %&gt;%\n  fit(v2clgencl ~ lg_gdppc*oil, data = oilData) %&gt;% \n  tidy()\n\n# A tibble: 4 × 5\n  term                   estimate std.error statistic  p.value\n  &lt;chr&gt;                     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)               0.489    0.167      2.93  3.87e- 3\n2 lg_gdppc                  0.548    0.0781     7.02  6.22e-11\n3 oilOil Wealth            -0.305    0.464     -0.657 5.12e- 1\n4 lg_gdppc:oilOil Wealth   -0.237    0.173     -1.37  1.73e- 1"
+  },
+  {
+    "objectID": "slides/week-10.1.html#linear-model-with-single-predictor",
+    "href": "slides/week-10.1.html#linear-model-with-single-predictor",
+    "title": "Linear Regression",
+    "section": "Linear Model with Single Predictor",
+    "text": "Linear Model with Single Predictor\n\nGoal: Estimate Democracy score (\\(\\hat{Y_{i}}\\)) of a country given level of GDP per capita (\\(X_{i}\\)).\n\nOr: Estimate relationship between GDP per capita and democracy."
+  },
+  {
+    "objectID": "slides/week-10.1.html#linear-model-with-single-predictor-1",
+    "href": "slides/week-10.1.html#linear-model-with-single-predictor-1",
+    "title": "Linear Regression",
+    "section": "Linear Model with Single Predictor",
+    "text": "Linear Model with Single Predictor"
+  },
+  {
+    "objectID": "slides/week-10.1.html#section",
+    "href": "slides/week-10.1.html#section",
+    "title": "Linear Regression",
+    "section": "",
+    "text": "Step 1: Specify model\n\n\nlinear_reg()"
+  },
+  {
+    "objectID": "slides/week-10.1.html#section-1",
+    "href": "slides/week-10.1.html#section-1",
+    "title": "Linear Regression",
+    "section": "",
+    "text": "Step 2: Set model fitting engine\n\n\nlinear_reg() |&gt;\n  set_engine(\"lm\") # lm: linear model"
+  },
+  {
+    "objectID": "slides/week-10.1.html#section-2",
+    "href": "slides/week-10.1.html#section-2",
+    "title": "Linear Regression",
+    "section": "",
+    "text": "Step 3: Fit model & estimate parameters\n\n… using formula syntax\n\nlinear_reg() |&gt;\n  set_engine(\"lm\") |&gt;\n  fit(lib_dem ~ log_wealth, data = modelData) \n\nparsnip model object\n\n\nCall:\nstats::lm(formula = lib_dem ~ log_wealth, data = data)\n\nCoefficients:\n(Intercept)   log_wealth  \n     0.1327       0.1197"
+  },
+  {
+    "objectID": "slides/week-10.1.html#section-3",
+    "href": "slides/week-10.1.html#section-3",
+    "title": "Linear Regression",
+    "section": "",
+    "text": "Step 4: Tidy things up…\n\n\\[\\widehat{Democracy}_{i} = 0.13 + 0.12 * {loggdppc}_{i}\\]\n\nlinear_reg() |&gt;\n  set_engine(\"lm\") |&gt;\n  fit(lib_dem ~ log_wealth, data = modelData) |&gt;\n  tidy()\n\n# A tibble: 2 × 5\n  term        estimate std.error statistic  p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)    0.133    0.0380      3.49 6.04e- 4\n2 log_wealth     0.120    0.0147      8.16 6.97e-14"
+  },
+  {
+    "objectID": "slides/week-10.1.html#interpretation",
+    "href": "slides/week-10.1.html#interpretation",
+    "title": "Linear Regression",
+    "section": "Interpretation?",
+    "text": "Interpretation?\n\n\\[\\widehat{Democracy}_{i} = 0.13 + 0.12 * {loggdppc}_{i}\\]"
+  },
+  {
+    "objectID": "slides/week-10.1.html#question",
+    "href": "slides/week-10.1.html#question",
+    "title": "Linear Regression",
+    "section": "Question",
+    "text": "Question\n\nHow do we get the “best” values for the slope and intercept?"
+  },
+  {
+    "objectID": "slides/week-10.1.html#how-would-you-draw-the-best-line",
+    "href": "slides/week-10.1.html#how-would-you-draw-the-best-line",
+    "title": "Linear Regression",
+    "section": "How would you draw the “best” line?",
+    "text": "How would you draw the “best” line?"
+  },
+  {
+    "objectID": "slides/week-10.1.html#how-would-you-draw-the-best-line-1",
+    "href": "slides/week-10.1.html#how-would-you-draw-the-best-line-1",
+    "title": "Linear Regression",
+    "section": "How would you draw the “best” line?",
+    "text": "How would you draw the “best” line?"
+  },
+  {
+    "objectID": "slides/week-10.1.html#least-squares-regression",
+    "href": "slides/week-10.1.html#least-squares-regression",
+    "title": "Linear Regression",
+    "section": "Least squares regression",
+    "text": "Least squares regression\n\n\nRemember the residual is the difference between the actual value and the predicted value\n\n\n\nThe regression line minimizes the sum of squared residuals."
+  },
+  {
+    "objectID": "slides/week-10.1.html#least-squares-regression-1",
+    "href": "slides/week-10.1.html#least-squares-regression-1",
+    "title": "Linear Regression",
+    "section": "Least squares regression",
+    "text": "Least squares regression\n\n\nResidual for each point is: \\(e_i = y_i - \\hat{y}_i\\)\nLeast squares regression line minimizes \\(\\sum_{i = 1}^n e_i^2\\).\n\n\n\nWhy do we square the residual?\n\n\n\n\nWhy not take absolute value?\n\nPrinciple: larger penalty for residuals further away\nMath: makes the math easier and some nice properties (not our concern here…)"
+  },
+  {
+    "objectID": "slides/week-10.1.html#least-squares-regression-2",
+    "href": "slides/week-10.1.html#least-squares-regression-2",
+    "title": "Linear Regression",
+    "section": "Least squares regression",
+    "text": "Least squares regression"
+  },
+  {
+    "objectID": "slides/week-10.1.html#very-simple-example",
+    "href": "slides/week-10.1.html#very-simple-example",
+    "title": "Linear Regression",
+    "section": "Very Simple Example",
+    "text": "Very Simple Example\nWhat should the slope and intercept be?"
+  },
+  {
+    "objectID": "slides/week-10.1.html#example",
+    "href": "slides/week-10.1.html#example",
+    "title": "Linear Regression",
     "section": "Example",
-    "text": "Example"
+    "text": "Example\n\\(\\hat{Y} = 0 + 1*X\\)"
   },
   {
-    "objectID": "slides/week-2.1.html#some-basic-r-code",
-    "href": "slides/week-2.1.html#some-basic-r-code",
-    "title": "Bar Charts and Histograms",
-    "section": "Some Basic R Code",
-    "text": "Some Basic R Code\n\n\n\n&lt;- is the assignment operator\n\nUse it to assign values to objects\n\n# is the comment operator\n\nUse it to comment out code or add comments\nDifferent function than in markdown text\n\nTo call a library, use library() and name of library\n\nname of library does not have to be in quotes, e.g. library(readr)\nonly when you install it, e.g. install.packages(\"readr\")"
-  },
-  {
-    "objectID": "slides/week-2.1.html#read-data-into-r",
-    "href": "slides/week-2.1.html#read-data-into-r",
-    "title": "Bar Charts and Histograms",
-    "section": "Read Data into R",
-    "text": "Read Data into R\n\n\n# load libraries\nlibrary(readr)\nlibrary(dplyr)\n\ndem_summary &lt;- read_csv(\"data/dem_summary.csv\")"
-  },
-  {
-    "objectID": "slides/week-2.1.html#viewing-the-data-in-r",
-    "href": "slides/week-2.1.html#viewing-the-data-in-r",
-    "title": "Bar Charts and Histograms",
-    "section": "Viewing the Data in R",
-    "text": "Viewing the Data in R\n\nUse glimpse() to see the columns and data types:\n\n# load libraries\nlibrary(readr)\nlibrary(dplyr)\n\ndem_summary &lt;- read_csv(\"data/dem_summary.csv\")\n\nglimpse(dem_summary)\n\nRows: 6\nColumns: 5\n$ region    &lt;chr&gt; \"The West\", \"Latin America\", \"Eastern Europe\", \"Asia\", \"Afri…\n$ polyarchy &lt;dbl&gt; 0.8709230, 0.6371358, 0.5387451, 0.4076602, 0.3934166, 0.245…\n$ gdp_pc    &lt;dbl&gt; 37.913054, 9.610284, 12.176554, 9.746391, 4.410484, 21.134319\n$ flfp      &lt;dbl&gt; 52.99082, 48.12645, 50.45894, 50.32171, 56.69530, 26.57872\n$ women_rep &lt;dbl&gt; 28.12921, 21.32548, 17.99728, 14.45225, 17.44296, 10.21568"
-  },
-  {
-    "objectID": "slides/week-2.1.html#try-it-yourself",
-    "href": "slides/week-2.1.html#try-it-yourself",
-    "title": "Bar Charts and Histograms",
-    "section": "Try It Yourself!",
-    "text": "Try It Yourself!\n\nOpen the CSV file to see what it looks like\nThen use this code to read it into R and view it\n\n\n# load libraries\nlibrary(readr)\nlibrary(dplyr)\n\ndem_summary &lt;- read_csv(\"data/dem_summary.csv\")\n\nglimpse(dem_summary)\n\n\n\n\n−+\n05:00"
-  },
-  {
-    "objectID": "slides/week-2.1.html#the-grammar-of-graphics",
-    "href": "slides/week-2.1.html#the-grammar-of-graphics",
-    "title": "Bar Charts and Histograms",
-    "section": "The Grammar of Graphics",
-    "text": "The Grammar of Graphics\n\n\nData viz has a language with its own grammar\nBasic components include:\n\nData we are trying to visualize\nAesthetics (dimensions)\nGeom (e.g. bar, line, scatter plot)\nColor scales\nThemes\nAnnotations"
-  },
-  {
-    "objectID": "slides/week-2.1.html#section-1",
-    "href": "slides/week-2.1.html#section-1",
-    "title": "Bar Charts and Histograms",
-    "section": "",
-    "text": "Let’s start with the first two, the data and the aesthetic…\n\n\nlibrary(readr)\nlibrary(ggplot2)\n\ndem_summary &lt;- read_csv(\"data/dem_summary.csv\")\n\nggplot(dem_summary, aes(x = region, y = polyarchy))"
-  },
-  {
-    "objectID": "slides/week-2.1.html#section-2",
-    "href": "slides/week-2.1.html#section-2",
-    "title": "Bar Charts and Histograms",
-    "section": "",
-    "text": "This gives us the axes without any visualization:"
-  },
-  {
-    "objectID": "slides/week-2.1.html#section-3",
-    "href": "slides/week-2.1.html#section-3",
-    "title": "Bar Charts and Histograms",
-    "section": "",
-    "text": "Now let’s add a geom. In this case we want a bar chart so we add geom_col().\n\n\nggplot(dem_summary, aes(x = region, y = polyarchy)) + \n  geom_col()"
-  },
-  {
-    "objectID": "slides/week-2.1.html#section-4",
-    "href": "slides/week-2.1.html#section-4",
-    "title": "Bar Charts and Histograms",
-    "section": "",
-    "text": "That gets the idea across but looks a little depressing, so…"
-  },
-  {
-    "objectID": "slides/week-2.1.html#section-5",
-    "href": "slides/week-2.1.html#section-5",
-    "title": "Bar Charts and Histograms",
-    "section": "",
-    "text": "…let’s change the color of the bars by specifying fill = \"steelblue\".\n\n\nggplot(dem_summary, aes(x = region, y = polyarchy)) + \n  geom_col(fill = \"steelblue\")"
-  },
-  {
-    "objectID": "slides/week-2.1.html#section-6",
-    "href": "slides/week-2.1.html#section-6",
-    "title": "Bar Charts and Histograms",
-    "section": "",
-    "text": "Note how color of original bars is simply overwritten:"
-  },
-  {
-    "objectID": "slides/week-2.1.html#section-7",
-    "href": "slides/week-2.1.html#section-7",
-    "title": "Bar Charts and Histograms",
-    "section": "",
-    "text": "Now let’s add some labels with the labs() function:\n\n\nggplot(dem_summary, aes(x = region, y = polyarchy)) + \n  geom_col(fill = \"steelblue\") +\n  labs(\n    x = \"Region\", \n    y = \"Avg. Polyarchy Score\", \n    title = \"Democracy by region, 1990 - present\", \n    caption = \"Source: V-Dem Institute\"\n    )"
-  },
-  {
-    "objectID": "slides/week-2.1.html#section-8",
-    "href": "slides/week-2.1.html#section-8",
-    "title": "Bar Charts and Histograms",
-    "section": "",
-    "text": "And that gives us…"
-  },
-  {
-    "objectID": "slides/week-2.1.html#section-9",
-    "href": "slides/week-2.1.html#section-9",
-    "title": "Bar Charts and Histograms",
-    "section": "",
-    "text": "Next, we reorder the bars with fct_reorder() from the forcats package.\n\n\nlibrary(forcats)\n\nggplot(dem_summary, aes(x = fct_reorder(region, -polyarchy), y = polyarchy)) +\n  geom_col(fill = \"steelblue\") + \n  labs(\n    x = \"Region\", \n    y = \"Avg. Polyarchy Score\", \n    title = \"Democracy by region, 1990 - present\", \n    caption = \"Source: V-Dem Institute\"\n    )\n\n\nNote that we could also use the base R reorder() function here."
-  },
-  {
-    "objectID": "slides/week-2.1.html#section-10",
-    "href": "slides/week-2.1.html#section-10",
-    "title": "Bar Charts and Histograms",
-    "section": "",
-    "text": "This way, we get a nice, visually appealing ordering of the bars according to levels of democracy…"
-  },
-  {
-    "objectID": "slides/week-2.1.html#section-11",
-    "href": "slides/week-2.1.html#section-11",
-    "title": "Bar Charts and Histograms",
-    "section": "",
-    "text": "Now let’s change the theme to theme_minimal().\n\n\nggplot(dem_summary, aes(x = reorder(region, -polyarchy), y = polyarchy)) +\n  geom_col(fill = \"steelblue\") + \n  labs(\n    x = \"Region\", \n    y = \"Avg. Polyarchy Score\", \n    title = \"Democracy by region, 1990 - present\", \n    caption = \"Source: V-Dem Institute\"\n    ) + theme_minimal()"
-  },
-  {
-    "objectID": "slides/week-2.1.html#section-12",
-    "href": "slides/week-2.1.html#section-12",
-    "title": "Bar Charts and Histograms",
-    "section": "",
-    "text": "Gives us a clean, elegant look."
-  },
-  {
-    "objectID": "slides/week-2.1.html#section-13",
-    "href": "slides/week-2.1.html#section-13",
-    "title": "Bar Charts and Histograms",
-    "section": "",
-    "text": "Note that you can also save your plot as an object to modify later.\n\n\ndem_bar_chart &lt;- ggplot(dem_summary, aes(x = reorder(region, -polyarchy), y = polyarchy)) +\n  geom_col(fill = \"steelblue\")"
-  },
-  {
-    "objectID": "slides/week-2.1.html#section-14",
-    "href": "slides/week-2.1.html#section-14",
-    "title": "Bar Charts and Histograms",
-    "section": "",
-    "text": "Which gives us…\n\ndem_bar_chart"
-  },
-  {
-    "objectID": "slides/week-2.1.html#section-15",
-    "href": "slides/week-2.1.html#section-15",
-    "title": "Bar Charts and Histograms",
-    "section": "",
-    "text": "Now let’s add back our labels…\n\n\ndem_bar_chart &lt;- dem_bar_chart +\n  labs(\n    x = \"Region\", \n    y = \"Avg. Polyarchy Score\", \n    title = \"Democracy by region, 1990 - present\", \n    caption = \"Source: V-Dem Institute\"\n    )"
-  },
-  {
-    "objectID": "slides/week-2.1.html#section-16",
-    "href": "slides/week-2.1.html#section-16",
-    "title": "Bar Charts and Histograms",
-    "section": "",
-    "text": "So now we have…\n\ndem_bar_chart"
-  },
-  {
-    "objectID": "slides/week-2.1.html#section-17",
-    "href": "slides/week-2.1.html#section-17",
-    "title": "Bar Charts and Histograms",
-    "section": "",
-    "text": "And now we’ll add back our theme…\n\n\ndem_bar_chart &lt;- dem_bar_chart + theme_minimal()"
-  },
-  {
-    "objectID": "slides/week-2.1.html#section-18",
-    "href": "slides/week-2.1.html#section-18",
-    "title": "Bar Charts and Histograms",
-    "section": "",
-    "text": "Voila!\n\ndem_bar_chart"
-  },
-  {
-    "objectID": "slides/week-2.1.html#section-19",
-    "href": "slides/week-2.1.html#section-19",
-    "title": "Bar Charts and Histograms",
-    "section": "",
-    "text": "Change the theme. There are many themes to choose from.\n\ndem_bar_chart + theme_bw()"
-  },
-  {
-    "objectID": "slides/week-2.1.html#your-turn",
-    "href": "slides/week-2.1.html#your-turn",
-    "title": "Bar Charts and Histograms",
-    "section": "Your Turn!",
-    "text": "Your Turn!\n\nglimpse() the data\nFind a new variable to visualize\nMake a bar chart with it\nChange the color of the bars\nOrder the bars\nAdd labels\nAdd a theme\nTry saving your plot as an object\nThen change the labels and/or theme\n\n\n\n\n−+\n10:00"
-  },
-  {
-    "objectID": "slides/week-2.1.html#purpose-of-histograms",
-    "href": "slides/week-2.1.html#purpose-of-histograms",
-    "title": "Bar Charts and Histograms",
-    "section": "Purpose of Histograms",
-    "text": "Purpose of Histograms\n\nHistograms are used to visualize the distribution of a single variable\nThey are used for continuous variables (e.g., income, age, etc.)\nA continuous variable is one that can take on any value within a range (e.g., 0.5, 1.2, 3.7, etc.)\nA discrete variable is one that can only take on certain values (e.g., 1, 2, 3, etc.)\nx-axis represents value of variable of interest\ny-axis represents the frequency of that value"
-  },
-  {
-    "objectID": "slides/week-2.1.html#example-1",
-    "href": "slides/week-2.1.html#example-1",
-    "title": "Bar Charts and Histograms",
+    "objectID": "slides/week-10.1.html#example-1",
+    "href": "slides/week-10.1.html#example-1",
+    "title": "Linear Regression",
     "section": "Example",
-    "text": "Example"
+    "text": "Example\nWhat is the sum of squared residuals?"
   },
   {
-    "objectID": "slides/week-2.1.html#histogram-code",
-    "href": "slides/week-2.1.html#histogram-code",
-    "title": "Bar Charts and Histograms",
-    "section": "Histogram Code",
-    "text": "Histogram Code\n\n\n# load data\ndem_women &lt;- read_csv(\"data/dem_women.csv\")\n\n# filter to 2022\ndem_women_2022 &lt;- dem_women |&gt;\n  filter(year == 2022) \n\n# create histogram\nggplot(dem_women_2022, aes(x = flfp)) +\n  geom_histogram(fill = \"steelblue\") + \n  labs(\n    x = \"Percentage of Working Aged Women in Labor Force\",\n    y = \"Number of Countries\",\n    title = \"Female labor force participation rates, 2022\",\n    caption = \"Source: World Bank\"\n    ) + theme_minimal()"
+    "objectID": "slides/week-10.1.html#example-2",
+    "href": "slides/week-10.1.html#example-2",
+    "title": "Linear Regression",
+    "section": "Example",
+    "text": "Example\nWhat is sum of squared residuals for \\(y = 0 + 0*X\\)?"
   },
   {
-    "objectID": "slides/week-2.1.html#change-number-of-bins",
-    "href": "slides/week-2.1.html#change-number-of-bins",
-    "title": "Bar Charts and Histograms",
-    "section": "Change Number of Bins",
-    "text": "Change Number of Bins\n\nChange number of bins (bars) using bins or binwidth arguments (default number of bins = 30):\n\n\nggplot(dem_women_2022, aes(x = flfp)) +\n  geom_histogram(bins = 50, fill = \"steelblue\") + \n  labs(\n    x = \"Percentage of Working Aged Women in Labor Force\",\n    y = \"Number of Countries\",\n    title = \"Female labor force participation rates, 2022\",\n    caption = \"Source: World Bank\"\n    ) + theme_minimal()"
+    "objectID": "slides/week-10.1.html#example-3",
+    "href": "slides/week-10.1.html#example-3",
+    "title": "Linear Regression",
+    "section": "Example",
+    "text": "Example\nWhat is sum of squared residuals for \\(y = 0 + 0*X\\)?\n\n\n(1-0)^2 + (2-0)^2 + (3-0)^2\n\n[1] 14"
   },
   {
-    "objectID": "slides/week-2.1.html#section-20",
-    "href": "slides/week-2.1.html#section-20",
-    "title": "Bar Charts and Histograms",
-    "section": "",
-    "text": "At 50 bins…"
+    "objectID": "slides/week-10.1.html#example-4",
+    "href": "slides/week-10.1.html#example-4",
+    "title": "Linear Regression",
+    "section": "Example",
+    "text": "Example\nWhat is sum of squared residuals for \\(y = 0 + 2*X\\)?"
   },
   {
-    "objectID": "slides/week-2.1.html#section-21",
-    "href": "slides/week-2.1.html#section-21",
-    "title": "Bar Charts and Histograms",
-    "section": "",
-    "text": "At 100 bins…probably too many!"
+    "objectID": "slides/week-10.1.html#example-5",
+    "href": "slides/week-10.1.html#example-5",
+    "title": "Linear Regression",
+    "section": "Example",
+    "text": "Example\nWhat is sum of squared residuals for \\(y = 0 + 2*X\\)?\n\n\n(1-2)^2 + (2-4)^2 + (3-6)^2\n\n[1] 14"
   },
   {
-    "objectID": "slides/week-2.1.html#section-22",
-    "href": "slides/week-2.1.html#section-22",
-    "title": "Bar Charts and Histograms",
-    "section": "",
-    "text": "Using binwidth instead of bins…\n\n\nggplot(dem_women_2022, aes(x = flfp)) +\n  geom_histogram(binwidth = 2, fill = \"steelblue\") + \n  labs(\n    x = \"Percentage of Working Aged Women in Labor Force\",\n    y = \"Number of Countries\",\n    title = \"Female labor force participation rates, 2022\",\n    caption = \"Source: World Bank\"\n    ) + theme_minimal()"
+    "objectID": "slides/week-10.1.html#one-more",
+    "href": "slides/week-10.1.html#one-more",
+    "title": "Linear Regression",
+    "section": "One more…",
+    "text": "One more…\nWhat is sum of squared residuals for \\(y = 0 + -1*X\\)?"
   },
   {
-    "objectID": "slides/week-2.1.html#section-23",
-    "href": "slides/week-2.1.html#section-23",
-    "title": "Bar Charts and Histograms",
-    "section": "",
-    "text": "Setting binwidth to 2…"
+    "objectID": "slides/week-10.1.html#one-more-1",
+    "href": "slides/week-10.1.html#one-more-1",
+    "title": "Linear Regression",
+    "section": "One more…",
+    "text": "One more…\nWhat is sum of squared residuals for \\(y = 0 + -1*X\\)?\n\n\n(1+1)^2 + (2+2)^2 + (3+3)^2\n\n[1] 56"
   },
   {
-    "objectID": "slides/week-2.1.html#change-from-count-to-density",
-    "href": "slides/week-2.1.html#change-from-count-to-density",
-    "title": "Bar Charts and Histograms",
-    "section": "Change from Count to Density",
-    "text": "Change from Count to Density\n\n\nggplot(dem_women_2022, aes(after_stat(density), x = flfp)) +\n  geom_histogram(fill = \"steelblue\") + \n  labs(\n    x = \"Percentage of Working Aged Women in Labor Force\",\n    y = \"Density\",\n    title = \"Female labor force participation rates, 2022\",\n    caption = \"Source: World Bank\"\n    ) + theme_minimal()"
+    "objectID": "slides/week-10.1.html#cost-function",
+    "href": "slides/week-10.1.html#cost-function",
+    "title": "Linear Regression",
+    "section": "Cost Function",
+    "text": "Cost Function\nSum of Squared Residuals as function of possible values of \\(b\\)"
   },
   {
-    "objectID": "slides/week-2.1.html#section-24",
-    "href": "slides/week-2.1.html#section-24",
-    "title": "Bar Charts and Histograms",
-    "section": "",
-    "text": "Which gives us…"
+    "objectID": "slides/week-10.1.html#least-squares-regression-3",
+    "href": "slides/week-10.1.html#least-squares-regression-3",
+    "title": "Linear Regression",
+    "section": "Least Squares Regression",
+    "text": "Least Squares Regression\n\n\nWhen we estimate a least squares regression, it is looking for the line that minimizes sum of squared residuals\nIn the simple example, I set \\(a=0\\) to make it easier. More complicated when searching for combination of \\(a\\) and \\(b\\) that minimize, but same basic idea"
   },
   {
-    "objectID": "slides/week-2.1.html#your-turn-1",
-    "href": "slides/week-2.1.html#your-turn-1",
-    "title": "Bar Charts and Histograms",
-    "section": "Your Turn!",
-    "text": "Your Turn!\n\nPick a variable that you want to explore the distribution of\nMake a histogram\n\nOnly specify x = in aes()\nSpecify geom as geom_histogram\n\nChoose color for bars\nChoose appropriate labels\nChange number of bins\nChange from count to density\n\n\n\n\n−+\n10:00"
+    "objectID": "slides/week-10.1.html#least-squares-regression-4",
+    "href": "slides/week-10.1.html#least-squares-regression-4",
+    "title": "Linear Regression",
+    "section": "Least Squares Regression",
+    "text": "Least Squares Regression\n\n\nThere is a way to solve for this analytically for linear regression (i.e., by doing math…)\n– They made us do this in grad school…\n\n\n\nIn machine learning, people also use gradient descent algorithm in which the computer searches over possible combinations of \\(a\\) and \\(b\\) until it settles on the lowest point."
+  },
+  {
+    "objectID": "slides/week-10.1.html#least-squares-regression-5",
+    "href": "slides/week-10.1.html#least-squares-regression-5",
+    "title": "Linear Regression",
+    "section": "Least Squares Regression",
+    "text": "Least Squares Regression"
+  },
+  {
+    "objectID": "slides/week-10.1.html#least-squares-regression-6",
+    "href": "slides/week-10.1.html#least-squares-regression-6",
+    "title": "Linear Regression",
+    "section": "Least Squares Regression",
+    "text": "Least Squares Regression"
+  },
+  {
+    "objectID": "slides/week-10.1.html#your-turn",
+    "href": "slides/week-10.1.html#your-turn",
+    "title": "Linear Regression",
+    "section": "Your Turn",
+    "text": "Your Turn\n\nAre democracies less corrupt?\n\n\nV-Dem includes a Political Corruption Index, which aggregates corruption in a number of spheres (see codebook for details).\nThe variable name is: v2x_corr : lower values mean less corruption\nSee started code HERE"
+  },
+  {
+    "objectID": "slides/week-10.1.html#your-turn-1",
+    "href": "slides/week-10.1.html#your-turn-1",
+    "title": "Linear Regression",
+    "section": "Your Turn",
+    "text": "Your Turn\n\nAre democracies less corrupt?\n\n\n\nFilter the V-Dem data to only include the year 2019\nMake a scatterplot to visualize the relationship between democracy (X) and corruption (Y) (use the v2x_libdem variable for democracy)\nFit a linear model\nInterpret results for the slope and intercept\nFor a country with the average (mean) level of democracy, what is the predicted level of corruption?\n\n\n\n\n\n−+\n10:00"
+  },
+  {
+    "objectID": "slides/week-10.1.html#create-your-own-model",
+    "href": "slides/week-10.1.html#create-your-own-model",
+    "title": "Linear Regression",
+    "section": "Create Your Own Model",
+    "text": "Create Your Own Model\n\n\nWhat is a theory that you would like to test with V-Dem data?\nWhat is the dependent variable?\nWhat is the independent variable?\nMap out steps to wrangle the data and fit a regression model\nWhat do you expect to find?\nNow go ahead and wrangle the data\nFit the model\nInterpret the coefficients and their significance\nDid the results match your expectations?"
   },
   {
     "objectID": "slides/week-5.1.html#todays-classwork",
@@ -2178,7 +2073,7 @@
     "href": "index.html",
     "title": "Course Schedule",
     "section": "",
-    "text": "This page displays an outline of the topics, content, and assignments for the term. Each module starts on a Monday. There are no assignments due on Sundays.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModule\nDate\nTopic\nReadings\nReference\nSlides\nVideos\nAssignments\n\n\n\n\n1.1\nJan 16\nCourse Intro\n\n\n🖥️\n🖥️\n\n\n\n1.2\n\nGetting Started with Quarto\n\n📖\n🖥️\n🖥️\n\n\n\n2.1\nJan 23\nBar charts, histograms\n\n📖 📖\n🖥️\n🖥️ 🖥️\n\n\n\n2.2\n\nLine charts, scatter plots\n\n📖 📖\n🖥️\n🖥️ 🖥️\n📘\n\n\n3.1\nJan 29\nDownloading and manipulating data\n\n📖\n🖥️\n🖥️\n\n\n\n3.2\n\nSummarizing by groups\n\n📖\n🖥️\n🖥️\n📘\n\n\n4.1\nFeb 6\nData viz recap\n\n\n🖥️\n\n\n\n\n4.2\n\nExercise 1: Visualize modernization theory\n📖\n\n\n\n🧮\n\n\n5.1\nFeb 13\nResearch Design\n\n📖\n🖥️\n\n\n\n\n5.2\n\nDistributions\n\n📖\n🖥️\n\n📘\n\n\n6.1\nFeb 20\nUncertainty and sampling distributions\n\n📖\n🖥️\n🖥️\n\n\n\n6.2\n\nUsing a bootstrap to generate confidence intervals\n\n📖\n🖥️\n🖥️\n📘\n\n\n7.1\nFeb 27\nHypothesis testing\n\n📖\n🖥️\n🖥️\n\n\n\n7.2\n\nExercise 2: Evaluate a claim\n📖\n\n🖥️\n🖥️\n🧮\n\n\n8.1\nMar 5\nUSAID walkthrough\n\n\n🖥️\n🖥️\n\n\n\n8.2\n\nUSAID walkthrough\n\n\n\n🖥️\n\n\n\n\nMar 12\nNo Class\nSpring Break\n☀️🌴🏄\n\n\n\n\n\n9.1\nMar 19\nModels and their uses\n\n📖\n🖥️\n🖥️\n\n\n\n9.2\n\nLinear regression 1\n\n\n🖥️\n🖥️\n📘\n\n\n10.1\nMar 26\nLinear regression 2\n\n\n🖥️\n🖥️\n\n\n\n10.2\n\nMultiple regression\n\n\n\n🖥️\n📘\n\n\n11.1\nApr 2\nInteractions and nonlinearity\n\n\n🖥️\n🖥️\n\n\n\n11.2\n\nInterpreting regression results\n\n\n\n🖥️\n📘\n\n\n12.1\nApr 9\nLogistic regression\n\n\n🖥️\n🖥️\n\n\n\n12.2\n\nPrediction\n📖\n\n\n\n\n\n\n13.1\nApr 16\nModeling review\n\n\n\n\n\n\n\n13.2\n\nExercise 3–Predicting conflict\n\n\n\n\n🧮\n\n\n14.1\nApr 23\nAdvanced Quarto\n\n\n\n🖥️\n\n\n\n14.2\n\nFinal project workshop\n\n\n\n🖥️\n✍️",
+    "text": "This page displays an outline of the topics, content, and assignments for the term. Each module starts on a Monday. There are no assignments due on Sundays.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModule\nDate\nTopic\nReadings\nReference\nSlides\nVideos\nAssignments\n\n\n\n\n1.1\nJan 16\nCourse Intro\n\n\n🖥️\n🖥️\n\n\n\n1.2\n\nGetting Started with Quarto\n\n📖\n🖥️\n🖥️\n\n\n\n2.1\nJan 23\nBar charts, histograms\n\n📖 📖\n🖥️\n🖥️ 🖥️\n\n\n\n2.2\n\nLine charts, scatter plots\n\n📖 📖\n🖥️\n🖥️ 🖥️\n📘\n\n\n3.1\nJan 29\nDownloading and manipulating data\n\n📖\n🖥️\n🖥️\n\n\n\n3.2\n\nSummarizing by groups\n\n📖\n🖥️\n🖥️\n📘\n\n\n4.1\nFeb 6\nData viz recap\n\n\n🖥️\n\n\n\n\n4.2\n\nExercise 1: Visualize modernization theory\n📖\n\n\n\n🧮\n\n\n5.1\nFeb 13\nResearch Design\n\n📖\n🖥️\n\n\n\n\n5.2\n\nDistributions\n\n📖\n🖥️\n\n📘\n\n\n6.1\nFeb 20\nUncertainty and sampling distributions\n\n📖\n🖥️\n🖥️\n\n\n\n6.2\n\nUsing a bootstrap to generate confidence intervals\n\n📖\n🖥️\n🖥️\n📘\n\n\n7.1\nFeb 27\nHypothesis testing\n\n📖\n🖥️\n🖥️\n\n\n\n7.2\n\nExercise 2: Evaluate a claim\n📖\n\n🖥️\n🖥️\n🧮\n\n\n8.1\nMar 5\nUSAID walkthrough\n\n\n🖥️\n🖥️\n\n\n\n8.2\n\nUSAID walkthrough\n\n\n\n🖥️\n\n\n\n\nMar 12\nNo Class\nSpring Break\n☀️🌴🏄\n\n\n\n\n\n9.1\nMar 19\nLab Time\n\n\n🖥️\n🖥️\n\n\n\n9.2\n\nModels and their uses\n\n\n🖥️\n🖥️\n📘\n\n\n10.1\nMar 26\nLinear regression\n📖\n\n🖥️\n🖥️\n\n\n\n10.2\n\nMultiple regression\n📖\n\n\n🖥️\n📘\n\n\n11.1\nApr 2\nInteractions and nonlinearity\n\n\n🖥️\n🖥️\n\n\n\n11.2\n\nLogistic regression\n📖\n\n\n🖥️\n📘\n\n\n12.1\nApr 9\nInterpreting regression results\n\n\n🖥️\n🖥️\n\n\n\n12.2\n\nPrediction\n📖\n\n\n\n\n\n\n13.1\nApr 16\nModeling review\n\n\n\n\n\n\n\n13.2\n\nExercise 3–Predicting conflict\n\n\n\n\n🧮\n\n\n14.1\nApr 23\nAdvanced Quarto\n\n\n\n🖥️\n\n\n\n14.2\n\nFinal project workshop\n\n\n\n🖥️\n✍️",
     "crumbs": [
       "Course Information",
       "Schedule"
@@ -2405,17 +2300,6 @@
     "title": "Assignment 2",
     "section": "Extra Credit",
     "text": "Extra Credit\n\nThere are three outcome variables you did not select: create visualizions that display the means and 95% confidence intervals in treatment and control groups for these three outcomes. (2 points)\nConduct hypothesis tests for each the three additional outcomes. What do you conclude from each test? (2 points)\nWrite a paragraph updating your conclusion about the impact of the program and your interpretation of all of the evidence (2 points)\nCreate a single visualization that could “tell the whole story” of the results from this study. (3 points)\n\n\n\n\n\n\n\nSubmission Instructions\n\n\n\nHead over to Blackboard and go to the Homework 2 assignment. There you will find a link that you can use to upload your project folder.\nIf you worked with a partner, only one of you should submit the project folder but both of you should still make a submission to Blackboard so that we have a submission to grade. If you have worked with someoone but still have a substantially different project, you can submit separately.\nThe person submitting the project folder should take a screen shot of the confirmation message (“Finished Uploading”) and share it with the other group members. This screen shot will be what you submit in Blackboard.\nNext, click “Create Submission” and write a statement stating whether you worked on the project independently or whether you are submitting jointly with someone else. Also note whether you used a large language model (LLM) like ChatGPT to help you with the work and which parts of the assignment you used the LLM for. It is fine to use an LLM to help with your code but you must acknowledge the use of it in your submission.\nThen, upload the screenshot you saved in the first step. Now submit the assignment.\nPlease remember to upload your entire project folder and not just the Quarto document.",
-    "crumbs": [
-      "Homework",
-      "Homework 2"
-    ]
-  },
-  {
-    "objectID": "assignments/homework-2.html#submission-instructions",
-    "href": "assignments/homework-2.html#submission-instructions",
-    "title": "Assignment 2",
-    "section": "Submission Instructions",
-    "text": "Submission Instructions\n\n\n\n\n\n\nSubmission Instructions\n\n\n\nHead over to Blackboard and go to the Homework 2 assignment. There you will find a link that you can use to upload your project folder.\nIf you worked with a partner, only one of you should submit the project folder but both of you should still make a submission to Blackboard so that we have a submission to grade. If you have worked with someoone but still have a substantially different project, you can submit separately.\nThe person submitting the project folder should take a screen shot of the confirmation message (“Finished Uploading”) and share it with the other group members. This screen shot will be what you submit in Blackboard.\nNext, click “Create Submission” and write a statement stating whether you worked on the project independently or whether you are submitting jointly with someone else. Also note whether you used a large language model (LLM) like ChatGPT to help you with the work and which parts of the assignment you used the LLM for. It is fine to use an LLM to help with your code but you must acknowledge the use of it in your submission.\nThen, upload the screenshot you saved in the first step. Now submit the assignment.\nPlease remember to upload your entire project folder and not just the Quarto document.",
     "crumbs": [
       "Homework",
       "Homework 2"
@@ -3401,6 +3285,272 @@
     "text": "Your Turn!\n\n\nUse the gender variable in the resume data to assess whether there is gender discrimination in call backs\nPlot means and 95% confidence intervals for the call back rate for men and women\nWrite the null and alternative hypotheses\nSimulate the null distribution\nVisualize the null distribution and the gender gap\nCalculate the p-value\nWhat do you conclude from your test?"
   },
   {
+    "objectID": "slides/week-2.1.html#getting-started-with-data",
+    "href": "slides/week-2.1.html#getting-started-with-data",
+    "title": "Bar Charts and Histograms",
+    "section": "Getting Started with Data",
+    "text": "Getting Started with Data\n\n\n\nTabular data is data that is organized into rows and columns\n\na.k.a. rectangular data\n\nA data frame is a special kind of tabular data used in data science\nA variable is something you can measure\nAn observation is a single unit or case in your data set\nThe unit of analysis is the level at which you are measuring\n\nIn a cross-section: country, state, county, city, individual, etc.\nIn a time-series: year, month, day, etc."
+  },
+  {
+    "objectID": "slides/week-2.1.html#example",
+    "href": "slides/week-2.1.html#example",
+    "title": "Bar Charts and Histograms",
+    "section": "Example",
+    "text": "Example"
+  },
+  {
+    "objectID": "slides/week-2.1.html#some-basic-r-code",
+    "href": "slides/week-2.1.html#some-basic-r-code",
+    "title": "Bar Charts and Histograms",
+    "section": "Some Basic R Code",
+    "text": "Some Basic R Code\n\n\n\n&lt;- is the assignment operator\n\nUse it to assign values to objects\n\n# is the comment operator\n\nUse it to comment out code or add comments\nDifferent function than in markdown text\n\nTo call a library, use library() and name of library\n\nname of library does not have to be in quotes, e.g. library(readr)\nonly when you install it, e.g. install.packages(\"readr\")"
+  },
+  {
+    "objectID": "slides/week-2.1.html#read-data-into-r",
+    "href": "slides/week-2.1.html#read-data-into-r",
+    "title": "Bar Charts and Histograms",
+    "section": "Read Data into R",
+    "text": "Read Data into R\n\n\n# load libraries\nlibrary(readr)\nlibrary(dplyr)\n\ndem_summary &lt;- read_csv(\"data/dem_summary.csv\")"
+  },
+  {
+    "objectID": "slides/week-2.1.html#viewing-the-data-in-r",
+    "href": "slides/week-2.1.html#viewing-the-data-in-r",
+    "title": "Bar Charts and Histograms",
+    "section": "Viewing the Data in R",
+    "text": "Viewing the Data in R\n\nUse glimpse() to see the columns and data types:\n\n# load libraries\nlibrary(readr)\nlibrary(dplyr)\n\ndem_summary &lt;- read_csv(\"data/dem_summary.csv\")\n\nglimpse(dem_summary)\n\nRows: 6\nColumns: 5\n$ region    &lt;chr&gt; \"The West\", \"Latin America\", \"Eastern Europe\", \"Asia\", \"Afri…\n$ polyarchy &lt;dbl&gt; 0.8709230, 0.6371358, 0.5387451, 0.4076602, 0.3934166, 0.245…\n$ gdp_pc    &lt;dbl&gt; 37.913054, 9.610284, 12.176554, 9.746391, 4.410484, 21.134319\n$ flfp      &lt;dbl&gt; 52.99082, 48.12645, 50.45894, 50.32171, 56.69530, 26.57872\n$ women_rep &lt;dbl&gt; 28.12921, 21.32548, 17.99728, 14.45225, 17.44296, 10.21568"
+  },
+  {
+    "objectID": "slides/week-2.1.html#try-it-yourself",
+    "href": "slides/week-2.1.html#try-it-yourself",
+    "title": "Bar Charts and Histograms",
+    "section": "Try It Yourself!",
+    "text": "Try It Yourself!\n\nOpen the CSV file to see what it looks like\nThen use this code to read it into R and view it\n\n\n# load libraries\nlibrary(readr)\nlibrary(dplyr)\n\ndem_summary &lt;- read_csv(\"data/dem_summary.csv\")\n\nglimpse(dem_summary)\n\n\n\n\n−+\n05:00"
+  },
+  {
+    "objectID": "slides/week-2.1.html#the-grammar-of-graphics",
+    "href": "slides/week-2.1.html#the-grammar-of-graphics",
+    "title": "Bar Charts and Histograms",
+    "section": "The Grammar of Graphics",
+    "text": "The Grammar of Graphics\n\n\nData viz has a language with its own grammar\nBasic components include:\n\nData we are trying to visualize\nAesthetics (dimensions)\nGeom (e.g. bar, line, scatter plot)\nColor scales\nThemes\nAnnotations"
+  },
+  {
+    "objectID": "slides/week-2.1.html#section-1",
+    "href": "slides/week-2.1.html#section-1",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "Let’s start with the first two, the data and the aesthetic…\n\n\nlibrary(readr)\nlibrary(ggplot2)\n\ndem_summary &lt;- read_csv(\"data/dem_summary.csv\")\n\nggplot(dem_summary, aes(x = region, y = polyarchy))"
+  },
+  {
+    "objectID": "slides/week-2.1.html#section-2",
+    "href": "slides/week-2.1.html#section-2",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "This gives us the axes without any visualization:"
+  },
+  {
+    "objectID": "slides/week-2.1.html#section-3",
+    "href": "slides/week-2.1.html#section-3",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "Now let’s add a geom. In this case we want a bar chart so we add geom_col().\n\n\nggplot(dem_summary, aes(x = region, y = polyarchy)) + \n  geom_col()"
+  },
+  {
+    "objectID": "slides/week-2.1.html#section-4",
+    "href": "slides/week-2.1.html#section-4",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "That gets the idea across but looks a little depressing, so…"
+  },
+  {
+    "objectID": "slides/week-2.1.html#section-5",
+    "href": "slides/week-2.1.html#section-5",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "…let’s change the color of the bars by specifying fill = \"steelblue\".\n\n\nggplot(dem_summary, aes(x = region, y = polyarchy)) + \n  geom_col(fill = \"steelblue\")"
+  },
+  {
+    "objectID": "slides/week-2.1.html#section-6",
+    "href": "slides/week-2.1.html#section-6",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "Note how color of original bars is simply overwritten:"
+  },
+  {
+    "objectID": "slides/week-2.1.html#section-7",
+    "href": "slides/week-2.1.html#section-7",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "Now let’s add some labels with the labs() function:\n\n\nggplot(dem_summary, aes(x = region, y = polyarchy)) + \n  geom_col(fill = \"steelblue\") +\n  labs(\n    x = \"Region\", \n    y = \"Avg. Polyarchy Score\", \n    title = \"Democracy by region, 1990 - present\", \n    caption = \"Source: V-Dem Institute\"\n    )"
+  },
+  {
+    "objectID": "slides/week-2.1.html#section-8",
+    "href": "slides/week-2.1.html#section-8",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "And that gives us…"
+  },
+  {
+    "objectID": "slides/week-2.1.html#section-9",
+    "href": "slides/week-2.1.html#section-9",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "Next, we reorder the bars with fct_reorder() from the forcats package.\n\n\nlibrary(forcats)\n\nggplot(dem_summary, aes(x = fct_reorder(region, -polyarchy), y = polyarchy)) +\n  geom_col(fill = \"steelblue\") + \n  labs(\n    x = \"Region\", \n    y = \"Avg. Polyarchy Score\", \n    title = \"Democracy by region, 1990 - present\", \n    caption = \"Source: V-Dem Institute\"\n    )\n\n\nNote that we could also use the base R reorder() function here."
+  },
+  {
+    "objectID": "slides/week-2.1.html#section-10",
+    "href": "slides/week-2.1.html#section-10",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "This way, we get a nice, visually appealing ordering of the bars according to levels of democracy…"
+  },
+  {
+    "objectID": "slides/week-2.1.html#section-11",
+    "href": "slides/week-2.1.html#section-11",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "Now let’s change the theme to theme_minimal().\n\n\nggplot(dem_summary, aes(x = reorder(region, -polyarchy), y = polyarchy)) +\n  geom_col(fill = \"steelblue\") + \n  labs(\n    x = \"Region\", \n    y = \"Avg. Polyarchy Score\", \n    title = \"Democracy by region, 1990 - present\", \n    caption = \"Source: V-Dem Institute\"\n    ) + theme_minimal()"
+  },
+  {
+    "objectID": "slides/week-2.1.html#section-12",
+    "href": "slides/week-2.1.html#section-12",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "Gives us a clean, elegant look."
+  },
+  {
+    "objectID": "slides/week-2.1.html#section-13",
+    "href": "slides/week-2.1.html#section-13",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "Note that you can also save your plot as an object to modify later.\n\n\ndem_bar_chart &lt;- ggplot(dem_summary, aes(x = reorder(region, -polyarchy), y = polyarchy)) +\n  geom_col(fill = \"steelblue\")"
+  },
+  {
+    "objectID": "slides/week-2.1.html#section-14",
+    "href": "slides/week-2.1.html#section-14",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "Which gives us…\n\ndem_bar_chart"
+  },
+  {
+    "objectID": "slides/week-2.1.html#section-15",
+    "href": "slides/week-2.1.html#section-15",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "Now let’s add back our labels…\n\n\ndem_bar_chart &lt;- dem_bar_chart +\n  labs(\n    x = \"Region\", \n    y = \"Avg. Polyarchy Score\", \n    title = \"Democracy by region, 1990 - present\", \n    caption = \"Source: V-Dem Institute\"\n    )"
+  },
+  {
+    "objectID": "slides/week-2.1.html#section-16",
+    "href": "slides/week-2.1.html#section-16",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "So now we have…\n\ndem_bar_chart"
+  },
+  {
+    "objectID": "slides/week-2.1.html#section-17",
+    "href": "slides/week-2.1.html#section-17",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "And now we’ll add back our theme…\n\n\ndem_bar_chart &lt;- dem_bar_chart + theme_minimal()"
+  },
+  {
+    "objectID": "slides/week-2.1.html#section-18",
+    "href": "slides/week-2.1.html#section-18",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "Voila!\n\ndem_bar_chart"
+  },
+  {
+    "objectID": "slides/week-2.1.html#section-19",
+    "href": "slides/week-2.1.html#section-19",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "Change the theme. There are many themes to choose from.\n\ndem_bar_chart + theme_bw()"
+  },
+  {
+    "objectID": "slides/week-2.1.html#your-turn",
+    "href": "slides/week-2.1.html#your-turn",
+    "title": "Bar Charts and Histograms",
+    "section": "Your Turn!",
+    "text": "Your Turn!\n\nglimpse() the data\nFind a new variable to visualize\nMake a bar chart with it\nChange the color of the bars\nOrder the bars\nAdd labels\nAdd a theme\nTry saving your plot as an object\nThen change the labels and/or theme\n\n\n\n\n−+\n10:00"
+  },
+  {
+    "objectID": "slides/week-2.1.html#purpose-of-histograms",
+    "href": "slides/week-2.1.html#purpose-of-histograms",
+    "title": "Bar Charts and Histograms",
+    "section": "Purpose of Histograms",
+    "text": "Purpose of Histograms\n\nHistograms are used to visualize the distribution of a single variable\nThey are used for continuous variables (e.g., income, age, etc.)\nA continuous variable is one that can take on any value within a range (e.g., 0.5, 1.2, 3.7, etc.)\nA discrete variable is one that can only take on certain values (e.g., 1, 2, 3, etc.)\nx-axis represents value of variable of interest\ny-axis represents the frequency of that value"
+  },
+  {
+    "objectID": "slides/week-2.1.html#example-1",
+    "href": "slides/week-2.1.html#example-1",
+    "title": "Bar Charts and Histograms",
+    "section": "Example",
+    "text": "Example"
+  },
+  {
+    "objectID": "slides/week-2.1.html#histogram-code",
+    "href": "slides/week-2.1.html#histogram-code",
+    "title": "Bar Charts and Histograms",
+    "section": "Histogram Code",
+    "text": "Histogram Code\n\n\n# load data\ndem_women &lt;- read_csv(\"data/dem_women.csv\")\n\n# filter to 2022\ndem_women_2022 &lt;- dem_women |&gt;\n  filter(year == 2022) \n\n# create histogram\nggplot(dem_women_2022, aes(x = flfp)) +\n  geom_histogram(fill = \"steelblue\") + \n  labs(\n    x = \"Percentage of Working Aged Women in Labor Force\",\n    y = \"Number of Countries\",\n    title = \"Female labor force participation rates, 2022\",\n    caption = \"Source: World Bank\"\n    ) + theme_minimal()"
+  },
+  {
+    "objectID": "slides/week-2.1.html#change-number-of-bins",
+    "href": "slides/week-2.1.html#change-number-of-bins",
+    "title": "Bar Charts and Histograms",
+    "section": "Change Number of Bins",
+    "text": "Change Number of Bins\n\nChange number of bins (bars) using bins or binwidth arguments (default number of bins = 30):\n\n\nggplot(dem_women_2022, aes(x = flfp)) +\n  geom_histogram(bins = 50, fill = \"steelblue\") + \n  labs(\n    x = \"Percentage of Working Aged Women in Labor Force\",\n    y = \"Number of Countries\",\n    title = \"Female labor force participation rates, 2022\",\n    caption = \"Source: World Bank\"\n    ) + theme_minimal()"
+  },
+  {
+    "objectID": "slides/week-2.1.html#section-20",
+    "href": "slides/week-2.1.html#section-20",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "At 50 bins…"
+  },
+  {
+    "objectID": "slides/week-2.1.html#section-21",
+    "href": "slides/week-2.1.html#section-21",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "At 100 bins…probably too many!"
+  },
+  {
+    "objectID": "slides/week-2.1.html#section-22",
+    "href": "slides/week-2.1.html#section-22",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "Using binwidth instead of bins…\n\n\nggplot(dem_women_2022, aes(x = flfp)) +\n  geom_histogram(binwidth = 2, fill = \"steelblue\") + \n  labs(\n    x = \"Percentage of Working Aged Women in Labor Force\",\n    y = \"Number of Countries\",\n    title = \"Female labor force participation rates, 2022\",\n    caption = \"Source: World Bank\"\n    ) + theme_minimal()"
+  },
+  {
+    "objectID": "slides/week-2.1.html#section-23",
+    "href": "slides/week-2.1.html#section-23",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "Setting binwidth to 2…"
+  },
+  {
+    "objectID": "slides/week-2.1.html#change-from-count-to-density",
+    "href": "slides/week-2.1.html#change-from-count-to-density",
+    "title": "Bar Charts and Histograms",
+    "section": "Change from Count to Density",
+    "text": "Change from Count to Density\n\n\nggplot(dem_women_2022, aes(after_stat(density), x = flfp)) +\n  geom_histogram(fill = \"steelblue\") + \n  labs(\n    x = \"Percentage of Working Aged Women in Labor Force\",\n    y = \"Density\",\n    title = \"Female labor force participation rates, 2022\",\n    caption = \"Source: World Bank\"\n    ) + theme_minimal()"
+  },
+  {
+    "objectID": "slides/week-2.1.html#section-24",
+    "href": "slides/week-2.1.html#section-24",
+    "title": "Bar Charts and Histograms",
+    "section": "",
+    "text": "Which gives us…"
+  },
+  {
+    "objectID": "slides/week-2.1.html#your-turn-1",
+    "href": "slides/week-2.1.html#your-turn-1",
+    "title": "Bar Charts and Histograms",
+    "section": "Your Turn!",
+    "text": "Your Turn!\n\nPick a variable that you want to explore the distribution of\nMake a histogram\n\nOnly specify x = in aes()\nSpecify geom as geom_histogram\n\nChoose color for bars\nChoose appropriate labels\nChange number of bins\nChange from count to density\n\n\n\n\n−+\n10:00"
+  },
+  {
     "objectID": "slides/week-2.2.html#links-to-classwork-folders",
     "href": "slides/week-2.2.html#links-to-classwork-folders",
     "title": "Line Charts & Scatter Plots",
@@ -3905,172 +4055,312 @@
     "text": "Could we improve the model?\n\n\nAre there predictors in the peacesciencer package that were not available to F&L?\nWould adding them improve the fit?\nAre there some predictors that should be removed?\n\n\n\n\n−+\n12:00"
   },
   {
-    "objectID": "slides/zz_wbdata.html#searching-for-wb-indicators",
-    "href": "slides/zz_wbdata.html#searching-for-wb-indicators",
-    "title": "World Bank Data",
-    "section": "Searching for WB Indicators",
-    "text": "Searching for WB Indicators\n\n\n# Load the wbstats package\nlibrary(wbstats)\n\n# store the list of indicators\nflfp_indicators &lt;- wb_search(\"female labor force\") \n\n# view the indicators\nprint(flfp_indicators,n = 26)"
+    "objectID": "slides/week-9.2.html#modeling",
+    "href": "slides/week-9.2.html#modeling",
+    "title": "Modeling",
+    "section": "Modeling",
+    "text": "Modeling\n\n\nUse models to explain the relationship between variables and to make predictions\nExplaining relationships [usually interested in causal relationships, but not always]\n\nDoes oil wealth impact regime type?\n\nPredictive modeling\n\nWhere is violence most likely to happen in [country X] during their next election?\nIs this email spam?"
   },
   {
-    "objectID": "slides/zz_wbdata.html#searching-for-wb-indicators-1",
-    "href": "slides/zz_wbdata.html#searching-for-wb-indicators-1",
-    "title": "World Bank Data",
-    "section": "Searching for WB Indicators",
-    "text": "Searching for WB Indicators\n\nSometimes it is easier to search using the WDI website."
+    "objectID": "slides/week-9.2.html#modeling-1",
+    "href": "slides/week-9.2.html#modeling-1",
+    "title": "Modeling",
+    "section": "Modeling",
+    "text": "Modeling"
   },
   {
-    "objectID": "slides/zz_wbdata.html#try-it-yourself",
-    "href": "slides/zz_wbdata.html#try-it-yourself",
-    "title": "World Bank Data",
-    "section": "Try it Yourself",
-    "text": "Try it Yourself\n\nStart a new Quarto document\nStart a new code chunk\nLoad the wbstats package\nUse wb_search() to find some indicators you are interested in\nCompare with a manual search on the WDI website\n\n\n\n\n−+\n05:00"
+    "objectID": "slides/week-9.2.html#modeling-2",
+    "href": "slides/week-9.2.html#modeling-2",
+    "title": "Modeling",
+    "section": "Modeling",
+    "text": "Modeling"
   },
   {
-    "objectID": "slides/zz_wbdata.html#the-wbdata-function",
-    "href": "slides/zz_wbdata.html#the-wbdata-function",
-    "title": "World Bank Data",
-    "section": "The wbdata() Function",
-    "text": "The wbdata() Function\n\nStore the list of indicators you want in an object and then use wb_data() to download the data:\n\n# load dplyr \nlibrary(dplyr) \n\n# store the list of indicators in an object\nindicators &lt;- c(\"flfp\" = \"SL.TLF.CACT.FE.ZS\", \"women_rep\" = \"SG.GEN.PARL.ZS\") \n\n# download the data \nwomen_emp &lt;- wb_data(indicators, mrv = 50) # download data for last 50 yrs\n\n# glimpse the data\nglimpse(women_emp)"
+    "objectID": "slides/week-9.2.html#pull-in-the-vdem-data",
+    "href": "slides/week-9.2.html#pull-in-the-vdem-data",
+    "title": "Modeling",
+    "section": "Pull in the VDEM Data",
+    "text": "Pull in the VDEM Data\n\nWhat is this code doing?\n\nlibrary(vdemdata)\n\nmodelData &lt;- vdem |&gt;\n  filter(year == 2019) |&gt; \n  select(\n    country = country_name, \n    lib_dem = v2x_libdem, \n    wealth = e_gdppc) |&gt;\n  mutate(log_wealth = log(wealth))\n\nglimpse(modelData)\n\nRows: 179\nColumns: 4\n$ country    &lt;chr&gt; \"Mexico\", \"Suriname\", \"Sweden\", \"Switzerland\", \"Ghana\", \"So…\n$ lib_dem    &lt;dbl&gt; 0.433, 0.593, 0.875, 0.870, 0.614, 0.601, 0.754, 0.267, 0.1…\n$ wealth     &lt;dbl&gt; 16.814, 11.752, 48.804, 56.110, 5.608, 11.345, 39.061, 5.69…\n$ log_wealth &lt;dbl&gt; 2.8222119, 2.4640234, 3.8878123, 4.0273140, 1.7241941, 2.42…"
   },
   {
-    "objectID": "slides/zz_wbdata.html#some-functions-for-wrangling-data",
-    "href": "slides/zz_wbdata.html#some-functions-for-wrangling-data",
-    "title": "World Bank Data",
-    "section": "Some Functions for Wrangling Data",
-    "text": "Some Functions for Wrangling Data\n\nFrom dplyr\n\nfilter() to filter observations (rows)\nselect() to select or drop variables (columns)\nmutate() to create new variables or modify existing ones\nrename() to rename variables\ncase_match() to recode variables\n\nFrom the janitor package\n\nclean_names() (used earlier)\nround_to_fraction() to round to nearest fraction"
+    "objectID": "slides/week-9.2.html#plot-the-relationship",
+    "href": "slides/week-9.2.html#plot-the-relationship",
+    "title": "Modeling",
+    "section": "Plot the Relationship",
+    "text": "Plot the Relationship"
   },
   {
-    "objectID": "slides/zz_wbdata.html#cleaning-the-wb-data",
-    "href": "slides/zz_wbdata.html#cleaning-the-wb-data",
-    "title": "World Bank Data",
-    "section": "Cleaning the WB Data",
-    "text": "Cleaning the WB Data\n\nUse select() to drop iso2c variable and rename() to rename date to year:\n\n# Load janitor\nlibrary(janitor) \n\n# Download the data  \nwomen_emp &lt;- women_emp |&gt; \n  select(!iso2c) |&gt; # drop the iso2c code which we won't be using\n  rename(year = date) |&gt; # rename date to year \n  mutate(\n    flfp = round_to_fraction(flfp, denominator = 100), # round to nearest 100th\n    women_rep = round_to_fraction(women_rep, denominator = 100) \n  )\n\n# View the data\nglimpse(women_emp)"
+    "objectID": "slides/week-9.2.html#plot-the-relationship-1",
+    "href": "slides/week-9.2.html#plot-the-relationship-1",
+    "title": "Modeling",
+    "section": "Plot the Relationship",
+    "text": "Plot the Relationship"
   },
   {
-    "objectID": "slides/zz_wbdata.html#cleaning-the-wb-data-1",
-    "href": "slides/zz_wbdata.html#cleaning-the-wb-data-1",
-    "title": "World Bank Data",
-    "section": "Cleaning the WB Data",
-    "text": "Cleaning the WB Data\n\nUse mutate() and round_to_fraction to round the flfp and women_rep variables to the nearest 100th:\n\n# Load janitor\nlibrary(janitor) \n\n# Download the data  \nwomen_emp &lt;- women_emp |&gt; \n  select(!iso2c) |&gt; # drop the iso2c code which we won't be using\n  rename(year = date) |&gt; # rename date to year \n  mutate(\n    flfp = round_to_fraction(flfp, denominator = 100), # round to nearest 100th\n    women_rep = round_to_fraction(women_rep, denominator = 100) \n  )\n\n# View the data\nglimpse(women_emp)"
+    "objectID": "slides/week-9.2.html#plot-the-relationship-2",
+    "href": "slides/week-9.2.html#plot-the-relationship-2",
+    "title": "Modeling",
+    "section": "Plot the Relationship",
+    "text": "Plot the Relationship\n\n\nggplot(modelData, aes(x = wealth, y = lib_dem)) +\n  geom_point() +\n  geom_smooth(method = \"lm\", color = \"#E48957\", se = FALSE) +\n  labs(x = \"GPD per capita\", y = \"Liberal Democracy Index\") +\n  theme_bw()"
   },
   {
-    "objectID": "slides/zz_wbdata.html#or-do-it-all-in-one-go",
-    "href": "slides/zz_wbdata.html#or-do-it-all-in-one-go",
-    "title": "World Bank Data",
-    "section": "Or Do it All in One Go",
-    "text": "Or Do it All in One Go\n\n\n# load th4e packages\nlibrary(janitor)\nlibrary(dplyr)\n\n# store the list of indicators in an object\nindicators &lt;- c(\"flfp\" = \"SL.TLF.CACT.FE.ZS\", \"women_rep\" = \"SG.GEN.PARL.ZS\") \n\n# Download the data  \nwomen_emp &lt;- wb_data(indicators, mrv = 50) |&gt; # download data for last 50 yrs\n  select(!iso2c) |&gt; # drop the iso2c code which we won't be using\n  rename(year = date) |&gt; # rename date to year \n  mutate(\n    flfp = round_to_fraction(flfp, denominator = 100), # round to nearest 100th\n    women_rep = round_to_fraction(women_rep, denominator = 100) \n  )\n\n# View the data\nglimpse(women_emp)"
+    "objectID": "slides/week-9.2.html#using-the-scales-package",
+    "href": "slides/week-9.2.html#using-the-scales-package",
+    "title": "Modeling",
+    "section": "Using the Scales Package",
+    "text": "Using the Scales Package"
   },
   {
-    "objectID": "slides/zz_wbdata.html#try-it-yourself-1",
-    "href": "slides/zz_wbdata.html#try-it-yourself-1",
-    "title": "World Bank Data",
-    "section": "Try it Yourself",
-    "text": "Try it Yourself\n\n\nUsing the variables you identified in your search, download the data\nThink about what elements of the code you need to change\nHint: the indicators are going to change!\n\n\n\n\n−+\n10:00\n\n\n\nexecute: echo: false message: false warning: false freeze: auto"
+    "objectID": "slides/week-9.2.html#using-the-scales-package-1",
+    "href": "slides/week-9.2.html#using-the-scales-package-1",
+    "title": "Modeling",
+    "section": "Using the Scales Package",
+    "text": "Using the Scales Package\n\n\nggplot(modelData, aes(x = wealth, y = lib_dem)) +\n  geom_point() +\n  geom_smooth(method = \"lm\", color = \"#E48957\", se = FALSE) +\n  scale_x_log10(label = scales::label_dollar(suffix = \"k\")) +\n  labs(\n    title = \"Wealth and Democracy, 2019\",\n    x = \"GPD per capita\", \n    y = \"Liberal Democracy Index\") +\n  theme_bw()"
   },
   {
-    "objectID": "slides/zz_tables2.html#lets-make-a-gt-table",
-    "href": "slides/zz_tables2.html#lets-make-a-gt-table",
-    "title": "gt Tables",
-    "section": "Let’s make a gt table",
-    "text": "Let’s make a gt table\nCreate states data frame…\n\n# lowest \nstate_min &lt;- quintiles |&gt; \n  slice_min(q1) \n\n# highest\nstate_max &lt;- quintiles |&gt; \n  slice_max(top5) \n\n# randomly select five more\nfive_more &lt;- quintiles |&gt;\n   slice_sample(n = 5) \n\nstates &lt;- bind_rows(state_min, state_max, five_more) |&gt;\n  arrange(desc(top5))\n\n\n\n\n−+\n10:00"
+    "objectID": "slides/week-9.2.html#models-as-functions",
+    "href": "slides/week-9.2.html#models-as-functions",
+    "title": "Modeling",
+    "section": "Models as Functions",
+    "text": "Models as Functions\n\n\nWe can represent relationships between variables using functions\nA function is a mathematical concept: the relationship between an output and one or more inputs\n\nPlug in the inputs and receive back the output\n\nExample: The formula \\(y = 3x + 7\\) is a function with input \\(x\\) and output \\(y\\).\n\nIf \\(x\\) is \\(5\\), \\(y\\) is \\(22\\),\n\\(y = 3 \\times 5 + 7 = 22\\)"
   },
   {
-    "objectID": "slides/zz_tables2.html#lets-make-a-gt-table-1",
-    "href": "slides/zz_tables2.html#lets-make-a-gt-table-1",
-    "title": "gt Tables",
-    "section": "Let’s make a gt table",
-    "text": "Let’s make a gt table\n\n\nlibrary(gt)\ngt(states)\n\n\n\n\n\n\n\nname\nq1\nq2\nq3\nq4\nq5\ntop5\n\n\n\n\nDistrict of Columbia\n12971\n51060\n94478\n157803\n375792\n670768\n\n\nWashington\n19367\n50803\n82817\n127003\n277165\n487950\n\n\nRhode Island\n15069\n42774\n74564\n115030\n242103\n424473\n\n\nNevada\n15024\n40468\n66247\n101591\n224480\n410161\n\n\nNebraska\n16506\n41590\n66977\n100910\n213091\n378679\n\n\nMaine\n14836\n38190\n63621\n97559\n205365\n359776\n\n\nPuerto Rico\n2906\n12144\n22163\n38397\n99043\n187234"
+    "objectID": "slides/week-9.2.html#quant-lingo",
+    "href": "slides/week-9.2.html#quant-lingo",
+    "title": "Modeling",
+    "section": "Quant Lingo",
+    "text": "Quant Lingo\n\n\n\nResponse variable: Variable whose behavior or variation you are trying to understand, on the y-axis in the plot\n\nDependent variable\nOutcome variable\nY variable\n\nExplanatory variables: Other variables that you want to use to explain the variation in the response, on the x-axis in the plot\n\nIndependent variables\nPredictors"
   },
   {
-    "objectID": "slides/zz_tables2.html#lets-make-a-good-gt-table",
-    "href": "slides/zz_tables2.html#lets-make-a-good-gt-table",
-    "title": "gt Tables",
-    "section": "Let’s make a good gt table",
-    "text": "Let’s make a good gt table\n\n\n\n\n\n\n\n\n\nMean Household Income of Quintiles, 2021\n\n\nSeven Representative U.S. States\n\n\n\nlowest\nsecond\nthird\nfourth\nhighest\ntop 5%\n\n\n\n\nDistrict of Columbia\n$12,971\n$51,060\n$94,478\n$157,803\n$375,792\n$670,768\n\n\nWashington\n$19,367\n$50,803\n$82,817\n$127,003\n$277,165\n$487,950\n\n\nRhode Island\n$15,069\n$42,774\n$74,564\n$115,030\n$242,103\n$424,473\n\n\nNevada\n$15,024\n$40,468\n$66,247\n$101,591\n$224,480\n$410,161\n\n\nNebraska\n$16,506\n$41,590\n$66,977\n$100,910\n$213,091\n$378,679\n\n\nMaine\n$14,836\n$38,190\n$63,621\n$97,559\n$205,365\n$359,776\n\n\nPuerto Rico\n$2,906\n$12,144\n$22,163\n$38,397\n$99,043\n$187,234\n\n\n\nSource: US Census Bureau, American Community Survey"
+    "objectID": "slides/week-9.2.html#section",
+    "href": "slides/week-9.2.html#section",
+    "title": "Modeling",
+    "section": "",
+    "text": "Linear model with one explanatory variable…\n\n\n\\(Y = a + bX\\)\n\\(Y\\) is the outcome variable\n\\(X\\) is the explanatory variable\n\\(a\\) is the intercept: the predicted value of \\(Y\\) when \\(X\\) is equal to 0\n\\(b\\) is the slope of the line [remember rise over run!]"
   },
   {
-    "objectID": "slides/zz_tables2.html#lets-make-a-good-gt-table-1",
-    "href": "slides/zz_tables2.html#lets-make-a-good-gt-table-1",
-    "title": "gt Tables",
-    "section": "Let’s make a good gt table",
-    "text": "Let’s make a good gt table\n\ngoodtable &lt;- gt(states) |&gt; \n  tab_header(\n    title = \"Mean Household Income of Quintiles, 2021\",\n    subtitle = \"Seven Representative U.S. States\"\n  ) |&gt; \n  cols_label(\n    name = \"\",\n    q1 = \"lowest\",\n    q2 = \"second\",\n    q3 = \"third\",\n    q4 = \"fourth\",\n    q5 = \"highest\",\n    top5 = \"top 5%\"\n  ) |&gt; \n  fmt_currency(\n    columns = c(q1:top5),\n    currency = \"USD\", \n    use_subunits = FALSE\n  ) |&gt;\n  # note that you can use markdown (md) to format the source note for html documents\n  tab_source_note(source_note = md(\"**Source**: US Census Bureau, American Community Survey\"))\n\ngoodtable\n\n\n\n\n−+\n10:00"
+    "objectID": "slides/week-9.2.html#quant-lingo-1",
+    "href": "slides/week-9.2.html#quant-lingo-1",
+    "title": "Modeling",
+    "section": "Quant Lingo",
+    "text": "Quant Lingo\n\n\n\nPredicted value: Output of the model function\n\nThe model function gives the typical (expected) value of the response variable conditioning on the explanatory variables\nWe often call this \\(\\hat{Y}\\) to differentiate the predicted value from an observed value of Y in the data\n\nResiduals: A measure of how far each case is from its predicted value (based on a particular model)\n\nResidual = Observed value (\\(Y\\)) - Predicted value (\\(\\hat{Y}\\))\nHow far above/below the expected value each case is"
   },
   {
-    "objectID": "slides/zz_tables2.html#change-colum-width",
-    "href": "slides/zz_tables2.html#change-colum-width",
-    "title": "gt Tables",
-    "section": "Change Colum Width",
-    "text": "Change Colum Width\n\n\n\n\n\n\n\n\n\nMean Household Income of Quintiles, 2021\n\n\nSeven Representative U.S. States\n\n\n\nlowest\nsecond\nthird\nfourth\nhighest\ntop 5%\n\n\n\n\nDistrict of Columbia\n$12,971\n$51,060\n$94,478\n$157,803\n$375,792\n$670,768\n\n\nWashington\n$19,367\n$50,803\n$82,817\n$127,003\n$277,165\n$487,950\n\n\nRhode Island\n$15,069\n$42,774\n$74,564\n$115,030\n$242,103\n$424,473\n\n\nNevada\n$15,024\n$40,468\n$66,247\n$101,591\n$224,480\n$410,161\n\n\nNebraska\n$16,506\n$41,590\n$66,977\n$100,910\n$213,091\n$378,679\n\n\nMaine\n$14,836\n$38,190\n$63,621\n$97,559\n$205,365\n$359,776\n\n\nPuerto Rico\n$2,906\n$12,144\n$22,163\n$38,397\n$99,043\n$187,234\n\n\n\nSource: US Census Bureau, American Community Survey"
+    "objectID": "slides/week-9.2.html#residuals",
+    "href": "slides/week-9.2.html#residuals",
+    "title": "Modeling",
+    "section": "Residuals",
+    "text": "Residuals"
   },
   {
-    "objectID": "slides/zz_tables2.html#change-colum-width-1",
-    "href": "slides/zz_tables2.html#change-colum-width-1",
-    "title": "gt Tables",
-    "section": "Change Colum Width",
-    "text": "Change Colum Width\n\n\nvgoodtable &lt;- goodtable |&gt;\n  cols_width(c(q1:top5) ~ px(90))\n\nvgoodtable"
+    "objectID": "slides/week-9.2.html#linear-model",
+    "href": "slides/week-9.2.html#linear-model",
+    "title": "Modeling",
+    "section": "Linear Model",
+    "text": "Linear Model\n\\(\\hat{Y} = a  + b \\times X\\)\n\\(\\hat{Y} = 0.13  + 0.12 \\times X\\)"
   },
   {
-    "objectID": "slides/zz_tables2.html#change-font",
-    "href": "slides/zz_tables2.html#change-font",
-    "title": "gt Tables",
-    "section": "Change Font",
-    "text": "Change Font\n\n\n\n\n\n\n\n\n\nMean Household Income of Quintiles, 2021\n\n\nSeven Representative U.S. States\n\n\n\nlowest\nsecond\nthird\nfourth\nhighest\ntop 5%\n\n\n\n\nDistrict of Columbia\n$12,971\n$51,060\n$94,478\n$157,803\n$375,792\n$670,768\n\n\nWashington\n$19,367\n$50,803\n$82,817\n$127,003\n$277,165\n$487,950\n\n\nRhode Island\n$15,069\n$42,774\n$74,564\n$115,030\n$242,103\n$424,473\n\n\nNevada\n$15,024\n$40,468\n$66,247\n$101,591\n$224,480\n$410,161\n\n\nNebraska\n$16,506\n$41,590\n$66,977\n$100,910\n$213,091\n$378,679\n\n\nMaine\n$14,836\n$38,190\n$63,621\n$97,559\n$205,365\n$359,776\n\n\nPuerto Rico\n$2,906\n$12,144\n$22,163\n$38,397\n$99,043\n$187,234\n\n\n\nSource: US Census Bureau, American Community Survey"
+    "objectID": "slides/week-9.2.html#linear-model-interpretation",
+    "href": "slides/week-9.2.html#linear-model-interpretation",
+    "title": "Modeling",
+    "section": "Linear Model: Interpretation",
+    "text": "Linear Model: Interpretation\n\n\\(\\hat{Y} = a  + b \\times X\\)\n\\(\\hat{Y} = 0.13  + 0.12 \\times X\\)\nWhat is the interpretation of our estimate of \\(a\\)?\n\n\n\\(\\hat{Y} = 0.13  + 0.12 \\times 0\\)\n\\(\\hat{Y} = 0.13\\)\n\\(a\\) is our predicted level of democracy when GDP per capita is 0."
   },
   {
-    "objectID": "slides/zz_tables2.html#change-font-1",
-    "href": "slides/zz_tables2.html#change-font-1",
-    "title": "gt Tables",
-    "section": "Change Font",
-    "text": "Change Font\n\n\ngreattable &lt;- vgoodtable |&gt;\n  opt_table_font(font = \"verdana\")\n\ngreattable"
+    "objectID": "slides/week-9.2.html#linear-model-interpretation-1",
+    "href": "slides/week-9.2.html#linear-model-interpretation-1",
+    "title": "Modeling",
+    "section": "Linear Model: Interpretation",
+    "text": "Linear Model: Interpretation\n\n\\(\\hat{Y} = a  + b \\times X\\)\n\\(\\hat{Y} = 0.13  + 0.12 \\times X\\)\nWhat is interpretation of our estimate of \\(b\\)?\n\n\n\\(\\hat{Y} = a  + \\frac{Rise}{Run} \\times X\\)\n\\(\\hat{Y} = a  + \\frac{Change Y}{Change X} \\times X\\)"
   },
   {
-    "objectID": "slides/zz_tables2.html#center",
-    "href": "slides/zz_tables2.html#center",
-    "title": "gt Tables",
-    "section": "Center",
-    "text": "Center\n\n\n\n\n\n\n\n\n\nMean Household Income of Quintiles, 2021\n\n\nSeven Representative U.S. States\n\n\n\nlowest\nsecond\nthird\nfourth\nhighest\ntop 5%\n\n\n\n\nDistrict of Columbia\n$12,971\n$51,060\n$94,478\n$157,803\n$375,792\n$670,768\n\n\nWashington\n$19,367\n$50,803\n$82,817\n$127,003\n$277,165\n$487,950\n\n\nRhode Island\n$15,069\n$42,774\n$74,564\n$115,030\n$242,103\n$424,473\n\n\nNevada\n$15,024\n$40,468\n$66,247\n$101,591\n$224,480\n$410,161\n\n\nNebraska\n$16,506\n$41,590\n$66,977\n$100,910\n$213,091\n$378,679\n\n\nMaine\n$14,836\n$38,190\n$63,621\n$97,559\n$205,365\n$359,776\n\n\nPuerto Rico\n$2,906\n$12,144\n$22,163\n$38,397\n$99,043\n$187,234\n\n\n\nSource: US Census Bureau, American Community Survey"
+    "objectID": "slides/week-9.2.html#linear-model-interpretation-2",
+    "href": "slides/week-9.2.html#linear-model-interpretation-2",
+    "title": "Modeling",
+    "section": "Linear Model: Interpretation",
+    "text": "Linear Model: Interpretation\n\n\\(b = \\frac{Change Y}{Change X}\\)\n\\(0.12 = \\frac{Change Y}{Change X}\\)\n\\({Change Y} = 0.12 * {ChangeX}\\)\n\n\nWhen \\(ChangeX = 1\\):\n\\({Change Y = 0.12}\\)\n\n\n\n\\(b\\) is the predicted change in \\(Y\\) associated with a ONE unit change in X."
   },
   {
-    "objectID": "slides/zz_tables2.html#center-1",
-    "href": "slides/zz_tables2.html#center-1",
-    "title": "gt Tables",
-    "section": "Center",
-    "text": "Center\n\n\nvgreattable &lt;- greattable |&gt;\n  cols_align(\n  align = \"center\",\n  columns = q1:top5\n)\n\nvgreattable"
+    "objectID": "slides/week-9.2.html#linear-model-interpretation-3",
+    "href": "slides/week-9.2.html#linear-model-interpretation-3",
+    "title": "Modeling",
+    "section": "Linear Model: Interpretation",
+    "text": "Linear Model: Interpretation"
   },
   {
-    "objectID": "slides/zz_tables2.html#add-borders-and-lines",
-    "href": "slides/zz_tables2.html#add-borders-and-lines",
-    "title": "gt Tables",
-    "section": "Add Borders and Lines",
-    "text": "Add Borders and Lines\n\n\n\n\n\n\n\n\n\nMean Household Income of Quintiles, 2021\n\n\nSeven Representative U.S. States\n\n\n\nlowest\nsecond\nthird\nfourth\nhighest\ntop 5%\n\n\n\n\nDistrict of Columbia\n$12,971\n$51,060\n$94,478\n$157,803\n$375,792\n$670,768\n\n\nWashington\n$19,367\n$50,803\n$82,817\n$127,003\n$277,165\n$487,950\n\n\nRhode Island\n$15,069\n$42,774\n$74,564\n$115,030\n$242,103\n$424,473\n\n\nNevada\n$15,024\n$40,468\n$66,247\n$101,591\n$224,480\n$410,161\n\n\nNebraska\n$16,506\n$41,590\n$66,977\n$100,910\n$213,091\n$378,679\n\n\nMaine\n$14,836\n$38,190\n$63,621\n$97,559\n$205,365\n$359,776\n\n\nPuerto Rico\n$2,906\n$12,144\n$22,163\n$38,397\n$99,043\n$187,234\n\n\n\nSource: US Census Bureau, American Community Survey"
+    "objectID": "slides/week-9.2.html#linear-model-interpretation-4",
+    "href": "slides/week-9.2.html#linear-model-interpretation-4",
+    "title": "Modeling",
+    "section": "Linear Model: Interpretation",
+    "text": "Linear Model: Interpretation"
   },
   {
-    "objectID": "slides/zz_tables2.html#export-table",
-    "href": "slides/zz_tables2.html#export-table",
-    "title": "gt Tables",
-    "section": "Export Table",
-    "text": "Export Table\n\n\ngtsave(awesometable, \"awesometable.png\")"
+    "objectID": "slides/week-9.2.html#linear-model-interpretation-5",
+    "href": "slides/week-9.2.html#linear-model-interpretation-5",
+    "title": "Modeling",
+    "section": "Linear Model: Interpretation",
+    "text": "Linear Model: Interpretation"
   },
   {
-    "objectID": "slides/zz_tables2.html#not-a-good-table",
-    "href": "slides/zz_tables2.html#not-a-good-table",
-    "title": "gt Tables",
-    "section": "Not a Good Table",
-    "text": "Not a Good Table\n\n\n\n\n\nname\nestimate\nlower_90\nupper_90\n\n\n\n\nBarnstable\n40442\n39554\n41330\n\n\nBerkshire\n33040\n32074\n34006\n\n\nBristol\n36910\n36347\n37473\n\n\nDukes\n40119\n34791\n45447\n\n\nEssex\n39756\n39174\n40338\n\n\nFranklin\n34775\n33712\n35838\n\n\nHampden\n32262\n31707\n32817\n\n\nHampshire\n30795\n29868\n31722\n\n\nMiddlesex\n51808\n51337\n52279\n\n\nNantucket\n45717\n38260\n53174\n\n\nNorfolk\n52591\n51991\n53191\n\n\nPlymouth\n43684\n43014\n44354\n\n\nSuffolk\n39200\n38624\n39776\n\n\nWorcester\n39009\n38454\n39564"
+    "objectID": "slides/week-9.2.html#linear-model-interpretation-6",
+    "href": "slides/week-9.2.html#linear-model-interpretation-6",
+    "title": "Modeling",
+    "section": "Linear Model: Interpretation",
+    "text": "Linear Model: Interpretation\n\nIs this the causal effect of GDP per capita on liberal democracy?\n\n\nNo! It is only the association…\n\n\n\nTo identify causality we need other methods (beyond the scope of this course)."
   },
   {
-    "objectID": "slides/zz_tables2.html#use-confidence-intervals-instead",
-    "href": "slides/zz_tables2.html#use-confidence-intervals-instead",
-    "title": "gt Tables",
-    "section": "Use Confidence Intervals Instead",
-    "text": "Use Confidence Intervals Instead"
+    "objectID": "slides/week-9.2.html#your-task",
+    "href": "slides/week-9.2.html#your-task",
+    "title": "Modeling",
+    "section": "Your Task",
+    "text": "Your Task\n\nAn economist is interested in the relationship between years of education and hourly wages. They estimate a linear model with estimates of \\(a\\) and \\(b\\) as follows:\n\n\\(\\hat{Y} = 9 + 1.60*{YrsEdu}\\)\n\n1. Interpret \\(a\\) and \\(b\\)\n2. What is the predicted hourly wage for those with 10 years of education?"
   },
   {
-    "objectID": "slides/zz_tables2.html#use-confidence-intervals-instead-1",
-    "href": "slides/zz_tables2.html#use-confidence-intervals-instead-1",
-    "title": "gt Tables",
-    "section": "Use Confidence Intervals Instead",
-    "text": "Use Confidence Intervals Instead\n\nlibrary(ggplot2)\n\nmass_med_inc |&gt;\n  ggplot(aes(x = estimate, y = reorder(name, estimate))) +\n  geom_errorbar(aes(xmin = lower_90, xmax = upper_90)) +\n  geom_point(color = \"red\", size = 2) +\n  labs(title = \"Household income by county in Massachusetts\",\n       subtitle = \"2017-2021 American Community Survey\",\n       y = \"\",\n       x = \"Median Income\", \n       caption = \"ACS estimate (bars represent 90% confidence intervals)\") +\n  theme_minimal()"
+    "objectID": "slides/week-9.2.html#next-step",
+    "href": "slides/week-9.2.html#next-step",
+    "title": "Modeling",
+    "section": "Next step",
+    "text": "Next step\n\n\nLinear model with one predictor: \\(Y = a + bX\\)\nFor any given data…\nHow do we figure out what the best values are for \\(a\\) and \\(b\\)??"
+  },
+  {
+    "objectID": "slides/week-11.1..html#oil-wealth-and-democracy",
+    "href": "slides/week-11.1..html#oil-wealth-and-democracy",
+    "title": "Interactions and Nonlinear Relationships",
+    "section": "Oil Wealth and Democracy",
+    "text": "Oil Wealth and Democracy\nPolitical Resource Curse"
+  },
+  {
+    "objectID": "slides/week-11.1..html#set-up-data-use-the-year-2005",
+    "href": "slides/week-11.1..html#set-up-data-use-the-year-2005",
+    "title": "Interactions and Nonlinear Relationships",
+    "section": "Set up data: Use the year 2005",
+    "text": "Set up data: Use the year 2005\n\noilData &lt;- vdem %&gt;% \n  filter(year == 2005) %&gt;% \n  select(country_name, v2x_libdem, e_gdppc, v2cacamps, e_total_oil_income_pc, v2x_corr, v2pepwrgen, v2clgencl) %&gt;% \n  mutate(lg_gdppc = log(e_gdppc))"
+  },
+  {
+    "objectID": "slides/week-11.1..html#distribution-of-oil-wealth-per-capita",
+    "href": "slides/week-11.1..html#distribution-of-oil-wealth-per-capita",
+    "title": "Interactions and Nonlinear Relationships",
+    "section": "Distribution of Oil Wealth per Capita",
+    "text": "Distribution of Oil Wealth per Capita"
+  },
+  {
+    "objectID": "slides/week-11.1..html#create-a-dummy-variable-for-high-oil-wealth",
+    "href": "slides/week-11.1..html#create-a-dummy-variable-for-high-oil-wealth",
+    "title": "Interactions and Nonlinear Relationships",
+    "section": "Create a Dummy Variable for High Oil Wealth",
+    "text": "Create a Dummy Variable for High Oil Wealth\n\noilData &lt;- oilData %&gt;% \n  mutate(\n        oil = ifelse(e_total_oil_income_pc &gt; 152, 1, 0),\n         oil = factor(oil, labels=c(\"No Oil Wealth\", \"Oil Wealth\"))\n        ) %&gt;% \n  filter(oil == \"No Oil Wealth\" | oil == \"Oil Wealth\")\ntable(oilData$oil)\n\n\nNo Oil Wealth    Oil Wealth \n          122            41"
+  },
+  {
+    "objectID": "slides/week-11.1..html#democracy-gdp-per-capita-and-oil-wealth",
+    "href": "slides/week-11.1..html#democracy-gdp-per-capita-and-oil-wealth",
+    "title": "Interactions and Nonlinear Relationships",
+    "section": "Democracy, GDP per Capita, and Oil Wealth",
+    "text": "Democracy, GDP per Capita, and Oil Wealth\nHow should we interpret this graph?"
+  },
+  {
+    "objectID": "slides/week-11.1..html#model-with-oil-and-gdp-per-capita-no-interaction",
+    "href": "slides/week-11.1..html#model-with-oil-and-gdp-per-capita-no-interaction",
+    "title": "Interactions and Nonlinear Relationships",
+    "section": "Model with Oil and GDP per Capita, No Interaction",
+    "text": "Model with Oil and GDP per Capita, No Interaction\nWhat is correct interpretation?\n\nlinear_reg() %&gt;%\n  set_engine(\"lm\") %&gt;%\n  fit(v2x_libdem ~ lg_gdppc + oil, data = oilData) %&gt;% \n  tidy()\n\n# A tibble: 3 × 5\n  term          estimate std.error statistic  p.value\n  &lt;chr&gt;            &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)      0.160    0.0318      5.02 1.36e- 6\n2 lg_gdppc         0.152    0.0144     10.5  4.53e-20\n3 oilOil Wealth   -0.233    0.0395     -5.90 2.08e- 8"
+  },
+  {
+    "objectID": "slides/week-11.1..html#interaction-model",
+    "href": "slides/week-11.1..html#interaction-model",
+    "title": "Interactions and Nonlinear Relationships",
+    "section": "Interaction Model",
+    "text": "Interaction Model\n\nDoes GDP per capita have a different relationship to democracy in Oil rich versus non-Oil rich countries?"
+  },
+  {
+    "objectID": "slides/week-11.1..html#interaction-model-1",
+    "href": "slides/week-11.1..html#interaction-model-1",
+    "title": "Interactions and Nonlinear Relationships",
+    "section": "Interaction Model",
+    "text": "Interaction Model\n\n\\(Y_i = a + b_1 * GDPpc + b_2 * Oil + b_3 * GDPpc * Oil\\)\n\n\n\n\\(b_3 * GDPpc * OilWealth\\) captures the interaction"
+  },
+  {
+    "objectID": "slides/week-11.1..html#interaction-model-interpretation",
+    "href": "slides/week-11.1..html#interaction-model-interpretation",
+    "title": "Interactions and Nonlinear Relationships",
+    "section": "Interaction Model: Interpretation",
+    "text": "Interaction Model: Interpretation\n\nHow should we interpret \\(a\\)?\n\\(Y_i = a + b_1 * GDPpc + b_2 * Oil + b_3 * GDPpc * Oil\\)\n\n\n\n\\(a\\) is predicted level of democracy where GDPpc = 0 and Oil Wealth = 0"
+  },
+  {
+    "objectID": "slides/week-11.1..html#interaction-model-interpretation-1",
+    "href": "slides/week-11.1..html#interaction-model-interpretation-1",
+    "title": "Interactions and Nonlinear Relationships",
+    "section": "Interaction Model: Interpretation",
+    "text": "Interaction Model: Interpretation\n\nWhat happens if we set Oil Wealth to 0?\n\\(Y_i = a + b_1 * GDPpc + b_2 * Oil + b_3 * GDPpc * Oil\\)\n\\(Y_i = a + b_1 * GDPpc + b_2 * 0 + b_3 * GDPpc * 0\\)\n\\(Y_i = a + b_1 * GDPpc\\)\n\n\n\n\\(b_1\\) is the association between GDP per capita and democracy, when oil wealth = 0"
+  },
+  {
+    "objectID": "slides/week-11.1..html#interaction-model-interpretation-2",
+    "href": "slides/week-11.1..html#interaction-model-interpretation-2",
+    "title": "Interactions and Nonlinear Relationships",
+    "section": "Interaction Model: Interpretation",
+    "text": "Interaction Model: Interpretation\n\nWhat happens if we set GDPpc to 0?\n\\(Y_i = a + b_1 * GDPpc + b_2 * Oil + b_3 * GDPpc * Oil\\)\n\\(Y_i = a + b_1 * 0 + b_2 * Oil + b_3 * Oil * 0\\)\n\\(Y_i = a + b_2 * Oil\\)\n\\(b_2\\) is the association between oil and democracy, when GDP per capita = 0"
+  },
+  {
+    "objectID": "slides/week-11.1..html#interaction-model-interpretation-3",
+    "href": "slides/week-11.1..html#interaction-model-interpretation-3",
+    "title": "Interactions and Nonlinear Relationships",
+    "section": "Interaction Model: Interpretation",
+    "text": "Interaction Model: Interpretation\n\nWhat happens if we set Oil Wealth to 1?\n\\(Y_i = a + b_1 * GDPpc + b_2 * 1 + b_3 * GDPpc * 1\\)\nRearrange: \\(Y_i = a + (b_1 + b_3) * GDPpc + b_2 * 1\\)\n\n\n\n\\(b_1 + b_3\\) is the association between GDP per capita and democracy, when oil wealth = 1"
+  },
+  {
+    "objectID": "slides/week-11.1..html#run-the-interaction-model",
+    "href": "slides/week-11.1..html#run-the-interaction-model",
+    "title": "Interactions and Nonlinear Relationships",
+    "section": "Run the Interaction Model",
+    "text": "Run the Interaction Model\nWhat is correct interpretation of each coefficient?\n\nlinear_reg() %&gt;%\n  set_engine(\"lm\") %&gt;%\n  fit(v2x_libdem ~ lg_gdppc*oil, data = oilData) %&gt;% \n  tidy()\n\n# A tibble: 4 × 5\n  term                   estimate std.error statistic  p.value\n  &lt;chr&gt;                     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)              0.138     0.0342     4.03  8.51e- 5\n2 lg_gdppc                 0.164     0.0160    10.2   3.25e-19\n3 oilOil Wealth           -0.0850    0.0951    -0.893 3.73e- 1\n4 lg_gdppc:oilOil Wealth  -0.0607    0.0355    -1.71  8.88e- 2"
+  },
+  {
+    "objectID": "slides/week-11.1..html#interpretation",
+    "href": "slides/week-11.1..html#interpretation",
+    "title": "Interactions and Nonlinear Relationships",
+    "section": "Interpretation",
+    "text": "Interpretation\n\\(\\hat{Y_i}\\) = .138 + .164 * \\(GDPpc_i\\) + (-0.085) * \\(Oil_i\\) + (-0.0607) * \\(GDPpc_i\\) * \\(Oil_i\\)\n\n\nRelationship without oil: \\(0.164\\)\nRelationship with oil: \\(0.164 + (-0.0607) = 0.164 -0.0607 = 0.1033\\)"
+  },
+  {
+    "objectID": "slides/week-11.1..html#is-this-difference-due-to-chance",
+    "href": "slides/week-11.1..html#is-this-difference-due-to-chance",
+    "title": "Interactions and Nonlinear Relationships",
+    "section": "Is this difference due to chance?",
+    "text": "Is this difference due to chance?\n\nDoes GDP have a lower relationship to democracy in oil rich countries?\nIs 0.164 without oil different from 0.1033 with oil?\n\n\n\nWhat is the null hypothesis? What is the alternative?"
+  },
+  {
+    "objectID": "slides/week-11.1..html#is-this-difference-due-to-chance-1",
+    "href": "slides/week-11.1..html#is-this-difference-due-to-chance-1",
+    "title": "Interactions and Nonlinear Relationships",
+    "section": "Is this difference due to chance?",
+    "text": "Is this difference due to chance?\n\nlinear_reg() %&gt;%\n  set_engine(\"lm\") %&gt;%\n  fit(v2x_libdem ~ lg_gdppc*oil, data = oilData) %&gt;% \n  tidy(conf.int=TRUE) %&gt;% \n  filter(term == \"lg_gdppc:oilOil Wealth\") %&gt;% \n  select(term, estimate, std.error, p.value, conf.low, conf.high) %&gt;%   \n  mutate(across(where(is.numeric), round, 3))\n\n# A tibble: 1 × 6\n  term                   estimate std.error p.value conf.low conf.high\n  &lt;chr&gt;                     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;\n1 lg_gdppc:oilOil Wealth   -0.061     0.035   0.089   -0.131     0.009"
+  },
+  {
+    "objectID": "slides/week-11.1..html#is-this-difference-due-to-chance-2",
+    "href": "slides/week-11.1..html#is-this-difference-due-to-chance-2",
+    "title": "Interactions and Nonlinear Relationships",
+    "section": "Is this difference due to chance?",
+    "text": "Is this difference due to chance?\n\n95% Confidence Interval: [-0.131, 0.009]: mostly negative\np-value of interaction term: 0.089\n\nthis is higher that 0.05, but close and remember that the cutoff is arbitrary"
+  },
+  {
+    "objectID": "slides/week-11.1..html#your-turn-oil-wealth-and-womens-civil-liberties",
+    "href": "slides/week-11.1..html#your-turn-oil-wealth-and-womens-civil-liberties",
+    "title": "Interactions and Nonlinear Relationships",
+    "section": "Your Turn: Oil Wealth and Women’s Civil Liberties",
+    "text": "Your Turn: Oil Wealth and Women’s Civil Liberties\n\nV-Dem has a variable capturing respect for women’s civil liberties -v2clgencl\nHow do GDP per capita and oil wealth relate to women’s civil liberties?\nFirst, use oilData to create a scatterplot that visualizes this relationship.\nSecond, fit an interaction model (oil X GDP per capita) predicting women’s civil liberties\nInterpret each of the coefficients and the intercept\nWhat is your overall conclusion(s) from this model?"
+  },
+  {
+    "objectID": "slides/week-11.1..html#your-turn-oil-wealth-and-womens-civil-liberties-1",
+    "href": "slides/week-11.1..html#your-turn-oil-wealth-and-womens-civil-liberties-1",
+    "title": "Interactions and Nonlinear Relationships",
+    "section": "Your Turn: Oil Wealth and Women’s Civil Liberties",
+    "text": "Your Turn: Oil Wealth and Women’s Civil Liberties"
+  },
+  {
+    "objectID": "slides/week-11.1..html#your-turn-oil-wealth-and-womens-civil-liberties-2",
+    "href": "slides/week-11.1..html#your-turn-oil-wealth-and-womens-civil-liberties-2",
+    "title": "Interactions and Nonlinear Relationships",
+    "section": "Your Turn: Oil Wealth and Women’s Civil Liberties",
+    "text": "Your Turn: Oil Wealth and Women’s Civil Liberties\n\nlinear_reg() %&gt;%\n  set_engine(\"lm\") %&gt;%\n  fit(v2clgencl ~ lg_gdppc*oil, data = oilData) %&gt;% \n  tidy()\n\n# A tibble: 4 × 5\n  term                   estimate std.error statistic  p.value\n  &lt;chr&gt;                     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)               0.489    0.167      2.93  3.87e- 3\n2 lg_gdppc                  0.548    0.0781     7.02  6.22e-11\n3 oilOil Wealth            -0.305    0.464     -0.657 5.12e- 1\n4 lg_gdppc:oilOil Wealth   -0.237    0.173     -1.37  1.73e- 1"
   },
   {
     "objectID": "project/project-description.html",
@@ -4221,14 +4511,14 @@
     "href": "modules/module-4.11.html#explore-the-data-with-kableextra",
     "title": "Module 4.1",
     "section": "Explore the data with kableExtra",
-    "text": "Explore the data with kableExtra\n\nNow let’s use some dplyr slice functions and kableExtra to subset and explore the data. First let’s see which are the wealthiest states. To do this, we can apply slice_max() to identify the states with the highest incomes among the top 5 percent of wage earners. We will save that list as an object called top_10 and then call kable() to view it.\n\nlibrary(kableExtra)\n\ntop_10 &lt;- quintiles |&gt;\n  slice_max(top5, n = 10)\n\nkable(top_10)\n\n\n\nname\nq1\nq2\nq3\nq4\nq5\ntop5\n\n\n\nDistrict of Columbia\n12971\n51060\n94478\n157803\n375792\n670768\n\n\nConnecticut\n17417\n48870\n84042\n133488\n319533\n602707\n\n\nNew York\n14054\n42220\n75647\n123318\n302676\n574063\n\n\nNew Jersey\n18458\n52339\n90337\n142858\n319140\n562886\n\n\nMassachusetts\n16812\n50519\n89602\n142491\n316447\n558616\n\n\nCalifornia\n17433\n49234\n84658\n134560\n309857\n555007\n\n\nMaryland\n19946\n55165\n91725\n140353\n293979\n503597\n\n\nWashington\n19367\n50803\n82817\n127003\n277165\n487950\n\n\nVirginia\n17922\n48359\n81072\n127411\n280299\n486006\n\n\nIllinois\n15102\n42688\n72900\n114531\n258373\n466713\n\n\n\n\n\nNow let’s do the same thing but searching for the poorest states instead. We will use the slice_min() function to identify the states with the lowest incomes in the first quintile of earners.\n\nbottom_10 &lt;- quintiles |&gt;\n  slice_min(q1, n = 10)\n\nkable(bottom_10)\n\n\n\nname\nq1\nq2\nq3\nq4\nq5\ntop5\n\n\n\nPuerto Rico\n2906\n12144\n22163\n38397\n99043\n187234\n\n\nMississippi\n10096\n27963\n49418\n80125\n175581\n308523\n\n\nLouisiana\n10371\n29781\n53925\n89536\n201514\n357026\n\n\nNew Mexico\n11058\n31274\n54295\n86905\n188282\n323568\n\n\nWest Virginia\n11120\n29606\n51038\n81393\n174019\n299882\n\n\nAlabama\n11602\n31928\n55270\n88640\n193311\n336788\n\n\nKentucky\n11846\n32616\n55838\n88089\n194168\n350411\n\n\nArkansas\n12076\n31051\n52280\n82811\n188510\n344470\n\n\nSouth Carolina\n12680\n34881\n58665\n92118\n207367\n374427\n\n\nDistrict of Columbia\n12971\n51060\n94478\n157803\n375792\n670768\n\n\n\n\n\nOK now let’s make a table with a selection of states that reflects the full range of household incomes. So first, we will use slice_min() and slice_max() without arguments to select the state with the poorest households in q1 and the state with the wealthiest households in top5. The we will use slice_sample() to take a random sample of five additional states.\nWe will store these selections in three objects and then combine them into a single data frame called states using the dplyr function bind_rows. bind_rows() appends data frames with different observations for the same set of columns. You can think of its a kind of “verticle merging” of data frames.\nAfter we have done the append, we can view the new data by calling kable(states).\n\n# lowest \nstate_min &lt;- quintiles |&gt; \n  slice_min(q1) \n\n# highest\nstate_max &lt;- quintiles |&gt; \n  slice_max(top5) \n\n# randomly select five more\nfive_more &lt;- quintiles |&gt;\n   slice_sample(n = 5) \n\nstates &lt;- bind_rows(state_min, state_max, five_more) |&gt;\n  arrange(desc(top5))\n\nkable(states)\n\n\n\nname\nq1\nq2\nq3\nq4\nq5\ntop5\n\n\n\nDistrict of Columbia\n12971\n51060\n94478\n157803\n375792\n670768\n\n\nMassachusetts\n16812\n50519\n89602\n142491\n316447\n558616\n\n\nNorth Dakota\n15507\n41406\n68558\n104602\n217143\n380261\n\n\nNebraska\n16506\n41590\n66977\n100910\n213091\n378679\n\n\nWisconsin\n16787\n41986\n67417\n101424\n211049\n371015\n\n\nSouth Dakota\n16002\n39619\n64234\n95810\n200212\n358060\n\n\nPuerto Rico\n2906\n12144\n22163\n38397\n99043\n187234"
+    "text": "Explore the data with kableExtra\n\nNow let’s use some dplyr slice functions and kableExtra to subset and explore the data. First let’s see which are the wealthiest states. To do this, we can apply slice_max() to identify the states with the highest incomes among the top 5 percent of wage earners. We will save that list as an object called top_10 and then call kable() to view it.\n\nlibrary(kableExtra)\n\ntop_10 &lt;- quintiles |&gt;\n  slice_max(top5, n = 10)\n\nkable(top_10)\n\n\n\nname\nq1\nq2\nq3\nq4\nq5\ntop5\n\n\n\nDistrict of Columbia\n12971\n51060\n94478\n157803\n375792\n670768\n\n\nConnecticut\n17417\n48870\n84042\n133488\n319533\n602707\n\n\nNew York\n14054\n42220\n75647\n123318\n302676\n574063\n\n\nNew Jersey\n18458\n52339\n90337\n142858\n319140\n562886\n\n\nMassachusetts\n16812\n50519\n89602\n142491\n316447\n558616\n\n\nCalifornia\n17433\n49234\n84658\n134560\n309857\n555007\n\n\nMaryland\n19946\n55165\n91725\n140353\n293979\n503597\n\n\nWashington\n19367\n50803\n82817\n127003\n277165\n487950\n\n\nVirginia\n17922\n48359\n81072\n127411\n280299\n486006\n\n\nIllinois\n15102\n42688\n72900\n114531\n258373\n466713\n\n\n\n\n\nNow let’s do the same thing but searching for the poorest states instead. We will use the slice_min() function to identify the states with the lowest incomes in the first quintile of earners.\n\nbottom_10 &lt;- quintiles |&gt;\n  slice_min(q1, n = 10)\n\nkable(bottom_10)\n\n\n\nname\nq1\nq2\nq3\nq4\nq5\ntop5\n\n\n\nPuerto Rico\n2906\n12144\n22163\n38397\n99043\n187234\n\n\nMississippi\n10096\n27963\n49418\n80125\n175581\n308523\n\n\nLouisiana\n10371\n29781\n53925\n89536\n201514\n357026\n\n\nNew Mexico\n11058\n31274\n54295\n86905\n188282\n323568\n\n\nWest Virginia\n11120\n29606\n51038\n81393\n174019\n299882\n\n\nAlabama\n11602\n31928\n55270\n88640\n193311\n336788\n\n\nKentucky\n11846\n32616\n55838\n88089\n194168\n350411\n\n\nArkansas\n12076\n31051\n52280\n82811\n188510\n344470\n\n\nSouth Carolina\n12680\n34881\n58665\n92118\n207367\n374427\n\n\nDistrict of Columbia\n12971\n51060\n94478\n157803\n375792\n670768\n\n\n\n\n\nOK now let’s make a table with a selection of states that reflects the full range of household incomes. So first, we will use slice_min() and slice_max() without arguments to select the state with the poorest households in q1 and the state with the wealthiest households in top5. The we will use slice_sample() to take a random sample of five additional states.\nWe will store these selections in three objects and then combine them into a single data frame called states using the dplyr function bind_rows. bind_rows() appends data frames with different observations for the same set of columns. You can think of its a kind of “verticle merging” of data frames.\nAfter we have done the append, we can view the new data by calling kable(states).\n\n# lowest \nstate_min &lt;- quintiles |&gt; \n  slice_min(q1) \n\n# highest\nstate_max &lt;- quintiles |&gt; \n  slice_max(top5) \n\n# randomly select five more\nfive_more &lt;- quintiles |&gt;\n   slice_sample(n = 5) \n\nstates &lt;- bind_rows(state_min, state_max, five_more) |&gt;\n  arrange(desc(top5))\n\nkable(states)\n\n\n\nname\nq1\nq2\nq3\nq4\nq5\ntop5\n\n\n\nDistrict of Columbia\n12971\n51060\n94478\n157803\n375792\n670768\n\n\nHawaii\n19593\n54164\n88314\n132920\n271560\n459305\n\n\nGeorgia\n14139\n38707\n65443\n102914\n234209\n422018\n\n\nMichigan\n14460\n38184\n63466\n98543\n213981\n376426\n\n\nWisconsin\n16787\n41986\n67417\n101424\n211049\n371015\n\n\nIdaho\n16450\n40433\n63643\n95316\n203042\n360622\n\n\nPuerto Rico\n2906\n12144\n22163\n38397\n99043\n187234"
   },
   {
     "objectID": "modules/module-4.11.html#display-the-data-with-a-gt-table",
     "href": "modules/module-4.11.html#display-the-data-with-a-gt-table",
     "title": "Module 4.1",
     "section": "Display the data with a gt table",
-    "text": "Display the data with a gt table\n\nNow that we have some good data for a table, let’s make a really beautiful table with the gt package. “gt” stands for “grammar of tables.” So just as we talked about a “grammar of graphics” when we were studying plots, we can talk about the “grammar of tables” and break a table down into its component parts.\ngt envisions six main parts of a table that can be customized in various ways. The table header includes the title and possibly a subtitle. Next, we have the stub section that contains our row labels and, above that, a stubhead label, which we could use to provide more information about what is in the rows. Then, we have column labels that tell us about what is in each column and the table body which contains the actual data that we want to present. Finally, we have the table footer, which would contain any notes that we have about information contained in the table as well as information about sources. Check out the gt function reference to get a sense of all the customizations available.\nLet’s go ahead and start out by making a basic gt table with a title, subtitle, column labels, source note and format the numbers as dollar figures.\nMake a good gt table\n\nlibrary(gt)\n\ngoodtable &lt;- gt(states) |&gt; \n  tab_header(\n    title = \"Mean Household Income of Quintiles, 2021\",\n    subtitle = \"Seven Representative U.S. States\"\n  ) |&gt; \n  cols_label(\n    name = \"\",\n    q1 = \"lowest\",\n    q2 = \"second\",\n    q3 = \"third\",\n    q4 = \"fourth\",\n    q5 = \"highest\",\n    top5 = \"top 5%\"\n  ) |&gt; \n  fmt_currency(\n    columns = c(q1:top5),\n    currency = \"USD\", \n    use_subunits = FALSE\n  ) |&gt;\n  # note that you can use markdown (md) to format the source note for html documents\n  tab_source_note(source_note = md(\"**Source**: US Census Bureau, American Community Survey\"))\n\ngoodtable\n\n\n\n\n\n\nMean Household Income of Quintiles, 2021\n\n\nSeven Representative U.S. States\n\n\n\nlowest\nsecond\nthird\nfourth\nhighest\ntop 5%\n\n\n\n\nDistrict of Columbia\n$12,971\n$51,060\n$94,478\n$157,803\n$375,792\n$670,768\n\n\nMassachusetts\n$16,812\n$50,519\n$89,602\n$142,491\n$316,447\n$558,616\n\n\nNorth Dakota\n$15,507\n$41,406\n$68,558\n$104,602\n$217,143\n$380,261\n\n\nNebraska\n$16,506\n$41,590\n$66,977\n$100,910\n$213,091\n$378,679\n\n\nWisconsin\n$16,787\n$41,986\n$67,417\n$101,424\n$211,049\n$371,015\n\n\nSouth Dakota\n$16,002\n$39,619\n$64,234\n$95,810\n$200,212\n$358,060\n\n\nPuerto Rico\n$2,906\n$12,144\n$22,163\n$38,397\n$99,043\n$187,234\n\n\n\n\nSource: US Census Bureau, American Community Survey\n\n\n\n\n\nChange column width\nNow let’s add some further customization. One thing to pay attention to is the column width. Too narrow of columns can make it difficult to read the information, while too wide of columns can cause the table not to fit on the page. We can adjust the column width of our table with the cols_width() function.\n\nvgoodtable &lt;- goodtable |&gt;\n  cols_width(c(q1:top5) ~ px(90))\n\nvgoodtable\n\n\n\n\n\n\nMean Household Income of Quintiles, 2021\n\n\nSeven Representative U.S. States\n\n\n\nlowest\nsecond\nthird\nfourth\nhighest\ntop 5%\n\n\n\n\nDistrict of Columbia\n$12,971\n$51,060\n$94,478\n$157,803\n$375,792\n$670,768\n\n\nMassachusetts\n$16,812\n$50,519\n$89,602\n$142,491\n$316,447\n$558,616\n\n\nNorth Dakota\n$15,507\n$41,406\n$68,558\n$104,602\n$217,143\n$380,261\n\n\nNebraska\n$16,506\n$41,590\n$66,977\n$100,910\n$213,091\n$378,679\n\n\nWisconsin\n$16,787\n$41,986\n$67,417\n$101,424\n$211,049\n$371,015\n\n\nSouth Dakota\n$16,002\n$39,619\n$64,234\n$95,810\n$200,212\n$358,060\n\n\nPuerto Rico\n$2,906\n$12,144\n$22,163\n$38,397\n$99,043\n$187,234\n\n\n\n\nSource: US Census Bureau, American Community Survey\n\n\n\n\n\nChange font\nNext we want to make sure that the fonts that we use are legible and accessible, just like we did for our charts. We can do this with opt_table_font().\n\ngreattable &lt;- vgoodtable |&gt;\n  opt_table_font(font = \"verdana\")\n\ngreattable\n\n\n\n\n\n\nMean Household Income of Quintiles, 2021\n\n\nSeven Representative U.S. States\n\n\n\nlowest\nsecond\nthird\nfourth\nhighest\ntop 5%\n\n\n\n\nDistrict of Columbia\n$12,971\n$51,060\n$94,478\n$157,803\n$375,792\n$670,768\n\n\nMassachusetts\n$16,812\n$50,519\n$89,602\n$142,491\n$316,447\n$558,616\n\n\nNorth Dakota\n$15,507\n$41,406\n$68,558\n$104,602\n$217,143\n$380,261\n\n\nNebraska\n$16,506\n$41,590\n$66,977\n$100,910\n$213,091\n$378,679\n\n\nWisconsin\n$16,787\n$41,986\n$67,417\n$101,424\n$211,049\n$371,015\n\n\nSouth Dakota\n$16,002\n$39,619\n$64,234\n$95,810\n$200,212\n$358,060\n\n\nPuerto Rico\n$2,906\n$12,144\n$22,163\n$38,397\n$99,043\n$187,234\n\n\n\n\nSource: US Census Bureau, American Community Survey\n\n\n\n\n\nCenter\nThen we want to check to make sure that information is aligned properly in the table. We can use right, left or center justify our text, depending on its purpose, by calling cols_align().\n\nvgreattable &lt;- greattable |&gt;\n  cols_align(\n  align = \"center\",\n  columns = q1:top5\n)\n\nvgreattable\n\n\n\n\n\n\nMean Household Income of Quintiles, 2021\n\n\nSeven Representative U.S. States\n\n\n\nlowest\nsecond\nthird\nfourth\nhighest\ntop 5%\n\n\n\n\nDistrict of Columbia\n$12,971\n$51,060\n$94,478\n$157,803\n$375,792\n$670,768\n\n\nMassachusetts\n$16,812\n$50,519\n$89,602\n$142,491\n$316,447\n$558,616\n\n\nNorth Dakota\n$15,507\n$41,406\n$68,558\n$104,602\n$217,143\n$380,261\n\n\nNebraska\n$16,506\n$41,590\n$66,977\n$100,910\n$213,091\n$378,679\n\n\nWisconsin\n$16,787\n$41,986\n$67,417\n$101,424\n$211,049\n$371,015\n\n\nSouth Dakota\n$16,002\n$39,619\n$64,234\n$95,810\n$200,212\n$358,060\n\n\nPuerto Rico\n$2,906\n$12,144\n$22,163\n$38,397\n$99,043\n$187,234\n\n\n\n\nSource: US Census Bureau, American Community Survey\n\n\n\n\n\nAdd borders and lines\nFinally, we want to think about how to use borders and lines to separate and identify different elements of the table using tab_options() like this.\n\nawesometable &lt;- vgreattable |&gt;\n  tab_options(\n    table.border.top.color = \"black\", \n    table.border.bottom.color = \"black\",\n    heading.border.bottom.color = \"black\", \n    column_labels.border.bottom.color = \"black\", \n    table_body.border.bottom.color = \"black\"\n  )\n\nawesometable\n\n\n\n\n\n\nMean Household Income of Quintiles, 2021\n\n\nSeven Representative U.S. States\n\n\n\nlowest\nsecond\nthird\nfourth\nhighest\ntop 5%\n\n\n\n\nDistrict of Columbia\n$12,971\n$51,060\n$94,478\n$157,803\n$375,792\n$670,768\n\n\nMassachusetts\n$16,812\n$50,519\n$89,602\n$142,491\n$316,447\n$558,616\n\n\nNorth Dakota\n$15,507\n$41,406\n$68,558\n$104,602\n$217,143\n$380,261\n\n\nNebraska\n$16,506\n$41,590\n$66,977\n$100,910\n$213,091\n$378,679\n\n\nWisconsin\n$16,787\n$41,986\n$67,417\n$101,424\n$211,049\n$371,015\n\n\nSouth Dakota\n$16,002\n$39,619\n$64,234\n$95,810\n$200,212\n$358,060\n\n\nPuerto Rico\n$2,906\n$12,144\n$22,163\n$38,397\n$99,043\n$187,234\n\n\n\n\nSource: US Census Bureau, American Community Survey\n\n\n\n\n\nExport your table\nNow try exporting your table as .png file with the gtsave() function.\n\ngtsave(awesometable, \"awesometable.png\")"
+    "text": "Display the data with a gt table\n\nNow that we have some good data for a table, let’s make a really beautiful table with the gt package. “gt” stands for “grammar of tables.” So just as we talked about a “grammar of graphics” when we were studying plots, we can talk about the “grammar of tables” and break a table down into its component parts.\ngt envisions six main parts of a table that can be customized in various ways. The table header includes the title and possibly a subtitle. Next, we have the stub section that contains our row labels and, above that, a stubhead label, which we could use to provide more information about what is in the rows. Then, we have column labels that tell us about what is in each column and the table body which contains the actual data that we want to present. Finally, we have the table footer, which would contain any notes that we have about information contained in the table as well as information about sources. Check out the gt function reference to get a sense of all the customizations available.\nLet’s go ahead and start out by making a basic gt table with a title, subtitle, column labels, source note and format the numbers as dollar figures.\nMake a good gt table\n\nlibrary(gt)\n\ngoodtable &lt;- gt(states) |&gt; \n  tab_header(\n    title = \"Mean Household Income of Quintiles, 2021\",\n    subtitle = \"Seven Representative U.S. States\"\n  ) |&gt; \n  cols_label(\n    name = \"\",\n    q1 = \"lowest\",\n    q2 = \"second\",\n    q3 = \"third\",\n    q4 = \"fourth\",\n    q5 = \"highest\",\n    top5 = \"top 5%\"\n  ) |&gt; \n  fmt_currency(\n    columns = c(q1:top5),\n    currency = \"USD\", \n    use_subunits = FALSE\n  ) |&gt;\n  # note that you can use markdown (md) to format the source note for html documents\n  tab_source_note(source_note = md(\"**Source**: US Census Bureau, American Community Survey\"))\n\ngoodtable\n\n\n\n\n\n\nMean Household Income of Quintiles, 2021\n\n\nSeven Representative U.S. States\n\n\n\nlowest\nsecond\nthird\nfourth\nhighest\ntop 5%\n\n\n\n\nDistrict of Columbia\n$12,971\n$51,060\n$94,478\n$157,803\n$375,792\n$670,768\n\n\nHawaii\n$19,593\n$54,164\n$88,314\n$132,920\n$271,560\n$459,305\n\n\nGeorgia\n$14,139\n$38,707\n$65,443\n$102,914\n$234,209\n$422,018\n\n\nMichigan\n$14,460\n$38,184\n$63,466\n$98,543\n$213,981\n$376,426\n\n\nWisconsin\n$16,787\n$41,986\n$67,417\n$101,424\n$211,049\n$371,015\n\n\nIdaho\n$16,450\n$40,433\n$63,643\n$95,316\n$203,042\n$360,622\n\n\nPuerto Rico\n$2,906\n$12,144\n$22,163\n$38,397\n$99,043\n$187,234\n\n\n\n\nSource: US Census Bureau, American Community Survey\n\n\n\n\n\nChange column width\nNow let’s add some further customization. One thing to pay attention to is the column width. Too narrow of columns can make it difficult to read the information, while too wide of columns can cause the table not to fit on the page. We can adjust the column width of our table with the cols_width() function.\n\nvgoodtable &lt;- goodtable |&gt;\n  cols_width(c(q1:top5) ~ px(90))\n\nvgoodtable\n\n\n\n\n\n\nMean Household Income of Quintiles, 2021\n\n\nSeven Representative U.S. States\n\n\n\nlowest\nsecond\nthird\nfourth\nhighest\ntop 5%\n\n\n\n\nDistrict of Columbia\n$12,971\n$51,060\n$94,478\n$157,803\n$375,792\n$670,768\n\n\nHawaii\n$19,593\n$54,164\n$88,314\n$132,920\n$271,560\n$459,305\n\n\nGeorgia\n$14,139\n$38,707\n$65,443\n$102,914\n$234,209\n$422,018\n\n\nMichigan\n$14,460\n$38,184\n$63,466\n$98,543\n$213,981\n$376,426\n\n\nWisconsin\n$16,787\n$41,986\n$67,417\n$101,424\n$211,049\n$371,015\n\n\nIdaho\n$16,450\n$40,433\n$63,643\n$95,316\n$203,042\n$360,622\n\n\nPuerto Rico\n$2,906\n$12,144\n$22,163\n$38,397\n$99,043\n$187,234\n\n\n\n\nSource: US Census Bureau, American Community Survey\n\n\n\n\n\nChange font\nNext we want to make sure that the fonts that we use are legible and accessible, just like we did for our charts. We can do this with opt_table_font().\n\ngreattable &lt;- vgoodtable |&gt;\n  opt_table_font(font = \"verdana\")\n\ngreattable\n\n\n\n\n\n\nMean Household Income of Quintiles, 2021\n\n\nSeven Representative U.S. States\n\n\n\nlowest\nsecond\nthird\nfourth\nhighest\ntop 5%\n\n\n\n\nDistrict of Columbia\n$12,971\n$51,060\n$94,478\n$157,803\n$375,792\n$670,768\n\n\nHawaii\n$19,593\n$54,164\n$88,314\n$132,920\n$271,560\n$459,305\n\n\nGeorgia\n$14,139\n$38,707\n$65,443\n$102,914\n$234,209\n$422,018\n\n\nMichigan\n$14,460\n$38,184\n$63,466\n$98,543\n$213,981\n$376,426\n\n\nWisconsin\n$16,787\n$41,986\n$67,417\n$101,424\n$211,049\n$371,015\n\n\nIdaho\n$16,450\n$40,433\n$63,643\n$95,316\n$203,042\n$360,622\n\n\nPuerto Rico\n$2,906\n$12,144\n$22,163\n$38,397\n$99,043\n$187,234\n\n\n\n\nSource: US Census Bureau, American Community Survey\n\n\n\n\n\nCenter\nThen we want to check to make sure that information is aligned properly in the table. We can use right, left or center justify our text, depending on its purpose, by calling cols_align().\n\nvgreattable &lt;- greattable |&gt;\n  cols_align(\n  align = \"center\",\n  columns = q1:top5\n)\n\nvgreattable\n\n\n\n\n\n\nMean Household Income of Quintiles, 2021\n\n\nSeven Representative U.S. States\n\n\n\nlowest\nsecond\nthird\nfourth\nhighest\ntop 5%\n\n\n\n\nDistrict of Columbia\n$12,971\n$51,060\n$94,478\n$157,803\n$375,792\n$670,768\n\n\nHawaii\n$19,593\n$54,164\n$88,314\n$132,920\n$271,560\n$459,305\n\n\nGeorgia\n$14,139\n$38,707\n$65,443\n$102,914\n$234,209\n$422,018\n\n\nMichigan\n$14,460\n$38,184\n$63,466\n$98,543\n$213,981\n$376,426\n\n\nWisconsin\n$16,787\n$41,986\n$67,417\n$101,424\n$211,049\n$371,015\n\n\nIdaho\n$16,450\n$40,433\n$63,643\n$95,316\n$203,042\n$360,622\n\n\nPuerto Rico\n$2,906\n$12,144\n$22,163\n$38,397\n$99,043\n$187,234\n\n\n\n\nSource: US Census Bureau, American Community Survey\n\n\n\n\n\nAdd borders and lines\nFinally, we want to think about how to use borders and lines to separate and identify different elements of the table using tab_options() like this.\n\nawesometable &lt;- vgreattable |&gt;\n  tab_options(\n    table.border.top.color = \"black\", \n    table.border.bottom.color = \"black\",\n    heading.border.bottom.color = \"black\", \n    column_labels.border.bottom.color = \"black\", \n    table_body.border.bottom.color = \"black\"\n  )\n\nawesometable\n\n\n\n\n\n\nMean Household Income of Quintiles, 2021\n\n\nSeven Representative U.S. States\n\n\n\nlowest\nsecond\nthird\nfourth\nhighest\ntop 5%\n\n\n\n\nDistrict of Columbia\n$12,971\n$51,060\n$94,478\n$157,803\n$375,792\n$670,768\n\n\nHawaii\n$19,593\n$54,164\n$88,314\n$132,920\n$271,560\n$459,305\n\n\nGeorgia\n$14,139\n$38,707\n$65,443\n$102,914\n$234,209\n$422,018\n\n\nMichigan\n$14,460\n$38,184\n$63,466\n$98,543\n$213,981\n$376,426\n\n\nWisconsin\n$16,787\n$41,986\n$67,417\n$101,424\n$211,049\n$371,015\n\n\nIdaho\n$16,450\n$40,433\n$63,643\n$95,316\n$203,042\n$360,622\n\n\nPuerto Rico\n$2,906\n$12,144\n$22,163\n$38,397\n$99,043\n$187,234\n\n\n\n\nSource: US Census Bureau, American Community Survey\n\n\n\n\n\nExport your table\nNow try exporting your table as .png file with the gtsave() function.\n\ngtsave(awesometable, \"awesometable.png\")"
   },
   {
     "objectID": "modules/module-4.11.html#when-a-plot-is-better-than-a-table",
