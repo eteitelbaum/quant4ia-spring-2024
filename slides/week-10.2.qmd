@@ -1,9 +1,8 @@
 ---
-title: "Modeling"
-subtitle: "Part 3: Multiple Regression"
+title: Multiple Regression
 date: today
 date-format: long
-footer: "[IAFF 6501 Website](https://data4ia-spring24.netlify.app/)"
+footer: "[IAFF 6501 Website](https://quant4ia.rocks/)"
 logo: images/iaff6501-logo.png
 format:
   revealjs:
@@ -13,101 +12,128 @@ format:
     #multiplex: true
     chalkboard: true
 execute:
-  echo: true
+  echo: false
   message: false
   warning: false
   freeze: auto
 ---
 
-
 ## Load packages 
 
-```{r packages, message=FALSE, warning=FALSE}
+<br>
+
+```{r} 
+#| label: packages
+#| echo: true
+
 library(tidyverse)
 library(dplyr)
 library(ggplot2)
 library(tidymodels)
 library(patchwork)
-library(DT)
+#library(DT)
 library(vdemdata)
 ```
 
 
-## Load VDEM Data
+## Load VDEM Data {.smaller}
 
-```{r echo=FALSE}
-modelData <- vdem %>% 
-  filter(year == 2019) %>% 
-  select(country_name, v2x_libdem, e_gdppc, v2cacamps, e_total_oil_income_pc, v2x_corr) %>% 
-  mutate(lg_gdppc = log(e_gdppc))
+<br>
+
+```{r}
+#| label: get_data
+#| echo: true
+
+modelData <- vdem |>
+  filter(year == 2006) |> 
+  select(country_name, 
+         libdem = v2x_libdem, 
+         wealth = e_gdppc, 
+         oil_rents = e_total_oil_income_pc,
+         polarization = v2cacamps, 
+         corruption = v2x_corr, 
+         judicial_review = v2jureview_ord, 
+         region = e_regionpol_6C, 
+         regime = v2x_regime) |> 
+  mutate(log_wealth = log(wealth), 
+         region = factor(
+           region,
+           labels=c("Eastern Europe", 
+             "Latin America", 
+             "MENA", 
+             "SSAfrica", 
+             "Western Europe and North America", 
+             "Asia and Pacific"))
+          )
+
+glimpse(modelData)
 ```
-
 
 ## Linear Model with Multiple Predictors
 
-- Previously, we were interested in GDP per capita as a predictor of democracy.
+<br>
 
+- Previously, we were interested in GDP per capita as a predictor of democracy
 - Now, let's consider another predictor: polarization (also measured by V-Dem)
-
 
 ## Polarization Measure in the USA
 
-
-```{r echo=FALSE}
-usa <- vdem %>% 
-  filter(country_name == "United States of America") %>% 
-  filter(year > 1900) %>% 
-  ggplot(., aes(y= v2cacamps, x = year)) +
-  geom_line(color = "dodgerblue") +
-  labs(y = "Polarization", x = "Year") + ggtitle("Polarization in the USA") 
-usa
+```{r}
+vdem |> 
+  filter(country_name == "United States of America") |>
+  filter(year > 1900) |> 
+  ggplot(aes(y= v2cacamps, x = year)) +
+  geom_line(color = "dodgerblue", size = 1) +
+  labs(title = "Polarization in the USA", 
+       y = "Polarization", x = "Year") +
+  theme_minimal()
 ```
 
-
-
-## Polarization and Democracy in 2019
+## Polarization and Democracy in 2006
 
 ```{r echo=FALSE}
-ggplot(modelData, aes(x = v2cacamps, y = v2x_libdem)) +
+ggplot(modelData, aes(x = polarization, y = libdem)) +
   geom_point() +
   geom_smooth(method = "lm", color = "#E48957", se = FALSE) +
-  labs(x = "Polarization", y = "Liberal Democracy Index") 
+  labs(x = "Polarization", y = "Liberal Democracy Index") +
+  theme_minimal()
 ```
 
-## Model with Polarization as the only Predictor
+## Model with One Predictor
 
-How do we interpret the intercept and the slope estimate?
+<br>
 
 ```{r}
-linear_reg() %>%
-  set_engine("lm") %>%
-  fit(v2x_libdem ~ v2cacamps, data = modelData) %>% 
+#| label: model1
+#| echo: true
+
+linear_reg() |>
+  set_engine("lm") |>
+  fit(libdem ~ polarization, data = modelData) |> 
   tidy()
 ```
+<br>
 
+| How do we interpret the intercept and the slope estimate?
+| Significance? 
 
 ## Model with Two Predictors
 
 <br>
 
-$$\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc$$ 
-<br>
-
-- OLS is searching for combination of $a$, $b_1$, and $b_2$ that minimize sum of squared residuals 
-
-    - same logic as model with one predictor, just more complicated
-
-
-## Model with Two Predictors
-
 ```{r}
-linear_reg() %>%
-  set_engine("lm") %>%
-  fit(v2x_libdem ~ v2cacamps + lg_gdppc, data = modelData) %>% 
+#| label: model2
+#| echo: true
+
+linear_reg() |>
+  set_engine("lm") |>
+  fit(libdem ~ polarization + log_wealth, data = modelData) |> 
   tidy()
 ```
 
 ## Model with Two Predictors
+
+<br>
 
 $$\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc$$ 
 
@@ -116,23 +142,34 @@ $$\hat{Y_i} = 0.18 + -0.05*Polarization + 0.10*GDPpc$$
 
 ## Model with Two Predictors 
 
+<br>
+
 $$\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc$$ 
 
 $$\hat{Y_i} = 0.18 + -0.05*Polarization + 0.10*GDPpc$$ 
 
-- $a$ is the predicted level of Y when BOTH GDP per capita and polarization are equal to 0
+$a$ is the predicted level of Y when BOTH GDP per capita and polarization are equal to 0
 
+## Model with Two Predictors
+
+<br>
+
+$$\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc$$ 
+
+
+- OLS is searching for combination of $a$, $b_1$, and $b_2$ that minimize sum of squared residuals
+- Same logic as model with one predictor, just more complicated
 
 ## Model with Two Predictors 
 
+<br>
+
 $$\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc$$ 
 
 $$\hat{Y_i} = 0.18 + -0.05*Polarization + 0.10*GDPpc$$ 
 
-- $b_1$ is the impact of a 1-unit change in polarization on the predicted level of Y, **holding GDP per capita fixed** (all else equal)
-
-    - The relationship between polarization and democracy, controlling for GDP per capita.
-
+- $b_1$ is the impact of a 1-unit change in polarization on the predicted level of Y, *holding GDP per capita fixed* (all else equal)
+- The relationship between polarization and democracy, controlling for GDP per capita
 
 ## Model with Two Predictors 
 
@@ -142,285 +179,303 @@ $$\hat{Y_i} = 0.18 + -0.05*Polarization + 0.10*GDPpc$$
 
 - $b_2$ is the impact of a 1-unit change in GDP per capita on the predicted level of Y, **holding polarization fixed** (all else equal)
 
+## Model with Three Predictors 
 
-## Your Turn: Polarization, Democracy, and Corruption
+<br>
 
-- Last week, you examined levels of democracy and corruption
+$$\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc + b_3*OilRents$$ 
 
-- Today, first fit a multiple regression model predicting corruption with two predictors: democracy (v2x_libdem) and polarization (v2cacamps)
+## Model with Three Predictors 
 
-- Interpret the coefficients
+<br>
 
+```{r}
+#| label: model3
+#| echo: true
+
+linear_reg() |>
+  set_engine("lm") |>
+  fit(libdem ~ polarization + log_wealth + oil_rents, data = modelData) |> 
+  tidy()
+```
+
+## Model with Three Predictors {.smaller}
+
+<br>
+
+$$\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc + b_3*OilRents$$ 
+
+$$\hat{Y_i} = a + -.05*Polarization + .13*GDPpc + .00004*OilRents$$ 
+<br>
+
+| $b_3$ is the impact of a 1-unit change in oil revenues per capita on the predicted level of Y, **holding polarization and GDP fixed** (all else equal)
+
+## Your Turn! {.smaller}
+
+<br>
+
+- In the last session, you examined levels of democracy and corruption
+- Now, let's fit a multiple regression model predicting corruption with two predictors: democracy (libdem) and polarization (polarization)
+- Then, interpret the coefficients
 - Estimate a second multiple regression model that adds in GDP per capita (lg_gdppc)
-
 - Interpret the coefficients
-
 - What happens to the coefficients on democracy when we add GDP per capita to the model?
-
     - Why does this happen?
+- Try adding in additional predictors if there is time
 
+```{r}
+#| label: time1
 
+library(countdown)
+
+countdown(minutes = 10, 
+          id = "timer1", 
+          bottom = "10%", 
+          right = "10%",
+          color_border = "#fff",
+          color_text = "#fff",
+          color_running_background = "#42affa",
+          color_running_text = "black",
+          color_finished_background = "#E5D19D",
+          color_finished_text = "#00264A")
+```
 
 ## Model 1
 
+<br>
+
 ```{r}
-mod1 <- linear_reg() %>%
-      set_engine("lm") %>%
-      fit(v2x_corr ~ v2x_libdem + v2cacamps , data = modelData) %>%
-      tidy() %>% 
-      mutate(model = "Model 1: No GDP per capita")
+mod1 <- linear_reg() |>
+      set_engine("lm") |>
+      fit(corruption ~ libdem + polarization , data = modelData) |>
+      tidy() 
 mod1
 ```
 
-## Model 2 adding GDP per capita
+## Model 2 - Adding GDP per capita
+
+<br>
 
 ```{r}
-mod2 <- linear_reg() %>%
-      set_engine("lm") %>%
-      fit(v2x_corr ~ v2x_libdem + v2cacamps + lg_gdppc, data = modelData) %>%
-      tidy() %>% 
-      mutate(model = "Model 2: GDP per capita")
+mod2 <- linear_reg() |>
+      set_engine("lm") |>
+      fit(corruption ~ libdem + polarization + log_wealth, data = modelData) |>
+      tidy() 
 mod2
 ```
 
-<!-- ## Compare -->
+# Categorical Variables
 
-<!-- ```{r echo=FALSE} -->
-<!-- ms <- rbind(mod1, mod2) -->
-<!-- ms %>%  -->
-<!--   filter(term !="(Intercept)") %>%  -->
-<!--   ggplot(., aes(x = estimate, y = term, color=model)) +  -->
-<!--   geom_point(size=2, position=position_dodge(width = -.4)) + -->
-<!--     scale_color_manual(name=NULL,  -->
-<!--                       values = c("#E99840", "#0C1956")) -->
-<!-- ``` -->
+## Judicial Review and Democracy
 
+<br>
 
-# Multiple Predictors: Interaction Models
+**Judicial Review:**
 
-## Oil Wealth and Democracy
+- Do high courts (Supreme Court, Constitutional Court, etc) have the power to rule on whether laws or policies are constitutional/legal? (Yes or No)
+- Dimension of Judicial Independence
 
-Political Resource Curse
-
-
-## Set up data: Use the year 2005
+## Judicial Review and Democracy
 
 ```{r}
-oilData <- vdem %>% 
-  filter(year == 2005) %>% 
-  select(country_name, v2x_libdem, e_gdppc, v2cacamps, e_total_oil_income_pc, v2x_corr, v2pepwrgen, v2clgencl) %>% 
-  mutate(lg_gdppc = log(e_gdppc))
-```
+#| label: judicial_review
 
-## Distribution of Oil Wealth per Capita
-
-```{r echo=FALSE}
-oilData %>% 
-  ggplot(., aes(x = e_total_oil_income_pc)) +
-  geom_histogram(color="lightgrey")
-```
-
-## Create a Dummy Variable for High Oil Wealth
-
-```{r}
-oilData <- oilData %>% 
-  mutate(
-        oil = ifelse(e_total_oil_income_pc > 152, 1, 0),
-         oil = factor(oil, labels=c("No Oil Wealth", "Oil Wealth"))
-        ) %>% 
-  filter(oil == "No Oil Wealth" | oil == "Oil Wealth")
-table(oilData$oil)
-
-```
-
-## Democracy, GDP per Capita, and Oil Wealth
-
-How should we interpret this graph?
-
-```{r echo=FALSE}
-ggplot(oilData, aes(x = lg_gdppc, y = v2x_libdem, color = oil)) +
+ggplot(modelData, aes(x = log_wealth, y = libdem, color=factor(judicial_review))) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE) +
-  labs(x = "GDP per Capita (log)", y = "Liberal Democracy Index")  +
-  scale_color_manual(name=NULL, 
-                      values = c("#E99840", "#0C1956"))
+  labs(x = "GPD per capita", y = "Liberal Democracy Index") +
+  theme_bw() +
+    scale_color_manual(name = "Judicial Review", values = c("steelblue3", "coral"), labels = c("No", "Yes")) 
+
 ```
 
+## Judicial Review and Democracy
 
-## Model with Oil and GDP per Capita, No Interaction
-
-What is correct interpretation?
+<br>
 
 ```{r}
-linear_reg() %>%
-  set_engine("lm") %>%
-  fit(v2x_libdem ~ lg_gdppc + oil, data = oilData) %>% 
+#| label: judicial_review_model
+
+linear_reg() |>
+  set_engine("lm") |>
+  fit(libdem ~ factor(judicial_review), data = modelData) |>
   tidy()
 ```
 
+## Judicial Review and Democracy {.smaller}
 
-## Interaction Model
+<br>
 
-- Does GDP per capita have a different relationship to democracy in Oil rich versus non-Oil rich countries?
+$$\widehat{Democracy_{i}} = 0.17 + 0.28*JudicialReview(yes)$$
 
+- **Slope:** countries with judicial review are expected, on average, to be 0.28 units more democratic on the liberal democracy index
+  - Compares baseline level (Judicial Review = 0) to the other level (Judicial Review = 1)
+- **Intercept:** average democracy score of countries without judicial review
+- Average democracy score of countries with judicial review is 0.17 + 0.28 = 0.45
 
-## Interaction Model
+## Dummy Variables
 
+<br>
 
-- $Y_i = a + b_1 * GDPpc + b_2 * Oil + b_3 * GDPpc * Oil$
+- When the categorical explanatory variable has many levels, they're encoded to **dummy variables** 
+- We always leave one category out of the model, as the omitted reference category
+- Each coefficient describes is the expected difference between level of the factor **and the baseline level**
+- Everything is relative to the omitted reference category
 
-. . .
+## Democracy and World Region
 
+<br>
 
-- $b_3 * GDPpc * OilWealth$ captures the interaction
-
-
-## Interaction Model: Interpretation
-
-
-- How should we interpret $a$?
-
-
-- $Y_i = a + b_1 * GDPpc + b_2 * Oil + b_3 * GDPpc * Oil$
-
-. . .
-
-
-- $a$ is predicted level of democracy where GDPpc = 0 and Oil Wealth = 0
-
-
-
-## Interaction Model: Interpretation
-
-- What happens if we set Oil Wealth to 0?
-
-- $Y_i = a + b_1 * GDPpc + b_2 * Oil + b_3 * GDPpc * Oil$
-
-- $Y_i = a + b_1 * GDPpc + b_2 * 0 + b_3 * GDPpc * 0$
-
-- $Y_i = a + b_1 * GDPpc$
-
-
-. . .
-
-
-- $b_1$ is the association between GDP per capita and democracy, **when oil wealth = 0**
-
-
-## Interaction Model: Interpretation
-
-- What happens if we set GDPpc to 0?
-
-- $Y_i = a + b_1 * GDPpc + b_2 * Oil + b_3 * GDPpc * Oil$
-
-- $Y_i = a + b_1 * 0 + b_2 * Oil + b_3 * Oil * 0$
-
-- $Y_i = a + b_2 * Oil$
-
-- $b_2$ is the association between oil and democracy, **when GDP per capita = 0**
-
-
-## Interaction Model: Interpretation
-
-- What happens if we set Oil Wealth to 1?
-
-- $Y_i = a + b_1 * GDPpc + b_2 * 1 + b_3 * GDPpc * 1$
-
-- Rearrange: $Y_i = a + (b_1 + b_3) * GDPpc + b_2 * 1$
-
-
-. . .
-
-- $b_1 + b_3$ is the association between GDP per capita and democracy, **when oil wealth = 1**
-
-
-## Run the Interaction Model
-
-What is correct interpretation of each coefficient?
+- Does region predict levels of democracy?
+- Since Eastern Europe is the first category, default in R is to use that as the omitted category in models.
 
 ```{r}
-linear_reg() %>%
-  set_engine("lm") %>%
-  fit(v2x_libdem ~ lg_gdppc*oil, data = oilData) %>% 
+#| label: region_model
+#| echo: true
+
+levels(modelData$region)
+```
+
+## Democracy and World Region {.smaller}
+
+<br>
+
+How should we interpret intercept?  How about the coefficient on Latin America?
+
+<br>
+
+```{r}
+#| label: region_model2
+#| echo: true
+
+linear_reg() |>
+  set_engine("lm") |>
+  fit(libdem ~ region, data = modelData) |>
   tidy()
 ```
 
-## Interpretation
+## Democracy and World Region {.smaller}
+
+<br>
+
+What if you want a different baseline category? How do we interpret now?
+
+<br>
 
 
-$\hat{Y_i}$ = .138 + .164 * $GDPpc_i$ + (-0.085) * $Oil_i$ 
-+ (-0.0607) * $GDPpc_i$ * $Oil_i$
+```{r}
+#| label: region_model3
+#| echo: true
 
-. . .
+# make SS Africa the reference category
+modelData <- modelData |> 
+mutate(newReg = relevel(region, ref=4)) 
 
-- Relationship without oil: $0.164$
+linear_reg() |>
+      set_engine("lm") |>
+      fit(libdem ~ newReg, data = modelData) |>
+      tidy()
+```
 
-- Relationship with oil: $0.164 + (-0.0607) = 0.164 -0.0607 = 0.1033$
+## Your Turn
+
+<br>
+
+**Which types of regime have more corruption?**
+
+<br>
  
-## Is this difference due to chance?
+V-Dem also includes a categorial regime variable: Closed autocracy (0), Electoral Autocracy (1), Electoral Democracy (2), Liberal Democracy (3)
 
-- Does GDP have a lower relationship to democracy in oil rich countries?
+## Your Turn
 
-- Is 0.164 without oil different from 0.1033 with oil?
+<br>
 
-. . .
+**Which types of regime have more corruption?**
 
-- What is the null hypothesis?  What is the alternative?
+<br>
 
-## Is this difference due to chance?
+ 
+First, let's make this an easier factor variable to work with.
 
 ```{r}
-linear_reg() %>%
-  set_engine("lm") %>%
-  fit(v2x_libdem ~ lg_gdppc*oil, data = oilData) %>% 
-  tidy(conf.int=TRUE) %>% 
-  filter(term == "lg_gdppc:oilOil Wealth") %>% 
-  select(term, estimate, std.error, p.value, conf.low, conf.high) %>%   
-  mutate(across(where(is.numeric), round, 3))
+#| label: regime_factor
+#| echo: true
+
+# Make nicer regime factor variable
+modelData <- modelData |> 
+  mutate(regime = factor(regime,
+                         labels = c("Closed Autocracy",
+                                   "Electoral Autocracy",
+                                  "Electoral Democracy",
+                                  "Liberal Democracy")))
+levels(modelData$regime)
 ```
 
-## Is this difference due to chance?
+## Your Turn {.smaller}
 
+<br>
 
-- 95% Confidence Interval: [-0.131, 0.009]: mostly negative
+**Which types of regime have more corruption?**
 
-- p-value of interaction term: 0.089
+<br>
 
-    - this is higher that 0.05, but close and remember that the cutoff is arbitrary
-
-
-## Your Turn: Oil Wealth and Women's Civil Liberties
-
-- V-Dem has a variable capturing respect for women's civil liberties -v2clgencl
-
-- How do GDP per capita and oil wealth relate to women's civil liberties?
-
-- First, use oilData to create a scatterplot that visualizes this relationship.
-
-- Second, fit an interaction model (oil X GDP per capita) predicting women's civil liberties
-
-- Interpret each of the coefficients and the intercept
-
-- What is your overall conclusion(s) from this model?
-
-
-## Your Turn: Oil Wealth and Women's Civil Liberties
-
-```{r echo=FALSE}
-ggplot(oilData, aes(x = lg_gdppc, y =  v2clgencl, color = oil)) +
-  geom_point() +
-  geom_smooth(method = "lm", se = FALSE) +
-  labs(x = "GDP per Capita", y = "Corruption Index")  +
-  scale_color_manual(name=NULL, 
-                      values = c("#E99840", "#0C1956"))
-```
-
-## Your Turn: Oil Wealth and Women's Civil Liberties
+- Filter data to include only the year 2019 (or run the code to use modelData)
+- Make a plot to visualize the relationship between regime type and level of corruption.  Which kind of plot is best in this situation?
+- Fit a linear model
+- Interpret the intercept and coefficients
 
 
 ```{r}
-linear_reg() %>%
-  set_engine("lm") %>%
-  fit(v2clgencl ~ lg_gdppc*oil, data = oilData) %>% 
-  tidy()
+#| label: time2
+#| echo: false
+
+library(countdown)
+
+countdown(minutes = 10, 
+          id = "timer2", 
+          bottom = "10%", 
+          right = "10%")
 ```
+
+## Visualization
+
+```{r}
+#| label: corruption_plot
+#| echo: true
+
+modelData |> 
+  group_by(regime) |> 
+  summarize(corr = mean(corruption)) |> 
+  ggplot(aes(y=corr, x = regime)) +
+    geom_col(fill="steelblue") +
+  theme_bw()
+```
+
+## Model
+
+<br>
+
+```{r}
+#| label: corruption_model
+#| echo: true
+
+linear_reg() |>
+      set_engine("lm") |>
+      fit(corruption ~ regime, data = modelData) |>
+      tidy()
+```
+
+## Create Your Own Model {.smaller}
+
+<br>
+
+- What is a theory that you would like to test with V-Dem data?
+- What is the dependent variable? 
+- What are the independent variables? 
+- Map out steps to wrangle the data and fit a regression model
+- What do you expect to find? 
+- Now go ahead and wrangle the data
+- Fit the model
+- Interpret the coefficients and their significance
+- Did the results match your expectations?

@@ -860,28 +860,28 @@
   {
     "objectID": "slides/week-10.2.html#load-packages",
     "href": "slides/week-10.2.html#load-packages",
-    "title": "Modeling",
+    "title": "Multiple Regression",
     "section": "Load packages",
-    "text": "Load packages\n\nlibrary(tidyverse)\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(tidymodels)\nlibrary(patchwork)\nlibrary(DT)\nlibrary(vdemdata)"
+    "text": "Load packages\n\n\nlibrary(tidyverse)\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(tidymodels)\nlibrary(patchwork)\n#library(DT)\nlibrary(vdemdata)"
   },
   {
     "objectID": "slides/week-10.2.html#load-vdem-data",
     "href": "slides/week-10.2.html#load-vdem-data",
-    "title": "Modeling",
+    "title": "Multiple Regression",
     "section": "Load VDEM Data",
-    "text": "Load VDEM Data"
+    "text": "Load VDEM Data\n\n\nmodelData &lt;- vdem |&gt;\n  filter(year == 2006) |&gt; \n  select(country_name, \n         libdem = v2x_libdem, \n         wealth = e_gdppc, \n         oil_rents = e_total_oil_income_pc,\n         polarization = v2cacamps, \n         corruption = v2x_corr, \n         judicial_review = v2jureview_ord, \n         region = e_regionpol_6C, \n         regime = v2x_regime) |&gt; \n  mutate(log_wealth = log(wealth), \n         region = factor(\n           region,\n           labels=c(\"Eastern Europe\", \n             \"Latin America\", \n             \"MENA\", \n             \"SSAfrica\", \n             \"Western Europe and North America\", \n             \"Asia and Pacific\"))\n          )\n\nglimpse(modelData)\n\nRows: 177\nColumns: 10\n$ country_name    &lt;chr&gt; \"Mexico\", \"Suriname\", \"Sweden\", \"Switzerland\", \"Ghana\"…\n$ libdem          &lt;dbl&gt; 0.482, 0.672, 0.888, 0.845, 0.640, 0.659, 0.768, 0.018…\n$ wealth          &lt;dbl&gt; 14.584, 10.008, 42.378, 48.410, 3.284, 10.580, 37.068,…\n$ oil_rents       &lt;dbl&gt; 694.847, 639.506, 0.000, 0.000, 6.380, 10.060, 2.635, …\n$ polarization    &lt;dbl&gt; -0.346, -1.748, -2.346, -1.711, -0.398, -0.029, -2.273…\n$ corruption      &lt;dbl&gt; 0.611, 0.226, 0.004, 0.023, 0.640, 0.400, 0.107, 0.892…\n$ judicial_review &lt;dbl&gt; 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, …\n$ region          &lt;fct&gt; Latin America, Latin America, Western Europe and North…\n$ regime          &lt;dbl&gt; 2, 2, 3, 3, 3, 3, 3, 0, 1, 2, 1, 1, 2, 3, 2, 3, 3, 2, …\n$ log_wealth      &lt;dbl&gt; 2.6799250, 2.3033848, 3.7466294, 3.8797064, 1.1890622,…"
   },
   {
     "objectID": "slides/week-10.2.html#linear-model-with-multiple-predictors",
     "href": "slides/week-10.2.html#linear-model-with-multiple-predictors",
-    "title": "Modeling",
+    "title": "Multiple Regression",
     "section": "Linear Model with Multiple Predictors",
-    "text": "Linear Model with Multiple Predictors\n\nPreviously, we were interested in GDP per capita as a predictor of democracy.\nNow, let’s consider another predictor: polarization (also measured by V-Dem)"
+    "text": "Linear Model with Multiple Predictors\n\n\nPreviously, we were interested in GDP per capita as a predictor of democracy\nNow, let’s consider another predictor: polarization (also measured by V-Dem)"
   },
   {
     "objectID": "slides/week-10.2.html#polarization-measure-in-the-usa",
     "href": "slides/week-10.2.html#polarization-measure-in-the-usa",
-    "title": "Modeling",
+    "title": "Multiple Regression",
     "section": "Polarization Measure in the USA",
     "text": "Polarization Measure in the USA"
   },
@@ -902,42 +902,42 @@
   {
     "objectID": "slides/week-10.2.html#model-with-two-predictors",
     "href": "slides/week-10.2.html#model-with-two-predictors",
-    "title": "Modeling",
+    "title": "Multiple Regression",
     "section": "Model with Two Predictors",
-    "text": "Model with Two Predictors\n\n\\[\\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc\\] \n\nOLS is searching for combination of \\(a\\), \\(b_1\\), and \\(b_2\\) that minimize sum of squared residuals\n\nsame logic as model with one predictor, just more complicated"
+    "text": "Model with Two Predictors\n\n\nlinear_reg() |&gt;\n  set_engine(\"lm\") |&gt;\n  fit(libdem ~ polarization + log_wealth, data = modelData) |&gt; \n  tidy()\n\n# A tibble: 3 × 5\n  term         estimate std.error statistic       p.value\n  &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;\n1 (Intercept)    0.200     0.0344      5.80 0.0000000318 \n2 polarization  -0.0550    0.0139     -3.96 0.000111     \n3 log_wealth     0.0952    0.0152      6.24 0.00000000334"
   },
   {
     "objectID": "slides/week-10.2.html#model-with-two-predictors-1",
     "href": "slides/week-10.2.html#model-with-two-predictors-1",
-    "title": "Modeling",
+    "title": "Multiple Regression",
     "section": "Model with Two Predictors",
-    "text": "Model with Two Predictors\n\nlinear_reg() %&gt;%\n  set_engine(\"lm\") %&gt;%\n  fit(v2x_libdem ~ v2cacamps + lg_gdppc, data = modelData) %&gt;% \n  tidy()\n\n# A tibble: 3 × 5\n  term        estimate std.error statistic  p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)   0.182     0.0378      4.82 3.11e- 6\n2 v2cacamps    -0.0527    0.0120     -4.40 1.86e- 5\n3 lg_gdppc      0.101     0.0146      6.90 9.53e-11"
+    "text": "Model with Two Predictors\n\n\\[\\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc\\]\n\\[\\hat{Y_i} = 0.18 + -0.05*Polarization + 0.10*GDPpc\\]"
   },
   {
     "objectID": "slides/week-10.2.html#model-with-two-predictors-2",
     "href": "slides/week-10.2.html#model-with-two-predictors-2",
-    "title": "Modeling",
+    "title": "Multiple Regression",
     "section": "Model with Two Predictors",
-    "text": "Model with Two Predictors\n\\[\\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc\\]\n\\[\\hat{Y_i} = 0.18 + -0.05*Polarization + 0.10*GDPpc\\]"
+    "text": "Model with Two Predictors\n\n\\[\\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc\\]\n\\[\\hat{Y_i} = 0.18 + -0.05*Polarization + 0.10*GDPpc\\]\n\\(a\\) is the predicted level of Y when BOTH GDP per capita and polarization are equal to 0"
   },
   {
     "objectID": "slides/week-10.2.html#model-with-two-predictors-3",
     "href": "slides/week-10.2.html#model-with-two-predictors-3",
-    "title": "Modeling",
+    "title": "Multiple Regression",
     "section": "Model with Two Predictors",
-    "text": "Model with Two Predictors\n\\[\\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc\\]\n\\[\\hat{Y_i} = 0.18 + -0.05*Polarization + 0.10*GDPpc\\]\n\n\\(a\\) is the predicted level of Y when BOTH GDP per capita and polarization are equal to 0"
+    "text": "Model with Two Predictors\n\n\\[\\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc\\]\n\nOLS is searching for combination of \\(a\\), \\(b_1\\), and \\(b_2\\) that minimize sum of squared residuals\nSame logic as model with one predictor, just more complicated"
   },
   {
     "objectID": "slides/week-10.2.html#model-with-two-predictors-4",
     "href": "slides/week-10.2.html#model-with-two-predictors-4",
-    "title": "Modeling",
+    "title": "Multiple Regression",
     "section": "Model with Two Predictors",
-    "text": "Model with Two Predictors\n\\[\\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc\\]\n\\[\\hat{Y_i} = 0.18 + -0.05*Polarization + 0.10*GDPpc\\]\n\n\\(b_1\\) is the impact of a 1-unit change in polarization on the predicted level of Y, holding GDP per capita fixed (all else equal)\n\nThe relationship between polarization and democracy, controlling for GDP per capita."
+    "text": "Model with Two Predictors\n\n\\[\\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc\\]\n\\[\\hat{Y_i} = 0.18 + -0.05*Polarization + 0.10*GDPpc\\]\n\n\\(b_1\\) is the impact of a 1-unit change in polarization on the predicted level of Y, holding GDP per capita fixed (all else equal)\nThe relationship between polarization and democracy, controlling for GDP per capita"
   },
   {
     "objectID": "slides/week-10.2.html#model-with-two-predictors-5",
     "href": "slides/week-10.2.html#model-with-two-predictors-5",
-    "title": "Modeling",
+    "title": "Multiple Regression",
     "section": "Model with Two Predictors",
     "text": "Model with Two Predictors\n\\[\\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc\\]\n\\[\\hat{Y_i} = 0.18 + -0.05*Polarization + 0.10*GDPpc\\]\n\n\\(b_2\\) is the impact of a 1-unit change in GDP per capita on the predicted level of Y, holding polarization fixed (all else equal)"
   },
@@ -951,9 +951,9 @@
   {
     "objectID": "slides/week-10.2.html#model-1",
     "href": "slides/week-10.2.html#model-1",
-    "title": "Modeling",
+    "title": "Multiple Regression",
     "section": "Model 1",
-    "text": "Model 1\n\nmod1 &lt;- linear_reg() %&gt;%\n      set_engine(\"lm\") %&gt;%\n      fit(v2x_corr ~ v2x_libdem + v2cacamps , data = modelData) %&gt;%\n      tidy() %&gt;% \n      mutate(model = \"Model 1: No GDP per capita\")\nmod1\n\n# A tibble: 3 × 6\n  term        estimate std.error statistic  p.value model                     \n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;                     \n1 (Intercept)   0.814     0.0280     29.1  3.64e-69 Model 1: No GDP per capita\n2 v2x_libdem   -0.807     0.0585    -13.8  8.61e-30 Model 1: No GDP per capita\n3 v2cacamps     0.0347    0.0108      3.21 1.59e- 3 Model 1: No GDP per capita"
+    "text": "Model 1\n\n\n\n# A tibble: 3 × 5\n  term         estimate std.error statistic  p.value\n  &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)    0.846     0.0268     31.5  7.42e-74\n2 libdem        -0.760     0.0588    -12.9  3.42e-27\n3 polarization   0.0495    0.0121      4.10 6.33e- 5"
   },
   {
     "objectID": "slides/week-10.2.html#model-2-adding-gdp-per-capita",
@@ -4581,5 +4581,152 @@
       "Course Modules",
       "Module 1.1"
     ]
+  },
+  {
+    "objectID": "slides/week-10.2.html#polarization-and-democracy-in-2006",
+    "href": "slides/week-10.2.html#polarization-and-democracy-in-2006",
+    "title": "Multiple Regression",
+    "section": "Polarization and Democracy in 2006",
+    "text": "Polarization and Democracy in 2006"
+  },
+  {
+    "objectID": "slides/week-10.2.html#model-with-one-predictor",
+    "href": "slides/week-10.2.html#model-with-one-predictor",
+    "title": "Multiple Regression",
+    "section": "Model with One Predictor",
+    "text": "Model with One Predictor\n\n\nlinear_reg() |&gt;\n  set_engine(\"lm\") |&gt;\n  fit(libdem ~ polarization, data = modelData) |&gt; \n  tidy()\n\n# A tibble: 2 × 5\n  term         estimate std.error statistic  p.value\n  &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)    0.383     0.0187     20.5  2.68e-48\n2 polarization  -0.0882    0.0140     -6.29 2.45e- 9\n\n\n\nHow do we interpret the intercept and the slope estimate?\nSignificance?"
+  },
+  {
+    "objectID": "slides/week-10.2.html#model-with-three-predictors",
+    "href": "slides/week-10.2.html#model-with-three-predictors",
+    "title": "Multiple Regression",
+    "section": "Model with Three Predictors",
+    "text": "Model with Three Predictors\n\n\\[\\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc + b_3*OilRents\\]"
+  },
+  {
+    "objectID": "slides/week-10.2.html#model-with-three-predictors-1",
+    "href": "slides/week-10.2.html#model-with-three-predictors-1",
+    "title": "Multiple Regression",
+    "section": "Model with Three Predictors",
+    "text": "Model with Three Predictors\n\n\nlinear_reg() |&gt;\n  set_engine(\"lm\") |&gt;\n  fit(libdem ~ polarization + log_wealth + oil_rents, data = modelData) |&gt; \n  tidy()\n\n# A tibble: 4 × 5\n  term           estimate  std.error statistic  p.value\n  &lt;chr&gt;             &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)   0.157     0.0322          4.86 2.78e- 6\n2 polarization -0.0538    0.0130         -4.13 5.87e- 5\n3 log_wealth    0.132     0.0152          8.67 4.76e-15\n4 oil_rents    -0.0000412 0.00000615     -6.70 3.39e-10"
+  },
+  {
+    "objectID": "slides/week-10.2.html#model-with-three-predictors-2",
+    "href": "slides/week-10.2.html#model-with-three-predictors-2",
+    "title": "Multiple Regression",
+    "section": "Model with Three Predictors",
+    "text": "Model with Three Predictors\n\n\\[\\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc + b_3*OilRents\\]\n\\[\\hat{Y_i} = a + -.05*Polarization + .13*GDPpc + .00004*OilRents\\] \n\\(b_3\\) is the impact of a 1-unit change in oil revenues per capita on the predicted level of Y, holding polarization and GDP fixed (all else equal)"
+  },
+  {
+    "objectID": "slides/week-10.2.html#your-turn",
+    "href": "slides/week-10.2.html#your-turn",
+    "title": "Multiple Regression",
+    "section": "Your Turn!",
+    "text": "Your Turn!\n\n\nIn the last session, you examined levels of democracy and corruption\nNow, let’s fit a multiple regression model predicting corruption with two predictors: democracy (libdem) and polarization (polarization)\nThen, interpret the coefficients\nEstimate a second multiple regression model that adds in GDP per capita (lg_gdppc)\nInterpret the coefficients\nWhat happens to the coefficients on democracy when we add GDP per capita to the model?\n\nWhy does this happen?\n\nTry adding in additional predictors if there is time\n\n\n\n\n−+\n10:00"
+  },
+  {
+    "objectID": "slides/week-10.2.html#model-2---adding-gdp-per-capita",
+    "href": "slides/week-10.2.html#model-2---adding-gdp-per-capita",
+    "title": "Multiple Regression",
+    "section": "Model 2 - Adding GDP per capita",
+    "text": "Model 2 - Adding GDP per capita\n\n\n\n# A tibble: 4 × 5\n  term         estimate std.error statistic  p.value\n  &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)    0.954     0.0283     33.8  5.21e-77\n2 libdem        -0.602     0.0576    -10.5  4.59e-20\n3 polarization   0.0332    0.0109      3.04 2.71e- 3\n4 log_wealth    -0.0846    0.0127     -6.67 3.49e-10"
+  },
+  {
+    "objectID": "slides/week-10.2.html#judicial-review-and-democracy",
+    "href": "slides/week-10.2.html#judicial-review-and-democracy",
+    "title": "Multiple Regression",
+    "section": "Judicial Review and Democracy",
+    "text": "Judicial Review and Democracy\n\nJudicial Review:\n\nDo high courts (Supreme Court, Constitutional Court, etc) have the power to rule on whether laws or policies are constitutional/legal? (Yes or No)\nDimension of Judicial Independence"
+  },
+  {
+    "objectID": "slides/week-10.2.html#judicial-review-and-democracy-1",
+    "href": "slides/week-10.2.html#judicial-review-and-democracy-1",
+    "title": "Multiple Regression",
+    "section": "Judicial Review and Democracy",
+    "text": "Judicial Review and Democracy"
+  },
+  {
+    "objectID": "slides/week-10.2.html#judicial-review-and-democracy-2",
+    "href": "slides/week-10.2.html#judicial-review-and-democracy-2",
+    "title": "Multiple Regression",
+    "section": "Judicial Review and Democracy",
+    "text": "Judicial Review and Democracy\n\n\n\n# A tibble: 2 × 5\n  term                     estimate std.error statistic     p.value\n  &lt;chr&gt;                       &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;\n1 (Intercept)                 0.176    0.0480      3.67 0.000323   \n2 factor(judicial_review)1    0.275    0.0521      5.27 0.000000390"
+  },
+  {
+    "objectID": "slides/week-10.2.html#judicial-review-and-democracy-3",
+    "href": "slides/week-10.2.html#judicial-review-and-democracy-3",
+    "title": "Multiple Regression",
+    "section": "Judicial Review and Democracy",
+    "text": "Judicial Review and Democracy\n\n\\[\\widehat{Democracy_{i}} = 0.17 + 0.28*JudicialReview(yes)\\]\n\nSlope: countries with judicial review are expected, on average, to be 0.28 units more democratic on the liberal democracy index\n\nCompares baseline level (Judicial Review = 0) to the other level (Judicial Review = 1)\n\nIntercept: average democracy score of countries without judicial review\nAverage democracy score of countries with judicial review is 0.17 + 0.28 = 0.45"
+  },
+  {
+    "objectID": "slides/week-10.2.html#dummy-variables",
+    "href": "slides/week-10.2.html#dummy-variables",
+    "title": "Multiple Regression",
+    "section": "Dummy Variables",
+    "text": "Dummy Variables\n\n\nWhen the categorical explanatory variable has many levels, they’re encoded to dummy variables\nWe always leave one category out of the model, as the omitted reference category\nEach coefficient describes is the expected difference between level of the factor and the baseline level\nEverything is relative to the omitted reference category"
+  },
+  {
+    "objectID": "slides/week-10.2.html#democracy-and-world-region",
+    "href": "slides/week-10.2.html#democracy-and-world-region",
+    "title": "Multiple Regression",
+    "section": "Democracy and World Region",
+    "text": "Democracy and World Region\n\n\nDoes region predict levels of democracy?\nSince Eastern Europe is the first category, default in R is to use that as the omitted category in models.\n\n\nlevels(modelData$region)\n\n[1] \"Eastern Europe\"                   \"Latin America\"                   \n[3] \"MENA\"                             \"SSAfrica\"                        \n[5] \"Western Europe and North America\" \"Asia and Pacific\""
+  },
+  {
+    "objectID": "slides/week-10.2.html#democracy-and-world-region-1",
+    "href": "slides/week-10.2.html#democracy-and-world-region-1",
+    "title": "Multiple Regression",
+    "section": "Democracy and World Region",
+    "text": "Democracy and World Region\n\nHow should we interpret intercept? How about the coefficient on Latin America?\n\n\nlinear_reg() |&gt;\n  set_engine(\"lm\") |&gt;\n  fit(libdem ~ region, data = modelData) |&gt;\n  tidy()\n\n# A tibble: 6 × 5\n  term                                   estimate std.error statistic  p.value\n  &lt;chr&gt;                                     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)                              0.436     0.0362     12.0  1.54e-24\n2 regionLatin America                      0.0685    0.0537      1.28 2.04e- 1\n3 regionMENA                              -0.235     0.0573     -4.11 6.16e- 5\n4 regionSSAfrica                          -0.138     0.0458     -3.00 3.07e- 3\n5 regionWestern Europe and North America   0.373     0.0543      6.87 1.15e-10\n6 regionAsia and Pacific                  -0.134     0.0521     -2.57 1.10e- 2"
+  },
+  {
+    "objectID": "slides/week-10.2.html#democracy-and-world-region-2",
+    "href": "slides/week-10.2.html#democracy-and-world-region-2",
+    "title": "Multiple Regression",
+    "section": "Democracy and World Region",
+    "text": "Democracy and World Region\n\nWhat if you want a different baseline category? How do we interpret now?\n\n\n# make SS Africa the reference category\nmodelData &lt;- modelData |&gt; \nmutate(newReg = relevel(region, ref=4)) \n\nlinear_reg() |&gt;\n      set_engine(\"lm\") |&gt;\n      fit(libdem ~ newReg, data = modelData) |&gt;\n      tidy()\n\n# A tibble: 6 × 5\n  term                                   estimate std.error statistic  p.value\n  &lt;chr&gt;                                     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)                             0.298      0.0281   10.6    1.44e-20\n2 newRegEastern Europe                    0.138      0.0458    3.00   3.07e- 3\n3 newRegLatin America                     0.206      0.0486    4.24   3.63e- 5\n4 newRegMENA                             -0.0977     0.0525   -1.86   6.44e- 2\n5 newRegWestern Europe and North America  0.511      0.0493   10.4    7.57e-20\n6 newRegAsia and Pacific                  0.00351    0.0468    0.0750 9.40e- 1"
+  },
+  {
+    "objectID": "slides/week-10.2.html#your-turn-1",
+    "href": "slides/week-10.2.html#your-turn-1",
+    "title": "Multiple Regression",
+    "section": "Your Turn",
+    "text": "Your Turn\n\nWhich types of regime have more corruption?\n\nV-Dem also includes a categorial regime variable: Closed autocracy (0), Electoral Autocracy (1), Electoral Democracy (2), Liberal Democracy (3)"
+  },
+  {
+    "objectID": "slides/week-10.2.html#your-turn-2",
+    "href": "slides/week-10.2.html#your-turn-2",
+    "title": "Multiple Regression",
+    "section": "Your Turn",
+    "text": "Your Turn\n\nWhich types of regime have more corruption?\n\nFirst, let’s make this an easier factor variable to work with.\n\n# Make nicer regime factor variable\nmodelData &lt;- modelData |&gt; \n  mutate(regime = factor(regime,\n                         labels = c(\"Closed Autocracy\",\n                                   \"Electoral Autocracy\",\n                                  \"Electoral Democracy\",\n                                  \"Liberal Democracy\")))\nlevels(modelData$regime)\n\n[1] \"Closed Autocracy\"    \"Electoral Autocracy\" \"Electoral Democracy\"\n[4] \"Liberal Democracy\""
+  },
+  {
+    "objectID": "slides/week-10.2.html#your-turn-3",
+    "href": "slides/week-10.2.html#your-turn-3",
+    "title": "Multiple Regression",
+    "section": "Your Turn",
+    "text": "Your Turn\n\nWhich types of regime have more corruption?\n\n\nFilter data to include only the year 2019 (or run the code to use modelData)\nMake a plot to visualize the relationship between regime type and level of corruption. Which kind of plot is best in this situation?\nFit a linear model\nInterpret the intercept and coefficients\n\n\n\n\n−+\n10:00"
+  },
+  {
+    "objectID": "slides/week-10.2.html#visualization",
+    "href": "slides/week-10.2.html#visualization",
+    "title": "Multiple Regression",
+    "section": "Visualization",
+    "text": "Visualization\n\nmodelData |&gt; \n  group_by(regime) |&gt; \n  summarize(corr = mean(corruption)) |&gt; \n  ggplot(aes(y=corr, x = regime)) +\n    geom_col(fill=\"steelblue\") +\n  theme_bw()"
+  },
+  {
+    "objectID": "slides/week-10.2.html#model",
+    "href": "slides/week-10.2.html#model",
+    "title": "Multiple Regression",
+    "section": "Model",
+    "text": "Model\n\n\nlinear_reg() |&gt;\n      set_engine(\"lm\") |&gt;\n      fit(corruption ~ regime, data = modelData) |&gt;\n      tidy()\n\n# A tibble: 4 × 5\n  term                      estimate std.error statistic  p.value\n  &lt;chr&gt;                        &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)                 0.597     0.0395     15.1  1.93e-33\n2 regimeElectoral Autocracy   0.148     0.0470      3.14 1.99e- 3\n3 regimeElectoral Democracy  -0.0580    0.0486     -1.19 2.35e- 1\n4 regimeLiberal Democracy    -0.459     0.0497     -9.23 9.63e-17"
+  },
+  {
+    "objectID": "slides/week-10.2.html#create-your-own-model",
+    "href": "slides/week-10.2.html#create-your-own-model",
+    "title": "Multiple Regression",
+    "section": "Create Your Own Model",
+    "text": "Create Your Own Model\n\n\nWhat is a theory that you would like to test with V-Dem data?\nWhat is the dependent variable?\nWhat are the independent variables?\nMap out steps to wrangle the data and fit a regression model\nWhat do you expect to find?\nNow go ahead and wrangle the data\nFit the model\nInterpret the coefficients and their significance\nDid the results match your expectations?"
   }
 ]

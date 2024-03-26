@@ -12,7 +12,7 @@
   <meta name="generator" content="quarto-1.4.533">
 
   <meta name="dcterms.date" content="2024-03-26">
-  <title>IAFF 6501–Spring 2024 Schedule - Modeling</title>
+  <title>IAFF 6501–Spring 2024 Schedule - Multiple Regression</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -388,11 +388,11 @@
       margin-right: 0; 
     }
   </style>
-<meta property="og:title" content="IAFF 6501–Spring 2024 Schedule - Modeling">
-<meta property="og:description" content="Part 3: Multiple Regression">
+  <link href="../site_libs/countdown-0.4.0/countdown.css" rel="stylesheet">
+  <script src="../site_libs/countdown-0.4.0/countdown.js"></script>
+<meta property="og:title" content="IAFF 6501–Spring 2024 Schedule - Multiple Regression">
 <meta property="og:site_name" content="IAFF 6501--Spring 2024 Schedule">
-<meta name="twitter:title" content="IAFF 6501–Spring 2024 Schedule - Modeling">
-<meta name="twitter:description" content="Part 3: Multiple Regression">
+<meta name="twitter:title" content="IAFF 6501–Spring 2024 Schedule - Multiple Regression">
 <meta name="twitter:card" content="summary">
 </head>
 <body class="quarto-dark">
@@ -400,8 +400,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Modeling</h1>
-  <p class="subtitle">Part 3: Multiple Regression</p>
+  <h1 class="title">Multiple Regression</h1>
 
 <div class="quarto-title-authors">
 </div>
@@ -410,101 +409,144 @@
 </section>
 <section id="load-packages" class="slide level2">
 <h2>Load packages</h2>
+<p><br></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb1-3"><a></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb1-4"><a></a><span class="fu">library</span>(tidymodels)</span>
 <span id="cb1-5"><a></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb1-6"><a></a><span class="fu">library</span>(DT)</span>
+<span id="cb1-6"><a></a><span class="co">#library(DT)</span></span>
 <span id="cb1-7"><a></a><span class="fu">library</span>(vdemdata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="load-vdem-data" class="slide level2">
+<section id="load-vdem-data" class="slide level2 smaller">
 <h2>Load VDEM Data</h2>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>modelData <span class="ot">&lt;-</span> vdem <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2006</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb2-3"><a></a>  <span class="fu">select</span>(country_name, </span>
+<span id="cb2-4"><a></a>         <span class="at">libdem =</span> v2x_libdem, </span>
+<span id="cb2-5"><a></a>         <span class="at">wealth =</span> e_gdppc, </span>
+<span id="cb2-6"><a></a>         <span class="at">oil_rents =</span> e_total_oil_income_pc,</span>
+<span id="cb2-7"><a></a>         <span class="at">polarization =</span> v2cacamps, </span>
+<span id="cb2-8"><a></a>         <span class="at">corruption =</span> v2x_corr, </span>
+<span id="cb2-9"><a></a>         <span class="at">judicial_review =</span> v2jureview_ord, </span>
+<span id="cb2-10"><a></a>         <span class="at">region =</span> e_regionpol_6C, </span>
+<span id="cb2-11"><a></a>         <span class="at">regime =</span> v2x_regime) <span class="sc">|&gt;</span> </span>
+<span id="cb2-12"><a></a>  <span class="fu">mutate</span>(<span class="at">log_wealth =</span> <span class="fu">log</span>(wealth), </span>
+<span id="cb2-13"><a></a>         <span class="at">region =</span> <span class="fu">factor</span>(</span>
+<span id="cb2-14"><a></a>           region,</span>
+<span id="cb2-15"><a></a>           <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Eastern Europe"</span>, </span>
+<span id="cb2-16"><a></a>             <span class="st">"Latin America"</span>, </span>
+<span id="cb2-17"><a></a>             <span class="st">"MENA"</span>, </span>
+<span id="cb2-18"><a></a>             <span class="st">"SSAfrica"</span>, </span>
+<span id="cb2-19"><a></a>             <span class="st">"Western Europe and North America"</span>, </span>
+<span id="cb2-20"><a></a>             <span class="st">"Asia and Pacific"</span>))</span>
+<span id="cb2-21"><a></a>          )</span>
+<span id="cb2-22"><a></a></span>
+<span id="cb2-23"><a></a><span class="fu">glimpse</span>(modelData)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 177
+Columns: 10
+$ country_name    &lt;chr&gt; "Mexico", "Suriname", "Sweden", "Switzerland", "Ghana"…
+$ libdem          &lt;dbl&gt; 0.482, 0.672, 0.888, 0.845, 0.640, 0.659, 0.768, 0.018…
+$ wealth          &lt;dbl&gt; 14.584, 10.008, 42.378, 48.410, 3.284, 10.580, 37.068,…
+$ oil_rents       &lt;dbl&gt; 694.847, 639.506, 0.000, 0.000, 6.380, 10.060, 2.635, …
+$ polarization    &lt;dbl&gt; -0.346, -1.748, -2.346, -1.711, -0.398, -0.029, -2.273…
+$ corruption      &lt;dbl&gt; 0.611, 0.226, 0.004, 0.023, 0.640, 0.400, 0.107, 0.892…
+$ judicial_review &lt;dbl&gt; 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, …
+$ region          &lt;fct&gt; Latin America, Latin America, Western Europe and North…
+$ regime          &lt;dbl&gt; 2, 2, 3, 3, 3, 3, 3, 0, 1, 2, 1, 1, 2, 3, 2, 3, 3, 2, …
+$ log_wealth      &lt;dbl&gt; 2.6799250, 2.3033848, 3.7466294, 3.8797064, 1.1890622,…</code></pre>
+</div>
+</div>
 </section>
 <section id="linear-model-with-multiple-predictors" class="slide level2">
 <h2>Linear Model with Multiple Predictors</h2>
+<p><br></p>
 <ul>
-<li><p>Previously, we were interested in GDP per capita as a predictor of democracy.</p></li>
-<li><p>Now, let’s consider another predictor: polarization (also measured by V-Dem)</p></li>
+<li>Previously, we were interested in GDP per capita as a predictor of democracy</li>
+<li>Now, let’s consider another predictor: polarization (also measured by V-Dem)</li>
 </ul>
 </section>
 <section id="polarization-measure-in-the-usa" class="slide level2">
 <h2>Polarization Measure in the USA</h2>
 
-<img data-src="week-10.2_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
-<section id="polarization-and-democracy-in-2019" class="slide level2">
-<h2>Polarization and Democracy in 2019</h2>
-
 <img data-src="week-10.2_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
-<section id="model-with-polarization-as-the-only-predictor" class="slide level2">
-<h2>Model with Polarization as the only Predictor</h2>
-<p>How do we interpret the intercept and the slope estimate?</p>
+<section id="polarization-and-democracy-in-2006" class="slide level2">
+<h2>Polarization and Democracy in 2006</h2>
+
+<img data-src="week-10.2_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
+<section id="model-with-one-predictor" class="slide level2">
+<h2>Model with One Predictor</h2>
+<p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">linear_reg</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb2-2"><a></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-3"><a></a>  <span class="fu">fit</span>(v2x_libdem <span class="sc">~</span> v2cacamps, <span class="at">data =</span> modelData) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-4"><a></a>  <span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb4-2"><a></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb4-3"><a></a>  <span class="fu">fit</span>(libdem <span class="sc">~</span> polarization, <span class="at">data =</span> modelData) <span class="sc">|&gt;</span> </span>
+<span id="cb4-4"><a></a>  <span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 5
-  term        estimate std.error statistic  p.value
-  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
-1 (Intercept)   0.414     0.0178     23.2  1.26e-55
-2 v2cacamps    -0.0767    0.0127     -6.06 7.91e- 9</code></pre>
+  term         estimate std.error statistic  p.value
+  &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+1 (Intercept)    0.383     0.0187     20.5  2.68e-48
+2 polarization  -0.0882    0.0140     -6.29 2.45e- 9</code></pre>
 </div>
 </div>
+<p><br></p>
+<div class="line-block">How do we interpret the intercept and the slope estimate?<br>
+Significance?</div>
 </section>
 <section id="model-with-two-predictors" class="slide level2">
 <h2>Model with Two Predictors</h2>
 <p><br></p>
-<p><span class="math display">\[\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc\]</span> <br></p>
-<ul>
-<li><p>OLS is searching for combination of <span class="math inline">\(a\)</span>, <span class="math inline">\(b_1\)</span>, and <span class="math inline">\(b_2\)</span> that minimize sum of squared residuals</p>
-<ul>
-<li>same logic as model with one predictor, just more complicated</li>
-</ul></li>
-</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb6-3"><a></a>  <span class="fu">fit</span>(libdem <span class="sc">~</span> polarization <span class="sc">+</span> log_wealth, <span class="at">data =</span> modelData) <span class="sc">|&gt;</span> </span>
+<span id="cb6-4"><a></a>  <span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 5
+  term         estimate std.error statistic       p.value
+  &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;
+1 (Intercept)    0.200     0.0344      5.80 0.0000000318 
+2 polarization  -0.0550    0.0139     -3.96 0.000111     
+3 log_wealth     0.0952    0.0152      6.24 0.00000000334</code></pre>
+</div>
+</div>
 </section>
 <section id="model-with-two-predictors-1" class="slide level2">
 <h2>Model with Two Predictors</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">linear_reg</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb4-2"><a></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb4-3"><a></a>  <span class="fu">fit</span>(v2x_libdem <span class="sc">~</span> v2cacamps <span class="sc">+</span> lg_gdppc, <span class="at">data =</span> modelData) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-4"><a></a>  <span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 5
-  term        estimate std.error statistic  p.value
-  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
-1 (Intercept)   0.182     0.0378      4.82 3.11e- 6
-2 v2cacamps    -0.0527    0.0120     -4.40 1.86e- 5
-3 lg_gdppc      0.101     0.0146      6.90 9.53e-11</code></pre>
-</div>
-</div>
+<p><br></p>
+<p><span class="math display">\[\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc\]</span></p>
+<p><span class="math display">\[\hat{Y_i} = 0.18 + -0.05*Polarization + 0.10*GDPpc\]</span></p>
 </section>
 <section id="model-with-two-predictors-2" class="slide level2">
 <h2>Model with Two Predictors</h2>
+<p><br></p>
 <p><span class="math display">\[\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc\]</span></p>
 <p><span class="math display">\[\hat{Y_i} = 0.18 + -0.05*Polarization + 0.10*GDPpc\]</span></p>
+<p><span class="math inline">\(a\)</span> is the predicted level of Y when BOTH GDP per capita and polarization are equal to 0</p>
 </section>
 <section id="model-with-two-predictors-3" class="slide level2">
 <h2>Model with Two Predictors</h2>
+<p><br></p>
 <p><span class="math display">\[\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc\]</span></p>
-<p><span class="math display">\[\hat{Y_i} = 0.18 + -0.05*Polarization + 0.10*GDPpc\]</span></p>
 <ul>
-<li><span class="math inline">\(a\)</span> is the predicted level of Y when BOTH GDP per capita and polarization are equal to 0</li>
+<li>OLS is searching for combination of <span class="math inline">\(a\)</span>, <span class="math inline">\(b_1\)</span>, and <span class="math inline">\(b_2\)</span> that minimize sum of squared residuals</li>
+<li>Same logic as model with one predictor, just more complicated</li>
 </ul>
 </section>
 <section id="model-with-two-predictors-4" class="slide level2">
 <h2>Model with Two Predictors</h2>
+<p><br></p>
 <p><span class="math display">\[\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc\]</span></p>
 <p><span class="math display">\[\hat{Y_i} = 0.18 + -0.05*Polarization + 0.10*GDPpc\]</span></p>
 <ul>
-<li><p><span class="math inline">\(b_1\)</span> is the impact of a 1-unit change in polarization on the predicted level of Y, <strong>holding GDP per capita fixed</strong> (all else equal)</p>
-<ul>
-<li>The relationship between polarization and democracy, controlling for GDP per capita.</li>
-</ul></li>
+<li><span class="math inline">\(b_1\)</span> is the impact of a 1-unit change in polarization on the predicted level of Y, <em>holding GDP per capita fixed</em> (all else equal)</li>
+<li>The relationship between polarization and democracy, controlling for GDP per capita</li>
 </ul>
 </section>
 <section id="model-with-two-predictors-5" class="slide level2">
@@ -515,304 +557,309 @@
 <li><span class="math inline">\(b_2\)</span> is the impact of a 1-unit change in GDP per capita on the predicted level of Y, <strong>holding polarization fixed</strong> (all else equal)</li>
 </ul>
 </section>
-<section id="your-turn-polarization-democracy-and-corruption" class="slide level2">
-<h2>Your Turn: Polarization, Democracy, and Corruption</h2>
+<section id="model-with-three-predictors" class="slide level2">
+<h2>Model with Three Predictors</h2>
+<p><br></p>
+<p><span class="math display">\[\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc + b_3*OilRents\]</span></p>
+</section>
+<section id="model-with-three-predictors-1" class="slide level2">
+<h2>Model with Three Predictors</h2>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb8-2"><a></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb8-3"><a></a>  <span class="fu">fit</span>(libdem <span class="sc">~</span> polarization <span class="sc">+</span> log_wealth <span class="sc">+</span> oil_rents, <span class="at">data =</span> modelData) <span class="sc">|&gt;</span> </span>
+<span id="cb8-4"><a></a>  <span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 5
+  term           estimate  std.error statistic  p.value
+  &lt;chr&gt;             &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+1 (Intercept)   0.157     0.0322          4.86 2.78e- 6
+2 polarization -0.0538    0.0130         -4.13 5.87e- 5
+3 log_wealth    0.132     0.0152          8.67 4.76e-15
+4 oil_rents    -0.0000412 0.00000615     -6.70 3.39e-10</code></pre>
+</div>
+</div>
+</section>
+<section id="model-with-three-predictors-2" class="slide level2 smaller">
+<h2>Model with Three Predictors</h2>
+<p><br></p>
+<p><span class="math display">\[\hat{Y_i} = a + b_1*Polarization + b_2*GDPpc + b_3*OilRents\]</span></p>
+<p><span class="math display">\[\hat{Y_i} = a + -.05*Polarization + .13*GDPpc + .00004*OilRents\]</span> <br></p>
+<div class="line-block"><span class="math inline">\(b_3\)</span> is the impact of a 1-unit change in oil revenues per capita on the predicted level of Y, <strong>holding polarization and GDP fixed</strong> (all else equal)</div>
+</section>
+<section id="your-turn" class="slide level2 smaller">
+<h2>Your Turn!</h2>
+<p><br></p>
 <ul>
-<li><p>Last week, you examined levels of democracy and corruption</p></li>
-<li><p>Today, first fit a multiple regression model predicting corruption with two predictors: democracy (v2x_libdem) and polarization (v2cacamps)</p></li>
-<li><p>Interpret the coefficients</p></li>
-<li><p>Estimate a second multiple regression model that adds in GDP per capita (lg_gdppc)</p></li>
-<li><p>Interpret the coefficients</p></li>
-<li><p>What happens to the coefficients on democracy when we add GDP per capita to the model?</p>
+<li>In the last session, you examined levels of democracy and corruption</li>
+<li>Now, let’s fit a multiple regression model predicting corruption with two predictors: democracy (libdem) and polarization (polarization)</li>
+<li>Then, interpret the coefficients</li>
+<li>Estimate a second multiple regression model that adds in GDP per capita (lg_gdppc)</li>
+<li>Interpret the coefficients</li>
+<li>What happens to the coefficients on democracy when we add GDP per capita to the model?
 <ul>
 <li>Why does this happen?</li>
 </ul></li>
+<li>Try adding in additional predictors if there is time</li>
 </ul>
+<div class="cell">
+<div class="cell-output-display">
+<div class="countdown" id="timer1" data-update-every="1" tabindex="0" style="right:10%;bottom:10%;">
+<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+</div>
+</div>
 </section>
 <section id="model-1" class="slide level2">
 <h2>Model 1</h2>
+<p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>mod1 <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb6-2"><a></a>      <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb6-3"><a></a>      <span class="fu">fit</span>(v2x_corr <span class="sc">~</span> v2x_libdem <span class="sc">+</span> v2cacamps , <span class="at">data =</span> modelData) <span class="sc">%&gt;%</span></span>
-<span id="cb6-4"><a></a>      <span class="fu">tidy</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb6-5"><a></a>      <span class="fu">mutate</span>(<span class="at">model =</span> <span class="st">"Model 1: No GDP per capita"</span>)</span>
-<span id="cb6-6"><a></a>mod1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 6
-  term        estimate std.error statistic  p.value model                     
-  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;                     
-1 (Intercept)   0.814     0.0280     29.1  3.64e-69 Model 1: No GDP per capita
-2 v2x_libdem   -0.807     0.0585    -13.8  8.61e-30 Model 1: No GDP per capita
-3 v2cacamps     0.0347    0.0108      3.21 1.59e- 3 Model 1: No GDP per capita</code></pre>
-</div>
-</div>
-</section>
-<section id="model-2-adding-gdp-per-capita" class="slide level2">
-<h2>Model 2 adding GDP per capita</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>mod2 <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb8-2"><a></a>      <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb8-3"><a></a>      <span class="fu">fit</span>(v2x_corr <span class="sc">~</span> v2x_libdem <span class="sc">+</span> v2cacamps <span class="sc">+</span> lg_gdppc, <span class="at">data =</span> modelData) <span class="sc">%&gt;%</span></span>
-<span id="cb8-4"><a></a>      <span class="fu">tidy</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb8-5"><a></a>      <span class="fu">mutate</span>(<span class="at">model =</span> <span class="st">"Model 2: GDP per capita"</span>)</span>
-<span id="cb8-6"><a></a>mod2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 6
-  term        estimate std.error statistic  p.value model                  
-  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;                  
-1 (Intercept)   0.945    0.0303      31.2  2.84e-72 Model 2: GDP per capita
-2 v2x_libdem   -0.638    0.0574     -11.1  6.65e-22 Model 2: GDP per capita
-3 v2cacamps     0.0329   0.00949      3.46 6.72e- 4 Model 2: GDP per capita
-4 lg_gdppc     -0.0835   0.0124      -6.74 2.37e-10 Model 2: GDP per capita</code></pre>
-</div>
-</div>
-<!-- ## Compare -->
-<!-- ```{r echo=FALSE} -->
-<!-- ms <- rbind(mod1, mod2) -->
-<!-- ms %>%  -->
-<!--   filter(term !="(Intercept)") %>%  -->
-<!--   ggplot(., aes(x = estimate, y = term, color=model)) +  -->
-<!--   geom_point(size=2, position=position_dodge(width = -.4)) + -->
-<!--     scale_color_manual(name=NULL,  -->
-<!--                       values = c("#E99840", "#0C1956")) -->
-<!-- ``` -->
-</section>
-<section>
-<section id="multiple-predictors-interaction-models" class="title-slide slide level1 center">
-<h1>Multiple Predictors: Interaction Models</h1>
-
-</section>
-<section id="oil-wealth-and-democracy" class="slide level2">
-<h2>Oil Wealth and Democracy</h2>
-<p>Political Resource Curse</p>
-</section>
-<section id="set-up-data-use-the-year-2005" class="slide level2">
-<h2>Set up data: Use the year 2005</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>oilData <span class="ot">&lt;-</span> vdem <span class="sc">%&gt;%</span> </span>
-<span id="cb10-2"><a></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2005</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb10-3"><a></a>  <span class="fu">select</span>(country_name, v2x_libdem, e_gdppc, v2cacamps, e_total_oil_income_pc, v2x_corr, v2pepwrgen, v2clgencl) <span class="sc">%&gt;%</span> </span>
-<span id="cb10-4"><a></a>  <span class="fu">mutate</span>(<span class="at">lg_gdppc =</span> <span class="fu">log</span>(e_gdppc))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="distribution-of-oil-wealth-per-capita" class="slide level2">
-<h2>Distribution of Oil Wealth per Capita</h2>
-
-<img data-src="week-10.2_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"></section>
-<section id="create-a-dummy-variable-for-high-oil-wealth" class="slide level2">
-<h2>Create a Dummy Variable for High Oil Wealth</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>oilData <span class="ot">&lt;-</span> oilData <span class="sc">%&gt;%</span> </span>
-<span id="cb11-2"><a></a>  <span class="fu">mutate</span>(</span>
-<span id="cb11-3"><a></a>        <span class="at">oil =</span> <span class="fu">ifelse</span>(e_total_oil_income_pc <span class="sc">&gt;</span> <span class="dv">152</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
-<span id="cb11-4"><a></a>         <span class="at">oil =</span> <span class="fu">factor</span>(oil, <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"No Oil Wealth"</span>, <span class="st">"Oil Wealth"</span>))</span>
-<span id="cb11-5"><a></a>        ) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-6"><a></a>  <span class="fu">filter</span>(oil <span class="sc">==</span> <span class="st">"No Oil Wealth"</span> <span class="sc">|</span> oil <span class="sc">==</span> <span class="st">"Oil Wealth"</span>)</span>
-<span id="cb11-7"><a></a><span class="fu">table</span>(oilData<span class="sc">$</span>oil)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-No Oil Wealth    Oil Wealth 
-          122            41 </code></pre>
-</div>
-</div>
-</section>
-<section id="democracy-gdp-per-capita-and-oil-wealth" class="slide level2">
-<h2>Democracy, GDP per Capita, and Oil Wealth</h2>
-<p>How should we interpret this graph?</p>
-
-<img data-src="week-10.2_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch"></section>
-<section id="model-with-oil-and-gdp-per-capita-no-interaction" class="slide level2">
-<h2>Model with Oil and GDP per Capita, No Interaction</h2>
-<p>What is correct interpretation?</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">linear_reg</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb13-2"><a></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb13-3"><a></a>  <span class="fu">fit</span>(v2x_libdem <span class="sc">~</span> lg_gdppc <span class="sc">+</span> oil, <span class="at">data =</span> oilData) <span class="sc">%&gt;%</span> </span>
-<span id="cb13-4"><a></a>  <span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 5
-  term          estimate std.error statistic  p.value
-  &lt;chr&gt;            &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
-1 (Intercept)      0.160    0.0318      5.02 1.36e- 6
-2 lg_gdppc         0.152    0.0144     10.5  4.53e-20
-3 oilOil Wealth   -0.233    0.0395     -5.90 2.08e- 8</code></pre>
+  term         estimate std.error statistic  p.value
+  &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+1 (Intercept)    0.846     0.0268     31.5  7.42e-74
+2 libdem        -0.760     0.0588    -12.9  3.42e-27
+3 polarization   0.0495    0.0121      4.10 6.33e- 5</code></pre>
 </div>
 </div>
 </section>
-<section id="interaction-model" class="slide level2">
-<h2>Interaction Model</h2>
-<ul>
-<li>Does GDP per capita have a different relationship to democracy in Oil rich versus non-Oil rich countries?</li>
-</ul>
-</section>
-<section id="interaction-model-1" class="slide level2">
-<h2>Interaction Model</h2>
-<ul>
-<li><span class="math inline">\(Y_i = a + b_1 * GDPpc + b_2 * Oil + b_3 * GDPpc * Oil\)</span></li>
-</ul>
-<div class="fragment">
-<ul>
-<li><span class="math inline">\(b_3 * GDPpc * OilWealth\)</span> captures the interaction</li>
-</ul>
-</div>
-</section>
-<section id="interaction-model-interpretation" class="slide level2">
-<h2>Interaction Model: Interpretation</h2>
-<ul>
-<li><p>How should we interpret <span class="math inline">\(a\)</span>?</p></li>
-<li><p><span class="math inline">\(Y_i = a + b_1 * GDPpc + b_2 * Oil + b_3 * GDPpc * Oil\)</span></p></li>
-</ul>
-<div class="fragment">
-<ul>
-<li><span class="math inline">\(a\)</span> is predicted level of democracy where GDPpc = 0 and Oil Wealth = 0</li>
-</ul>
-</div>
-</section>
-<section id="interaction-model-interpretation-1" class="slide level2">
-<h2>Interaction Model: Interpretation</h2>
-<ul>
-<li><p>What happens if we set Oil Wealth to 0?</p></li>
-<li><p><span class="math inline">\(Y_i = a + b_1 * GDPpc + b_2 * Oil + b_3 * GDPpc * Oil\)</span></p></li>
-<li><p><span class="math inline">\(Y_i = a + b_1 * GDPpc + b_2 * 0 + b_3 * GDPpc * 0\)</span></p></li>
-<li><p><span class="math inline">\(Y_i = a + b_1 * GDPpc\)</span></p></li>
-</ul>
-<div class="fragment">
-<ul>
-<li><span class="math inline">\(b_1\)</span> is the association between GDP per capita and democracy, <strong>when oil wealth = 0</strong></li>
-</ul>
-</div>
-</section>
-<section id="interaction-model-interpretation-2" class="slide level2">
-<h2>Interaction Model: Interpretation</h2>
-<ul>
-<li><p>What happens if we set GDPpc to 0?</p></li>
-<li><p><span class="math inline">\(Y_i = a + b_1 * GDPpc + b_2 * Oil + b_3 * GDPpc * Oil\)</span></p></li>
-<li><p><span class="math inline">\(Y_i = a + b_1 * 0 + b_2 * Oil + b_3 * Oil * 0\)</span></p></li>
-<li><p><span class="math inline">\(Y_i = a + b_2 * Oil\)</span></p></li>
-<li><p><span class="math inline">\(b_2\)</span> is the association between oil and democracy, <strong>when GDP per capita = 0</strong></p></li>
-</ul>
-</section>
-<section id="interaction-model-interpretation-3" class="slide level2">
-<h2>Interaction Model: Interpretation</h2>
-<ul>
-<li><p>What happens if we set Oil Wealth to 1?</p></li>
-<li><p><span class="math inline">\(Y_i = a + b_1 * GDPpc + b_2 * 1 + b_3 * GDPpc * 1\)</span></p></li>
-<li><p>Rearrange: <span class="math inline">\(Y_i = a + (b_1 + b_3) * GDPpc + b_2 * 1\)</span></p></li>
-</ul>
-<div class="fragment">
-<ul>
-<li><span class="math inline">\(b_1 + b_3\)</span> is the association between GDP per capita and democracy, <strong>when oil wealth = 1</strong></li>
-</ul>
-</div>
-</section>
-<section id="run-the-interaction-model" class="slide level2">
-<h2>Run the Interaction Model</h2>
-<p>What is correct interpretation of each coefficient?</p>
+<section id="model-2---adding-gdp-per-capita" class="slide level2">
+<h2>Model 2 - Adding GDP per capita</h2>
+<p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">linear_reg</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb15-2"><a></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb15-3"><a></a>  <span class="fu">fit</span>(v2x_libdem <span class="sc">~</span> lg_gdppc<span class="sc">*</span>oil, <span class="at">data =</span> oilData) <span class="sc">%&gt;%</span> </span>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 5
+  term         estimate std.error statistic  p.value
+  &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+1 (Intercept)    0.954     0.0283     33.8  5.21e-77
+2 libdem        -0.602     0.0576    -10.5  4.59e-20
+3 polarization   0.0332    0.0109      3.04 2.71e- 3
+4 log_wealth    -0.0846    0.0127     -6.67 3.49e-10</code></pre>
+</div>
+</div>
+</section>
+<section>
+<section id="categorical-variables" class="title-slide slide level1 center">
+<h1>Categorical Variables</h1>
+
+</section>
+<section id="judicial-review-and-democracy" class="slide level2">
+<h2>Judicial Review and Democracy</h2>
+<p><br></p>
+<p><strong>Judicial Review:</strong></p>
+<ul>
+<li>Do high courts (Supreme Court, Constitutional Court, etc) have the power to rule on whether laws or policies are constitutional/legal? (Yes or No)</li>
+<li>Dimension of Judicial Independence</li>
+</ul>
+</section>
+<section id="judicial-review-and-democracy-1" class="slide level2">
+<h2>Judicial Review and Democracy</h2>
+
+<img data-src="week-10.2_files/figure-revealjs/judicial_review-1.png" width="960" class="r-stretch"></section>
+<section id="judicial-review-and-democracy-2" class="slide level2">
+<h2>Judicial Review and Democracy</h2>
+<p><br></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 5
+  term                     estimate std.error statistic     p.value
+  &lt;chr&gt;                       &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;
+1 (Intercept)                 0.176    0.0480      3.67 0.000323   
+2 factor(judicial_review)1    0.275    0.0521      5.27 0.000000390</code></pre>
+</div>
+</div>
+</section>
+<section id="judicial-review-and-democracy-3" class="slide level2 smaller">
+<h2>Judicial Review and Democracy</h2>
+<p><br></p>
+<p><span class="math display">\[\widehat{Democracy_{i}} = 0.17 + 0.28*JudicialReview(yes)\]</span></p>
+<ul>
+<li><strong>Slope:</strong> countries with judicial review are expected, on average, to be 0.28 units more democratic on the liberal democracy index
+<ul>
+<li>Compares baseline level (Judicial Review = 0) to the other level (Judicial Review = 1)</li>
+</ul></li>
+<li><strong>Intercept:</strong> average democracy score of countries without judicial review</li>
+<li>Average democracy score of countries with judicial review is 0.17 + 0.28 = 0.45</li>
+</ul>
+</section>
+<section id="dummy-variables" class="slide level2">
+<h2>Dummy Variables</h2>
+<p><br></p>
+<ul>
+<li>When the categorical explanatory variable has many levels, they’re encoded to <strong>dummy variables</strong></li>
+<li>We always leave one category out of the model, as the omitted reference category</li>
+<li>Each coefficient describes is the expected difference between level of the factor <strong>and the baseline level</strong></li>
+<li>Everything is relative to the omitted reference category</li>
+</ul>
+</section>
+<section id="democracy-and-world-region" class="slide level2">
+<h2>Democracy and World Region</h2>
+<p><br></p>
+<ul>
+<li>Does region predict levels of democracy?</li>
+<li>Since Eastern Europe is the first category, default in R is to use that as the omitted category in models.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">levels</span>(modelData<span class="sc">$</span>region)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Eastern Europe"                   "Latin America"                   
+[3] "MENA"                             "SSAfrica"                        
+[5] "Western Europe and North America" "Asia and Pacific"                </code></pre>
+</div>
+</div>
+</section>
+<section id="democracy-and-world-region-1" class="slide level2 smaller">
+<h2>Democracy and World Region</h2>
+<p><br></p>
+<p>How should we interpret intercept? How about the coefficient on Latin America?</p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb15-2"><a></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-3"><a></a>  <span class="fu">fit</span>(libdem <span class="sc">~</span> region, <span class="at">data =</span> modelData) <span class="sc">|&gt;</span></span>
 <span id="cb15-4"><a></a>  <span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 5
-  term                   estimate std.error statistic  p.value
-  &lt;chr&gt;                     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
-1 (Intercept)              0.138     0.0342     4.03  8.51e- 5
-2 lg_gdppc                 0.164     0.0160    10.2   3.25e-19
-3 oilOil Wealth           -0.0850    0.0951    -0.893 3.73e- 1
-4 lg_gdppc:oilOil Wealth  -0.0607    0.0355    -1.71  8.88e- 2</code></pre>
+<pre><code># A tibble: 6 × 5
+  term                                   estimate std.error statistic  p.value
+  &lt;chr&gt;                                     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+1 (Intercept)                              0.436     0.0362     12.0  1.54e-24
+2 regionLatin America                      0.0685    0.0537      1.28 2.04e- 1
+3 regionMENA                              -0.235     0.0573     -4.11 6.16e- 5
+4 regionSSAfrica                          -0.138     0.0458     -3.00 3.07e- 3
+5 regionWestern Europe and North America   0.373     0.0543      6.87 1.15e-10
+6 regionAsia and Pacific                  -0.134     0.0521     -2.57 1.10e- 2</code></pre>
 </div>
 </div>
 </section>
-<section id="interpretation" class="slide level2">
-<h2>Interpretation</h2>
-<p><span class="math inline">\(\hat{Y_i}\)</span> = .138 + .164 * <span class="math inline">\(GDPpc_i\)</span> + (-0.085) * <span class="math inline">\(Oil_i\)</span> + (-0.0607) * <span class="math inline">\(GDPpc_i\)</span> * <span class="math inline">\(Oil_i\)</span></p>
-<div class="fragment">
-<ul>
-<li><p>Relationship without oil: <span class="math inline">\(0.164\)</span></p></li>
-<li><p>Relationship with oil: <span class="math inline">\(0.164 + (-0.0607) = 0.164 -0.0607 = 0.1033\)</span></p></li>
-</ul>
-</div>
-</section>
-<section id="is-this-difference-due-to-chance" class="slide level2">
-<h2>Is this difference due to chance?</h2>
-<ul>
-<li><p>Does GDP have a lower relationship to democracy in oil rich countries?</p></li>
-<li><p>Is 0.164 without oil different from 0.1033 with oil?</p></li>
-</ul>
-<div class="fragment">
-<ul>
-<li>What is the null hypothesis? What is the alternative?</li>
-</ul>
-</div>
-</section>
-<section id="is-this-difference-due-to-chance-1" class="slide level2">
-<h2>Is this difference due to chance?</h2>
+<section id="democracy-and-world-region-2" class="slide level2 smaller">
+<h2>Democracy and World Region</h2>
+<p><br></p>
+<p>What if you want a different baseline category? How do we interpret now?</p>
+<p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">linear_reg</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb17-2"><a></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb17-3"><a></a>  <span class="fu">fit</span>(v2x_libdem <span class="sc">~</span> lg_gdppc<span class="sc">*</span>oil, <span class="at">data =</span> oilData) <span class="sc">%&gt;%</span> </span>
-<span id="cb17-4"><a></a>  <span class="fu">tidy</span>(<span class="at">conf.int=</span><span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb17-5"><a></a>  <span class="fu">filter</span>(term <span class="sc">==</span> <span class="st">"lg_gdppc:oilOil Wealth"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb17-6"><a></a>  <span class="fu">select</span>(term, estimate, std.error, p.value, conf.low, conf.high) <span class="sc">%&gt;%</span>   </span>
-<span id="cb17-7"><a></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), round, <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="co"># make SS Africa the reference category</span></span>
+<span id="cb17-2"><a></a>modelData <span class="ot">&lt;-</span> modelData <span class="sc">|&gt;</span> </span>
+<span id="cb17-3"><a></a><span class="fu">mutate</span>(<span class="at">newReg =</span> <span class="fu">relevel</span>(region, <span class="at">ref=</span><span class="dv">4</span>)) </span>
+<span id="cb17-4"><a></a></span>
+<span id="cb17-5"><a></a><span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb17-6"><a></a>      <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb17-7"><a></a>      <span class="fu">fit</span>(libdem <span class="sc">~</span> newReg, <span class="at">data =</span> modelData) <span class="sc">|&gt;</span></span>
+<span id="cb17-8"><a></a>      <span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 6
-  term                   estimate std.error p.value conf.low conf.high
-  &lt;chr&gt;                     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
-1 lg_gdppc:oilOil Wealth   -0.061     0.035   0.089   -0.131     0.009</code></pre>
+<pre><code># A tibble: 6 × 5
+  term                                   estimate std.error statistic  p.value
+  &lt;chr&gt;                                     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+1 (Intercept)                             0.298      0.0281   10.6    1.44e-20
+2 newRegEastern Europe                    0.138      0.0458    3.00   3.07e- 3
+3 newRegLatin America                     0.206      0.0486    4.24   3.63e- 5
+4 newRegMENA                             -0.0977     0.0525   -1.86   6.44e- 2
+5 newRegWestern Europe and North America  0.511      0.0493   10.4    7.57e-20
+6 newRegAsia and Pacific                  0.00351    0.0468    0.0750 9.40e- 1</code></pre>
 </div>
 </div>
 </section>
-<section id="is-this-difference-due-to-chance-2" class="slide level2">
-<h2>Is this difference due to chance?</h2>
-<ul>
-<li><p>95% Confidence Interval: [-0.131, 0.009]: mostly negative</p></li>
-<li><p>p-value of interaction term: 0.089</p>
-<ul>
-<li>this is higher that 0.05, but close and remember that the cutoff is arbitrary</li>
-</ul></li>
-</ul>
+<section id="your-turn-1" class="slide level2">
+<h2>Your Turn</h2>
+<p><br></p>
+<p><strong>Which types of regime have more corruption?</strong></p>
+<p><br></p>
+<p>V-Dem also includes a categorial regime variable: Closed autocracy (0), Electoral Autocracy (1), Electoral Democracy (2), Liberal Democracy (3)</p>
 </section>
-<section id="your-turn-oil-wealth-and-womens-civil-liberties" class="slide level2">
-<h2>Your Turn: Oil Wealth and Women’s Civil Liberties</h2>
-<ul>
-<li><p>V-Dem has a variable capturing respect for women’s civil liberties -v2clgencl</p></li>
-<li><p>How do GDP per capita and oil wealth relate to women’s civil liberties?</p></li>
-<li><p>First, use oilData to create a scatterplot that visualizes this relationship.</p></li>
-<li><p>Second, fit an interaction model (oil X GDP per capita) predicting women’s civil liberties</p></li>
-<li><p>Interpret each of the coefficients and the intercept</p></li>
-<li><p>What is your overall conclusion(s) from this model?</p></li>
-</ul>
+<section id="your-turn-2" class="slide level2">
+<h2>Your Turn</h2>
+<p><br></p>
+<p><strong>Which types of regime have more corruption?</strong></p>
+<p><br></p>
+<p>First, let’s make this an easier factor variable to work with.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="co"># Make nicer regime factor variable</span></span>
+<span id="cb19-2"><a></a>modelData <span class="ot">&lt;-</span> modelData <span class="sc">|&gt;</span> </span>
+<span id="cb19-3"><a></a>  <span class="fu">mutate</span>(<span class="at">regime =</span> <span class="fu">factor</span>(regime,</span>
+<span id="cb19-4"><a></a>                         <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Closed Autocracy"</span>,</span>
+<span id="cb19-5"><a></a>                                   <span class="st">"Electoral Autocracy"</span>,</span>
+<span id="cb19-6"><a></a>                                  <span class="st">"Electoral Democracy"</span>,</span>
+<span id="cb19-7"><a></a>                                  <span class="st">"Liberal Democracy"</span>)))</span>
+<span id="cb19-8"><a></a><span class="fu">levels</span>(modelData<span class="sc">$</span>regime)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Closed Autocracy"    "Electoral Autocracy" "Electoral Democracy"
+[4] "Liberal Democracy"  </code></pre>
+</div>
+</div>
 </section>
-<section id="your-turn-oil-wealth-and-womens-civil-liberties-1" class="slide level2">
-<h2>Your Turn: Oil Wealth and Women’s Civil Liberties</h2>
+<section id="your-turn-3" class="slide level2 smaller">
+<h2>Your Turn</h2>
+<p><br></p>
+<p><strong>Which types of regime have more corruption?</strong></p>
+<p><br></p>
+<ul>
+<li>Filter data to include only the year 2019 (or run the code to use modelData)</li>
+<li>Make a plot to visualize the relationship between regime type and level of corruption. Which kind of plot is best in this situation?</li>
+<li>Fit a linear model</li>
+<li>Interpret the intercept and coefficients</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div class="countdown" id="timer2" data-update-every="1" tabindex="0" style="right:10%;bottom:10%;">
+<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+</div>
+</div>
+</section>
+<section id="visualization" class="slide level2">
+<h2>Visualization</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>modelData <span class="sc">|&gt;</span> </span>
+<span id="cb21-2"><a></a>  <span class="fu">group_by</span>(regime) <span class="sc">|&gt;</span> </span>
+<span id="cb21-3"><a></a>  <span class="fu">summarize</span>(<span class="at">corr =</span> <span class="fu">mean</span>(corruption)) <span class="sc">|&gt;</span> </span>
+<span id="cb21-4"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y=</span>corr, <span class="at">x =</span> regime)) <span class="sc">+</span></span>
+<span id="cb21-5"><a></a>    <span class="fu">geom_col</span>(<span class="at">fill=</span><span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb21-6"><a></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
-<img data-src="week-10.2_files/figure-revealjs/unnamed-chunk-15-1.png" width="960" class="r-stretch"></section>
-<section id="your-turn-oil-wealth-and-womens-civil-liberties-2" class="slide level2">
-<h2>Your Turn: Oil Wealth and Women’s Civil Liberties</h2>
+</div>
+<img data-src="week-10.2_files/figure-revealjs/corruption_plot-1.png" width="960" class="r-stretch"></section>
+<section id="model" class="slide level2">
+<h2>Model</h2>
+<p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">linear_reg</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb19-2"><a></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb19-3"><a></a>  <span class="fu">fit</span>(v2clgencl <span class="sc">~</span> lg_gdppc<span class="sc">*</span>oil, <span class="at">data =</span> oilData) <span class="sc">%&gt;%</span> </span>
-<span id="cb19-4"><a></a>  <span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb22-2"><a></a>      <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb22-3"><a></a>      <span class="fu">fit</span>(corruption <span class="sc">~</span> regime, <span class="at">data =</span> modelData) <span class="sc">|&gt;</span></span>
+<span id="cb22-4"><a></a>      <span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 5
-  term                   estimate std.error statistic  p.value
-  &lt;chr&gt;                     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
-1 (Intercept)               0.489    0.167      2.93  3.87e- 3
-2 lg_gdppc                  0.548    0.0781     7.02  6.22e-11
-3 oilOil Wealth            -0.305    0.464     -0.657 5.12e- 1
-4 lg_gdppc:oilOil Wealth   -0.237    0.173     -1.37  1.73e- 1</code></pre>
+  term                      estimate std.error statistic  p.value
+  &lt;chr&gt;                        &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+1 (Intercept)                 0.597     0.0395     15.1  1.93e-33
+2 regimeElectoral Autocracy   0.148     0.0470      3.14 1.99e- 3
+3 regimeElectoral Democracy  -0.0580    0.0486     -1.19 2.35e- 1
+4 regimeLiberal Democracy    -0.459     0.0497     -9.23 9.63e-17</code></pre>
 </div>
 </div>
+</section>
+<section id="create-your-own-model" class="slide level2 smaller">
+<h2>Create Your Own Model</h2>
+<p><br></p>
+<ul>
+<li>What is a theory that you would like to test with V-Dem data?</li>
+<li>What is the dependent variable?</li>
+<li>What are the independent variables?</li>
+<li>Map out steps to wrangle the data and fit a regression model</li>
+<li>What do you expect to find?</li>
+<li>Now go ahead and wrangle the data</li>
+<li>Fit the model</li>
+<li>Interpret the coefficients and their significance</li>
+<li>Did the results match your expectations?</li>
+</ul>
 
 
 </section><div class="quarto-auto-generated-content">
 <p><img src="images/iaff6501-logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
-<p><a href="https://data4ia-spring24.netlify.app/">IAFF 6501 Website</a></p>
+<p><a href="https://quant4ia.rocks/">IAFF 6501 Website</a></p>
 </div>
 </div></section>
     </div>
