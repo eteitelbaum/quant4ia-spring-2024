@@ -1856,7 +1856,7 @@
     "href": "slides/week-11.1.html#interpreting-the-results-1",
     "title": "Logistic Regression",
     "section": "Interpreting the Results",
-    "text": "Interpreting the Results\n\n\nFor a quick interpretation of the coefficients, we can exponential them\nThe exponentiated coefficient is the odds ratio\nFor each one-unit increase in the independent variable, the odds of the outcome occurring increase (or decrease) by a factor of the exponentiated coefficient"
+    "text": "Interpreting the Results\n\n\nFor a quick interpretation of the coefficients, we can exponentiate them\nThe exponentiated coefficient is the odds ratio\nFor each one-unit increase in the independent variable, the odds of the outcome occurring increase (or decrease) by a factor of the exponentiated coefficient"
   },
   {
     "objectID": "slides/week-11.1.html#interpreting-the-results-2",
@@ -1870,7 +1870,7 @@
     "href": "slides/week-11.1.html#your-turn",
     "title": "Logistic Regression",
     "section": "Your Turn!",
-    "text": "Your Turn!\n\n\nRun a bivariate logistic regression using ucdp onset as the outcome variable\nFirst replicate the results using GDP per capita as the predictor\nNow try a different predictor\nInterpret the results\n\nWhat is the average effect of the predictor on conflict onset?\nWhat is the predicted probaility of a country that hypothetically scores\n\n\n\n\n\n−+\n10:00"
+    "text": "Your Turn!\n\n\nRun a bivariate logistic regression using ucdp onset as the outcome variable\nFirst replicate the results using GDP per capita as the predictor\nNow try a different predictor\nInterpret the results\n\nWhat is the average effect of the predictor on conflict onset?\nHow do you interpret that effect in terms of the odds of conflict onset?\n\n\n\n\n\n−+\n10:00"
   },
   {
     "objectID": "slides/week-11.1.html#calculating-predicted-probabilities",

@@ -220,7 +220,7 @@ $$\log\left(\frac{p}{1-p}\right) = -1.16-0.33\times \text{logGDPpc}$$
 
 <br> 
 
-- For a quick interpretation of the coefficients, we can exponential them
+- For a quick interpretation of the coefficients, we can exponentiate them
 - The exponentiated coefficient is the odds ratio
 - For each one-unit increase in the independent variable, the odds of the outcome occurring increase (or decrease) by a factor of the exponentiated coefficient
 
@@ -247,7 +247,7 @@ This means that an increase in GDP per capita is associated with a **decrease** 
 - Now try a different predictor
 - Interpret the results
   - What is the average effect of the predictor on conflict onset? 
-  - What is the predicted probaility of a country that hypothetically scores 
+  - How do you interpret that effect in terms of the odds of conflict onset?
   
 ```{r}
 #| label: time1
