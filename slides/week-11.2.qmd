@@ -1,0 +1,306 @@
+---
+title: Regression Tables
+subtitle: How to Interpret and Create
+date: today
+date-format: long
+footer: "[IAFF 6501 Website](https://quant4ia.rocks/)"
+logo: images/iaff6501-logo.png
+format:
+  revealjs:
+    theme: [simple, custom.scss]
+    transition: fade
+    slide-number: true
+    #multiplex: true
+    chalkboard: true
+execute:
+  echo: false
+  message: false
+  warning: false
+  freeze: auto
+---
+
+```{r}
+#| label: setup
+
+library(tidyverse)
+library(tidymodels)
+library(peacesciencer)
+```
+
+# Multiple Logistic Regression
+
+## Multiple Logistic Regression
+
+<br>
+
+::: {.incremental}
+- Just as with linear models, we can also run multiple logistic regressions
+- We can include multiple predictors in the model
+- Usually we want to include our main predictor of interest and control variables
+- The interpetation of the coefficients is the same as in the bivariate models
+:::
+
+## 
+
+<br>
+
+Download the data using the `peacesciencer` package if you haven't already...
+
+<br>
+
+```{r}
+#| label: conflict_df
+#| echo: true
+
+conflict_df <- create_stateyears(system = 'gw') |>
+  filter(year %in% c(1946:1999)) |>
+  add_ucdp_acd(type=c("intrastate"), only_wars = FALSE) |>
+  add_democracy() |>
+  add_creg_fractionalization() |>
+  add_sdp_gdp() |>
+  add_rugged_terrain()
+```
+
+## 
+
+<br>
+
+Example, including multiple predictors associated with conflict:
+
+```{r}
+#| label: multivariate_model
+#| echo: true
+
+conflict_model <- logistic_reg() |>
+  set_engine("glm") |>
+  fit(factor(ucdponset) ~ ethfrac + relfrac + v2x_polyarchy + 
+                          rugged + wbgdppc2011est + wbpopest,
+                  data= conflict_df,
+                  family = "binomial")
+
+tidy(conflict_model)
+```
+
+## Predicted Probabilities
+
+<br>
+
+```{r}
+#| label: marginal_effects
+#| echo: true
+#| code-fold: true
+#| code-summary: "Show the code"
+
+# load the 
+library(marginaleffects)
+
+# seledct some countries for a given year
+selected_countries <- conflict_df |>
+  filter(
+    statename %in% c("United States of America", "Venezuela", "Rwanda"),
+    year == 1999)
+
+# extract the model
+conflict_fit <- conflict_model$fit
+
+# calculate margins for the subset
+marg_effects <- predictions(conflict_fit, newdata = selected_countries)
+
+# tidy the results
+tidy(marg_effects) |>
+  select(estimate, p.value, conf.low, conf.high, statename)
+```
+
+## Your Turn! 
+
+<br>
+
+- Run a multivariate logistic model using conflict onset as the outcome variable
+- Select alternative variables and/or alternative measures of the same variables
+- Interpret some of the coefficients 
+- Calculate the precicted probability in a handful of country-years based on your analysis
+
+```{r}
+#| label: time1
+
+library(countdown)
+
+countdown(minutes = 10, 
+          id = "timer1", 
+          bottom = "5%", 
+          right = "10%",
+          color_border = "#fff",
+          color_text = "#fff",
+          color_running_background = "#42affa",
+          color_running_text = "black",
+          color_finished_background = "#E5D19D",
+          color_finished_text = "#00264A")
+```
+
+# Regression Tables
+
+## What's in a Regression Table?
+
+![](images/fearon_laitin.png){fig-align=center}
+
+## Regression Tables with `modelsummary`
+
+<br>
+
+::: {.incremental}
+- Oftentimes we want to show multiple models at once (like F&L)
+- We want to compare across them and see which is the best model
+- How can we do that? 
+- There are **many** ways to do this in R
+- We will use the `modelsummary` package
+:::
+
+## Run Multiple Models
+
+<br>
+
+```{r}
+#| label: multiple_models
+#| echo: true
+
+ethnicity <- glm(ucdponset ~ ethfrac + relfrac + wbgdppc2011est + wbpopest, # store each model in an object
+                  data = conflict_df,
+                  family = "binomial")
+
+democracy <- glm(ucdponset ~ v2x_polyarchy + wbgdppc2011est +  wbpopest,
+                  data = conflict_df,
+                  family = "binomial")
+
+terrain <- glm(ucdponset ~ rugged + wbgdppc2011est + wbpopest ,
+                  data = conflict_df,
+                  family = "binomial")
+
+full_model <- glm(ucdponset ~ ethfrac + relfrac + v2x_polyarchy + rugged +
+                        wbgdppc2011est + wbpopest,
+                  data = conflict_df,
+                  family = "binomial")
+```
+
+
+## Prep Data for Display
+
+<br>
+
+```{r}
+#| label: prep_data
+#| echo: true
+
+models <- list("Ethnicity" = ethnicity,  # store list of models in an object
+               "Democracy" = democracy, 
+               "Terrain" = terrain, 
+               "Full Model" = full_model)
+
+coef_map <- c("ethfrac" = "Ethnic Frac",  # map coefficients
+        "relfrac" = "Religions Frac",     #(change names and order)
+        "v2x_polyarchy" = "Polyarchy",
+        "rugged" = "Terrain",
+        "wbgdppc2011est" = "Per capita GDP",
+        "wbpopest" = "Population",
+        "(Intercept)" = "Intercept")
+
+caption = "Table 1: Predictors of Conflict Onset" # store caption
+reference = "See appendix for data sources."      # store reference notes
+```
+
+## Display the Models {.smaller}
+
+```{r}
+#| label: display_models
+
+library(modelsummary)
+
+modelsummary(models,                      # display the table
+             stars = TRUE,                # include stars for significance
+             gof_map = c("nobs"),         # goodness of fit stats to include   
+             coef_map = coef_map,         # coefficient mapping
+             title = caption,             # title
+             notes = reference)           # source note
+```
+
+## Your Turn!
+
+<br>
+
+- Got to the [peacesciencer](https://svmiller.com/peacesciencer/reference/index.html) documentation
+- How close are our data to F&L's?
+- Could we change something to better approximate their results? 
+- Run multiple models using different predictors
+- Display the models using `modelsummary`
+- Try to get as close to F&L as you can! 
+
+```{r}
+#| label: timer2
+countdown(minutes = 12, 
+          id = "timer2", 
+          bottom = "5%", 
+          right = "10%")
+```
+
+# Coefficient Plots
+
+## {.smaller}
+
+<br> 
+
+This don't look too good...
+
+```{r}
+#| label: bad_regression_table
+#| echo: true
+#| code-fold: true
+#| code-summary: "Show the code"
+
+modelsummary(conflict_model, 
+             stars = TRUE,  
+             gof_map = c("nobs"),
+             coef_map = coef_map,
+             title = caption, 
+             notes = reference)
+```
+
+## 
+
+<br> 
+
+So we can use `ggplot` to make a coefficient plot instead...
+
+```{r}
+#| label: coef_plot
+#| echo: true
+#| code-fold: true
+#| code-summary: "Show the code"
+
+library(ggplot2)
+
+modelplot(conflict_model, 
+          coef_map = rev(coef_map), # rev() reverses list order
+          coef_omit = "Intercept", 
+          color = "blue") + # use plus to add customizations like any ggplot object
+  geom_vline(xintercept = 0, color = "red", linetype = "dashed", linewidth = .75) + # red 0 line
+  labs(
+    title = "Figure 1: Predictors of Conflict Onset",
+    caption = "See appendix for data sources."
+  ) 
+```
+
+## Your Turn!
+
+- Take one of your models
+- Use `modelplot` to create a coefficient plot of it
+- Customize the plot to your liking
+- Interpret the results
+- Discuss advantages of coefficient plots with a neighbor
+
+```{r}
+#| label: timer3
+countdown(minutes = 12, 
+          id = "timer3", 
+          bottom = "5%", 
+          right = "10%")
+```
+
