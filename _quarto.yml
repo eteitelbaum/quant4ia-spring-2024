@@ -69,8 +69,8 @@ website:
             text: "Homework 1"
           - href: assignments/homework-2.qmd
             text: "Homework 2"
-          #- href: assignments/homework-3.qmd
-          #  text: "Homework 3"
+          - href: assignments/homework-3.qmd
+            text: "Homework 3"
       - section: "Final Project"
         contents:
           - href: project/project-description.qmd
