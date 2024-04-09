@@ -11,7 +11,7 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.533">
 
-  <meta name="dcterms.date" content="2024-04-07">
+  <meta name="dcterms.date" content="2024-04-09">
   <title>IAFF 6501–Spring 2024 Schedule - Regression Tables</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -390,8 +390,6 @@
   </style>
   <link href="../site_libs/countdown-0.4.0/countdown.css" rel="stylesheet">
   <script src="../site_libs/countdown-0.4.0/countdown.js"></script>
-  <script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
-  <link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <meta property="og:title" content="IAFF 6501–Spring 2024 Schedule - Regression Tables">
 <meta property="og:description" content="How to Interpret and Create">
 <meta property="og:site_name" content="IAFF 6501--Spring 2024 Schedule">
@@ -410,7 +408,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">April 7, 2024</p>
+  <p class="date">April 9, 2024</p>
 </section>
 <section>
 <section id="multiple-logistic-regression" class="title-slide slide level1 center">
@@ -593,141 +591,295 @@
 <h2>Display the Models</h2>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table" data-quarto-postprocess="true" style="NAborder-bottom: 0; width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>Table 1: Predictors of Conflict Onset</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">Ethnicity</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">Democracy</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">Terrain</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">Full Model</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Ethnic Frac</td>
-<td style="text-align: center;">0.744*</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">0.800*</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: center;">(0.367)</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">(0.381)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Religions Frac</td>
-<td style="text-align: center;">−0.481</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">−0.391</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: center;">(0.411)</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">(0.417)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Polyarchy</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">−0.228</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">−0.602</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">(0.436)</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">(0.509)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Terrain</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">0.031</td>
-<td style="text-align: center;">0.064</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">(0.076)</td>
-<td style="text-align: center;">(0.076)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Per capita GDP</td>
-<td style="text-align: center;">−0.474***</td>
-<td style="text-align: center;">−0.512***</td>
-<td style="text-align: center;">−0.543***</td>
-<td style="text-align: center;">−0.372**</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: center;">(0.104)</td>
-<td style="text-align: center;">(0.108)</td>
-<td style="text-align: center;">(0.092)</td>
-<td style="text-align: center;">(0.121)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Population</td>
-<td style="text-align: center;">0.282***</td>
-<td style="text-align: center;">0.297***</td>
-<td style="text-align: center;">0.299***</td>
-<td style="text-align: center;">0.293***</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: center;">(0.067)</td>
-<td style="text-align: center;">(0.051)</td>
-<td style="text-align: center;">(0.050)</td>
-<td style="text-align: center;">(0.067)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Intercept</td>
-<td style="text-align: center;">−4.703***</td>
-<td style="text-align: center;">−4.407***</td>
-<td style="text-align: center;">−4.296***</td>
-<td style="text-align: center;">−5.693***</td>
-</tr>
-<tr class="even">
-<td style="text-align: left; box-shadow: 0px 1.5px;"></td>
-<td style="text-align: center; box-shadow: 0px 1.5px;">(1.327)</td>
-<td style="text-align: center; box-shadow: 0px 1.5px;">(1.205)</td>
-<td style="text-align: center; box-shadow: 0px 1.5px;">(1.143)</td>
-<td style="text-align: center; box-shadow: 0px 1.5px;">(1.408)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Num.Obs.</td>
-<td style="text-align: center;">6364</td>
-<td style="text-align: center;">6772</td>
-<td style="text-align: center;">6840</td>
-<td style="text-align: center;">6151</td>
-</tr>
-</tbody><tfoot>
-<tr class="even">
-<td style="text-align: left; padding: 0;"><sup></sup> + p &lt; 0.1, * p &lt; 0.05, ** p &lt; 0.01, *** p &lt; 0.001</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; padding: 0;"><sup></sup> See appendix for data sources.</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-</tfoot>
+ 
 
-</table>
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tinytable_hxnn1kj38rfd9dtkp6ma</title>
+    <style>
+.table td.tinytable_css_3e80ynbaxdhyb2v995zj, .table th.tinytable_css_3e80ynbaxdhyb2v995zj {    border-bottom: solid 0.1em #d3d8dc; }
+.table td.tinytable_css_97lypgzb4jte8okgxhvh, .table th.tinytable_css_97lypgzb4jte8okgxhvh {    text-align: left; }
+.table td.tinytable_css_aompcm1cxihcuy14zman, .table th.tinytable_css_aompcm1cxihcuy14zman {    text-align: center; }
+.table td.tinytable_css_92ccnvcypqvs3bhomq0c, .table th.tinytable_css_92ccnvcypqvs3bhomq0c {    text-align: center; }
+.table td.tinytable_css_jl93nfjeo9nhlbr1iq8n, .table th.tinytable_css_jl93nfjeo9nhlbr1iq8n {    text-align: center; }
+.table td.tinytable_css_91y0z40k8u72klkbsmml, .table th.tinytable_css_91y0z40k8u72klkbsmml {    text-align: center; }
+.table td.tinytable_css_11fzk0pet3u0l5i276t6, .table th.tinytable_css_11fzk0pet3u0l5i276t6 {    border-bottom: solid 0.05em black; }
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+    </script>
+  
+
+  
+    <div class="container">
+      <table class="table table-borderless" id="tinytable_hxnn1kj38rfd9dtkp6ma" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+        <thead>
+        </thead><caption>Table 1: Predictors of Conflict Onset</caption>
+              <tbody><tr>
+                <th scope="col"> </th>
+                <th scope="col">Ethnicity</th>
+                <th scope="col">Democracy</th>
+                <th scope="col">Terrain</th>
+                <th scope="col">Full Model</th>
+              </tr>
+        
+        </tbody><tfoot><tr><td colspan="5">+ p &lt; 0.1, * p &lt; 0.05, ** p &lt; 0.01, *** p &lt; 0.001</td></tr>
+<tr><td colspan="5">See appendix for data sources.</td></tr></tfoot>
+        <tbody>
+                <tr>
+                  <td>Ethnic Frac   </td>
+                  <td>0.744*   </td>
+                  <td>         </td>
+                  <td>         </td>
+                  <td>0.800*   </td>
+                </tr>
+                <tr>
+                  <td>              </td>
+                  <td>(0.367)  </td>
+                  <td>         </td>
+                  <td>         </td>
+                  <td>(0.381)  </td>
+                </tr>
+                <tr>
+                  <td>Religions Frac</td>
+                  <td>-0.481   </td>
+                  <td>         </td>
+                  <td>         </td>
+                  <td>-0.391   </td>
+                </tr>
+                <tr>
+                  <td>              </td>
+                  <td>(0.411)  </td>
+                  <td>         </td>
+                  <td>         </td>
+                  <td>(0.417)  </td>
+                </tr>
+                <tr>
+                  <td>Polyarchy     </td>
+                  <td>         </td>
+                  <td>-0.228   </td>
+                  <td>         </td>
+                  <td>-0.602   </td>
+                </tr>
+                <tr>
+                  <td>              </td>
+                  <td>         </td>
+                  <td>(0.436)  </td>
+                  <td>         </td>
+                  <td>(0.509)  </td>
+                </tr>
+                <tr>
+                  <td>Terrain       </td>
+                  <td>         </td>
+                  <td>         </td>
+                  <td>0.031    </td>
+                  <td>0.064    </td>
+                </tr>
+                <tr>
+                  <td>              </td>
+                  <td>         </td>
+                  <td>         </td>
+                  <td>(0.076)  </td>
+                  <td>(0.076)  </td>
+                </tr>
+                <tr>
+                  <td>Per capita GDP</td>
+                  <td>-0.474***</td>
+                  <td>-0.512***</td>
+                  <td>-0.543***</td>
+                  <td>-0.372** </td>
+                </tr>
+                <tr>
+                  <td>              </td>
+                  <td>(0.104)  </td>
+                  <td>(0.108)  </td>
+                  <td>(0.092)  </td>
+                  <td>(0.121)  </td>
+                </tr>
+                <tr>
+                  <td>Population    </td>
+                  <td>0.282*** </td>
+                  <td>0.297*** </td>
+                  <td>0.299*** </td>
+                  <td>0.293*** </td>
+                </tr>
+                <tr>
+                  <td>              </td>
+                  <td>(0.067)  </td>
+                  <td>(0.051)  </td>
+                  <td>(0.050)  </td>
+                  <td>(0.067)  </td>
+                </tr>
+                <tr>
+                  <td>Intercept     </td>
+                  <td>-4.703***</td>
+                  <td>-4.407***</td>
+                  <td>-4.296***</td>
+                  <td>-5.693***</td>
+                </tr>
+                <tr>
+                  <td>              </td>
+                  <td>(1.327)  </td>
+                  <td>(1.205)  </td>
+                  <td>(1.143)  </td>
+                  <td>(1.408)  </td>
+                </tr>
+                <tr>
+                  <td>Num.Obs.      </td>
+                  <td>6364     </td>
+                  <td>6772     </td>
+                  <td>6840     </td>
+                  <td>6151     </td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+      function styleCell_tinytable_t5v8w5yxvg4dfpvs050s(i, j, css_id) {
+        var table = document.getElementById("tinytable_hxnn1kj38rfd9dtkp6ma");
+        table.rows[i].cells[j].classList.add(css_id);
+      }
+      function insertSpanRow(i, colspan, content) {
+        var table = document.getElementById('tinytable_hxnn1kj38rfd9dtkp6ma');
+        var newRow = table.insertRow(i);
+        var newCell = newRow.insertCell(0);
+        newCell.setAttribute("colspan", colspan);
+        // newCell.innerText = content;
+        // this may be unsafe, but innerText does not interpret <br>
+        newCell.innerHTML = content;
+      }
+      function spanCell_tinytable_t5v8w5yxvg4dfpvs050s(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_hxnn1kj38rfd9dtkp6ma");
+        const targetRow = table.rows[i];
+        const targetCell = targetRow.cells[j];
+        for (let r = 0; r < rowspan; r++) {
+          // Only start deleting cells to the right for the first row (r == 0)
+          if (r === 0) {
+            // Delete cells to the right of the target cell in the first row
+            for (let c = colspan - 1; c > 0; c--) {
+              if (table.rows[i + r].cells[j + c]) {
+                table.rows[i + r].deleteCell(j + c);
+              }
+            }
+          }
+          // For rows below the first, delete starting from the target column
+          if (r > 0) {
+            for (let c = colspan - 1; c >= 0; c--) {
+              if (table.rows[i + r] && table.rows[i + r].cells[j]) {
+                table.rows[i + r].deleteCell(j);
+              }
+            }
+          }
+        }
+        // Set rowspan and colspan of the target cell
+        targetCell.rowSpan = rowspan;
+        targetCell.colSpan = colspan;
+      }
+
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(0, 0, 'tinytable_css_3e80ynbaxdhyb2v995zj') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(0, 1, 'tinytable_css_3e80ynbaxdhyb2v995zj') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(0, 2, 'tinytable_css_3e80ynbaxdhyb2v995zj') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(0, 3, 'tinytable_css_3e80ynbaxdhyb2v995zj') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(0, 4, 'tinytable_css_3e80ynbaxdhyb2v995zj') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(0, 0, 'tinytable_css_97lypgzb4jte8okgxhvh') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(1, 0, 'tinytable_css_97lypgzb4jte8okgxhvh') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(2, 0, 'tinytable_css_97lypgzb4jte8okgxhvh') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(3, 0, 'tinytable_css_97lypgzb4jte8okgxhvh') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(4, 0, 'tinytable_css_97lypgzb4jte8okgxhvh') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(5, 0, 'tinytable_css_97lypgzb4jte8okgxhvh') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(6, 0, 'tinytable_css_97lypgzb4jte8okgxhvh') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(7, 0, 'tinytable_css_97lypgzb4jte8okgxhvh') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(8, 0, 'tinytable_css_97lypgzb4jte8okgxhvh') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(9, 0, 'tinytable_css_97lypgzb4jte8okgxhvh') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(10, 0, 'tinytable_css_97lypgzb4jte8okgxhvh') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(11, 0, 'tinytable_css_97lypgzb4jte8okgxhvh') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(12, 0, 'tinytable_css_97lypgzb4jte8okgxhvh') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(13, 0, 'tinytable_css_97lypgzb4jte8okgxhvh') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(14, 0, 'tinytable_css_97lypgzb4jte8okgxhvh') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(15, 0, 'tinytable_css_97lypgzb4jte8okgxhvh') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(0, 1, 'tinytable_css_aompcm1cxihcuy14zman') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(1, 1, 'tinytable_css_aompcm1cxihcuy14zman') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(2, 1, 'tinytable_css_aompcm1cxihcuy14zman') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(3, 1, 'tinytable_css_aompcm1cxihcuy14zman') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(4, 1, 'tinytable_css_aompcm1cxihcuy14zman') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(5, 1, 'tinytable_css_aompcm1cxihcuy14zman') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(6, 1, 'tinytable_css_aompcm1cxihcuy14zman') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(7, 1, 'tinytable_css_aompcm1cxihcuy14zman') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(8, 1, 'tinytable_css_aompcm1cxihcuy14zman') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(9, 1, 'tinytable_css_aompcm1cxihcuy14zman') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(10, 1, 'tinytable_css_aompcm1cxihcuy14zman') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(11, 1, 'tinytable_css_aompcm1cxihcuy14zman') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(12, 1, 'tinytable_css_aompcm1cxihcuy14zman') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(13, 1, 'tinytable_css_aompcm1cxihcuy14zman') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(14, 1, 'tinytable_css_aompcm1cxihcuy14zman') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(15, 1, 'tinytable_css_aompcm1cxihcuy14zman') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(0, 2, 'tinytable_css_92ccnvcypqvs3bhomq0c') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(1, 2, 'tinytable_css_92ccnvcypqvs3bhomq0c') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(2, 2, 'tinytable_css_92ccnvcypqvs3bhomq0c') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(3, 2, 'tinytable_css_92ccnvcypqvs3bhomq0c') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(4, 2, 'tinytable_css_92ccnvcypqvs3bhomq0c') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(5, 2, 'tinytable_css_92ccnvcypqvs3bhomq0c') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(6, 2, 'tinytable_css_92ccnvcypqvs3bhomq0c') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(7, 2, 'tinytable_css_92ccnvcypqvs3bhomq0c') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(8, 2, 'tinytable_css_92ccnvcypqvs3bhomq0c') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(9, 2, 'tinytable_css_92ccnvcypqvs3bhomq0c') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(10, 2, 'tinytable_css_92ccnvcypqvs3bhomq0c') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(11, 2, 'tinytable_css_92ccnvcypqvs3bhomq0c') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(12, 2, 'tinytable_css_92ccnvcypqvs3bhomq0c') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(13, 2, 'tinytable_css_92ccnvcypqvs3bhomq0c') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(14, 2, 'tinytable_css_92ccnvcypqvs3bhomq0c') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(15, 2, 'tinytable_css_92ccnvcypqvs3bhomq0c') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(0, 3, 'tinytable_css_jl93nfjeo9nhlbr1iq8n') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(1, 3, 'tinytable_css_jl93nfjeo9nhlbr1iq8n') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(2, 3, 'tinytable_css_jl93nfjeo9nhlbr1iq8n') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(3, 3, 'tinytable_css_jl93nfjeo9nhlbr1iq8n') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(4, 3, 'tinytable_css_jl93nfjeo9nhlbr1iq8n') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(5, 3, 'tinytable_css_jl93nfjeo9nhlbr1iq8n') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(6, 3, 'tinytable_css_jl93nfjeo9nhlbr1iq8n') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(7, 3, 'tinytable_css_jl93nfjeo9nhlbr1iq8n') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(8, 3, 'tinytable_css_jl93nfjeo9nhlbr1iq8n') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(9, 3, 'tinytable_css_jl93nfjeo9nhlbr1iq8n') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(10, 3, 'tinytable_css_jl93nfjeo9nhlbr1iq8n') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(11, 3, 'tinytable_css_jl93nfjeo9nhlbr1iq8n') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(12, 3, 'tinytable_css_jl93nfjeo9nhlbr1iq8n') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(13, 3, 'tinytable_css_jl93nfjeo9nhlbr1iq8n') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(14, 3, 'tinytable_css_jl93nfjeo9nhlbr1iq8n') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(15, 3, 'tinytable_css_jl93nfjeo9nhlbr1iq8n') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(0, 4, 'tinytable_css_91y0z40k8u72klkbsmml') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(1, 4, 'tinytable_css_91y0z40k8u72klkbsmml') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(2, 4, 'tinytable_css_91y0z40k8u72klkbsmml') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(3, 4, 'tinytable_css_91y0z40k8u72klkbsmml') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(4, 4, 'tinytable_css_91y0z40k8u72klkbsmml') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(5, 4, 'tinytable_css_91y0z40k8u72klkbsmml') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(6, 4, 'tinytable_css_91y0z40k8u72klkbsmml') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(7, 4, 'tinytable_css_91y0z40k8u72klkbsmml') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(8, 4, 'tinytable_css_91y0z40k8u72klkbsmml') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(9, 4, 'tinytable_css_91y0z40k8u72klkbsmml') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(10, 4, 'tinytable_css_91y0z40k8u72klkbsmml') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(11, 4, 'tinytable_css_91y0z40k8u72klkbsmml') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(12, 4, 'tinytable_css_91y0z40k8u72klkbsmml') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(13, 4, 'tinytable_css_91y0z40k8u72klkbsmml') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(14, 4, 'tinytable_css_91y0z40k8u72klkbsmml') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(15, 4, 'tinytable_css_91y0z40k8u72klkbsmml') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(14, 0, 'tinytable_css_11fzk0pet3u0l5i276t6') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(14, 1, 'tinytable_css_11fzk0pet3u0l5i276t6') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(14, 2, 'tinytable_css_11fzk0pet3u0l5i276t6') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(14, 3, 'tinytable_css_11fzk0pet3u0l5i276t6') })
+window.addEventListener('load', function () { styleCell_tinytable_t5v8w5yxvg4dfpvs050s(14, 4, 'tinytable_css_11fzk0pet3u0l5i276t6') })
+    </script>
+
+  
 
 
 </div>
@@ -773,87 +925,190 @@
 <span id="cb8-6"><a></a>             <span class="at">notes =</span> reference)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<table class="table" data-quarto-postprocess="true" style="NAborder-bottom: 0; width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>Table 1: Predictors of Conflict Onset</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">&nbsp;(1)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Ethnic Frac</td>
-<td style="text-align: center;">0.800*</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: center;">(0.381)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Religions Frac</td>
-<td style="text-align: center;">−0.391</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: center;">(0.417)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Polyarchy</td>
-<td style="text-align: center;">−0.602</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: center;">(0.509)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Terrain</td>
-<td style="text-align: center;">0.064</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: center;">(0.076)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Per capita GDP</td>
-<td style="text-align: center;">−0.372**</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: center;">(0.121)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Population</td>
-<td style="text-align: center;">0.293***</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: center;">(0.067)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Intercept</td>
-<td style="text-align: center;">−5.693***</td>
-</tr>
-<tr class="even">
-<td style="text-align: left; box-shadow: 0px 1.5px;"></td>
-<td style="text-align: center; box-shadow: 0px 1.5px;">(1.408)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Num.Obs.</td>
-<td style="text-align: center;">6151</td>
-</tr>
-</tbody><tfoot>
-<tr class="even">
-<td style="text-align: left; padding: 0;"><sup></sup> + p &lt; 0.1, * p &lt; 0.05, ** p &lt; 0.01, *** p &lt; 0.001</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; padding: 0;"><sup></sup> See appendix for data sources.</td>
-<td style="text-align: center;"></td>
-</tr>
-</tfoot>
+ 
 
-</table>
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tinytable_xhz2vx33g1l22ylfx2dl</title>
+    <style>
+.table td.tinytable_css_c6u4fdv8zfty3pj868vd, .table th.tinytable_css_c6u4fdv8zfty3pj868vd {    border-bottom: solid 0.1em #d3d8dc; }
+.table td.tinytable_css_6wu9fgu57tm086rotgzn, .table th.tinytable_css_6wu9fgu57tm086rotgzn {    text-align: left; }
+.table td.tinytable_css_1b3xo2zsnq89ht0bc3ox, .table th.tinytable_css_1b3xo2zsnq89ht0bc3ox {    text-align: center; }
+.table td.tinytable_css_pknylms5cl8k41pxzyx3, .table th.tinytable_css_pknylms5cl8k41pxzyx3 {    border-bottom: solid 0.05em black; }
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+    </script>
+  
+
+  
+    <div class="container">
+      <table class="table table-borderless" id="tinytable_xhz2vx33g1l22ylfx2dl" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+        <thead>
+        </thead><caption>Table 1: Predictors of Conflict Onset</caption>
+              <tbody><tr>
+                <th scope="col"> </th>
+                <th scope="col">(1)</th>
+              </tr>
+        
+        </tbody><tfoot><tr><td colspan="2">+ p &lt; 0.1, * p &lt; 0.05, ** p &lt; 0.01, *** p &lt; 0.001</td></tr>
+<tr><td colspan="2">See appendix for data sources.</td></tr></tfoot>
+        <tbody>
+                <tr>
+                  <td>Ethnic Frac   </td>
+                  <td>0.800*   </td>
+                </tr>
+                <tr>
+                  <td>              </td>
+                  <td>(0.381)  </td>
+                </tr>
+                <tr>
+                  <td>Religions Frac</td>
+                  <td>-0.391   </td>
+                </tr>
+                <tr>
+                  <td>              </td>
+                  <td>(0.417)  </td>
+                </tr>
+                <tr>
+                  <td>Polyarchy     </td>
+                  <td>-0.602   </td>
+                </tr>
+                <tr>
+                  <td>              </td>
+                  <td>(0.509)  </td>
+                </tr>
+                <tr>
+                  <td>Terrain       </td>
+                  <td>0.064    </td>
+                </tr>
+                <tr>
+                  <td>              </td>
+                  <td>(0.076)  </td>
+                </tr>
+                <tr>
+                  <td>Per capita GDP</td>
+                  <td>-0.372** </td>
+                </tr>
+                <tr>
+                  <td>              </td>
+                  <td>(0.121)  </td>
+                </tr>
+                <tr>
+                  <td>Population    </td>
+                  <td>0.293*** </td>
+                </tr>
+                <tr>
+                  <td>              </td>
+                  <td>(0.067)  </td>
+                </tr>
+                <tr>
+                  <td>Intercept     </td>
+                  <td>-5.693***</td>
+                </tr>
+                <tr>
+                  <td>              </td>
+                  <td>(1.408)  </td>
+                </tr>
+                <tr>
+                  <td>Num.Obs.      </td>
+                  <td>6151     </td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+      function styleCell_tinytable_v26xpddzjnbom747v8yr(i, j, css_id) {
+        var table = document.getElementById("tinytable_xhz2vx33g1l22ylfx2dl");
+        table.rows[i].cells[j].classList.add(css_id);
+      }
+      function insertSpanRow(i, colspan, content) {
+        var table = document.getElementById('tinytable_xhz2vx33g1l22ylfx2dl');
+        var newRow = table.insertRow(i);
+        var newCell = newRow.insertCell(0);
+        newCell.setAttribute("colspan", colspan);
+        // newCell.innerText = content;
+        // this may be unsafe, but innerText does not interpret <br>
+        newCell.innerHTML = content;
+      }
+      function spanCell_tinytable_v26xpddzjnbom747v8yr(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_xhz2vx33g1l22ylfx2dl");
+        const targetRow = table.rows[i];
+        const targetCell = targetRow.cells[j];
+        for (let r = 0; r < rowspan; r++) {
+          // Only start deleting cells to the right for the first row (r == 0)
+          if (r === 0) {
+            // Delete cells to the right of the target cell in the first row
+            for (let c = colspan - 1; c > 0; c--) {
+              if (table.rows[i + r].cells[j + c]) {
+                table.rows[i + r].deleteCell(j + c);
+              }
+            }
+          }
+          // For rows below the first, delete starting from the target column
+          if (r > 0) {
+            for (let c = colspan - 1; c >= 0; c--) {
+              if (table.rows[i + r] && table.rows[i + r].cells[j]) {
+                table.rows[i + r].deleteCell(j);
+              }
+            }
+          }
+        }
+        // Set rowspan and colspan of the target cell
+        targetCell.rowSpan = rowspan;
+        targetCell.colSpan = colspan;
+      }
+
+window.addEventListener('load', function () { styleCell_tinytable_v26xpddzjnbom747v8yr(0, 0, 'tinytable_css_c6u4fdv8zfty3pj868vd') })
+window.addEventListener('load', function () { styleCell_tinytable_v26xpddzjnbom747v8yr(0, 1, 'tinytable_css_c6u4fdv8zfty3pj868vd') })
+window.addEventListener('load', function () { styleCell_tinytable_v26xpddzjnbom747v8yr(0, 0, 'tinytable_css_6wu9fgu57tm086rotgzn') })
+window.addEventListener('load', function () { styleCell_tinytable_v26xpddzjnbom747v8yr(1, 0, 'tinytable_css_6wu9fgu57tm086rotgzn') })
+window.addEventListener('load', function () { styleCell_tinytable_v26xpddzjnbom747v8yr(2, 0, 'tinytable_css_6wu9fgu57tm086rotgzn') })
+window.addEventListener('load', function () { styleCell_tinytable_v26xpddzjnbom747v8yr(3, 0, 'tinytable_css_6wu9fgu57tm086rotgzn') })
+window.addEventListener('load', function () { styleCell_tinytable_v26xpddzjnbom747v8yr(4, 0, 'tinytable_css_6wu9fgu57tm086rotgzn') })
+window.addEventListener('load', function () { styleCell_tinytable_v26xpddzjnbom747v8yr(5, 0, 'tinytable_css_6wu9fgu57tm086rotgzn') })
+window.addEventListener('load', function () { styleCell_tinytable_v26xpddzjnbom747v8yr(6, 0, 'tinytable_css_6wu9fgu57tm086rotgzn') })
+window.addEventListener('load', function () { styleCell_tinytable_v26xpddzjnbom747v8yr(7, 0, 'tinytable_css_6wu9fgu57tm086rotgzn') })
+window.addEventListener('load', function () { styleCell_tinytable_v26xpddzjnbom747v8yr(8, 0, 'tinytable_css_6wu9fgu57tm086rotgzn') })
+window.addEventListener('load', function () { styleCell_tinytable_v26xpddzjnbom747v8yr(9, 0, 'tinytable_css_6wu9fgu57tm086rotgzn') })
+window.addEventListener('load', function () { styleCell_tinytable_v26xpddzjnbom747v8yr(10, 0, 'tinytable_css_6wu9fgu57tm086rotgzn') })
+window.addEventListener('load', function () { styleCell_tinytable_v26xpddzjnbom747v8yr(11, 0, 'tinytable_css_6wu9fgu57tm086rotgzn') })
+window.addEventListener('load', function () { styleCell_tinytable_v26xpddzjnbom747v8yr(12, 0, 'tinytable_css_6wu9fgu57tm086rotgzn') })
+window.addEventListener('load', function () { styleCell_tinytable_v26xpddzjnbom747v8yr(13, 0, 'tinytable_css_6wu9fgu57tm086rotgzn') })
+window.addEventListener('load', function () { styleCell_tinytable_v26xpddzjnbom747v8yr(14, 0, 'tinytable_css_6wu9fgu57tm086rotgzn') })
+window.addEventListener('load', function () { styleCell_tinytable_v26xpddzjnbom747v8yr(15, 0, 'tinytable_css_6wu9fgu57tm086rotgzn') })
+window.addEventListener('load', function () { styleCell_tinytable_v26xpddzjnbom747v8yr(0, 1, 'tinytable_css_1b3xo2zsnq89ht0bc3ox') })
+window.addEventListener('load', function () { styleCell_tinytable_v26xpddzjnbom747v8yr(1, 1, 'tinytable_css_1b3xo2zsnq89ht0bc3ox') })
+window.addEventListener('load', function () { styleCell_tinytable_v26xpddzjnbom747v8yr(2, 1, 'tinytable_css_1b3xo2zsnq89ht0bc3ox') })
+window.addEventListener('load', function () { styleCell_tinytable_v26xpddzjnbom747v8yr(3, 1, 'tinytable_css_1b3xo2zsnq89ht0bc3ox') })
+window.addEventListener('load', function () { styleCell_tinytable_v26xpddzjnbom747v8yr(4, 1, 'tinytable_css_1b3xo2zsnq89ht0bc3ox') })
+window.addEventListener('load', function () { styleCell_tinytable_v26xpddzjnbom747v8yr(5, 1, 'tinytable_css_1b3xo2zsnq89ht0bc3ox') })
+window.addEventListener('load', function () { styleCell_tinytable_v26xpddzjnbom747v8yr(6, 1, 'tinytable_css_1b3xo2zsnq89ht0bc3ox') })
+window.addEventListener('load', function () { styleCell_tinytable_v26xpddzjnbom747v8yr(7, 1, 'tinytable_css_1b3xo2zsnq89ht0bc3ox') })
+window.addEventListener('load', function () { styleCell_tinytable_v26xpddzjnbom747v8yr(8, 1, 'tinytable_css_1b3xo2zsnq89ht0bc3ox') })
+window.addEventListener('load', function () { styleCell_tinytable_v26xpddzjnbom747v8yr(9, 1, 'tinytable_css_1b3xo2zsnq89ht0bc3ox') })
+window.addEventListener('load', function () { styleCell_tinytable_v26xpddzjnbom747v8yr(10, 1, 'tinytable_css_1b3xo2zsnq89ht0bc3ox') })
+window.addEventListener('load', function () { styleCell_tinytable_v26xpddzjnbom747v8yr(11, 1, 'tinytable_css_1b3xo2zsnq89ht0bc3ox') })
+window.addEventListener('load', function () { styleCell_tinytable_v26xpddzjnbom747v8yr(12, 1, 'tinytable_css_1b3xo2zsnq89ht0bc3ox') })
+window.addEventListener('load', function () { styleCell_tinytable_v26xpddzjnbom747v8yr(13, 1, 'tinytable_css_1b3xo2zsnq89ht0bc3ox') })
+window.addEventListener('load', function () { styleCell_tinytable_v26xpddzjnbom747v8yr(14, 1, 'tinytable_css_1b3xo2zsnq89ht0bc3ox') })
+window.addEventListener('load', function () { styleCell_tinytable_v26xpddzjnbom747v8yr(15, 1, 'tinytable_css_1b3xo2zsnq89ht0bc3ox') })
+window.addEventListener('load', function () { styleCell_tinytable_v26xpddzjnbom747v8yr(14, 0, 'tinytable_css_pknylms5cl8k41pxzyx3') })
+window.addEventListener('load', function () { styleCell_tinytable_v26xpddzjnbom747v8yr(14, 1, 'tinytable_css_pknylms5cl8k41pxzyx3') })
+    </script>
+
+  
 
 
 </div>

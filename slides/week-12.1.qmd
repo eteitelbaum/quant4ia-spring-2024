@@ -1,0 +1,469 @@
+---
+title: DIY Conflict Model
+date: today
+date-format: long
+footer: "[IAFF 6501 Website](https://quant4ia.rocks/)"
+logo: images/iaff6501-logo.png
+format:
+  revealjs:
+    theme: [simple, custom.scss]
+    transition: fade
+    slide-number: true
+    #multiplex: true
+    chalkboard: true
+execute:
+  echo: false
+  message: false
+  warning: false
+  freeze: auto
+---
+
+```{r} 
+#| label: packages
+
+library(tidyverse)
+library(tidymodels)
+library(peacesciencer)
+```
+
+# Step 1: Get Data
+
+## `peacesciencer` package
+
+```{r}
+#| label: use_peacesciencer
+#| echo: true
+
+library(peacesciencer)
+
+conflict_df <- create_stateyears(system = 'gw') |>
+  filter(year %in% c(1946:1999)) |>
+  add_ucdp_acd(type=c("intrastate"), only_wars = FALSE) |>
+  add_democracy() |>
+  add_creg_fractionalization() |>
+  add_sdp_gdp() |>
+  add_rugged_terrain()
+
+glimpse(conflict_df)
+```
+
+## Your Turn! {.smaller}
+
+- Install/load the `peacesciencer` package
+- Visit the [package website](https://svmiller.com/peacesciencer/reference/index.html) 
+- Create a conflict dataset based on the Gleditsch-Ward system of state-years
+- Filter the dataset to include only years between 1946 and 1999
+- Add UCDP/PRIO Armed Conflict Dataset (ACD) data on intrastate wars 
+- Add sets of variables and glimpse() the dataset after each set
+  - Democracy variables
+  - Fractionalization variables
+  - GDP variables
+  - Rugged terrain variables
+- Others? 
+
+
+```{r}
+#| label: time1
+
+library(countdown)
+
+countdown(minutes = 10, 
+          id = "timer1", 
+          bottom = "5%", 
+          right = "10%",
+          color_border = "#fff",
+          color_text = "#fff",
+          color_running_background = "#42affa",
+          color_running_text = "black",
+          color_finished_background = "#E5D19D",
+          color_finished_text = "#00264A")
+```
+
+# Step 2: Approximate F&L
+
+## Replicate Fearon and Laitin (2003)
+
+![](images/fearon_laitin.png){fig-align=center}
+
+
+## 
+
+<br>
+
+One way to do it:
+
+```{r}
+#| label: fl_model
+#| echo: true
+
+conflict_model <- glm(ucdponset ~ ethfrac + relfrac + v2x_polyarchy + rugged +
+                        wbgdppc2011est + wbpopest,
+                  data = conflict_df,
+                  family = "binomial")
+
+summary(conflict_model)
+```
+
+## Your Turn! 
+
+- Approximate the Fearon and Laitin (2003) model
+- Use the `glm()` function to run the model
+- Add measures of ethnicity, democracy, terrain, population and wealth
+- Try replacing the original measures with different ones of the same concept
+  - What happens? 
+- What else could you add?
+
+```{r}
+countdown(minutes = 10, 
+          id = "timer2", 
+          bottom = "5%", 
+          right = "10%")
+```
+
+# Step 3: Visualize Your Model
+
+## 
+
+<br> 
+
+So we can use `ggplot` to make a coefficient plot instead...
+
+```{r}
+#| label: coef_plot
+
+library(modelsummary)
+library(ggplot2)
+
+coef_map <- c("ethfrac" = "Ethnic Frac",  # map coefficients
+        "relfrac" = "Religions Frac",     #(change names and order)
+        "v2x_polyarchy" = "Polyarchy",
+        "rugged" = "Terrain",
+        "wbgdppc2011est" = "Per capita GDP",
+        "wbpopest" = "Population",
+        "(Intercept)" = "Intercept")
+
+modelplot(conflict_model, 
+          coef_map = rev(coef_map), # rev() reverses list order
+          coef_omit = "Intercept", 
+          color = "blue") + # use plus to add customizations like any ggplot object
+  geom_vline(xintercept = 0, color = "red", linetype = "dashed", linewidth = .75) + # red 0 line
+  labs(
+    title = "Figure 1: Predictors of Conflict Onset",
+    caption = "See appendix for data sources."
+  ) 
+```
+
+## 
+
+<br>
+
+Two steps... First, we need a coeficient map:
+
+```{r}
+#| label: coef_map
+#| eval: false
+#| echo: true
+
+coef_map <- c("ethfrac" = "Ethnic Frac",  # map coefficients
+        "relfrac" = "Religions Frac",     #(change names and order)
+        "v2x_polyarchy" = "Polyarchy",
+        "rugged" = "Terrain",
+        "wbgdppc2011est" = "Per capita GDP",
+        "wbpopest" = "Population",
+        "(Intercept)" = "Intercept")
+```
+
+## 
+
+<br>
+
+Then, we can use `modelplot` to visualize the model:
+
+```{r}
+#| label: coef_plot2
+#| eval: false
+#| echo: true
+
+library(modelsummary)
+library(ggplot2)
+
+modelplot(conflict_model, 
+          coef_map = rev(coef_map), # rev() reverses list order
+          coef_omit = "Intercept", 
+          color = "blue") + # use plus to add customizations like any ggplot object
+  geom_vline(xintercept = 0, color = "red", linetype = "dashed", linewidth = .75) + # red 0 line
+  labs(
+    title = "Figure 1: Predictors of Conflict Onset",
+    caption = "See appendix for data sources."
+  ) 
+```
+
+## Your Turn!
+
+<br>
+
+- Create a coefficient map for your model
+- Use `modelplot` to visualize your model
+- Don't forget to add the title and caption
+
+```{r}
+countdown(minutes = 10, 
+          id = "timer3", 
+          bottom = "5%", 
+          right = "10%")
+```
+
+# Step 4: Exponentiate the Coefficients
+
+## Exponentiate the Coefficients
+
+```{r}
+#| label: coef_plot3
+
+modelplot(conflict_model, 
+          exponentiate = TRUE, # exponentiate coefficients
+          coef_map = rev(coef_map), # rev() reverses list order
+          coef_omit = "Intercept", 
+          color = "blue") + # use plus to add customizations like any ggplot object
+  geom_vline(xintercept = 1, color = "red", linetype = "dashed", linewidth = .75) + # red 0 line
+  labs(
+    title = "Figure 1: Predictors of Conflict Onset",
+    caption = "See appendix for data sources."
+  ) 
+```
+
+## Exponentiate the Coefficients
+
+```{r}
+#| label: coef_plot4
+#| eval: false
+#| echo: true
+
+modelplot(conflict_model, 
+          exponentiate = TRUE, # exponentiate coefficients
+          coef_map = rev(coef_map), # rev() reverses list order
+          coef_omit = "Intercept", 
+          color = "blue") + # use plus to add customizations like any ggplot object
+  geom_vline(xintercept = 1, color = "red", linetype = "dashed", linewidth = .75) + # red 0 line
+  labs(
+    title = "Figure 1: Predictors of Conflict Onset",
+    caption = "See appendix for data sources."
+  ) 
+```
+
+## Your Turn!
+
+- Exponentiate the coefficients in your model
+- Do this by setting `exponentiate = TRUE` in `modelplot`
+- Interpret the results
+
+```{r}
+countdown(minutes = 10, 
+          id = "timer4", 
+          bottom = "5%", 
+          right = "10%")
+```
+
+# Step 5: Model Predictions
+
+## Using `marginaleffects` 
+
+```{r}
+#| label: marginal_effects
+#| echo: true
+#| eval: false
+
+# load the marginaleffects library
+library(marginaleffects)
+
+# select some countries for a given year
+selected_countries <- conflict_df |>
+  filter(
+    statename %in% c("United States of America", "Venezuela", "Rwanda"),
+    year == 1999)
+
+# calculate margins for the subset
+marg_effects <- predictions(conflict_model, newdata = selected_countries)
+
+# tidy the results
+tidy(marg_effects) |>
+  select(estimate, p.value, conf.low, conf.high, statename)
+```
+
+## Using `marginaleffects`
+
+<br>
+
+```{r}
+#| label: marginal_effects2
+
+# load the 
+library(marginaleffects)
+
+# seledct some countries for a given year
+selected_countries <- conflict_df |>
+  filter(
+    statename %in% c("United States of America", "Venezuela", "Rwanda"),
+    year == 1999)
+
+# calculate margins for the subset
+marg_effects <- predictions(conflict_model, newdata = selected_countries)
+
+# tidy the results
+tidy(marg_effects) |>
+  select(estimate, p.value, conf.low, conf.high, statename)
+```
+
+## Your Turn!
+
+<br>
+
+- Use `marginaleffects` to calculate the predicted probabilities for a few countries
+- Interpret the results
+
+```{r}
+countdown(minutes = 10, 
+          id = "timer5", 
+          bottom = "5%", 
+          right = "10%")
+```
+
+# Step 6: Regression Tables
+
+## Run Multiple Models
+
+```{r}
+#| label: multiple_models
+#| echo: true
+#| eval: false
+
+ethnicity <- glm(ucdponset ~ ethfrac + relfrac + wbgdppc2011est + wbpopest, # store each model in an object
+                  data = conflict_df,
+                  family = "binomial")
+
+democracy <- glm(ucdponset ~ v2x_polyarchy + wbgdppc2011est +  wbpopest,
+                  data = conflict_df,
+                  family = "binomial")
+
+terrain <- glm(ucdponset ~ rugged + wbgdppc2011est + wbpopest ,
+                  data = conflict_df,
+                  family = "binomial")
+
+full_model <- glm(ucdponset ~ ethfrac + relfrac + v2x_polyarchy + rugged +
+                        wbgdppc2011est + wbpopest,
+                  data = conflict_df,
+                  family = "binomial")
+```
+
+## Prep Data for Display
+
+<br>
+
+```{r}
+#| label: prep_data
+#| echo: true
+#| eval: false
+
+models <- list("Ethnicity" = ethnicity,  # store list of models in an object
+               "Democracy" = democracy, 
+               "Terrain" = terrain, 
+               "Full Model" = full_model)
+
+coef_map <- c("ethfrac" = "Ethnic Frac",  # map coefficients
+        "relfrac" = "Religions Frac",     #(change names and order)
+        "v2x_polyarchy" = "Polyarchy",
+        "rugged" = "Terrain",
+        "wbgdppc2011est" = "Per capita GDP",
+        "wbpopest" = "Population",
+        "(Intercept)" = "Intercept")
+
+caption = "Table 1: Predictors of Conflict Onset" # store caption
+reference = "See appendix for data sources."      # store reference notes
+```
+
+## Display the Models 
+
+<br>
+
+Note that you also need the `gt` package to display the table in this way...
+
+```{r}
+#| label: display_models
+#| eval: false
+#| echo: true
+
+library(modelsummary)
+library(gt)
+
+modelsummary(models,                      # display the table
+             stars = TRUE,                # include stars for significance
+             gof_map = c("nobs"),         # goodness of fit stats to include   
+             coef_map = coef_map,         # coefficient mapping
+             title = caption,             # title
+             notes = reference, 
+             output = "gt")           # source note
+```
+
+## Display the Models
+
+```{r}
+#| label: display_models2
+
+library(gt)
+
+ethnicity <- glm(ucdponset ~ ethfrac + relfrac + wbgdppc2011est + wbpopest, # store each model in an object
+                  data = conflict_df,
+                  family = "binomial")
+
+democracy <- glm(ucdponset ~ v2x_polyarchy + wbgdppc2011est +  wbpopest,
+                  data = conflict_df,
+                  family = "binomial")
+
+terrain <- glm(ucdponset ~ rugged + wbgdppc2011est + wbpopest ,
+                  data = conflict_df,
+                  family = "binomial")
+
+full_model <- glm(ucdponset ~ ethfrac + relfrac + v2x_polyarchy + rugged +
+                        wbgdppc2011est + wbpopest,
+                  data = conflict_df,
+                  family = "binomial")
+
+models <- list("Ethnicity" = ethnicity,  # store list of models in an object
+               "Democracy" = democracy, 
+               "Terrain" = terrain, 
+               "Full Model" = full_model)
+
+coef_map <- c("ethfrac" = "Ethnic Frac",  # map coefficients
+        "relfrac" = "Religions Frac",     #(change names and order)
+        "v2x_polyarchy" = "Polyarchy",
+        "rugged" = "Terrain",
+        "wbgdppc2011est" = "Per capita GDP",
+        "wbpopest" = "Population",
+        "(Intercept)" = "Intercept")
+
+caption = "Table 1: Predictors of Conflict Onset" # store caption
+reference = "See appendix for data sources."      # store reference notes
+
+modelsummary(models,                      # display the table
+             stars = TRUE,                # include stars for significance
+             gof_map = c("nobs"),         # goodness of fit stats to include   
+             coef_map = coef_map,         # coefficient mapping
+             title = caption,             # title
+             notes = reference, 
+             output = "gt")           # source note
+```
+
+
+## Your Turn!
+
+- Run multiple models
+- Display the results in a regression table
+- Try rerunning with `exponentiate = TRUE`
+- Try getting predicted probabilities with `marginaleffects`
+
+```{r}
+countdown(minutes = 10, 
+          id = "timer6", 
+          bottom = "5%", 
+          right = "10%")
+```
