@@ -25,17 +25,15 @@ The unit of analysis is the country-year.
 
 - `warl`- Whether had a war ongoing in the previous year
 - `gdpenl` - GDP per capita (not logged) 
-- `lpopl1` - The log of population lagged by one year 
+- `lpopll` - The log of population lagged by one year 
 - `lmtnest` - The log of the percentage of country that has mountainous terrain 
 - `ncontig` - An indicator for noncontiguous state
 - `Oil` - An indicator for whether the country is an oil exporter
 - `nwstate` - An indicator for whether a country was created in the last two years
 - `instab` - An indicator for whether the Polity score changes by 3 or more in a given year 
-- `polity21` - The Polity2 democracy score
+- `polity2l` - The Polity2 democracy score
 - `ethfrac` - Ethno-linguistic fractionalization index
 - `relfrac` -  Religious fractionalization index
-- `anocl` - An indicator for "anocracy" (regime interruption)
-- `deml`  - A dichotomous measure of democracy
 
 ## Replicate Model 1 from Fearon and Laitin (20%)
 
