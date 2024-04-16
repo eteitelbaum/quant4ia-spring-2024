@@ -4131,9 +4131,9 @@
   {
     "objectID": "project/project-description.html",
     "href": "project/project-description.html",
-    "title": "Project Description",
+    "title": "Final Project",
     "section": "",
-    "text": "Details coming soon…",
+    "text": "Your goal in this project is to apply the skills and tools we have learned this semester to answer an International Affairs related question that is of interest to you.\nYou are free to select your own question and your own dataset. This is your chance to practice the skills we are using, apply them to a question of interest to you, and to work on generating conclusions from data that can inform policy decision-making in International Affairs.",
     "crumbs": [
       "Final Project",
       "Final Project"
@@ -4487,5 +4487,104 @@
     "title": "DIY Conflict Model",
     "section": "Your Turn!",
     "text": "Your Turn!\n\nRun multiple models\nDisplay the results in a regression table\nTry rerunning with exponentiate = TRUE\nTry getting predicted probabilities with marginaleffects\n\n\n\n\n−+\n10:00"
+  },
+  {
+    "objectID": "project/project-description.html#overview",
+    "href": "project/project-description.html#overview",
+    "title": "Final Project",
+    "section": "",
+    "text": "Your goal in this project is to apply the skills and tools we have learned this semester to answer an International Affairs related question that is of interest to you.\nYou are free to select your own question and your own dataset. This is your chance to practice the skills we are using, apply them to a question of interest to you, and to work on generating conclusions from data that can inform policy decision-making in International Affairs.",
+    "crumbs": [
+      "Final Project",
+      "Final Project"
+    ]
+  },
+  {
+    "objectID": "project/project-description.html#timeline",
+    "href": "project/project-description.html#timeline",
+    "title": "Final Project",
+    "section": "Timeline",
+    "text": "Timeline\n\nIn class on April 23, please come to class ready to discuss your research question and dataset (details below). This will be an opportunity for you to make sure you are on the right track with the question you have selected and the data you are working with.\nOn April 23, we will also discuss some advanced formatting techniques and how to post your project to Quarto Pub.\nThe project is due on May 10 by 11:59 p.m., however you are free to submit the project anytime before then.",
+    "crumbs": [
+      "Final Project",
+      "Final Project"
+    ]
+  },
+  {
+    "objectID": "project/project-description.html#group-or-individual-work",
+    "href": "project/project-description.html#group-or-individual-work",
+    "title": "Final Project",
+    "section": "Group or Individual Work",
+    "text": "Group or Individual Work\n\nYou may work in groups of up to 3 members. If you work in a group, you must also submit a paragraph indicating how each of the group members participated and what aspects of the project they contributed to. Our expectation is that all group members will actively contribute.\nYou may also choose to work on your own.",
+    "crumbs": [
+      "Final Project",
+      "Final Project"
+    ]
+  },
+  {
+    "objectID": "project/project-description.html#select-a-dataset",
+    "href": "project/project-description.html#select-a-dataset",
+    "title": "Final Project",
+    "section": "Select a Dataset",
+    "text": "Select a Dataset\n\nIn this project, you will select your own dataset for analysis. This should be a dataset that is relevant to your interests.\n\nA list of possible datasets is provided here\nYou may select one of these, or find another data source on your own.\nIf you have trouble reading a dataset into R, please let us know.\n\nIf you are not sure what to do, it is completely fine for you to use the vdem data for this project. You can also extend on your analysis from the GoBifo program that we analyzed for Homework 2.",
+    "crumbs": [
+      "Final Project",
+      "Final Project"
+    ]
+  },
+  {
+    "objectID": "project/project-description.html#identify-a-research-question",
+    "href": "project/project-description.html#identify-a-research-question",
+    "title": "Final Project",
+    "section": "Identify a Research Question",
+    "text": "Identify a Research Question\n\nSelect a research question that you can answer with your data.\nThe question can be policy-related, or related to social science arguments.",
+    "crumbs": [
+      "Final Project",
+      "Final Project"
+    ]
+  },
+  {
+    "objectID": "project/project-description.html#components-of-your-project",
+    "href": "project/project-description.html#components-of-your-project",
+    "title": "Final Project",
+    "section": "Components of your Project",
+    "text": "Components of your Project\nEach project should include the following:\n\nA brief introduction to your research question and why it is important. Your introduction should cite relevant literature that helps to motivate your research.\nA description of the data you are using, including the source of the data and the variables you are using.\nA description of the outcome variable you are trying to explain and why it is a good measure of the concept that you want to study.\nIdentify the explanatory variables that you will use to explain the outcome variable and discuss why they are relevant to your explanation. Is there one variable that you think is the most important? If so, why? Briefly justify your choices by referencing relevant materials.\nA brief summary of the literature related to your topic A clear research question that you are trying to answer.\nA description of the data you are using, including the source of the data and the variables you are using.\nAt least one data visualization illustrating the distribution of one of your important variables, with appropriate interpretation. Usually, this would be the outcome variable you are trying to explain.\nAt least one other relevant visualization pertaining to your outcome variable (scatter plot, line chart, column chart) that tells us something substantive about that variable from the standpoint of your analysis.\nChoose one of the methods that we learned about in class to analyze the relationship between your outcome variable and your explanatory variables. This could be a linear regression, a logistic regression, or a hypothesis test involving bootstrapping methods.\nInclude a visualization (table or bar plot) that would illustrate whether your explanatory variables are statistically significant in explaining your outcome variable.\nWhen interpreting your results, you should include an accurate interpretation of the p-value and associated hypothesis test.",
+    "crumbs": [
+      "Final Project",
+      "Final Project"
+    ]
+  },
+  {
+    "objectID": "project/project-description.html#policy-implications",
+    "href": "project/project-description.html#policy-implications",
+    "title": "Final Project",
+    "section": "Policy Implications",
+    "text": "Policy Implications\n\nEach project should accurately summarize the findings and discuss policy implications.\nYou should also have a clear answer to your question that is clearly communicated.",
+    "crumbs": [
+      "Final Project",
+      "Final Project"
+    ]
+  },
+  {
+    "objectID": "project/project-description.html#product",
+    "href": "project/project-description.html#product",
+    "title": "Final Project",
+    "section": "Product",
+    "text": "Product\nYou have two choices for your final product:\n\nA 3-5 page single-spaced policy memo that motivates your question, introduces the data, presents your findings and highlights important policy implications (or implications for general knowledge about politics or international affairs). You should render and submit your policy memo in HTML format.\nA 3-5 minute recorded presentation on Zoom, Vimeo or some similar tool with a revealjs slide deck. The presentation should motivate your question, introduces the data, presents your findings and highlights important policy implications (or implications for general knowledge about politics or international affairs).",
+    "crumbs": [
+      "Final Project",
+      "Final Project"
+    ]
+  },
+  {
+    "objectID": "project/project-description.html#submission",
+    "href": "project/project-description.html#submission",
+    "title": "Final Project",
+    "section": "Submission",
+    "text": "Submission\n\nUpload your document or presentation to Quarto Pub and submit the link to the Discord server.\nIf you are doing a presentation, submit the link to your presentation as well as the link to your slide deck.\nUpload your project folder with the related QMD file to blackboard as per the usual routine for the homework assignments.",
+    "crumbs": [
+      "Final Project",
+      "Final Project"
+    ]
   }
 ]

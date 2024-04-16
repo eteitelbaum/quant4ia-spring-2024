@@ -1,6 +1,75 @@
 ---
-title: "Project Description"
-editor: visual
+title: "Final Project"
+editor: source
+format: html
 ---
 
-Details coming soon...
+## Overview
+
+Your goal in this project is to apply the skills and tools we have learned this semester to answer an International Affairs related question that is of interest to you.
+
+*You are free to select your own question and your own dataset.* This is your chance to practice the skills we are using, apply them to a question of interest to you, and to work on generating conclusions from data that can inform policy decision-making in International Affairs.
+
+## Timeline
+
+- In class on April 23, please come to class ready to discuss your research question and dataset (details below). This will be an opportunity for you to make sure you are on the right track with the question you have selected and the data you are working with.
+
+- On April 23, we will also discuss some advanced formatting techniques and how to post your project to [Quarto Pub](https://quartopub.com/).
+
+- The project is **due on May 10** by 11:59 p.m., however you are free to submit the project anytime before then.
+
+## Group or Individual Work
+
+-   You may work in groups of up to 3 members. If you work in a group, you must also submit a paragraph indicating how each of the group members participated and what aspects of the project they contributed to. Our expectation is that all group members will actively contribute.
+
+-   You may also choose to work on your own.
+
+## Select a Dataset
+
+-   In this project, you will select your own dataset for analysis. This should be a dataset that is relevant to your interests.
+    - A list of possible datasets is [provided here](project-datasets.qmd)
+    - You may select one of these, or find another data source on your own.
+    - If you have trouble reading a dataset into R, please let us know.
+-   If you are not sure what to do, it is completely fine for you to use the `vdem` data for this project. You can also extend on your analysis from the GoBifo program that we analyzed for Homework 2.
+
+## Identify a Research Question
+
+-   Select a research question that you can answer with your data.
+-   The question can be policy-related, or related to social science arguments.
+
+## Components of your Project
+
+Each project should include the following:
+
+- A brief introduction to your research question and why it is important. Your introduction should cite relevant literature that helps to motivate your research. 
+- A description of the data you are using, including the source of the data and the variables you are using.
+- A description of the outcome variable you are trying to explain and why it is a good measure of the concept that you want to study.
+- Identify the explanatory variables that you will use to explain the outcome variable and discuss why they are relevant to your explanation. Is there one variable that you think is the most important? If so, why? Briefly justify your choices by referencing relevant materials. 
+- A brief summary of the literature related to your topic
+A clear research question that you are trying to answer.
+- A description of the data you are using, including the source of the data and the variables you are using.
+- At least one data visualization illustrating the distribution of one of your important variables, with appropriate interpretation. Usually, this would be the outcome variable you are trying to explain.
+- At least one other relevant visualization pertaining to your outcome variable (scatter plot, line chart, column chart) that tells us something substantive about that variable from the standpoint of your analysis.
+- Choose one of the methods that we learned about in class to analyze the relationship between your outcome variable and your explanatory variables. This could be a linear regression, a logistic regression, or a hypothesis test involving bootstrapping methods.
+- Include a visualization (table or bar plot) that would illustrate whether your explanatory variables are statistically significant in explaining your outcome variable.
+- When interpreting your results, you should include an accurate interpretation of the p-value and associated hypothesis test.
+
+
+## Policy Implications
+
+-   Each project should accurately summarize the findings and discuss policy implications.
+-   You should also have a clear answer to your question that is clearly communicated.
+
+## Product
+
+You have two choices for your final product:
+
+-   A 3-5 page single-spaced policy memo that motivates your question, introduces the data, presents your findings and highlights important policy implications (or implications for general knowledge about politics or international affairs). You should render and submit your policy memo in HTML format.
+-   A 3-5 minute recorded presentation on Zoom, Vimeo or some similar tool with a [revealjs](https://quarto.org/docs/presentations/revealjs/) slide deck. The presentation should motivate your question, introduces the data, presents your findings and highlights important policy implications (or implications for general knowledge about politics or international affairs). 
+
+## Submission
+
+- Upload your document or presentation to Quarto Pub and submit the link to the Discord server.
+- If you are doing a presentation, submit the link to your presentation as well as the link to your slide deck.
+- Upload your project folder with the related QMD file to blackboard as per the usual routine for the homework assignments.
+
