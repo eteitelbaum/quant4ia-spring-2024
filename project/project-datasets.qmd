@@ -15,6 +15,8 @@ Here are some datasets that you might consider using for your final project:
 
 -   [Our World in Data](https://ourworldindata.org/) is a good general resource for political economy data. The site is centered around blog posts but you can also search for a topic, view a visualization related to that topic and then download the data used to create it.
 
+-   [peacesciencer](https://svmiller.com/peacesciencer/) is an R package maintained by Steve Miller that compiles data from a number of sources that are useful for peace and conflict studies analysis
+
 -   [Statista](https://www-statista-com.proxygw.wrlc.org/) is a good place to look for data on more niche topics.
 
 -   [UNCTADstat](http://unctadstat.unctad.org/EN/) is the United Nations Conference on Trade and Development statistical database. It provides harmonized data on a range of topics related to economic performance, trade and statistics.
