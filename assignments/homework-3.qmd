@@ -117,5 +117,19 @@ Here are some questions to answer about your analysis:
 
 4. What happens if you extend the analysis from 1945-1999 to 1945-present using the `peacesciencer` package? What changes? (1 pt.)
 
+::: {.callout-important}
+## Submission Instructions
 
+Head over to Blackboard and go to the Homework 2 assignment. There you will find a link that you can use to upload your **project folder**. 
+
+If you worked with a partner, only one of you should submit the **project folder** but both of you should still make a submission to Blackboard so that we have a submission to grade. If you have worked with someoone but still have a substantially different project, you can submit separately. 
+
+The person submitting the project folder should take a screen shot of the confirmation message ("Finished Uploading") and share it with the other group members. This screen shot will be what you submit in Blackboard.
+
+Next, click "Create Submission" and write a statement stating whether you worked on the project independently or whether you are submitting jointly with someone else. Also note whether you used a large language model (LLM) like ChatGPT to help you with the work and which parts of the assignment you used the LLM for. It is fine to use an LLM to help with your code but you must acknowledge the use of it in your submission.
+
+Then, upload the screenshot you saved in the first step. Now submit the assignment.  
+
+Please remember to upload your entire **project folder** and not just the Quarto document.
+:::
 
