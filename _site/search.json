@@ -2156,7 +2156,7 @@
     "href": "assignments/homework-3.html#replicate-model-1-from-fearon-and-laitin-20",
     "title": "Homework 3",
     "section": "Replicate Model 1 from Fearon and Laitin (20%)",
-    "text": "Replicate Model 1 from Fearon and Laitin (20%)\nRun the first model (Model 1) from Table 1 of the Fearon and Laitin article. Use summary() to view the results. Interpret the coeffiient on the Oil exporter variable. How much does being an oil exporter increase the risk of conflict onset?",
+    "text": "Replicate Model 1 from Fearon and Laitin (20%)\nRun the first model (Model 1) from Table 1 of the Fearon and Laitin article. Use summary() to view the results. Interpret the coefficient on the Oil exporter variable. How much does being an oil exporter increase the risk of conflict onset?",
     "crumbs": [
       "Homework",
       "Homework 3"
@@ -2167,7 +2167,7 @@
     "href": "assignments/homework-3.html#display-the-results-as-a-coefficient-plot-20",
     "title": "Homework 3",
     "section": "Display the Results as a Coefficient Plot (20%)",
-    "text": "Display the Results as a Coefficient Plot (20%)\nNow use the modelplot() function from the modelsummary package to display the results as a coefficient plot.\nWhen making your coefficient plot, start with the coefficient map. You might want to write it in the order that you’d like to see the coefficients displayed and then reverse it so that you can use the same map for your regression table below.\nBe sure to load the modelsummary and ggplot2 packages before you get started with the rest of your code.\nInterpret the results. Which predictor has largest effect on the probability of conflict onset? Which one has the least?",
+    "text": "Display the Results as a Coefficient Plot (20%)\nNow use the modelplot() function from the modelsummary package to display the results as a coefficient plot.\nWhen making your coefficient plot, start with the coefficient map. You might want to write it in the order that you’d like to see the coefficients displayed and then reverse it so that you can use the same map for your regression table below.\nBe sure to load the modelsummary and ggplot2 packages before you get started with the rest of your code.\nInterpret the results. Which predictor has largest positive effect on the probability of conflict onset? Which one has the strongest negative effect?",
     "crumbs": [
       "Homework",
       "Homework 3"

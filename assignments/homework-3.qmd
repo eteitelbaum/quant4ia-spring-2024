@@ -37,7 +37,7 @@ The unit of analysis is the country-year.
 
 ## Replicate Model 1 from Fearon and Laitin (20%)
 
-Run the first model (Model 1) from Table 1 of the Fearon and Laitin article. Use `summary()` to view the results. Interpret the coeffiient on the Oil exporter variable. How much does being an oil exporter increase the risk of conflict onset? 
+Run the first model (Model 1) from Table 1 of the Fearon and Laitin article. Use `summary()` to view the results. Interpret the coefficient on the Oil exporter variable. How much does being an oil exporter increase the risk of conflict onset? 
 
 ```{r}
 
@@ -51,7 +51,7 @@ When making your coefficient plot, start with the coefficient map. You might wan
 
 Be sure to load the `modelsummary` and `ggplot2` packages before you get started with the rest of your code.
 
-Interpret the results. Which predictor has largest effect on the probability of conflict onset? Which one has the least? 
+Interpret the results. Which predictor has largest positive effect on the probability of conflict onset? Which one has the strongest negative effect? 
 
 ```{r}
 
