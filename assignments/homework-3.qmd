@@ -25,7 +25,7 @@ The unit of analysis is the country-year.
 
 - `warl`- Whether had a war ongoing in the previous year
 - `gdpenl` - GDP per capita (not logged) 
-- `lpopll` - The log of population lagged by one year 
+- `lpopl` - The log of population lagged by one year 
 - `lmtnest` - The log of the percentage of country that has mountainous terrain 
 - `ncontig` - An indicator for noncontiguous state
 - `Oil` - An indicator for whether the country is an oil exporter
