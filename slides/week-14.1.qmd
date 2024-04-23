@@ -1,0 +1,202 @@
+---
+title: Authoring in Quarto
+subtitle: Advanced HTML
+date: today
+date-format: long
+footer: "[IAFF 6501 Website](https://quant4ia.rocks/)"
+logo: images/iaff6501-logo.png
+format:
+  revealjs:
+    theme: [simple, custom.scss]
+    transition: fade
+    slide-number: true
+    #multiplex: true
+    chalkboard: true
+execute:
+  echo: false
+  message: false
+  warning: false
+  freeze: auto
+---
+
+## Advanced HTML
+
+<br>
+
+- So far we have been using the basic HTML elements to create our documents
+- Quarto supports a wide range of HTML elements and attributes
+- We can use these to create more complex and interactive documents
+
+## Formatting Options
+
+- We can make our documents have a more sophisticated feel by specifying various options in the YAML header
+- Examples include `title`, `subtitle`, `date`, `abstract`, `toc`, etc. 
+- We can also specify font styles and colors and control other aspects of the formatting
+- See [this page](https://quarto.org/docs/reference/formats/html.html) to explore the various formatting options
+
+## Themes
+
+<br>
+
+- Quarto supports a wide range of themes
+- We can use these to change the look and feel of our documents
+- Check out [this page](https://quarto.org/docs/output-formats/html-themes.html) to explore the various themes available in Quarto
+
+## Generating Lorem Ipsum
+
+<br>
+
+- For working on your document's format it is helpful to have random text
+- The [lorem package](http://pkg.garrickadenbuie.com/lorem/) is helpful for this
+- You can also install an R Studio Addin
+
+## Your Turn! {.smaller}
+
+- Start a new Quarto project
+- Create a new Quarto document in your project folder
+- Generate some sections and some random text using the `lorem` package
+- Add a YAML header with the following options:
+  - `title:`
+  - `subtitle:`
+  - `date:`
+  - `date-format:`
+  - `theme:`
+  - `toc:`
+- Try adding at least one more option to your YAML header 
+- Render the document and see what it looks like
+
+```{r}
+#| label: timer1
+library(countdown)
+countdown(minutes = 10, 
+          id = "timer1", 
+          bottom = "10%", 
+          right = "10%",
+          color_border = "#fff",
+          color_text = "#fff",
+          color_running_background = "#42affa",
+          color_running_text = "black",
+          color_finished_background = "#E5D19D",
+          color_finished_text = "#00264A")
+```
+
+## Citations
+
+<br>
+
+- With Quarto you can easily add citations to your document
+- Then a bibliography will be automatically generated
+- Too add a citation you can use the `@` symbol followed by the citation key
+- In order to do this you need to know a little bit about BibTeX and/or CSL
+
+## BibTeX
+
+<br>
+
+- BibTeX is a reference management software package
+- When we retrieve a citation for use in Quarto it should be in BibTeX format
+- BibTeX is a plain text format that is easy to read and write
+- To work with BibTeX you need a reference manager like Zotero or Mendeley
+- We are going to do Zotero
+
+## Zotero
+
+<br>
+
+- Go to [Zotero](https://www.zotero.org/)
+- Create an account
+- Download the Zotero app
+- Install the Zotero Connector for your browser
+- Install the Better BibTeX extension
+  - Follow [these instructions](https://retorque.re/zotero-better-bibtex/installation/)
+  
+## Downloading Citations
+
+<br>
+
+- Open Zotero
+- Go to google scholar
+- Search for a paper on a topic related to your research
+- Click the Zotero Connector to download the citation
+
+## Adding Citations
+
+<br>
+
+- Export the bibliography as a .bib file from Zotero
+- Add the .bib file to your Quarto project folder
+- Add `bibliography:` and the name of the file to your YAML header
+  - e.g. `bibliography: mybib.bib`
+
+## Citations in Text
+
+<br>
+
+- Now you can add citations to your text
+- Use the `@` symbol followed by the citation key
+- For example `@smith2020` will add a citation to the paper by Smith (2020) assuming you have a citation in your .bib file with the key `smith2020`
+- Now you can render your document and see the bibliography at the end
+
+## Your Turn! 
+
+<br>
+
+- Add a bibliography to your Quarto document
+- Add a citation to your text
+- Render the document and see the bibliography at the end
+
+```{r}
+#| label: timer2
+library(countdown)
+countdown(minutes = 10, 
+          id = "timer2", 
+          bottom = "10%", 
+          right = "10%")
+```
+
+## Footnotes
+
+<br>
+
+- You can also add footnotes to your document
+- Use the `^[]` or `[^1]` syntax to add a footnote
+- There are different ways to add footnotes
+- I find that inline notes are the easiest to work with
+  - For example `^[This is a footnote]`
+  
+  
+## Scholarly Writing
+
+<br>
+
+- Quarto is a great tool for scholarly writing
+- There are lots of formatting options for scholarly papers specifically
+- Check out [this section](https://quarto.org/docs/authoring/front-matter.html) of the Quarto guide for more details
+
+## Publishing on Quarto Pub
+
+<br>
+
+- [Quarto Pub](https://quartopub.com/) is a platform for publishing Quarto documents
+- You can publish your documents on Quarto Pub and share them with others
+- Quarto Pub is free to use
+- Sign up for an account, then publish with `quarto publish quarto-pub name-of-document.qmd` in the terminal
+
+## Your Turn!
+
+<br>
+
+- Add a footnote to your Quarto document
+- Explore the scholarly writing options in Quarto
+- Publish your document on Quarto Pub
+
+```{r}
+#| label: timer3
+library(countdown)
+countdown(minutes = 10, 
+          id = "timer3", 
+          bottom = "10%", 
+          right = "10%")
+```
+
+
